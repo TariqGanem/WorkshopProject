@@ -6,4 +6,4 @@
     # Mohamad Oraby
 
 # About:
-    # Initial implementition of a TRADING SYSTE included in the Work Shop course.
+    # Initial implementition of a TRADING SYSTEM included in the Work Shop course.
