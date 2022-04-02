@@ -1,7 +1,7 @@
 # Group Members:
     # Tariq Ganem
     # Yazan Abbas
-    # Ahmad Masalha
+    # Ahmed Masalha
     # Eran Mando
     # Mohamad Oraby
 
