@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartupObject>eCommerce.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="src\DataLayer\" />
+    <Folder Include="src\DomainLayer\Store\" />
+    <Folder Include="src\DomainLayer\User\" />
+    <Folder Include="src\ServiceLayer\" />
+    <Folder Include="tests\" />
+  </ItemGroup>
+
+</Project>
