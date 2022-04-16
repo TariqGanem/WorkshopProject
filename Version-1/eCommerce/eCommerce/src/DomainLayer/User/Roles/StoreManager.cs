@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eCommerce.src.DomainLayer.User
+namespace eCommerce.src.DomainLayer.User.Roles
 {
-    internal class ShoppingBasket
+    internal class StoreManager
     {
     }
 }
