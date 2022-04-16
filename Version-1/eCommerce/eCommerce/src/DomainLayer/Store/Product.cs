@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.Concurrent;
+using eCommerce.src.ServiceLayer.Response;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -20,10 +21,21 @@ namespace eCommerce.src.DomainLayer.Store
             Id = id;
             Name = name;
             Price = price;
-            Quantity = quantity;
+            Quantity = quantity < 0 ? 0 : quantity;
             Category = category;
             Rating = 0;
             AmountOfRate = 0;
         }
+
+        public void PickProduct(int quantity)
+        {
+            if (quantity > this.Quantity)
+                throw new Exception($"There is no enough quantity of {this.Name}");
+            this.Quantity -= quantity;
+        }
+
+
+
+
     }
 }
