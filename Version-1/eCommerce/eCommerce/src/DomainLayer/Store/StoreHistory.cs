@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.Concurrent;
-
+using eCommerce.src.DomainLayer.User;
 
 namespace eCommerce.src.DomainLayer.Store
 {
     public class StoreHistory
     {
-        ConcurrentBag<ShoppingBag> history { get; }
+        ConcurrentBag<ShoppingBasket> history { get; }
 
         public StoreHistory()
         {
-            history = new ConcurrentBag<ShoppingBag>();
+            history = new ConcurrentBag<ShoppingBasket>();
         }
 
-        public void addShoppingBag(ShoppingBag toadd)
+        public void addShoppingBasket(ShoppingBasket toadd)
         {
             history.Add(toadd);
         }
+
     }
 }
