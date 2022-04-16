@@ -10,7 +10,6 @@
     <Folder Include="src\DataLayer\" />
     <Folder Include="src\DomainLayer\Store\" />
     <Folder Include="src\DomainLayer\User\" />
-    <Folder Include="src\ServiceLayer\" />
   </ItemGroup>
 
 </Project>
