@@ -8,10 +8,12 @@ namespace eCommerce.src.DomainLayer
 {
     internal interface ISystemFacade
     {
-
+        #region User Actions
+        RegisteredUser Login(String userName, String password);
+        #endregion
     }
 
-    public class SystemFacade : ISystemFacade
+    internal class SystemFacade : ISystemFacade
     {
         private UserFacade userFacade;
         private StoreFacade storeFacade;
@@ -20,5 +22,12 @@ namespace eCommerce.src.DomainLayer
             userFacade = new UserFacade();
             storeFacade = new StoreFacade();
         }
+
+        #region User Facade Methods
+        public RegisteredUser Login(String userName, String password)
+        {
+            return userFacade.Login(userName, password);
+        }
+        #endregion
     }
 }

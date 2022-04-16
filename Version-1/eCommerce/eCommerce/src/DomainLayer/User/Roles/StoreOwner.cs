@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eCommerce.src.ServiceLayer.Controllers
+namespace eCommerce.src.DomainLayer.User.Roles
 {
-    internal class UserController
+    internal class StoreOwner
     {
     }
 }
