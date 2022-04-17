@@ -8,7 +8,7 @@ namespace eCommerce.src.DomainLayer.User
     internal class ShoppingCart
     {
         public string Id { get; private set; }
-        public ConcurrentDictionary<String, ShoppingBag> ShoppingBags { get; set; }  // <storeId, shoppingBag>
+        public ConcurrentDictionary<String, ShoppingBag> ShoppingBags { get; set; }  // <StoreId, ShoppingBag>
         public Double TotalCartPrice { get; set; }
 
         public ShoppingCart()
@@ -32,12 +32,13 @@ namespace eCommerce.src.DomainLayer.User
             throw new Exception($"Shopping bag not found for the store id: {storeId}.");
         }
 
-/*        public Boolean AddShoppingBagToCart(ShoppingBag shoppingBag)
+        public Boolean AddShoppingBagToCart(ShoppingBag shoppingBag)
         {
-            return ShoppingBags.TryAdd(shoppingBag.storeId, shoppingBag);
-        }*/
+            //return ShoppingBags.TryAdd(shoppingBag.Store.Id, shoppingBag);
+            throw new NotImplementedException();
+        }
 
-/*        public Double GetTotalShoppingCartPrice()
+        public Double GetTotalShoppingCartPrice()
         {
             Double sum = 0;
             foreach (ShoppingBag bag in ShoppingBags.Values)
@@ -46,6 +47,6 @@ namespace eCommerce.src.DomainLayer.User
             }
             TotalCartPrice = sum;
             return sum;
-        }*/
+        }
     }
 }
