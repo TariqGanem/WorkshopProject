@@ -7,6 +7,5 @@ namespace eCommerce.src.DomainLayer.Store.Policies.Purchase
     public interface IPurchaseStrategy
     {
         public double calculatePriceToPay(int quantity);
-
     }
 }

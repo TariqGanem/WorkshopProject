@@ -36,6 +36,11 @@ namespace eCommerce.src.DomainLayer.Store.Policies.Purchase
             return currentHighestBid;
         }
 
+        public String getHighestBidder()
+        {
+            return HighestBidderId;
+        }
+
 
     }
 }

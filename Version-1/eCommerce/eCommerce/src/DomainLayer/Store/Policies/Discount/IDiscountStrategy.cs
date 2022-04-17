@@ -4,7 +4,8 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Store.Policies.Discount
 {
-    internal class IDiscount
+    public interface IDiscountStrategy
     {
+        public double CalculatePriceAfterDiscount(double Price , int quantity , String code);
     }
 }
