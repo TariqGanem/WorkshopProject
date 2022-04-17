@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    public  class RegisteredUser : User
+    public class RegisteredUser : User
     {
         public string UserName { get; private set; }
         private string _password;
