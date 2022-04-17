@@ -8,14 +8,14 @@ namespace eCommerce.src.DomainLayer.Store
 {
     public class StoreHistory
     {
-        ConcurrentBag<ShoppingBasket> history { get; }
+        ConcurrentBag<ShoppingBag> history { get; }
 
         public StoreHistory()
         {
-            history = new ConcurrentBag<ShoppingBasket>();
+            history = new ConcurrentBag<ShoppingBag>();
         }
 
-        public void addShoppingBasket(ShoppingBasket toadd)
+        public void addShoppingBasket(ShoppingBag toadd)
         {
             history.Add(toadd);
         }
