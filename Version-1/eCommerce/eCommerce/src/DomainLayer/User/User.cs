@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal abstract class User
+    public abstract class User
     {
         protected Boolean Active { get; set; }
         protected ShoppingCart ShoppingCart { get; set; }
