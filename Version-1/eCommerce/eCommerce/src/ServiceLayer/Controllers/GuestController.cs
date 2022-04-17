@@ -20,10 +20,5 @@ namespace eCommerce.src.ServiceLayer.Controllers
             SystemFacade = systemFacade;
         }
 
-        public Response<GuestUser> Login()
-        { 
-            SystemFacade.Login()
-        }
-
     }
 }
