@@ -4,7 +4,9 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Store.Policies.Purchase
 {
-    internal class IPurchaseStrategy
+    public interface IPurchaseStrategy
     {
+        public double calculatePriceToPay(int quantity);
+
     }
 }

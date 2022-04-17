@@ -45,7 +45,7 @@ namespace eCommerce.src.DomainLayer.Store.Policies.Purchase
                     return pair.Value;
                 }
             }
-            
+            throw new Exception($"Lottery has not been concluded/Due Date , Lottery Status = {this.LotteryStatus}");
         } 
 
         public Tuple<String,double> getWinner()
