@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="src\DataLayer\" />
-    <Folder Include="src\DomainLayer\Store\" />
   </ItemGroup>
 
 </Project>

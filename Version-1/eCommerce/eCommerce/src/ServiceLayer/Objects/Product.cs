@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eCommerce.src.DomainLayer.User.Roles
+namespace eCommerce.src.ServiceLayer.Objects
 {
-    public class StoreManager
+    internal class Product
     {
     }
 }
