@@ -6,7 +6,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal class ShoppingBag
+    public class ShoppingBag
     {
         public String Id { get; }
         public String UserId { get; }
