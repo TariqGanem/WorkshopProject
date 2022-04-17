@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.src.DomainLayer.User.Roles;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
@@ -8,11 +9,12 @@ namespace eCommerce.src.DomainLayer.User
     internal interface IUserFacade
     {
         RegisteredUser Login(String userName, String password);
+        void Logout(String userId);
     }
 
     internal class UserFacade : IUserFacade
     {
-        public ConcurrentDictionary<String, RegisteredUser> SystemAdmins { get; }
+        public ConcurrentDictionary<String, SystemAdmin> SystemAdmins { get; }
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; }
         public ConcurrentDictionary<String, GuestUser> GuestUsers { get; }
 
@@ -20,7 +22,7 @@ namespace eCommerce.src.DomainLayer.User
 
         public UserFacade()
         {
-            SystemAdmins = new ConcurrentDictionary<string, RegisteredUser>();
+            SystemAdmins = new ConcurrentDictionary<string, SystemAdmin>();
             RegisteredUsers = new ConcurrentDictionary<string, RegisteredUser>();
             GuestUsers = new ConcurrentDictionary<string, GuestUser>();
         }
@@ -34,6 +36,23 @@ namespace eCommerce.src.DomainLayer.User
             }
             registeredUser.Login(password);
             return registeredUser;
+        }
+
+        public void Logout(String userId)
+        {
+            if (GuestUsers.TryGetValue(userId, out GuestUser guestUser))
+            {
+                guestUser.Logout();
+                GuestUsers.Remove(userId, out GuestUser dump);
+            }
+            else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registeredUser))
+            {
+                registeredUser.Logout();
+            }
+            else
+            {
+                throw new Exception("Cannot logout, user doesn't exist!");
+            }
         }
         #endregion
 

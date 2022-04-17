@@ -10,6 +10,7 @@ namespace eCommerce.src.DomainLayer
     {
         #region User Actions
         RegisteredUser Login(String userName, String password);
+        void Logout(String userId);
         #endregion
     }
 
@@ -24,10 +25,9 @@ namespace eCommerce.src.DomainLayer
         }
 
         #region User Facade Methods
-        public RegisteredUser Login(String userName, String password)
-        {
-            return userFacade.Login(userName, password);
-        }
+        public RegisteredUser Login(String userName, String password) { return userFacade.Login(userName, password); }
+
+        public void Logout(String userId) { userFacade.Logout(userId); }
         #endregion
     }
 }

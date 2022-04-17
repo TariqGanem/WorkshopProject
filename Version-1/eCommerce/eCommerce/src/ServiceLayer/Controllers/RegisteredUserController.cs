@@ -17,7 +17,6 @@ namespace eCommerce.src.ServiceLayer.Controllers
 
         public Response<RegisteredUser> Login(String userName, String password)
         {
-
             RegisteredUser registeredUser = null;
             try
             {
@@ -35,7 +34,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             if (userName == null)
             {
-                throw new ArgumentNullException("UserName is null!");
+                throw new ArgumentNullException("Username is null!");
             }
             if (password == null)
             {

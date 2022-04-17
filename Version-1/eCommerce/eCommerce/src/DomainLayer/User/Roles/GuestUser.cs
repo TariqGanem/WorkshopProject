@@ -8,8 +8,6 @@ namespace eCommerce.src.DomainLayer.User
     {
         public GuestUser() : base() { }
 
-        public void Login() { Active = true; }
-
         public void Logout() { Active = false; }
     }
 }
