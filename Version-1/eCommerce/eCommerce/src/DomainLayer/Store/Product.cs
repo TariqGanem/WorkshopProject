@@ -12,7 +12,6 @@ namespace eCommerce.src.DomainLayer.Store
         public String Name { get; set; }
         public double Price { get; set; } 
         public int Quantity { get; set; }
-        
         public Double Rating { get; set; }
         public int AmountOfRating { get; set; }
         public String Category { get; set; }
