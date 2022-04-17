@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    public class RegisteredUser
+    public class ShoppingBag
     {
     }
 }
