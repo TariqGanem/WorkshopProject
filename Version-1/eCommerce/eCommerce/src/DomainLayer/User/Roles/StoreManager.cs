@@ -12,7 +12,7 @@ namespace eCommerce.src.DomainLayer.User.Roles
         public IStaff AppointedBy { get; }
         public Store.Store Store { get; }
 
-        public StoreManager(RegisteredUser user, Store.Store store, Permission permission, IStoreStaff appointedBy)
+        public StoreManager(RegisteredUser user, Store.Store store, Permission permission, IStaff appointedBy)
         {
             User = user;
             Store = store;
