@@ -105,7 +105,7 @@ namespace eCommerce.src.DomainLayer
             foreach (var bag in purchasedBags)
             {
                 Store.Store store = storeFacade.GetStore(bag.Key);
-                // TODO - store.UpdateInventory(bag.Value);
+                store.UpdateInventory(bag.Value);
                 store.History.addShoppingBasket(bag.Value);
             }
             return purchasedCart;
