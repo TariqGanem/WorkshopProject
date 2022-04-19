@@ -6,19 +6,24 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer
 {
-    internal interface ISystemFacade : IUserFacade //TODO: , IStoreFacade
+    public interface ISystemFacade : IUserFacade //TODO: , IStoreFacade
     {
     }
 
-    internal class SystemFacade : ISystemFacade
+    public class SystemFacade : ISystemFacade
     {
+        #region parameters
         private UserFacade userFacade;
         private StoreFacade storeFacade;
+        #endregion
+
+        #region constructors
         public SystemFacade()
         {
             userFacade = new UserFacade();
             storeFacade = new StoreFacade();
         }
+        #endregion
 
         #region Guest methods 
         public GuestUser EnterSystem()
@@ -29,6 +34,11 @@ namespace eCommerce.src.DomainLayer
         public void ExitSystem(string id)
         {
             userFacade.ExitSystem(id);
+        }
+
+        public RegisteredUser Register(string username, string email, string password)
+        {
+            return userFacade.Register(username, email, password);
         }
         #endregion
 

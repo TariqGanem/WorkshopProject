@@ -6,11 +6,11 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Controllers
 {
-    internal interface IStoreController
+    public interface IStoreController
     {
         
     }
-    internal class StoreController
+    public class StoreController
     {
     }
 }

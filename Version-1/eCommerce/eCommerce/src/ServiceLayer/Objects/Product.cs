@@ -5,33 +5,33 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Objects
 {
-    internal class product
+    public class product
     {
         #region parameters
-        public string id { get; }
-        public string name { get; }
-        public double price { get; }
-        public int quantity { get; }
-        public string category { get; }
+        public string Id { get; }
+        public string Name { get; }
+        public double Price { get; }
+        public int Quantity { get; }
+        public string Category { get; }
         #endregion
 
         #region constructors
         public product(string id, string name, double price, int quantity, string category)
         {
-            this.id = id;
-            this.name = name;
-            this.price = price;
-            this.quantity = quantity;
-            this.category = category;
+            this.Id = id;
+            this.Name = name;
+            this.Price = price;
+            this.Quantity = quantity;
+            this.Category = category;
         }
       
         public product(Product p)
         {
-            this.id = p.Id;
-            this.name = p.Name;
-            this.price = p.Price;
-            this.quantity = p.Quantity;
-            this.category = p.Category;
+            this.Id = p.Id;
+            this.Name = p.Name;
+            this.Price = p.Price;
+            this.Quantity = p.Quantity;
+            this.Category = p.Category;
         }
         #endregion
     }

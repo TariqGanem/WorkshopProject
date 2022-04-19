@@ -9,7 +9,7 @@ namespace eCommerce.src.ServiceLayer.Response
     /// In addition to the behavior of <c>Response</c>, the class holds the value of the returned value in the variable <c>Value</c>.
     /// </summary>
     /// <typeparam name="T">The type of the returned value of the function.</typeparam>
-    class Response<T> : Response
+    public class Response<T> : Response
     {
         #region parameters
         public readonly T Value;

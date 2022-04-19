@@ -6,10 +6,11 @@ namespace eCommerce.src.DomainLayer.User
 {
     public class RegisteredUser : User
     {
-        public string UserName { get; private set; }
+        public string UserName { get; }
+        public string Email { get; }
         private string _password;
 
-        public RegisteredUser(String userName, String password) : base()
+        public RegisteredUser(string id, String userName, string email, String password) : base(id)
         {
             UserName = userName;
             _password = password;

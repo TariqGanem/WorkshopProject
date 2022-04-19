@@ -60,7 +60,7 @@ namespace eCommerce.src.DomainLayer.User
             throw new NotImplementedException();
         }
 
-        internal double GetTotalPrice()
+        public double GetTotalPrice()
         {
             throw new NotImplementedException();
         }

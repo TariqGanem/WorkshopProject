@@ -5,7 +5,7 @@
     /// If an exception was thrown, <c>ErrorOccured = true</c> and <c>ErrorMessage != null</c>. 
     /// Otherwise, <c>ErrorOccured = false</c> and <c>ErrorMessage = null</c>.
     /// </summary>
-    class Response
+    public class Response
     {
         #region parameters
         public readonly string ErrorMessage;

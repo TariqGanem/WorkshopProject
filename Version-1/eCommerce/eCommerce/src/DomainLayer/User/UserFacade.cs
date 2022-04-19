@@ -7,13 +7,13 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal interface IUserFacade
+    public interface IUserFacade
     {
         GuestUser EnterSystem();
         void ExitSystem(string id);
         RegisteredUser Login(String userName, String password);
         void Logout(String userId);
-        RegisteredUser Register(String userName, String password);
+        RegisteredUser Register(String userName, string email, String password);
         History GetUserPurchaseHistory(String userId);
         Boolean AddProductToCart(string userId, Product product, int quantity, Store.Store store);
         Boolean UpdateShoppingCart(string userId, string storeId, Product product, int quantity);
@@ -25,7 +25,7 @@ namespace eCommerce.src.DomainLayer.User
 
     }
 
-    internal class UserFacade : IUserFacade
+    public class UserFacade //: //IUserFacade
     {
         #region parameters
         public ConcurrentDictionary<String, SystemAdmin> SystemAdmins { get; }
@@ -33,11 +33,10 @@ namespace eCommerce.src.DomainLayer.User
         public ConcurrentDictionary<String, GuestUser> GuestUsers { get; }
 
         private readonly object my_lock = new object();
+        public int id_user_counter { get; private set; }
         #endregion
 
         #region constructors
-        public int id_user_counter { get; private set; }
-
         public UserFacade()
         {
             SystemAdmins = new ConcurrentDictionary<string, SystemAdmin>();
@@ -51,11 +50,15 @@ namespace eCommerce.src.DomainLayer.User
         public GuestUser EnterSystem()
         {
             GuestUser guest = null;
+            int id;
             lock (my_lock)
             {
-                guest = new GuestUser(id_user_counter.ToString());
+                id = id_user_counter++;
+            }
+            lock (GuestUsers) 
+            { 
+                guest = new GuestUser(id.ToString());
                 GuestUsers[id_user_counter.ToString()] = guest;
-                id_user_counter++;
             }
             return guest;
         }
@@ -94,49 +97,20 @@ namespace eCommerce.src.DomainLayer.User
             }
         }
 
-        public RegisteredUser Register(string userName, string password)
+        public RegisteredUser Register(string userName, string email, string password)
         {
-            throw new NotImplementedException();
-        }
-
-        public History GetUserPurchaseHistory(string userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool AddProductToCart(string userId, Product product, int quantity, Store.Store store)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateShoppingCart(string userId, string storeId, Product product, int quantity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ShoppingCart GetUserShoppingCart(string userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public double GetTotalShoppingCartPrice(string userID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
-        {
-            throw new NotImplementedException();
-        }
-
-        public RegisteredUser AddSystemAdmin(string userName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public RegisteredUser RemoveSystemAdmin(string userName)
-        {
-            throw new NotImplementedException();
+            RegisteredUser user;
+            int id;
+            lock (my_lock)
+            {
+                id = id_user_counter++;
+            }
+            lock (RegisteredUsers)
+            {
+                user = new RegisteredUser(id.ToString(),userName,email,password);
+                RegisteredUsers[id.ToString()] = user;
+            }
+            return user;
         }
         #endregion
 

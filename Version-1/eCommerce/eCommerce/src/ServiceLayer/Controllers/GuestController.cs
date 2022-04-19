@@ -6,14 +6,15 @@ using System;
 
 namespace eCommerce.src.ServiceLayer.Controllers
 {
-    internal interface IGuestController
+    public interface IGuestController
     {
-        Response<guestUser> EnterSystem();
-        Response<string> ExitSystem(string userID);
-        Response<registeredUser> Register(string email, string password);
+        public Response<guestUser> EnterSystem();
+        public Response<string> ExitSystem(string userID);
+        public Response<registeredUser> Register(string username, string email, string password);
+        
     }
 
-    internal class GuestController : IGuestController
+    public class GuestController : IGuestController
     {
         #region parameters
         protected ISystemFacade SystemFacade;
@@ -31,18 +32,33 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             GuestUser output = SystemFacade.EnterSystem();
             guestUser guestUser = new guestUser(output);
-            return new Response<guestUser>(guestUser,"Welcome to the eCommerce");
+            return new Response<guestUser>(guestUser,null);
         }
 
         public Response<string> ExitSystem(string userID)
         {
+            if (userID == null || userID == "")
+                return new Response<string>("the userId is empty!!!");
             SystemFacade.ExitSystem(userID);
-            return new Response<string>("goodbye.");
+            return new Response<string>(null);
         }
 
-        public Response<registeredUser> Register(string email, string password)
+        public Response<registeredUser> Register(string username, string email, string password)
         {
-            throw new NotImplementedException();
+            if (username == null || username == "")
+                return new Response<registeredUser>("The username is invalid!!!");
+            if (email == null || email == "")
+                return new Response<registeredUser>("The email is invalid!!!");
+            if (password == null || password == "")
+                return new Response<registeredUser>("The password is invalid!!!");
+            try
+            {
+                registeredUser user = new registeredUser(SystemFacade.Register(username, email, password));
+                return new Response<registeredUser>(user, null);
+            }catch (Exception e)
+            {
+                return new Response<registeredUser>(e.Message);
+            }
         }
         #endregion
     }

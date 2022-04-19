@@ -5,42 +5,48 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Objects
 {
-    internal abstract class User
+    public abstract class User
     {
         #region parameters
-        public string id { get; }
-        public shoppingCart cart { get; }
+        public string Id { get; }
+        public shoppingCart Cart { get; }
         #endregion
 
         #region constructors
         public User(string id, shoppingCart cart)
         {
-            this.id = id;
-            this.cart = cart;
+            this.Id = id;
+            this.Cart = cart;
         }
         #endregion
     }
 
-    internal class guestUser : User
+    public class guestUser : User
     {
         #region constructos
         public guestUser(string id, shoppingCart cart) : base(id, cart) { }
-        public guestUser(GuestUser guest): base(guest.id,new shoppingCart(guest.ShoppingCart)) {}
+        public guestUser(GuestUser guest): base(guest.Id,new shoppingCart(guest.ShoppingCart)) {}
         #endregion
     }
 
-    internal class registeredUser : User
+    public class registeredUser : User
     {
         #region parameters
-        public string username { get; }
-        public string email { get; }
+        public string UserName { get; }
+        public string Email { get; }
         #endregion
 
         #region constructors
         public registeredUser(string id, shoppingCart cart, string username, string email) : base(id, cart)
         {
-            this.username = username;
-            this.email = email;
+            this.UserName = username;
+            this.Email = email;
+        }
+
+        public registeredUser(RegisteredUser registeredUser): base(registeredUser.Id,new shoppingCart(registeredUser.ShoppingCart))
+        {
+            this.Email = registeredUser.Email;
+            this.UserName = registeredUser.UserName;
         }
         #endregion
     }

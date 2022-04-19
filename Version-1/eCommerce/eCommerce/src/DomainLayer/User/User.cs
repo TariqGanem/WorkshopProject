@@ -8,13 +8,13 @@ namespace eCommerce.src.DomainLayer.User
 {
     public abstract class User
     {
-        public String id { get; }
+        public String Id { get; }
         protected Boolean Active { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
 
         protected User(string id)
         {
-            this.id = id;
+            this.Id = id;
             Active = false;
             ShoppingCart = new ShoppingCart();
         }
@@ -35,7 +35,7 @@ namespace eCommerce.src.DomainLayer.User
                     catch (Exception)
                     {
                         //else create shopping bag for storeID
-                        sb = new ShoppingBag(this.id, store);
+                        sb = new ShoppingBag(this.Id, store);
                         sb.AddProtuctToShoppingBag(product, productQuantity);
                         ShoppingCart.AddShoppingBagToCart(sb);
                         throw new Exception();
@@ -52,8 +52,5 @@ namespace eCommerce.src.DomainLayer.User
                 Console.WriteLine(SyncEx.Message);
             }
         }
-
-      
-
     }
 }
