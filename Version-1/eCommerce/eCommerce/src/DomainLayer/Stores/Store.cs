@@ -11,7 +11,7 @@ namespace eCommerce.src.DomainLayer.Store
     {
         public String Id { get; }
         public String Name { get; }
-        public Boolean IsOpen { get; }
+        public Boolean Active { get; set;  }
         public StoreOwner Founder { get; }
         public InventoryManager InventoryManager { get; }
         public StoreHistory History { get; set; }
@@ -23,7 +23,7 @@ namespace eCommerce.src.DomainLayer.Store
         public Store(String name, RegisteredUser founder)
         {
             Name = name;
-            IsOpen = true;
+            Active = true;
             Founder = new StoreOwner(founder, Id, null);
             Owners = new ConcurrentDictionary<string, StoreOwner>();
             Owners.TryAdd(founder.UserName, Founder);
