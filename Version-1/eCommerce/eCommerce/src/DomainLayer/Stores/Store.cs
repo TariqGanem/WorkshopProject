@@ -15,23 +15,40 @@ namespace eCommerce.src.DomainLayer.Store
         public StoreOwner Founder { get; }
         public InventoryManager InventoryManager { get; }
         public StoreHistory History { get; set; }
+        public Double Rate { get; private set; }
+        public int NumberOfRates { get; private set; }
         public ConcurrentDictionary<String,StoreOwner> Owners { get; }
         public ConcurrentDictionary<String,StoreManager> Managers { get; }
 
-        public Store(RegisteredUser founder, String name)
+        public Store(String name, RegisteredUser founder)
         {
-            Owners = new ConcurrentDictionary<string, StoreOwner>();
-            Managers = new ConcurrentDictionary<string, StoreManager>();
+            Name = name;
             IsOpen = true;
             Founder = new StoreOwner();
-            Name = name;
+            Owners = new ConcurrentDictionary<string, StoreOwner>();
             Owners.TryAdd(founder.UserName, Founder);
+            Managers = new ConcurrentDictionary<string, StoreManager>();
+            InventoryManager = new InventoryManager();
             History = new StoreHistory();
+        }
+
+        public Double AddRating(Double rate)
+        {
+            if (rate < 1 || rate > 5)
+            {
+                throw new Exception($"Store {Name} could not be rated. Please use number between 1 to 5");
+            }
+            else
+            {
+                NumberOfRates += 1;
+                Rate = (Rate + rate) / NumberOfRates;
+                return Rate;
+            }
         }
 
         public List<Product> SearchProduct(IDictionary<String, Object> searchAttributes)
         {
-            return InventoryManager.SearchProduct(searchAttributes);
+            return InventoryManager.SearchProduct(Rate, searchAttributes);
         }
 
         public Product AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null)

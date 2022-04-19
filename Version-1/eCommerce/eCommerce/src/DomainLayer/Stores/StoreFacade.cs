@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 
 namespace eCommerce.src.DomainLayer.Store
 {
-    internal class StoreFacade
+    public class StoreFacade
     {
+       
     }
 }

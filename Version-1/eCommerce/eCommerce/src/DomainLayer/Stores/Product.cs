@@ -10,24 +10,47 @@ namespace eCommerce.src.DomainLayer.Store
     {
         public String Id { get; }
         public String Name { get; set; }
-        public Double Price { get; set; } 
-        public int AmountOfRating { get; set; }
+        public Double Price { get; set; }
+        public Double Rate { get; set; }
+        public int NumberOfRates { get; set; }
+        public int Quantity { get; set; }
         public String Category { get; set; }
         public LinkedList<String> KeyWords { get; set; }
 
-        public Product(string name, double price, string category , LinkedList<String> kws = null)
+        public Product(string name, double price, string category, int quantity, LinkedList<String> kws = null)
         {
             //Id = id;
             Name = name;
             Price = price;
             Category = category;
-            AmountOfRating = 0;
+            Quantity = quantity;
+            NumberOfRates = 0;
             KeyWords = kws == null ? new LinkedList<string>() : kws;
         }
 
         public void AddKeyWord(String kw)
         {
             this.KeyWords.AddLast(kw);
+        }
+
+        public Double AddRating(Double rate)
+        {
+            if (rate < 1 || rate > 5)
+            {
+                throw new Exception($"Product { Name } could not be rated. Please use number between 1 to 5");
+            }
+            else
+            {
+                NumberOfRates += 1;
+                Rate = (Rate + rate) / (Double)NumberOfRates;
+                return Rate;
+            }
+        }
+
+        public String AddKeyword(String keyWord)
+        {
+            KeyWords.AddLast(keyWord);
+            return keyWord;
         }
     }
 }
