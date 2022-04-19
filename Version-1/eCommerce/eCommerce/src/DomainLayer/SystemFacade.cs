@@ -3,11 +3,32 @@ using eCommerce.src.DomainLayer.Store;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections.Concurrent;
 
 namespace eCommerce.src.DomainLayer
 {
-    public interface ISystemFacade : IUserFacade //TODO: , IStoreFacade
+    public interface ISystemFacade
     {
+        #region User Actions - UserFacade
+        GuestUser Login();
+        RegisteredUser Register(string username, string password);
+        RegisteredUser Login(String userName, String password);
+        void Logout(String userId);
+        void AddProductToCart(string userId, String productId, int quantity, String storeId);
+        Double GetTotalShoppingCartPrice(string userId);
+        History GetUserPurchaseHistory(string userId);
+        ShoppingCart GetUserShoppingCart(string userId);
+        ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails);
+        void UpdateShoppingCart(string userId, string storeId, String productId, int quantity);
+        void AddProductReview(String userID, String storeID, String productID, String review);
+        #endregion
+
+        #region System Management
+        RegisteredUser AddSystemAdmin(string userName);
+        RegisteredUser RemoveSystemAdmin(string userName);
+        Boolean IsSystemAdmin(String userId);
+        #endregion
+
     }
 
     public class SystemFacade : ISystemFacade
@@ -25,71 +46,92 @@ namespace eCommerce.src.DomainLayer
         }
         #endregion
 
-        #region Guest methods 
-        public GuestUser Login()
-        {
-            return userFacade.EnterSystem();
-        }
-
-        public void ExitSystem(string id)
-        {
-            userFacade.ExitSystem(id);
-        }
-
-        public RegisteredUser Register(string username, string email, string password)
-        {
-            return userFacade.Register(username, email, password);
-        }
-        #endregion
 
         #region UserFacadeMethods
+        public GuestUser Login()
+        {
+            return userFacade.Login();
+        }
+
+        public RegisteredUser Register(string username, string password)
+        {
+            return userFacade.Register(username, password);
+        }
         public RegisteredUser Login(String userName, String password) { return userFacade.Login(userName, password); }
 
         public void Logout(String userId) { userFacade.Logout(userId); }
 
-        public bool AddProductToCart(string userId, Product product, int quantity, Store.Store store)
+        public void AddProductToCart(string userId, String productId, int quantity, String storeId)
         {
-            throw new NotImplementedException();
+            Store.Store store = storeFacade.GetStore(storeId);
+            Product searchProductRes = store.GetProduct(productId);
+            Product product = searchProductRes;
+            userFacade.AddProductToCart(userId, product, quantity, store);
         }
 
         public RegisteredUser AddSystemAdmin(string userName)
         {
-            throw new NotImplementedException();
+            RegisteredUser result = userFacade.AddSystemAdmin(userName);
+            return result;
+
         }
 
-        public double GetTotalShoppingCartPrice(string userID)
+        public Boolean IsSystemAdmin(String userId)
         {
-            throw new NotImplementedException();
+            return userFacade.SystemAdmins.ContainsKey(userId);
+        }
+
+
+        public Double GetTotalShoppingCartPrice(string userId)
+        {
+            return userFacade.GetTotalShoppingCartPrice(userId);
         }
 
         public History GetUserPurchaseHistory(string userId)
         {
-            throw new NotImplementedException();
+            return userFacade.GetUserPurchaseHistory(userId);
+
         }
 
         public ShoppingCart GetUserShoppingCart(string userId)
         {
-            throw new NotImplementedException();
+            return userFacade.GetUserShoppingCart(userId);
         }
 
         public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
         {
-            throw new NotImplementedException();
-        }
+            // TODO - lock products ?
+            ShoppingCart purchasedCart = userFacade.Purchase(userId, paymentDetails, deliveryDetails);
 
-        public RegisteredUser Register(string userName, string password)
-        {
-            throw new NotImplementedException();
+            ConcurrentDictionary<String, ShoppingBag> purchasedBags = purchasedCart.ShoppingBags;
+            foreach (var bag in purchasedBags)
+            {
+                Store.Store store = storeFacade.GetStore(bag.Key);
+                // TODO - store.UpdateInventory(bag.Value);
+                store.History.addShoppingBasket(bag.Value);
+            }
+            return purchasedCart;
+
         }
 
         public RegisteredUser RemoveSystemAdmin(string userName)
         {
-            throw new NotImplementedException();
+            RegisteredUser result = userFacade.RemoveSystemAdmin(userName);
+            return result;
         }
 
-        public bool UpdateShoppingCart(string userId, string storeId, Product product, int quantity)
+        public void UpdateShoppingCart(string userId, string storeId, String productId, int quantity)
         {
-            throw new NotImplementedException();
+            Store.Store resStore = storeFacade.GetStore(storeId);
+            Product resProduct = resStore.GetProduct(productId);
+            userFacade.UpdateShoppingCart(userId, resStore.Id, resProduct, quantity);
+        }
+
+        public void AddProductReview(string userId, string storeId, string productId, string review)
+        {
+            Store.Store storeRes = storeFacade.GetStore(storeId);
+            Product productRes = storeRes.GetProduct(productId);
+            userFacade.AddProductReview(userId, storeRes, productRes, review);
         }
         #endregion
     }

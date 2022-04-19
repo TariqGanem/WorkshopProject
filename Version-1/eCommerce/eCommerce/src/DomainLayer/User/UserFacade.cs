@@ -227,6 +227,13 @@ namespace eCommerce.src.DomainLayer.User
             }
 
         }
+        public void AddProductReview(String userID, Store.Store store, Product product, String review)
+        {
+            if (RegisteredUsers.TryGetValue(userID, out RegisteredUser user))
+            {
+                user.AddProductReview(store, product, review);
+            }
+        }
         #endregion
 
         #region privateMethods
