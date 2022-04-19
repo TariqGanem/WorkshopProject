@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Objects
 {
-    public class Store
+    public class StoreSO
     {
         #region parameters
         string Id { get; }
@@ -15,7 +15,7 @@ namespace eCommerce.src.ServiceLayer.Objects
         #endregion
 
         #region constructors
-        public Store(string id, string name, string founder, List<string> owners, List<string> managers)
+        public StoreSO(string id, string name, string founder, List<string> owners, List<string> managers)
         {
             this.Id = id;
             this.Name = name;

@@ -5,15 +5,15 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Objects
 {
-    public abstract class User
+    public abstract class UserSO
     {
         #region parameters
         public string Id { get; }
-        public shoppingCart Cart { get; }
+        public ShoppingCartSO Cart { get; }
         #endregion
 
         #region constructors
-        public User(string id, shoppingCart cart)
+        public UserSO(string id, ShoppingCartSO cart)
         {
             this.Id = id;
             this.Cart = cart;
@@ -21,15 +21,15 @@ namespace eCommerce.src.ServiceLayer.Objects
         #endregion
     }
 
-    public class guestUser : User
+    public class GuestUserSO : UserSO
     {
         #region constructos
-        public guestUser(string id, shoppingCart cart) : base(id, cart) { }
-        public guestUser(GuestUser guest): base(guest.Id,new shoppingCart(guest.ShoppingCart)) {}
+        public GuestUserSO(string id, ShoppingCartSO cart) : base(id, cart) { }
+        public GuestUserSO(GuestUser guest): base(guest.Id,new ShoppingCartSO(guest.ShoppingCart)) {}
         #endregion
     }
 
-    public class registeredUser : User
+    public class RegisteredUserSO : UserSO
     {
         #region parameters
         public string UserName { get; }
@@ -37,15 +37,13 @@ namespace eCommerce.src.ServiceLayer.Objects
         #endregion
 
         #region constructors
-        public registeredUser(string id, shoppingCart cart, string username, string email) : base(id, cart)
+        public RegisteredUserSO(string id, ShoppingCartSO cart, string username) : base(id, cart)
         {
             this.UserName = username;
-            //this.Email = email;
         }
 
-        public registeredUser(RegisteredUser registeredUser): base(registeredUser.Id,new shoppingCart(registeredUser.ShoppingCart))
+        public RegisteredUserSO(RegisteredUser registeredUser): base(registeredUser.Id,new ShoppingCartSO(registeredUser.ShoppingCart))
         {
-            //this.Email = registeredUser.Email;
             this.UserName = registeredUser.UserName;
         }
         #endregion

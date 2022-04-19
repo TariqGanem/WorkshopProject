@@ -8,10 +8,10 @@ namespace eCommerce.src.ServiceLayer.Controllers
 {
     public interface IGuestController
     {
-       /* public Response<guestUser> EnterSystem();
-        public Response<string> ExitSystem(string userID);
-        public Response<registeredUser> Register(string username, string email, string password);*/
-        
+        Response<GuestUserSO> Login();
+        void Logout(String userId);
+        Response<RegisteredUserSO> Register(string username, string password);
+
     }
 
     public class GuestController : IGuestController
@@ -20,44 +20,52 @@ namespace eCommerce.src.ServiceLayer.Controllers
         protected ISystemFacade SystemFacade;
         #endregion
 
-        #region constructors
         public GuestController(ISystemFacade systemFacade)
         {
             SystemFacade = systemFacade;
         }
-        #endregion
 
         #region GuestControllerMethods
-/*        public Response<guestUser> EnterSystem()
+        public Response<GuestUserSO> Login()
         {
-            GuestUser output = SystemFacade.Login();
-            guestUser guestUser = new guestUser(output);
-            return new Response<guestUser>(guestUser,null);
+            return new Response<RegisteredUserSO>(SystemFacade.Login());
         }
 
-        public Response<string> ExitSystem(string userID)
+        public void Logout(string userId)
         {
-            if (userID == null || userID == "")
-                return new Response<string>("the userId is empty!!!");
-            SystemFacade.ExitSystem(userID);
-            return new Response<string>(null);
-        }*/
+            throw new NotImplementedException();
+        }
 
-        public Response<registeredUser> Register(string username, string email, string password)
+
+        /*        public Response<guestUser> EnterSystem()
+                {
+                    GuestUser output = SystemFacade.Login();
+                    guestUser guestUser = new guestUser(output);
+                    return new Response<guestUser>(guestUser,null);
+                }
+
+                public Response<string> ExitSystem(string userID)
+                {
+                    if (userID == null || userID == "")
+                        return new Response<string>("the userId is empty!!!");
+                    SystemFacade.ExitSystem(userID);
+                    return new Response<string>(null);
+                }*/
+
+        public Response<RegisteredUserSO> Register(string username, string password)
         {
             if (username == null || username == "")
-                return new Response<registeredUser>("The username is invalid!!!");
-            if (email == null || email == "")
-                return new Response<registeredUser>("The email is invalid!!!");
+                return new Response<RegisteredUserSO>("The username is invalid!!!");
             if (password == null || password == "")
-                return new Response<registeredUser>("The password is invalid!!!");
+                return new Response<RegisteredUserSO>("The password is invalid!!!");
             try
             {
-                registeredUser user = new registeredUser(SystemFacade.Register(username, password));
-                return new Response<registeredUser>(user, null);
-            }catch (Exception e)
+                RegisteredUserSO user = new RegisteredUserSO(SystemFacade.Register(username, password));
+                return new Response<RegisteredUserSO>(user, null);
+            }
+            catch (Exception e)
             {
-                return new Response<registeredUser>(e.Message);
+                return new Response<RegisteredUserSO>(e.Message);
             }
         }
         #endregion

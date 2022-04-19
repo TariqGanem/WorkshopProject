@@ -5,18 +5,18 @@ using System.Collections.Generic;
 
 namespace eCommerce.src.ServiceLayer.Objects
 {
-    public class shoppingBasket
+    public class ShoppingBagSO
     {
         #region parameters
         public string Id { get; }
         public string UserId { get; }
         public string StoreId { get; }
-        public Dictionary<product, int> Products { get; }
+        public Dictionary<ProductSO, int> Products { get; }
         public double TotalPrice { get; }
         #endregion
 
         #region constructors
-        public shoppingBasket(string id, string userId, string storeId, Dictionary<product, int> products, double totalPrice)
+        public ShoppingBagSO(string id, string userId, string storeId, Dictionary<ProductSO, int> products, double totalPrice)
         {
             this.Id = id;
             this.UserId = userId;
@@ -25,16 +25,16 @@ namespace eCommerce.src.ServiceLayer.Objects
             this.TotalPrice = totalPrice;
         }
 
-        public shoppingBasket(ShoppingBag shoppingBag)
+        public ShoppingBagSO(ShoppingBag shoppingBag)
         {
             this.Id = shoppingBag.Id;
             this.UserId = shoppingBag.UserId;
             this.StoreId = shoppingBag.Store.Id;
             this.TotalPrice = shoppingBag.TotalBagPrice;
-            this.Products = new Dictionary<product, int>();
+            this.Products = new Dictionary<ProductSO, int>();
             foreach (Product p in shoppingBag.Products.Keys)
             {
-                product new_p = new product(p);
+                ProductSO new_p = new ProductSO(p);
                 this.Products[new_p] = shoppingBag.Products[p];
             }
         }

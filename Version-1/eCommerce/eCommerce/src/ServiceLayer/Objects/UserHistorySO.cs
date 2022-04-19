@@ -4,15 +4,15 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Objects
 {
-    public class UserHistory
+    public class UserHistorySO
     {
-       /* //Properties
-        public LinkedList<ShoppingBag> ShoppingBags { get; }
+        //Properties
+        public LinkedList<ShoppingBagSO> ShoppingBags { get; }
 
         //Constructor
-        public UserHistory(LinkedList<ShoppingBag> shoppingBags)
+        public UserHistorySO(LinkedList<ShoppingBagSO> shoppingBags)
         {
             ShoppingBags = shoppingBags;
-        }*/
+        }
     }
 }

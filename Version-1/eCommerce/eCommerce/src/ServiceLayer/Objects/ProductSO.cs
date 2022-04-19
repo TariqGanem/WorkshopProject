@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Objects
 {
-    public class product
+    public class ProductSO
     {
         #region parameters
         public string Id { get; }
@@ -16,7 +16,7 @@ namespace eCommerce.src.ServiceLayer.Objects
         #endregion
 
         #region constructors
-        public product(string id, string name, double price, int quantity, string category)
+        public ProductSO(string id, string name, double price, int quantity, string category)
         {
             this.Id = id;
             this.Name = name;
@@ -25,7 +25,7 @@ namespace eCommerce.src.ServiceLayer.Objects
             this.Category = category;
         }
       
-        public product(Product p)
+        public ProductSO(Product p)
         {
             this.Id = p.Id;
             this.Name = p.Name;

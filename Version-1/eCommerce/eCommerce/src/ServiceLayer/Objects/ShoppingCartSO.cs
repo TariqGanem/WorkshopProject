@@ -5,29 +5,29 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Objects
 {
-    public class shoppingCart
+    public class ShoppingCartSO
     {
         #region parameters
         public string Id { get; }
-        public Dictionary<string, shoppingBasket> Baskets { get; }
+        public Dictionary<string, ShoppingBagSO> Baskets { get; }
         public double TotalPrice { get; }
         #endregion
 
         #region constructors
-        public shoppingCart(string id, Dictionary<string,shoppingBasket> baskets, double totalPrice)
+        public ShoppingCartSO(string id, Dictionary<string,ShoppingBagSO> baskets, double totalPrice)
         {
             this.Id = id;
             this.Baskets = baskets;
             this.TotalPrice = totalPrice;
         }
 
-        public shoppingCart(ShoppingCart shoppingCart)
+        public ShoppingCartSO(ShoppingCart shoppingCart)
         {
             this.Id = shoppingCart.Id;
-            Baskets = new Dictionary<string, shoppingBasket>();
+            Baskets = new Dictionary<string, ShoppingBagSO>();
             foreach (string basket_key in shoppingCart.ShoppingBags.Keys)
             {
-                Baskets[basket_key] = new shoppingBasket(shoppingCart.ShoppingBags[basket_key]);
+                Baskets[basket_key] = new ShoppingBagSO(shoppingCart.ShoppingBags[basket_key]);
             }
             this.TotalPrice = shoppingCart.TotalCartPrice;
         }
