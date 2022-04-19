@@ -30,7 +30,7 @@ namespace eCommerce.src.DomainLayer.Store
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                Product res = store.RemoveProduct(userID, productID);
+                store.RemoveProduct(userID, productID);
                 return true;
             }
             throw new Exception($"Store ID {storeID} not found");
@@ -77,8 +77,11 @@ namespace eCommerce.src.DomainLayer.Store
             List<Product> searchResult = new List<Product>();
             foreach (Store store in Stores.Values)
             {
-                List<Product> storeResult = store.SearchProduct(searchAttributes);
-                searchResult.AddRange(storeResult);
+                if (store.Active)
+                {
+                    List<Product> storeResult = store.SearchProduct(searchAttributes);
+                    searchResult.AddRange(storeResult);
+                }
             }
             if (searchResult.Count > 0)
             {
@@ -86,16 +89,16 @@ namespace eCommerce.src.DomainLayer.Store
             }
             else
             {
-                throw new Exception($"No has been found");
+                throw new Exception($"No product has been found");
             }
-
         }
 
         public Dictionary<IStaff, Permission> GetStoreStaff(string userID, string storeID)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.GetStoreStaff(userID);
+                if (store.Active || store.Owners.TryGetValue(userID, out _))
+                    return store.GetStoreStaff(userID);
             }
             throw new Exception("The given store ID does not exists");
 
@@ -105,7 +108,8 @@ namespace eCommerce.src.DomainLayer.Store
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.GetStorePurchaseHistory(userID, sysAdmin);
+                if (store.Active || store.Owners.TryGetValue(userID, out _))
+                    return store.GetStorePurchaseHistory(userID, sysAdmin);
             }
             throw new Exception("The given store ID does not exists");
         }
@@ -115,6 +119,17 @@ namespace eCommerce.src.DomainLayer.Store
             Store newStore = new Store(storeName, founder);
             Stores.TryAdd(newStore.Id, newStore);
             return newStore;
+        }
+
+        public Store CloseStore(RegisteredUser founder, string storeID)
+        {
+            Store currStore = GetStore(storeID);
+            if (!founder.Id.Equals(currStore.Founder.GetId()))
+            {
+                throw new Exception($"Non-founder Trying to close store {currStore.Name}");
+            }
+            currStore.Active = false;
+            return currStore;
         }
 
 
