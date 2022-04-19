@@ -13,10 +13,10 @@ namespace eCommerce.src.ServiceLayer.Objects
         #endregion
 
         #region constructors
-        public User(string id, shoppingCart cart)
+        public User()
         {
-            this.Id = id;
-            this.Cart = cart;
+            //Id = Service.GenerateId();
+            Cart = new ShoppingCart();
         }
         #endregion
     }

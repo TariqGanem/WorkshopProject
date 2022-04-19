@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.ExternalSystems
 {
-    internal static class Payments
+    public static class Payments
     {
 
         public static Boolean Pay(double amount, IDictionary<String, Object> paymentDetails)

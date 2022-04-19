@@ -14,9 +14,9 @@ namespace eCommerce.src.DomainLayer.User
         protected Boolean Active { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
 
-        protected User(string id)
+        protected User()
         {
-            this.Id = id;
+            //this.Id = ServiceLayer.GetId();
             Active = false;
             ShoppingCart = new ShoppingCart();
         }
