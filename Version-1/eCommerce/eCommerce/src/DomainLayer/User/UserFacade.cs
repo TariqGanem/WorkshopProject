@@ -33,7 +33,6 @@ namespace eCommerce.src.DomainLayer.User
         public ConcurrentDictionary<String, GuestUser> GuestUsers { get; }
 
         private readonly object my_lock = new object();
-        public int id_user_counter { get; private set; }
         #endregion
 
         #region constructors
@@ -42,7 +41,6 @@ namespace eCommerce.src.DomainLayer.User
             SystemAdmins = new ConcurrentDictionary<string, RegisteredUser>();
             RegisteredUsers = new ConcurrentDictionary<string, RegisteredUser>();
             GuestUsers = new ConcurrentDictionary<string, GuestUser>();
-            this.id_user_counter = 0;
         }
         #endregion
 
@@ -226,13 +224,6 @@ namespace eCommerce.src.DomainLayer.User
 
             }
 
-        }
-        public void AddProductReview(String userID, Store.Store store, Product product, String review)
-        {
-            if (RegisteredUsers.TryGetValue(userID, out RegisteredUser user))
-            {
-                user.AddProductReview(store, product, review);
-            }
         }
         #endregion
 
