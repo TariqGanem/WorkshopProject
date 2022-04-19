@@ -6,11 +6,11 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer
 {
-    public interface ISystemFacade : IUserFacade //TODO: , IStoreFacade
+    internal interface ISystemFacade : IUserFacade //TODO: , IStoreFacade
     {
     }
 
-    public class SystemFacade : ISystemFacade
+    internal class SystemFacade : ISystemFacade
     {
         private UserFacade userFacade;
         private StoreFacade storeFacade;
@@ -20,7 +20,19 @@ namespace eCommerce.src.DomainLayer
             storeFacade = new StoreFacade();
         }
 
-        #region User Facade Methods
+        #region Guest methods 
+        public GuestUser EnterSystem()
+        {
+            return userFacade.EnterSystem();
+        }
+
+        public void ExitSystem(string id)
+        {
+            userFacade.ExitSystem(id);
+        }
+        #endregion
+
+        #region UserFacadeMethods
         public RegisteredUser Login(String userName, String password) { return userFacade.Login(userName, password); }
 
         public void Logout(String userId) { userFacade.Logout(userId); }

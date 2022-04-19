@@ -3,34 +3,47 @@ using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.Response;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Controllers
 {
-    public interface IGuestController
+    internal interface IGuestController
     {
         Response<guestUser> EnterSystem();
-        void ExitSystem(String userID);
+        Response<string> ExitSystem(string userID);
         Response<registeredUser> Register(string email, string password);
-        Response<> SearchStore(IDictionary<String, Object> details);
-        Response<> SearchProduct(IDictionary<String, Object> productDetails);
-        Response<Boolean> AddProductToCart(String userID, String ProductID, int ProductQuantity, String StoreID);
-        Response<> GetUserShoppingCart(String userID);
-        Response<Boolean> UpdateShoppingCart(String userID, String shoppingBagID, String productID, int quantity);
-        Response<> Purchase(String userID, IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails);
-        Response<> GetUserPurchaseHistory(String userID);
-        Response<double> GetTotalShoppingCartPrice(String userID);
-        Response<List<Tuple<String, String>>> GetProductReview(String storeID, String productID);
     }
-    public class GuestController : IGuestController
-    {
-        protected ISystemFacade SystemFacade;
 
+    internal class GuestController : IGuestController
+    {
+        #region parameters
+        protected ISystemFacade SystemFacade;
+        #endregion
+
+        #region constructors
         public GuestController(ISystemFacade systemFacade)
         {
             SystemFacade = systemFacade;
         }
+        #endregion
 
+        #region GuestControllerMethods
+        public Response<guestUser> EnterSystem()
+        {
+            GuestUser output = SystemFacade.EnterSystem();
+            guestUser guestUser = new guestUser(output);
+            return new Response<guestUser>(guestUser,"Welcome to the eCommerce");
+        }
+
+        public Response<string> ExitSystem(string userID)
+        {
+            SystemFacade.ExitSystem(userID);
+            return new Response<string>("goodbye.");
+        }
+
+        public Response<registeredUser> Register(string email, string password)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

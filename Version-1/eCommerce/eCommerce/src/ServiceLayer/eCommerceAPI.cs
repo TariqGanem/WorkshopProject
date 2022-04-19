@@ -14,10 +14,5 @@ namespace eCommerce.src.ServiceLayer
         public eCommerceSystem() { 
         
         }
-
-        public Response<RegisteredUser> Login(string userName, string password)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

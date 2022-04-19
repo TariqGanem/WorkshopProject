@@ -9,9 +9,13 @@ namespace eCommerce.src.ServiceLayer.Response
     /// In addition to the behavior of <c>Response</c>, the class holds the value of the returned value in the variable <c>Value</c>.
     /// </summary>
     /// <typeparam name="T">The type of the returned value of the function.</typeparam>
-    public class Response<T> : Response
+    class Response<T> : Response
     {
+        #region parameters
         public readonly T Value;
+        #endregion
+
+        #region constructos
         public Response(string msg) : base(msg) { }
         public Response(T value) : base()
         {
@@ -21,5 +25,6 @@ namespace eCommerce.src.ServiceLayer.Response
         {
             this.Value = value;
         }
+        #endregion
     }
 }

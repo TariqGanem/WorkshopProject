@@ -6,7 +6,7 @@ namespace eCommerce.src.DomainLayer.User
 {
     public class GuestUser : User
     {
-        public GuestUser() : base() { }
+        public GuestUser(string id) : base(id) { }
 
         public void Logout() { Active = false; }
     }

@@ -7,8 +7,10 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    public interface IUserFacade
+    internal interface IUserFacade
     {
+        GuestUser EnterSystem();
+        void ExitSystem(string id);
         RegisteredUser Login(String userName, String password);
         void Logout(String userId);
         RegisteredUser Register(String userName, String password);
@@ -23,21 +25,47 @@ namespace eCommerce.src.DomainLayer.User
 
     }
 
-    public class UserFacade : IUserFacade
+    internal class UserFacade : IUserFacade
     {
+        #region parameters
         public ConcurrentDictionary<String, SystemAdmin> SystemAdmins { get; }
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; }
         public ConcurrentDictionary<String, GuestUser> GuestUsers { get; }
 
         private readonly object my_lock = new object();
+        #endregion
+
+        #region constructors
+        public int id_user_counter { get; private set; }
 
         public UserFacade()
         {
             SystemAdmins = new ConcurrentDictionary<string, SystemAdmin>();
             RegisteredUsers = new ConcurrentDictionary<string, RegisteredUser>();
             GuestUsers = new ConcurrentDictionary<string, GuestUser>();
+            this.id_user_counter = 0;
         }
-        #region Public Methods
+        #endregion
+
+        #region methods
+        public GuestUser EnterSystem()
+        {
+            GuestUser guest = null;
+            lock (my_lock)
+            {
+                guest = new GuestUser(id_user_counter.ToString());
+                GuestUsers[id_user_counter.ToString()] = guest;
+                id_user_counter++;
+            }
+            return guest;
+        }
+
+        public void ExitSystem(string id)
+        {
+            GuestUser guest;
+            GuestUsers.TryRemove(id, out guest);
+        }
+
         public RegisteredUser Login(String userName, String password)
         {
             RegisteredUser registeredUser = GetUserByUserName(userName);
@@ -112,7 +140,7 @@ namespace eCommerce.src.DomainLayer.User
         }
         #endregion
 
-        #region Private Methods
+        #region privateMethods
         private RegisteredUser GetUserByUserName(String userName)
         {
             foreach (RegisteredUser registeredUser in RegisteredUsers.Values)

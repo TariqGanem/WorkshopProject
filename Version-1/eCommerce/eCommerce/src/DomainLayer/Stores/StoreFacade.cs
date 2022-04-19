@@ -9,13 +9,18 @@ namespace eCommerce.src.DomainLayer.Store
 {
     public class StoreFacade
     {
+        #region parameters
         public ConcurrentDictionary<String, Store> Stores { get; }
+        #endregion
 
+        #region cosntructors
         public StoreFacade()
         {
             Stores = new ConcurrentDictionary<String, Store>();
         }
+        #endregion
 
+        #region methods
         public Product AddProductToStore(String userID, String storeID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
             if (Stores.TryGetValue(storeID, out Store store))
@@ -144,5 +149,6 @@ namespace eCommerce.src.DomainLayer.Store
             }
             throw new Exception("Store does not exists");
         }
+        #endregion
     }
 }
