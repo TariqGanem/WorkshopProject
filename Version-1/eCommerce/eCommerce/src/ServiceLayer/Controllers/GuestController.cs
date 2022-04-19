@@ -8,7 +8,7 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Controllers
 {
-    internal interface IGuestController
+    public interface IGuestController
     {
         Response<guestUser> EnterSystem();
         void ExitSystem(String userID);
@@ -23,7 +23,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Response<double> GetTotalShoppingCartPrice(String userID);
         Response<List<Tuple<String, String>>> GetProductReview(String storeID, String productID);
     }
-    internal class GuestController : IGuestController
+    public class GuestController : IGuestController
     {
         protected ISystemFacade SystemFacade;
 

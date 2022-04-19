@@ -6,15 +6,11 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer
 {
-    internal interface ISystemFacade
+    public interface ISystemFacade : IUserFacade //TODO: , IStoreFacade
     {
-        #region User Actions
-        RegisteredUser Login(String userName, String password);
-        void Logout(String userId);
-        #endregion
     }
 
-    internal class SystemFacade : ISystemFacade
+    public class SystemFacade : ISystemFacade
     {
         private UserFacade userFacade;
         private StoreFacade storeFacade;
@@ -28,6 +24,51 @@ namespace eCommerce.src.DomainLayer
         public RegisteredUser Login(String userName, String password) { return userFacade.Login(userName, password); }
 
         public void Logout(String userId) { userFacade.Logout(userId); }
+
+        public bool AddProductToCart(string userId, Product product, int quantity, Store.Store store)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RegisteredUser AddSystemAdmin(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetTotalShoppingCartPrice(string userID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public History GetUserPurchaseHistory(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ShoppingCart GetUserShoppingCart(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RegisteredUser Register(string userName, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RegisteredUser RemoveSystemAdmin(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateShoppingCart(string userId, string storeId, Product product, int quantity)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

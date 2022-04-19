@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User.Roles
 {
-    internal class SystemAdmin
+    public class SystemAdmin
     {
     }
 }

@@ -5,14 +5,14 @@ using eCommerce.src.DomainLayer.Store;
 
 namespace eCommerce.src.DomainLayer.User.Roles
 {
-    internal class StoreManager : IStaff
+    public class StoreManager : IStaff
     {
         public RegisteredUser User { get; }
         public Permission Permission { get; }
         public IStaff AppointedBy { get; }
         public Store.Store Store { get; }
 
-        public StoreManager(RegisteredUser user, Store.Store store, Permission permission, IStoreStaff appointedBy)
+        public StoreManager(RegisteredUser user, Store.Store store, Permission permission, IStaff appointedBy)
         {
             User = user;
             Store = store;
@@ -20,15 +20,15 @@ namespace eCommerce.src.DomainLayer.User.Roles
             AppointedBy = appointedBy;
         }
 
-/*        public void SetPermission(int method, Boolean active)
+        public void SetPermission(int method, Boolean active)
         {
-            return Permission.SetPermission(method, active);
+            Permission.SetPermission(method, active);
         }
 
         public void SetPermission(Methods method, Boolean active)
         {
-            return Permission.SetPermission(method, active);
-        }*/
+            Permission.SetPermission(method, active);
+        }
 
         public String GetId()
         {

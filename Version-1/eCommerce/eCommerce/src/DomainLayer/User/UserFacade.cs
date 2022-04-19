@@ -1,4 +1,5 @@
-﻿using eCommerce.src.DomainLayer.User.Roles;
+﻿using eCommerce.src.DomainLayer.Store;
+using eCommerce.src.DomainLayer.User.Roles;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -6,13 +7,23 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal interface IUserFacade
+    public interface IUserFacade
     {
         RegisteredUser Login(String userName, String password);
         void Logout(String userId);
+        RegisteredUser Register(String userName, String password);
+        History GetUserPurchaseHistory(String userId);
+        Boolean AddProductToCart(string userId, Product product, int quantity, Store.Store store);
+        Boolean UpdateShoppingCart(string userId, string storeId, Product product, int quantity);
+        ShoppingCart GetUserShoppingCart(string userId);
+        Double GetTotalShoppingCartPrice(String userID);
+        ShoppingCart Purchase(String userId, IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails);
+        RegisteredUser AddSystemAdmin(String userName);
+        RegisteredUser RemoveSystemAdmin(String userName);
+
     }
 
-    internal class UserFacade : IUserFacade
+    public class UserFacade : IUserFacade
     {
         public ConcurrentDictionary<String, SystemAdmin> SystemAdmins { get; }
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; }
@@ -53,6 +64,51 @@ namespace eCommerce.src.DomainLayer.User
             {
                 throw new Exception("Cannot logout, user doesn't exist!");
             }
+        }
+
+        public RegisteredUser Register(string userName, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public History GetUserPurchaseHistory(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddProductToCart(string userId, Product product, int quantity, Store.Store store)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateShoppingCart(string userId, string storeId, Product product, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ShoppingCart GetUserShoppingCart(string userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetTotalShoppingCartPrice(string userID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RegisteredUser AddSystemAdmin(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RegisteredUser RemoveSystemAdmin(string userName)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 
