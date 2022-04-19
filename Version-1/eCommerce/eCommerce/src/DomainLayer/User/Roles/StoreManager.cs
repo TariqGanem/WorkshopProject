@@ -5,7 +5,7 @@ using eCommerce.src.DomainLayer.Store;
 
 namespace eCommerce.src.DomainLayer.User.Roles
 {
-    internal class StoreManager : IStaff
+    public class StoreManager : IStaff
     {
         public RegisteredUser User { get; }
         public Permission Permission { get; }

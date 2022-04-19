@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User.Roles
 {
-    internal interface IStaff
+    public interface IStaff
     {
         String GetId();
     }

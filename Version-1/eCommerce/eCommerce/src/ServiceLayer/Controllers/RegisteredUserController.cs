@@ -7,11 +7,11 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Controllers
 {
-    internal interface IRegisteredUserController
+    public interface IRegisteredUserController
     {
         Response<RegisteredUser> Login(String userName, String password);
     }
-    internal class RegisteredUserController : GuestController, IRegisteredUserController
+    public class RegisteredUserController : GuestController, IRegisteredUserController
     {
         public RegisteredUserController(ISystemFacade systemFacade) : base(systemFacade) { }
 

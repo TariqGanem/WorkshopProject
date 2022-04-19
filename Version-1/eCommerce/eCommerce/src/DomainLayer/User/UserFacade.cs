@@ -7,7 +7,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal interface IUserFacade
+    public interface IUserFacade
     {
         RegisteredUser Login(String userName, String password);
         void Logout(String userId);
@@ -23,7 +23,7 @@ namespace eCommerce.src.DomainLayer.User
 
     }
 
-    internal class UserFacade : IUserFacade
+    public class UserFacade : IUserFacade
     {
         public ConcurrentDictionary<String, SystemAdmin> SystemAdmins { get; }
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; }

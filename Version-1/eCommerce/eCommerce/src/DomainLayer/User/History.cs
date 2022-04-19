@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal class History
+    public class History
     {
         public LinkedList<ShoppingBag> ShoppingBags { get; }
 

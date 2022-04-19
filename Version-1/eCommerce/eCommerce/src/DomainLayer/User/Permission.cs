@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal class Permission
+    public class Permission
     {
     }
 }

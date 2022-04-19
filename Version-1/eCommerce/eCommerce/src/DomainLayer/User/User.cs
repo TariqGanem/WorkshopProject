@@ -8,7 +8,7 @@ namespace eCommerce.src.DomainLayer.User
     {
         public String Id { get; }
         protected Boolean Active { get; set; }
-        protected ShoppingCart ShoppingCart { get; set; }
+        public ShoppingCart ShoppingCart { get; set; }
 
         protected User()
         {

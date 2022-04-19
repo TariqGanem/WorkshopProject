@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal class ShoppingCart
+    public class ShoppingCart
     {
         public string Id { get; private set; }
         public ConcurrentDictionary<String, ShoppingBag> ShoppingBags { get; set; }  // <StoreId, ShoppingBag>

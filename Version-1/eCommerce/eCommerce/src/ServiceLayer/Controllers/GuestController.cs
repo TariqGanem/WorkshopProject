@@ -7,11 +7,11 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Controllers
 {
-    internal interface IGuestController
+    public interface IGuestController
     {
 
     }
-    internal class GuestController : IGuestController
+    public class GuestController : IGuestController
     {
         protected ISystemFacade SystemFacade;
 

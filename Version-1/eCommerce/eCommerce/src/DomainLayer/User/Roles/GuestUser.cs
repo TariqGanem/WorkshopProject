@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    internal class GuestUser : User
+    public class GuestUser : User
     {
         public GuestUser() : base() { }
 
