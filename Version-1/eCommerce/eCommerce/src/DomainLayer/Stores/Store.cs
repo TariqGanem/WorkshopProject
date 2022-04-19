@@ -1,13 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
-using eCommerce.src.ServiceLayer.Response;
 using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.DomainLayer.User;
 
 namespace eCommerce.src.DomainLayer.Store
 {
-    public class Store
+    public interface IStoreOperations
+    {
+        Double AddRating(Double rate);
+        Product AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        List<Product> SearchProduct(IDictionary<String, Object> searchAttributes);
+        Product RemoveProduct(String userID, String productID);
+        Product EditProduct(String userID, String productID, IDictionary<String, Object> details);
+        Boolean AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID);
+        Boolean AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID);
+        Boolean RemoveStoreManager(String removedManagerID, String currentlyOwnerID);
+        Boolean SetPermissions(String managerID, String ownerID, LinkedList<int> permissions);
+        Boolean RemovePermissions(String managerID, String ownerID, LinkedList<int> permissions);
+        Dictionary<IStaff, Permission> GetStoreStaff(String userID);
+        StoreHistory GetStorePurchaseHistory(string ownerID, bool sysAdmin);
+        Product GetProduct(string productID);
+    }
+    public class Store : IStoreOperations
     {
         public String Id { get; }
         public String Name { get; }

@@ -10,6 +10,7 @@ namespace eCommerce.src.DomainLayer.Store
         Product AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null);
         Product RemoveProduct(String productID);
         Product EditProduct(String productID, IDictionary<String, Object> details);
+        List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes);
     }
 
     public class InventoryManager : IInventoryManager
@@ -42,7 +43,6 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception($"Trying to remove non-existed product. (ID: {productID})");
         }
 
-        // TODO
         public Product EditProduct(string productID, IDictionary<String, object> details)
         {
             /*if (Products.TryGetValue(productID, out Product toEdit))
@@ -50,7 +50,7 @@ namespace eCommerce.src.DomainLayer.Store
                 ObjectDictionaryMapper<Product>.SetPropertyValue(toEdit, details);
             }
             throw new Exception($"Faild to edit product (ID: {productID}) - Product not found");*/
-            return null;
+            throw new NotImplementedException();
         }
 
         public List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes)
