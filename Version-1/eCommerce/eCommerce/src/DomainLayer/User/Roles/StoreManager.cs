@@ -20,15 +20,15 @@ namespace eCommerce.src.DomainLayer.User.Roles
             AppointedBy = appointedBy;
         }
 
-/*        public void SetPermission(int method, Boolean active)
+        public void SetPermission(int method, Boolean active)
         {
-            return Permission.SetPermission(method, active);
+            Permission.SetPermission(method, active);
         }
 
         public void SetPermission(Methods method, Boolean active)
         {
-            return Permission.SetPermission(method, active);
-        }*/
+            Permission.SetPermission(method, active);
+        }
 
         public String GetId()
         {
