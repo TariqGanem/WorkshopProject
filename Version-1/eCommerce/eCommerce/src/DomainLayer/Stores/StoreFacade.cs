@@ -7,7 +7,24 @@ using eCommerce.src.DomainLayer.User.Roles;
 
 namespace eCommerce.src.DomainLayer.Store
 {
-    public class StoreFacade
+    public interface IStoresFacade
+    {
+        Store OpenNewStore(RegisteredUser founder, String storeName);
+        Product AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        Boolean RemoveProductFromStore(String userID, String storeID, String productID);
+        Product EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
+        List<Product> SearchProduct(IDictionary<String, Object> productDetails);
+        Store GetStore(String storeID);
+        Boolean AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID, String storeID);
+        Boolean AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID, String storeID);
+        Boolean RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
+        Boolean SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
+        Boolean RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
+        Dictionary<IStaff, Permission> GetStoreStaff(string ownerID, string storeID);
+        StoreHistory GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin);
+        Store CloseStore(RegisteredUser founder, string storeID);
+    }
+    public class StoreFacade : IStoresFacade
     {
         #region parameters
         public ConcurrentDictionary<String, Store> Stores { get; }
