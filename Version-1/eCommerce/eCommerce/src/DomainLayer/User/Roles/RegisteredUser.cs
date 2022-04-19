@@ -35,33 +35,5 @@ namespace eCommerce.src.DomainLayer.User
                 Active = false;
             else throw new Exception("User already loged out!");
         }
-
-        //TODO 
-        public Product AddProductReview(Store.Store store, Product product, String review)
-        {
-            /*if (checkIfProductPurchasedByUser(store, product))
-            {
-                product.AddProductReview(Id, review);
-            }
-            throw new Exception("The User did not purchase the product before, therefore can not write it a review!");*/
-            throw new NotImplementedException();
-        }
-
-        //TODO
-        private Boolean checkIfProductPurchasedByUser(Store.Store store, Product product)
-        {
-            /*LinkedList<ShoppingBag> shoppingBags = History.ShoppingBags;
-            foreach (ShoppingBag bag in shoppingBags)
-            {
-                foreach (ConcurrentDictionary<Product, int> productQuantity in bag.Products)
-                {
-                    Product productInHistory = productQuantity.TryGetValue(pr);
-                    if (productInHistory.Id.Equals(product.Id)) { return true; }
-                }
-
-            }
-            return false;*/
-            throw new NotImplementedException();
-        }
     }
 }

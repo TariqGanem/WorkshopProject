@@ -20,7 +20,6 @@ namespace eCommerce.src.DomainLayer
         ShoppingCart GetUserShoppingCart(string userId);
         ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails);
         void UpdateShoppingCart(string userId, string storeId, String productId, int quantity);
-        void AddProductReview(String userID, String storeID, String productID, String review);
         #endregion
 
         #region System Management
@@ -73,7 +72,6 @@ namespace eCommerce.src.DomainLayer
         {
             RegisteredUser result = userFacade.AddSystemAdmin(userName);
             return result;
-
         }
 
         public Boolean IsSystemAdmin(String userId)
@@ -107,7 +105,7 @@ namespace eCommerce.src.DomainLayer
             foreach (var bag in purchasedBags)
             {
                 Store.Store store = storeFacade.GetStore(bag.Key);
-                // TODO - store.UpdateInventory(bag.Value);
+                store.UpdateInventory(bag.Value);
                 store.History.addShoppingBasket(bag.Value);
             }
             return purchasedCart;
@@ -125,13 +123,6 @@ namespace eCommerce.src.DomainLayer
             Store.Store resStore = storeFacade.GetStore(storeId);
             Product resProduct = resStore.GetProduct(productId);
             userFacade.UpdateShoppingCart(userId, resStore.Id, resProduct, quantity);
-        }
-
-        public void AddProductReview(string userId, string storeId, string productId, string review)
-        {
-            Store.Store storeRes = storeFacade.GetStore(storeId);
-            Product productRes = storeRes.GetProduct(productId);
-            userFacade.AddProductReview(userId, storeRes, productRes, review);
         }
         #endregion
     }
