@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Concurrent;
 using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.DomainLayer.User;
+using System.Threading;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -13,6 +14,7 @@ namespace eCommerce.src.DomainLayer.Store
         List<Product> SearchProduct(IDictionary<String, Object> searchAttributes);
         Product RemoveProduct(String userID, String productID);
         Product EditProduct(String userID, String productID, IDictionary<String, Object> details);
+        Boolean UpdateInventory(ShoppingBag bag);
         Boolean AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID);
         Boolean AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID);
         Boolean RemoveStoreManager(String removedManagerID, String currentlyOwnerID);
@@ -29,7 +31,7 @@ namespace eCommerce.src.DomainLayer.Store
         public Boolean Active { get; set;  }
         public StoreOwner Founder { get; }
         public InventoryManager InventoryManager { get; }
-        public StoreHistory History { get; set; }
+        public StoreHistory History { get; }
         public Double Rate { get; private set; }
         public int NumberOfRates { get; private set; }
         public ConcurrentDictionary<String,StoreOwner> Owners { get; }
@@ -41,7 +43,7 @@ namespace eCommerce.src.DomainLayer.Store
             Active = true;
             Founder = new StoreOwner(founder, Id, null);
             Owners = new ConcurrentDictionary<string, StoreOwner>();
-            Owners.TryAdd(founder.UserName, Founder);
+            Owners.TryAdd(founder.Id, Founder);
             Managers = new ConcurrentDictionary<string, StoreManager>();
             InventoryManager = new InventoryManager();
             History = new StoreHistory();
@@ -56,7 +58,7 @@ namespace eCommerce.src.DomainLayer.Store
             else
             {
                 NumberOfRates += 1;
-                Rate = (Rate + rate) / NumberOfRates;
+                Rate = (Rate * (NumberOfRates - 1) + rate) / NumberOfRates;
                 return Rate;
             }
         }
@@ -80,14 +82,30 @@ namespace eCommerce.src.DomainLayer.Store
 
         public Product RemoveProduct(String userID, String productID)
         {
-            if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.RemoveProduct))
+            try
             {
-                return InventoryManager.RemoveProduct(productID);
+                Monitor.TryEnter(productID);
+                try
+                {
+                    if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.RemoveProduct))
+                    {
+                        return InventoryManager.RemoveProduct(productID);
+                    }
+                    else
+                    {
+                        throw new Exception($"{userID} does not have permissions to remove products from {this.Name}");
+                    }
+                }
+                finally
+                {
+                    Monitor.Exit(productID);
+                }
             }
-            else
+            catch (SynchronizationLockException SyncEx)
             {
-                throw new Exception($"{userID} does not have permissions to remove products from {this.Name}");
+                throw new Exception("A SynchronizationLockException occurred. Message: " + SyncEx.Message);
             }
+            
         }
 
         public Product EditProduct(String userID, String productID, IDictionary<String, Object> details)
@@ -102,32 +120,100 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
+        public bool UpdateInventory(ShoppingBag bag)
+        {
+            ConcurrentDictionary<Product, int> product_quantity = bag.Products;
+            foreach (var product in product_quantity)
+            {
+                product.Key.Quantity = product.Key.Quantity - product.Value;
+            }
+            return true;
+        }
+
         public Boolean AddStoreOwner(RegisteredUser futureOwner, string currentlyOwnerID)
         {
-            if (!CheckIfStoreOwner(futureOwner.Id) && Owners.TryGetValue(currentlyOwnerID, out StoreOwner owner))
+            try
             {
-                StoreOwner newOwner = new StoreOwner(futureOwner, Id, owner);
-                Owners.TryAdd(futureOwner.Id, newOwner);
-
-                if (CheckIfStoreManager(futureOwner.Id))
+                Monitor.TryEnter(futureOwner);
+                try
                 {
-                    Managers.TryRemove(futureOwner.Id, out _);
+                    // Check new owner not already an owner + appointing owner is not a fraud or the appointing user is a manager with the right permissions
+                    if (!CheckIfStoreOwner(futureOwner.Id))
+                    {
+                        StoreOwner newOwner;
+                        if (Owners.TryGetValue(currentlyOwnerID, out StoreOwner owner))
+                        {
+                            newOwner = new StoreOwner(futureOwner, Id, owner);
+                            Owners.TryAdd(futureOwner.Id, newOwner);
+                        }
+                        else if (Managers.TryGetValue(currentlyOwnerID, out StoreManager manager) && CheckStoreManagerAndPermissions(currentlyOwnerID, Methods.AddStoreOwner))
+                        {
+                            newOwner = new StoreOwner(futureOwner, Id, manager);
+                            Owners.TryAdd(futureOwner.Id, newOwner);
+                        }
+                        else
+                        {
+                            throw new Exception($"Failed to add store owner: Appointing owner (Email: {currentlyOwnerID}) " +
+                                $"is not an owner at ${this.Name}");
+                        }
+                        if (CheckIfStoreManager(futureOwner.Id)) //remove from managers list if needed
+                        {
+                            Managers.TryRemove(futureOwner.Id, out _);
+                        }
+                        return true;
+                    }
+                    throw new Exception($"Failed to add store owner: Appointing owner (Email: {currentlyOwnerID}). The user is already an owner.");
+                }
+                finally
+                {
+                    Monitor.Exit(futureOwner);
                 }
             }
-            throw new Exception($"Failed to add store owner: Appointing owner (Email: {currentlyOwnerID}) " +
-                $"is not an owner at ${this.Name}");
+            catch (SynchronizationLockException SyncEx)
+            {
+                throw new Exception("A SynchronizationLockException occurred. Message: " + SyncEx.Message);
+            }
         }
 
         public Boolean AddStoreManager(RegisteredUser futureManager, string currentlyOwnerID)
         {
-            if (!CheckIfStoreManager(futureManager.Id) && !CheckIfStoreOwner(futureManager.Id)
-                    && Owners.TryGetValue(currentlyOwnerID, out StoreOwner owner))
+            try
             {
-                StoreManager newManager = new StoreManager(futureManager, this, new Permission(), owner);
-                Managers.TryAdd(futureManager.Id, newManager);
+                Monitor.TryEnter(futureManager);
+                try
+                {
+                    // Check new manager not already an owner/manager + appointing owner is not a fraud or the appointing user is a manager with the right permissions
+                    if (!CheckIfStoreManager(futureManager.Id) && !CheckIfStoreOwner(futureManager.Id))
+                    {
+                        StoreManager newManager;
+                        if (Owners.TryGetValue(currentlyOwnerID, out StoreOwner owner))
+                        {
+                            newManager = new StoreManager(futureManager, this, new Permission(), owner);
+                            Managers.TryAdd(futureManager.Id, newManager);
+                        }
+                        else if (Managers.TryGetValue(currentlyOwnerID, out StoreManager manager) && CheckStoreManagerAndPermissions(currentlyOwnerID, Methods.AddStoreManager))
+                        {
+                            newManager = new StoreManager(futureManager, this, new Permission(), manager);
+                            Managers.TryAdd(futureManager.Id, newManager);
+                        }
+                        else
+                        {
+                            throw new Exception($"Failed to add store manager because appoitend user is not an owner or manager with relevant permissions at the store");
+                        }
+
+                        return true;
+                    }
+                    throw new Exception($"Failed to add store manager. The user is already an manager or owner in the store");
+                }
+                finally
+                {
+                    Monitor.Exit(futureManager);
+                }
             }
-            throw new Exception($"Failed to add store owner: Appointing owner (Email: {currentlyOwnerID}) " +
-                $"is not an owner at ${this.Name}");
+            catch (SynchronizationLockException SyncEx)
+            {
+                throw new Exception("A SynchronizationLockException occurred. Message: " + SyncEx.Message);
+            }
         }
 
         public bool RemoveStoreManager(String removedManagerID, string currentlyOwnerID)
