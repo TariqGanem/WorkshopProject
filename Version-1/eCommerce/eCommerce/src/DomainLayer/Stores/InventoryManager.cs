@@ -5,24 +5,30 @@ using System.Linq;
 
 namespace eCommerce.src.DomainLayer.Store
 {
-    public class InventoryManager
+    public interface IInventoryManager
+    {
+        Product AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null);
+        Product RemoveProduct(String productID);
+        Product EditProduct(String productID, IDictionary<String, Object> details);
+    }
+
+    public class InventoryManager : IInventoryManager
     {
         public ConcurrentDictionary<String, Product> Products { get; }
-        public ConcurrentDictionary<String, int> ProductsQuantity { get; }
 
         public InventoryManager()
         {
             Products = new ConcurrentDictionary<String, Product>();
         }
 
-        public InventoryManager(ConcurrentDictionary<String, Product> products)
+        public InventoryManager(ConcurrentDictionary<String, Product> products, ConcurrentDictionary<String, int> productsQuantity)
         {
             Products = products;
         }
 
         public Product AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
-            Product newProduct = new Product(productName, price, category, keywords);
+            Product newProduct = new Product(productName, price, category, initialQuantity, keywords);
             Products.TryAdd(newProduct.Id, newProduct);
             return newProduct;
         }
@@ -36,23 +42,23 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception($"Trying to remove non-existed product. (ID: {productID})");
         }
 
+        // TODO
         public Product EditProduct(string productID, IDictionary<String, object> details)
         {
             /*if (Products.TryGetValue(productID, out Product toEdit))
             {
                 ObjectDictionaryMapper<Product>.SetPropertyValue(toEdit, details);
             }
-            //else failed
             throw new Exception($"Faild to edit product (ID: {productID}) - Product not found");*/
             return null;
         }
 
-        public List<Product> SearchProduct(IDictionary<String, Object> searchAttributes)
+        public List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes)
         {
             List<Product> searchResults = new List<Product>();
             foreach (Product product in this.Products.Values)
             {
-                if (CheckProduct(product, searchAttributes))
+                if (CheckProduct(storeRating, product, searchAttributes))
                 {
                     searchResults.Add(product);
                 }
@@ -67,7 +73,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
-        internal bool CheckProduct(Product product, IDictionary<String, Object> searchAttributes)
+        internal bool CheckProduct(Double storeRating, Product product, IDictionary<String, Object> searchAttributes)
         {
             Boolean result = true;
             ICollection<String> properties = searchAttributes.Keys;
@@ -87,6 +93,12 @@ namespace eCommerce.src.DomainLayer.Store
                         break;
                     case "highprice":
                         if (product.Price > (Double)value) { result = false; }
+                        break;
+                    case "productrating":
+                        if (product.Rate < (Double)value) { result = false; }
+                        break;
+                    case "storerating":
+                        if (storeRating < (Double)value) { result = false; }
                         break;
                     case "keywords":
                         bool found = false;
