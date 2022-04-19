@@ -50,4 +50,5 @@ namespace eCommerce.src.ServiceLayer.Objects
         }
         #endregion
     }
+
 }
