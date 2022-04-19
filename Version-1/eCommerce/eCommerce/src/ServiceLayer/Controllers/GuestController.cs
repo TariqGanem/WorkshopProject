@@ -30,7 +30,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         #region GuestControllerMethods
         public Response<guestUser> EnterSystem()
         {
-            GuestUser output = SystemFacade.EnterSystem();
+            GuestUser output = SystemFacade.Login();
             guestUser guestUser = new guestUser(output);
             return new Response<guestUser>(guestUser,null);
         }

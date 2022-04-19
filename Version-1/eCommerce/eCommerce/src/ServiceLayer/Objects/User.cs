@@ -13,10 +13,10 @@ namespace eCommerce.src.ServiceLayer.Objects
         #endregion
 
         #region constructors
-        public User()
+        public User(string id, shoppingCart cart)
         {
-            //Id = Service.GenerateId();
-            Cart = new ShoppingCart();
+            this.Id = id;
+            this.Cart = cart;
         }
         #endregion
     }
@@ -33,19 +33,19 @@ namespace eCommerce.src.ServiceLayer.Objects
     {
         #region parameters
         public string UserName { get; }
-        public string Email { get; }
+        //public string Email { get; }
         #endregion
 
         #region constructors
         public registeredUser(string id, shoppingCart cart, string username, string email) : base(id, cart)
         {
             this.UserName = username;
-            this.Email = email;
+            //this.Email = email;
         }
 
         public registeredUser(RegisteredUser registeredUser): base(registeredUser.Id,new shoppingCart(registeredUser.ShoppingCart))
         {
-            this.Email = registeredUser.Email;
+            //this.Email = registeredUser.Email;
             this.UserName = registeredUser.UserName;
         }
         #endregion

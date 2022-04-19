@@ -9,8 +9,7 @@ namespace eCommerce.src.DomainLayer.User
 {
     public interface IUserFacade
     {
-        GuestUser EnterSystem();
-        void ExitSystem(string id);
+        GuestUser Login();
         RegisteredUser Login(String userName, String password);
         void Logout(String userId);
         RegisteredUser Register(String userName, string email, String password);

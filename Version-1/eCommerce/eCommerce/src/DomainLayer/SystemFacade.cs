@@ -26,7 +26,7 @@ namespace eCommerce.src.DomainLayer
         #endregion
 
         #region Guest methods 
-        public GuestUser EnterSystem()
+        public GuestUser Login()
         {
             return userFacade.EnterSystem();
         }
