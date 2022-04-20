@@ -4,17 +4,19 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace eCommerce.src.DomainLayer.User
 {
     public interface IUserFacade
     {
+        GuestUser Login();
         RegisteredUser Login(String userName, String password);
         void Logout(String userId);
         RegisteredUser Register(String userName, String password);
         History GetUserPurchaseHistory(String userId);
-        Boolean AddProductToCart(string userId, Product product, int quantity, Store.Store store);
-        Boolean UpdateShoppingCart(string userId, string storeId, Product product, int quantity);
+        void AddProductToCart(string userId, Product product, int quantity, Store.Store store);
+        void UpdateShoppingCart(string userId, string storeId, Product product, int quantity);
         ShoppingCart GetUserShoppingCart(string userId);
         Double GetTotalShoppingCartPrice(String userID);
         ShoppingCart Purchase(String userId, IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails);
@@ -25,19 +27,31 @@ namespace eCommerce.src.DomainLayer.User
 
     public class UserFacade : IUserFacade
     {
-        public ConcurrentDictionary<String, SystemAdmin> SystemAdmins { get; }
+        #region parameters
+        public ConcurrentDictionary<String, RegisteredUser> SystemAdmins { get; }
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; }
         public ConcurrentDictionary<String, GuestUser> GuestUsers { get; }
 
         private readonly object my_lock = new object();
+        #endregion
 
+        #region constructors
         public UserFacade()
         {
-            SystemAdmins = new ConcurrentDictionary<string, SystemAdmin>();
+            SystemAdmins = new ConcurrentDictionary<string, RegisteredUser>();
             RegisteredUsers = new ConcurrentDictionary<string, RegisteredUser>();
             GuestUsers = new ConcurrentDictionary<string, GuestUser>();
         }
-        #region Public Methods
+        #endregion
+
+        #region methods
+        public GuestUser Login()
+        {
+            GuestUser guest = new GuestUser();
+            GuestUsers.TryAdd(guest.Id, guest);
+            return guest;
+        }
+
         public RegisteredUser Login(String userName, String password)
         {
             RegisteredUser registeredUser = GetUserByUserName(userName);
@@ -68,51 +82,152 @@ namespace eCommerce.src.DomainLayer.User
 
         public RegisteredUser Register(string userName, string password)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Monitor.TryEnter(my_lock);
+                try
+                {
+                    if (isUniqueEmail(userName))
+                    {
+                        RegisteredUser newUser = new RegisteredUser(userName, password);
+                        this.RegisteredUsers.TryAdd(newUser.Id, newUser);
+                        return newUser;
+                    }
+                    else
+                    {
+                        throw new Exception($"{userName} is aleady in user\n Please use different email!");
+                    }
+                }
+                finally
+                {
+                    Monitor.Exit(my_lock);
+                }
+            }
+            catch (SynchronizationLockException SyncEx)
+            {
+                Console.WriteLine("A SynchronizationLockException occurred. Message:");
+                Console.WriteLine(SyncEx.Message);
+                return null;
+            }
         }
-
         public History GetUserPurchaseHistory(string userId)
         {
-            throw new NotImplementedException();
+            if (RegisteredUsers.TryGetValue(userId, out RegisteredUser user))
+            {
+                return user.History;
+            }
+            throw new Exception("Not a registered user!");
         }
 
-        public bool AddProductToCart(string userId, Product product, int quantity, Store.Store store)
+        public void AddProductToCart(string userId, Product product, int quantity, Store.Store store)
         {
-            throw new NotImplementedException();
+            if (RegisteredUsers.TryGetValue(userId, out RegisteredUser user))   // Check if user is registered
+            {
+                user.AddProductToCart(product, quantity, store);
+            }
+            else if (GuestUsers.TryGetValue(userId, out GuestUser guest))   // Check if active guest
+            {
+                guest.AddProductToCart(product, quantity, store);
+            }
+            //else failed
+            throw new Exception($"User (ID: {userId}) does not exists!");
         }
 
-        public bool UpdateShoppingCart(string userId, string storeId, Product product, int quantity)
+        public void UpdateShoppingCart(string userId, string storeId, Product product, int quantity)
         {
-            throw new NotImplementedException();
+            if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
+            {
+                guest_user.UpdateShoppingCart(storeId, product, quantity);
+            }
+            else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
+            {
+                registerd_user.UpdateShoppingCart(storeId, product, quantity);
+            }
+            else
+            {
+                throw new Exception("User does not exist!");
+            }
         }
 
         public ShoppingCart GetUserShoppingCart(string userId)
         {
-            throw new NotImplementedException();
+            if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
+            {
+                return guest_user.ShoppingCart;
+            }
+            else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
+            {
+                return registerd_user.ShoppingCart;
+            }
+            else
+            {
+                throw new Exception("User does not exist!");
+            }
         }
 
         public double GetTotalShoppingCartPrice(string userID)
         {
-            throw new NotImplementedException();
+            if (RegisteredUsers.ContainsKey(userID))
+            {
+                //User Found
+                Double TotalPrice = RegisteredUsers[userID].ShoppingCart.GetTotalShoppingCartPrice();
+                return TotalPrice;
+            }
+            else
+            {
+                //No user if found using the given email
+                throw new Exception($"There is no suck user with ID:{userID}!");
+
+            }
         }
 
         public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
         {
-            throw new NotImplementedException();
+            if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
+            {
+                return guest_user.Purchase(paymentDetails, deliveryDetails);
+            }
+            else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
+            {
+                return registerd_user.Purchase(paymentDetails, deliveryDetails);
+            }
+            else
+            {
+                throw new Exception("User does not exist!");
+            }
         }
 
         public RegisteredUser AddSystemAdmin(string userName)
         {
-            throw new NotImplementedException();
+            RegisteredUser admin = GetUserByUserName(userName);
+            //registered user has been found
+            this.SystemAdmins.TryAdd(admin.Id, admin);
+            return admin;
         }
 
         public RegisteredUser RemoveSystemAdmin(string userName)
         {
-            throw new NotImplementedException();
+            RegisteredUser searchResult = GetUserByUserName(userName);
+            RegisteredUser removedUser;
+            //registered user has been found
+            //Check the constrain for at least one system admin
+            if (this.SystemAdmins.Count > 1)
+            {
+                this.SystemAdmins.TryRemove(searchResult.Id, out removedUser);
+                return removedUser;
+            }
+
+            //there is only one system admin
+            else
+            {
+                throw new Exception($"{userName} could not be removed as system admin\n The system need at least one system admin!");
+
+            }
+
         }
         #endregion
 
-        #region Private Methods
+        #region privateMethods
         private RegisteredUser GetUserByUserName(String userName)
         {
             foreach (RegisteredUser registeredUser in RegisteredUsers.Values)
@@ -123,6 +238,17 @@ namespace eCommerce.src.DomainLayer.User
                 }
             }
             throw new Exception($"Username {userName} doesn't exist!");
+        }
+        private Boolean isUniqueEmail(string userName)
+        {
+            foreach (RegisteredUser registerUser in RegisteredUsers.Values)
+            {
+                if (registerUser.UserName.Equals(userName))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         #endregion
     }

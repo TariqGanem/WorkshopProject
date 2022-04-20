@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eCommerce.src.ExternalSystems
 {
-    internal class Logistics
+    public class Logistics
     {
         public static Boolean Deliver(IDictionary<String, Object> deliveryDetails)
         {

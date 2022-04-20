@@ -7,14 +7,18 @@
     /// </summary>
     public class Response
     {
+        #region parameters
         public readonly string ErrorMessage;
         public bool ErrorOccured { get => ErrorMessage != null; }
+        #endregion
+
+        #region constructors
         public Response() { }
         public Response(string msg)
         {
             this.ErrorMessage = msg;
         }
-
+        #endregion
     }
 }
 

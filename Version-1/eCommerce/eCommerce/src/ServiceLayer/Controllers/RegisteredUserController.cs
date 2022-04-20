@@ -9,12 +9,16 @@ namespace eCommerce.src.ServiceLayer.Controllers
 {
     public interface IRegisteredUserController
     {
-        Response<RegisteredUser> Login(String userName, String password);
+        public Response<RegisteredUser> Login(String userName, String password);
     }
+
     public class RegisteredUserController : GuestController, IRegisteredUserController
     {
+        #region constructors
         public RegisteredUserController(ISystemFacade systemFacade) : base(systemFacade) { }
+        #endregion
 
+        #region GuestUserInterfaceMethods
         public Response<RegisteredUser> Login(String userName, String password)
         {
             RegisteredUser registeredUser = null;
@@ -29,7 +33,9 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             return new Response<RegisteredUser>(registeredUser);
         }
+        #endregion
 
+        #region privateMethods
         private void ValidateCredentials(String userName, String password)
         {
             if (userName == null)
@@ -41,5 +47,6 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 throw new ArgumentNullException("Password is null!");
             }
         }
+        #endregion
     }
 }

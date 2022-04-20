@@ -14,7 +14,6 @@ namespace eCommerce.src.DomainLayer.Store
         Boolean RemoveProductFromStore(String userID, String storeID, String productID);
         Product EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         List<Product> SearchProduct(IDictionary<String, Object> productDetails);
-        Store GetStore(String storeID);
         Boolean AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID, String storeID);
         Boolean AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID, String storeID);
         Boolean RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);

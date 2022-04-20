@@ -8,16 +8,11 @@ using eCommerce.src.ServiceLayer.Response;
 namespace eCommerce.src.ServiceLayer
 {
 
-    interface IeCommerceAPI : IGuestController , IRegisteredUserController { }
-    class eCommerceSystem : IeCommerceAPI
+    public interface IeCommerceAPI { }//TODO : IGuestController , IRegisteredUserController { }
+    public class eCommerceSystem : IeCommerceAPI
     {
         public eCommerceSystem() { 
         
-        }
-
-        public Response<RegisteredUser> Login(string userName, string password)
-        {
-            throw new NotImplementedException();
         }
     }
 }

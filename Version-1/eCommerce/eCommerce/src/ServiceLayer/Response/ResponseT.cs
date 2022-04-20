@@ -11,7 +11,11 @@ namespace eCommerce.src.ServiceLayer.Response
     /// <typeparam name="T">The type of the returned value of the function.</typeparam>
     public class Response<T> : Response
     {
+        #region parameters
         public readonly T Value;
+        #endregion
+
+        #region constructos
         public Response(string msg) : base(msg) { }
         public Response(T value) : base()
         {
@@ -21,5 +25,6 @@ namespace eCommerce.src.ServiceLayer.Response
         {
             this.Value = value;
         }
+        #endregion
     }
 }
