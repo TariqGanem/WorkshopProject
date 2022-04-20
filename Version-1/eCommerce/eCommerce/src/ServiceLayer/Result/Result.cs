@@ -5,7 +5,7 @@
     /// If an exception was thrown, <c>ErrorOccured = true</c> and <c>ErrorMessage != null</c>. 
     /// Otherwise, <c>ErrorOccured = false</c> and <c>ErrorMessage = null</c>.
     /// </summary>
-    public class Response
+    public class Result
     {
         #region parameters
         public readonly string ErrorMessage;
@@ -13,8 +13,8 @@
         #endregion
 
         #region constructors
-        public Response() { }
-        public Response(string msg)
+        public Result() { }
+        public Result(string msg)
         {
             this.ErrorMessage = msg;
         }

@@ -9,7 +9,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
     public interface IGuestController
     {
         Response<GuestUserSO> Login();
-        Response.Response Logout(String userId);
+        Response.Result Logout(String userId);
         Response<RegisteredUserSO> Register(string username, string password);
 
     }
@@ -31,12 +31,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             return new Response<GuestUserSO>(SystemFacade.Login());
         }
 
-        public Response.Response Logout(string userId)
+        public Response.Result Logout(string userId)
         {
             if (userId == null || userId == "")
-                return new Response.Response("The userId is empty!!!");
+                return new Response.Result("The userId is empty!!!");
             SystemFacade.Logout(userId);
-            return new Response.Response();
+            return new Response.Result();
         }
 
         public Response<RegisteredUserSO> Register(string username, string password)

@@ -4,11 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.Concurrent;
-<<<<<<< HEAD
 using eCommerce.src.ServiceLayer.Objects;
-=======
 using eCommerce.src.DomainLayer.User.Roles;
->>>>>>> dev1-Version1
 
 namespace eCommerce.src.DomainLayer
 {
@@ -20,17 +17,17 @@ namespace eCommerce.src.DomainLayer
         void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         void RemoveProductFromStore(String userID, String storeID, String productID);
         void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
-        List<Product> SearchProduct(IDictionary<String, Object> productDetails);
+        List<ProductService> SearchProduct(IDictionary<String, Object> productDetails);
         #endregion
 
         #region Staff Management
-        StoreHistory GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false);
+        StoreHistoryService GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false);
         void AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
         void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
         void SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         void RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
-        Dictionary<IStaff, Permission> GetStoreStaff(String ownerID, String storeID);
+        Dictionary<IStaffService, PermissionService> GetStoreStaff(String ownerID, String storeID);
         #endregion
 
         #region User Actions - UserFacade
@@ -176,9 +173,15 @@ namespace eCommerce.src.DomainLayer
             storeFacade.EditProductDetails(userID, storeID, productID, details);
         }
 
-        public List<Product> SearchProduct(IDictionary<String, Object> productDetails)
+        public List<ProductService> SearchProduct(IDictionary<String, Object> productDetails)
         {
-            return storeFacade.SearchProduct(productDetails);
+            List<Product> products = storeFacade.SearchProduct(productDetails);
+            List<ProductService> result = new List<ProductService>();
+            foreach(Product p in products)
+            {
+                result.Add(new ProductService(p.Id, p.Name, p.Price, p.Quantity, p.Category));
+            }
+            return result;
         }
 
         public void AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID)
@@ -223,14 +226,14 @@ namespace eCommerce.src.DomainLayer
             storeFacade.RemovePermissions(storeID, managerID, ownerID, permissions);
         }
 
-        public Dictionary<IStaff, Permission> GetStoreStaff(string userID, string storeID)
+        public Dictionary<IStaffService, PermissionService> GetStoreStaff(string userID, string storeID)
         {
-            return storeFacade.GetStoreStaff(userID, storeID);
+            throw new NotImplementedException();
         }
 
-        public StoreHistory GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false)
+        public StoreHistoryService GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false)
         {
-            return storeFacade.GetStorePurchaseHistory(userID, storeID, systemAdmin);
+            throw new NotImplementedException();
         }
         #endregion
     }
