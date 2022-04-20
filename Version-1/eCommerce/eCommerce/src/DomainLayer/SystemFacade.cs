@@ -20,6 +20,7 @@ namespace eCommerce.src.DomainLayer
         #endregion
 
         #region Staff Management
+        StoreHistory GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false);
         void AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
         void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
@@ -145,7 +146,7 @@ namespace eCommerce.src.DomainLayer
         {
             if (userFacade.RegisteredUsers.TryGetValue(userID, out RegisteredUser founder))  // Check if userID is a registered user
             {
-                Store.Store res = storeFacade.OpenNewStore(founder, storeName);
+                storeFacade.OpenNewStore(founder, storeName);
             }
             throw new Exception($"Failed to open store {storeName}: {userID} is not a registered user");
         }
