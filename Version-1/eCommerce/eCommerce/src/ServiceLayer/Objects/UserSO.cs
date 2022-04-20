@@ -37,10 +37,10 @@ namespace eCommerce.src.ServiceLayer.Objects
         #endregion
 
         #region constructors
-        public RegisteredUserSO(string id, Boolean active, ShoppingCart cart, string username) : base(id, new ShoppingCartSO(cart))
+        public RegisteredUserSO(RegisteredUser user) : base(user.Id, new ShoppingCartSO(user.ShoppingCart))
         {
-            this.UserName = username;
-            this.Active = active;
+            this.UserName = user.UserName;
+            this.Active = user.Active;
         }
         #endregion
     }

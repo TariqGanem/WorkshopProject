@@ -16,14 +16,6 @@ namespace eCommerce.src.ServiceLayer.Objects
         #endregion
 
         #region constructors
-        public ShoppingBagSO(string id, string userId, string storeId, Dictionary<ProductSO, int> products, double totalPrice)
-        {
-            this.Id = id;
-            this.UserId = userId;
-            this.StoreId = storeId;
-            this.Products = products;
-            this.TotalPrice = totalPrice;
-        }
 
         public ShoppingBagSO(ShoppingBag shoppingBag)
         {
