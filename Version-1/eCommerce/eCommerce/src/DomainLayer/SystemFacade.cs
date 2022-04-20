@@ -4,14 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.Concurrent;
+using eCommerce.src.ServiceLayer.Objects;
 
 namespace eCommerce.src.DomainLayer
 {
     public interface ISystemFacade
     {
         #region User Actions - UserFacade
-        GuestUser Login();
-        RegisteredUser Register(string username, string password);
+        GuestUserSO Login();
+        RegisteredUserSO Register(string username, string password);
         RegisteredUser Login(String userName, String password);
         void Logout(String userId);
         void AddProductToCart(string userId, String productId, int quantity, String storeId);
@@ -47,14 +48,16 @@ namespace eCommerce.src.DomainLayer
 
 
         #region UserFacadeMethods
-        public GuestUser Login()
+        public GuestUserSO Login()
         {
-            return userFacade.Login();
+            GuestUser user = userFacade.Login();
+            return new GuestUserSO(user);
         }
 
-        public RegisteredUser Register(string username, string password)
+        public RegisteredUserSO Register(string username, string password)
         {
-            return userFacade.Register(username, password);
+            RegisteredUser user = userFacade.Register(username, password);
+            return new RegisteredUserSO(user.Id, user.Active, user.ShoppingCart, username);
         }
         public RegisteredUser Login(String userName, String password) { return userFacade.Login(userName, password); }
 

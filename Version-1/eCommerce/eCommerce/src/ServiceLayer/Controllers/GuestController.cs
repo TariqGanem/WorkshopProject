@@ -9,7 +9,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
     public interface IGuestController
     {
         Response<GuestUserSO> Login();
-        void Logout(String userId);
+        Response.Response Logout(String userId);
         Response<RegisteredUserSO> Register(string username, string password);
 
     }
@@ -28,29 +28,16 @@ namespace eCommerce.src.ServiceLayer.Controllers
         #region GuestControllerMethods
         public Response<GuestUserSO> Login()
         {
-            return new Response<RegisteredUserSO>(SystemFacade.Login());
+            return new Response<GuestUserSO>(SystemFacade.Login());
         }
 
-        public void Logout(string userId)
+        public Response.Response Logout(string userId)
         {
-            throw new NotImplementedException();
+            if (userId == null || userId == "")
+                return new Response.Response("The userId is empty!!!");
+            SystemFacade.Logout(userId);
+            return new Response.Response();
         }
-
-
-        /*        public Response<guestUser> EnterSystem()
-                {
-                    GuestUser output = SystemFacade.Login();
-                    guestUser guestUser = new guestUser(output);
-                    return new Response<guestUser>(guestUser,null);
-                }
-
-                public Response<string> ExitSystem(string userID)
-                {
-                    if (userID == null || userID == "")
-                        return new Response<string>("the userId is empty!!!");
-                    SystemFacade.ExitSystem(userID);
-                    return new Response<string>(null);
-                }*/
 
         public Response<RegisteredUserSO> Register(string username, string password)
         {
@@ -60,8 +47,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Response<RegisteredUserSO>("The password is invalid!!!");
             try
             {
-                RegisteredUserSO user = new RegisteredUserSO(SystemFacade.Register(username, password));
-                return new Response<RegisteredUserSO>(user, null);
+                RegisteredUserSO user = SystemFacade.Register(username, password);
+                return new Response<RegisteredUserSO>(user);
             }
             catch (Exception e)
             {

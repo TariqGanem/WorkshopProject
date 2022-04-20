@@ -9,6 +9,7 @@ namespace eCommerce.src.ServiceLayer.Objects
     {
         #region parameters
         public string Id { get; }
+        public Boolean Active { get; set; }
         public ShoppingCartSO Cart { get; }
         #endregion
 
@@ -25,7 +26,7 @@ namespace eCommerce.src.ServiceLayer.Objects
     {
         #region constructos
         public GuestUserSO(string id, ShoppingCartSO cart) : base(id, cart) { }
-        public GuestUserSO(GuestUser guest): base(guest.Id,new ShoppingCartSO(guest.ShoppingCart)) {}
+        public GuestUserSO(GuestUser guest) : base(guest.Id, new ShoppingCartSO(guest.ShoppingCart)) { }
         #endregion
     }
 
@@ -33,18 +34,13 @@ namespace eCommerce.src.ServiceLayer.Objects
     {
         #region parameters
         public string UserName { get; }
-        //public string Email { get; }
         #endregion
 
         #region constructors
-        public RegisteredUserSO(string id, ShoppingCartSO cart, string username) : base(id, cart)
+        public RegisteredUserSO(string id, Boolean active, ShoppingCart cart, string username) : base(id, new ShoppingCartSO(cart))
         {
             this.UserName = username;
-        }
-
-        public RegisteredUserSO(RegisteredUser registeredUser): base(registeredUser.Id,new ShoppingCartSO(registeredUser.ShoppingCart))
-        {
-            this.UserName = registeredUser.UserName;
+            this.Active = active;
         }
         #endregion
     }
