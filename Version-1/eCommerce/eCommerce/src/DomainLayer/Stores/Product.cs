@@ -46,11 +46,5 @@ namespace eCommerce.src.DomainLayer.Store
                 return Rate;
             }
         }
-
-        public String AddKeyword(String keyWord)
-        {
-            KeyWords.AddLast(keyWord);
-            return keyWord;
-        }
     }
 }

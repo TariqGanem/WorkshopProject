@@ -8,7 +8,7 @@ namespace eCommerce.src.DomainLayer.Store
 {
     public class StoreHistory
     {
-        ConcurrentBag<ShoppingBag> history { get; }
+        public ConcurrentBag<ShoppingBag> history { get; }
 
         public StoreHistory()
         {

@@ -26,23 +26,24 @@ namespace eCommerce.src.ServiceLayer.Controllers
             SystemFacade = systemFacade;
         }
         #endregion
-
+        /* 
         #region GuestControllerMethods
-/*        public Response<guestUser> EnterSystem()
-        {
-            GuestUser output = SystemFacade.Login();
-            guestUser guestUser = new guestUser(output);
-            return new Response<guestUser>(guestUser,null);
-        }
+               public Response<guestUser> EnterSystem()
+                {
+                    GuestUser output = SystemFacade.Login();
+                    guestUser guestUser = new guestUser(output);
+                    return new Response<guestUser>(guestUser,null);
+                }
 
-        public Response<string> ExitSystem(string userID)
-        {
-            if (userID == null || userID == "")
-                return new Response<string>("the userId is empty!!!");
-            SystemFacade.ExitSystem(userID);
-            return new Response<string>(null);
-        }*/
+                public Response<string> ExitSystem(string userID)
+                {
+                    if (userID == null || userID == "")
+                        return new Response<string>("the userId is empty!!!");
+                    SystemFacade.ExitSystem(userID);
+                    return new Response<string>(null);
+                }*/
 
+        /*
         public Response<registeredUser> Register(string username, string email, string password)
         {
             if (username == null || username == "")
@@ -61,5 +62,6 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
         }
         #endregion
+        */
     }
 }
