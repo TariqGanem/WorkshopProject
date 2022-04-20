@@ -14,7 +14,6 @@ namespace eCommerce.src.DomainLayer.Store
         Boolean RemoveProductFromStore(String userID, String storeID, String productID);
         Product EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         List<Product> SearchProduct(IDictionary<String, Object> productDetails);
-        Store GetStore(String storeID);
         Boolean AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID, String storeID);
         Boolean AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID, String storeID);
         Boolean RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
@@ -26,18 +25,13 @@ namespace eCommerce.src.DomainLayer.Store
     }
     public class StoreFacade : IStoresFacade
     {
-        #region parameters
         public ConcurrentDictionary<String, Store> Stores { get; }
-        #endregion
 
-        #region cosntructors
         public StoreFacade()
         {
             Stores = new ConcurrentDictionary<String, Store>();
         }
-        #endregion
 
-        #region methods
         public Product AddProductToStore(String userID, String storeID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
             if (Stores.TryGetValue(storeID, out Store store))
@@ -181,6 +175,5 @@ namespace eCommerce.src.DomainLayer.Store
             }
             throw new Exception("Store does not exists");
         }
-        #endregion
     }
 }
