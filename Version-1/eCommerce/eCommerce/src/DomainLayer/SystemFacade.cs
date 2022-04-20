@@ -33,19 +33,19 @@ namespace eCommerce.src.DomainLayer
         #region User Actions - UserFacade
         GuestUserSO Login();
         RegisteredUserSO Register(string username, string password);
-        RegisteredUser Login(String userName, String password);
+        RegisteredUserSO Login(String userName, String password);
         void Logout(String userId);
         void AddProductToCart(string userId, String productId, int quantity, String storeId);
         Double GetTotalShoppingCartPrice(string userId);
-        History GetUserPurchaseHistory(string userId);
-        ShoppingCart GetUserShoppingCart(string userId);
-        ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails);
+        UserHistorySO GetUserPurchaseHistory(string userId);
+        ShoppingCartSO GetUserShoppingCart(string userId);
+        ShoppingCartSO Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails);
         void UpdateShoppingCart(string userId, string storeId, String productId, int quantity);
         #endregion
 
         #region System Management
-        RegisteredUser AddSystemAdmin(string userName);
-        RegisteredUser RemoveSystemAdmin(string userName);
+        RegisteredUserSO AddSystemAdmin(string userName);
+        RegisteredUserSO RemoveSystemAdmin(string userName);
         Boolean IsSystemAdmin(String userId);
         #endregion
 
@@ -72,24 +72,27 @@ namespace eCommerce.src.DomainLayer
         public RegisteredUserSO Register(string username, string password)
         {
             RegisteredUser user = userFacade.Register(username, password);
-            return new RegisteredUserSO(user.Id, user.Active, user.ShoppingCart, username);
+            return new RegisteredUserSO(user);
         }
-        public RegisteredUser Login(String userName, String password) { return userFacade.Login(userName, password); }
+        public RegisteredUserSO Login(String userName, String password)
+        {
+            RegisteredUser user = userFacade.Login(userName, password);
+            return new RegisteredUserSO(user);
+        }
 
         public void Logout(String userId) { userFacade.Logout(userId); }
 
         public void AddProductToCart(string userId, String productId, int quantity, String storeId)
         {
             Store.Store store = storeFacade.GetStore(storeId);
-            Product searchProductRes = store.GetProduct(productId);
-            Product product = searchProductRes;
+            Product product = store.GetProduct(productId);
             userFacade.AddProductToCart(userId, product, quantity, store);
         }
 
-        public RegisteredUser AddSystemAdmin(string userName)
+        public RegisteredUserSO AddSystemAdmin(string userName)
         {
-            RegisteredUser result = userFacade.AddSystemAdmin(userName);
-            return result;
+            RegisteredUser user = userFacade.AddSystemAdmin(userName);
+            return new RegisteredUserSO(user);
         }
 
         public Boolean IsSystemAdmin(String userId)
@@ -103,18 +106,20 @@ namespace eCommerce.src.DomainLayer
             return userFacade.GetTotalShoppingCartPrice(userId);
         }
 
-        public History GetUserPurchaseHistory(string userId)
+        public UserHistorySO GetUserPurchaseHistory(string userId)
         {
-            return userFacade.GetUserPurchaseHistory(userId);
+            History history = userFacade.GetUserPurchaseHistory(userId);
+            return new UserHistorySO(history);
 
         }
 
-        public ShoppingCart GetUserShoppingCart(string userId)
+        public ShoppingCartSO GetUserShoppingCart(string userId)
         {
-            return userFacade.GetUserShoppingCart(userId);
+            ShoppingCart shoppingCart = userFacade.GetUserShoppingCart(userId);
+            return new ShoppingCartSO(shoppingCart);
         }
 
-        public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
+        public ShoppingCartSO Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
         {
             // TODO - lock products ?
             ShoppingCart purchasedCart = userFacade.Purchase(userId, paymentDetails, deliveryDetails);
@@ -126,14 +131,14 @@ namespace eCommerce.src.DomainLayer
                 store.UpdateInventory(bag.Value);
                 store.History.addShoppingBasket(bag.Value);
             }
-            return purchasedCart;
+            return new ShoppingCartSO(purchasedCart);
 
         }
 
-        public RegisteredUser RemoveSystemAdmin(string userName)
+        public RegisteredUserSO RemoveSystemAdmin(string userName)
         {
-            RegisteredUser result = userFacade.RemoveSystemAdmin(userName);
-            return result;
+            RegisteredUser user = userFacade.RemoveSystemAdmin(userName);
+            return new RegisteredUserSO(user);
         }
 
         public void UpdateShoppingCart(string userId, string storeId, String productId, int quantity)
@@ -177,7 +182,7 @@ namespace eCommerce.src.DomainLayer
         {
             List<Product> products = storeFacade.SearchProduct(productDetails);
             List<ProductService> result = new List<ProductService>();
-            foreach(Product p in products)
+            foreach (Product p in products)
             {
                 result.Add(new ProductService(p.Id, p.Name, p.Price, p.Quantity, p.Category));
             }

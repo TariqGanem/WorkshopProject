@@ -11,7 +11,7 @@ namespace eCommerce.src.ServiceLayer.Objects
         public string Id { get; }
         public string UserId { get; }
         public string StoreId { get; }
-        public Dictionary<ProductSO, int> Products { get; }
+        public Dictionary<ProductService, int> Products { get; }
         public double TotalPrice { get; }
         #endregion
 
@@ -23,10 +23,10 @@ namespace eCommerce.src.ServiceLayer.Objects
             this.UserId = shoppingBag.UserId;
             this.StoreId = shoppingBag.Store.Id;
             this.TotalPrice = shoppingBag.TotalBagPrice;
-            this.Products = new Dictionary<ProductSO, int>();
+            this.Products = new Dictionary<ProductService, int>();
             foreach (Product p in shoppingBag.Products.Keys)
             {
-                ProductSO new_p = new ProductSO(p);
+                ProductService new_p = new ProductService(p.Id, p.Name, p.Price, p.Quantity, p.Category);
                 this.Products[new_p] = shoppingBag.Products[p];
             }
         }

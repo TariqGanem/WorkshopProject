@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.src.DomainLayer.User;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,9 +11,14 @@ namespace eCommerce.src.ServiceLayer.Objects
         public LinkedList<ShoppingBagSO> ShoppingBags { get; }
 
         //Constructor
-        public UserHistorySO(LinkedList<ShoppingBagSO> shoppingBags)
+        public UserHistorySO(History history)
         {
-            ShoppingBags = shoppingBags;
+            ShoppingBags = new LinkedList<ShoppingBagSO>();
+            LinkedList<ShoppingBag> shoppingBags = history.ShoppingBags;
+            foreach (ShoppingBag bag in shoppingBags)
+            {
+                ShoppingBags.AddLast(new ShoppingBagSO(bag));
+            }
         }
     }
 }
