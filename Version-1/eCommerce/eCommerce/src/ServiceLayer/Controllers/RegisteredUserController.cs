@@ -1,5 +1,6 @@
 ﻿using eCommerce.src.DomainLayer;
 using eCommerce.src.DomainLayer.User;
+using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.Response;
 using System;
 using System.Collections.Generic;
@@ -9,42 +10,72 @@ namespace eCommerce.src.ServiceLayer.Controllers
 {
     public interface IRegisteredUserController
     {
-        public Response<RegisteredUser> Login(String userName, String password);
+        Result<RegisteredUserSO> Login(String userName, String password);
+        Result<UserHistorySO> GetUserPurchaseHistory(String userId);
+        Result OpenNewStore(String storeName, String userId);
+        Result CloseStore(string userId, string storeId);
     }
 
-    public class RegisteredUserController : GuestController, IRegisteredUserController
+    public class RegisteredUserController : UserController, IRegisteredUserController
     {
-        #region constructors
         public RegisteredUserController(ISystemFacade systemFacade) : base(systemFacade) { }
-        #endregion
 
-        #region GuestUserInterfaceMethods
-        public Response<RegisteredUser> Login(String userName, String password)
+        #region RegisteredtUserInterfaceMethods
+        public Result<RegisteredUserSO> Login(String userName, String password)
         {
-            RegisteredUser registeredUser = null;
             try
             {
                 ValidateCredentials(userName, password);
-                registeredUser = SystemFacade.Login(userName, password);
+                RegisteredUserSO user = SystemFacade.Login(userName, password);
+                return new Result<RegisteredUserSO>(user);
             }
             catch (Exception e)
             {
-                return new Response<RegisteredUser>(e.Message);
+                return new Result<RegisteredUserSO>(e.Message);
             }
-            return new Response<RegisteredUser>(registeredUser);
         }
-        #endregion
-
-        #region privateMethods
-        private void ValidateCredentials(String userName, String password)
+        public Result<UserHistorySO> GetUserPurchaseHistory(String userId)
         {
-            if (userName == null)
+            try
             {
-                throw new ArgumentNullException("Username is null!");
+                ValidateId(userId);
+                UserHistorySO history = SystemFacade.GetUserPurchaseHistory(userId);
+                return new Result<UserHistorySO>(history);
             }
-            if (password == null)
+            catch (Exception e)
             {
-                throw new ArgumentNullException("Password is null!");
+                return new Result<UserHistorySO>(e.Message);
+            }
+        }
+
+        Result IRegisteredUserController.OpenNewStore(string storeName, string userId)
+        {
+            try
+            {
+                ValidateId(userId);
+                if (storeName == null || storeName.Length == 0)
+                    return new Result("Store name can't be null or empty!");
+                SystemFacade.OpenNewStore(storeName, userId);
+                return new Result();
+            }
+            catch (Exception e)
+            {
+                return new Result(e.Message);
+            }
+        }
+
+        Result IRegisteredUserController.CloseStore(string userId, string storeId)
+        {
+            try
+            {
+                ValidateId(userId);
+                ValidateId(storeId);
+                SystemFacade.CloseStore(userId, storeId);
+                return new Result();
+            }
+            catch (Exception e)
+            {
+                return new Result(e.Message);
             }
         }
         #endregion

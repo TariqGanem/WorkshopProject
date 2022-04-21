@@ -9,19 +9,19 @@ namespace eCommerce.src.DomainLayer.Store
 {
     public interface IStoreOperations
     {
-        Double AddRating(Double rate);
-        Product AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        void AddRating(Double rate);
+        void AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         List<Product> SearchProduct(IDictionary<String, Object> searchAttributes);
-        Product RemoveProduct(String userID, String productID);
-        Product EditProduct(String userID, String productID, IDictionary<String, Object> details);
-        Boolean UpdateInventory(ShoppingBag bag);
-        Boolean AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID);
-        Boolean AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID);
-        Boolean RemoveStoreManager(String removedManagerID, String currentlyOwnerID);
-        Boolean SetPermissions(String managerID, String ownerID, LinkedList<int> permissions);
-        Boolean RemovePermissions(String managerID, String ownerID, LinkedList<int> permissions);
+        void RemoveProduct(String userID, String productID);
+        void EditProduct(String userID, String productID, IDictionary<String, Object> details);
+        void UpdateInventory(ShoppingBag bag);
+        void AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID);
+        void AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID);
+        void RemoveStoreManager(String removedManagerID, String currentlyOwnerID);
+        void SetPermissions(String managerID, String ownerID, LinkedList<int> permissions);
+        void RemovePermissions(String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaff, Permission> GetStoreStaff(String userID);
-        StoreHistory GetStorePurchaseHistory(string ownerID, bool sysAdmin);
+        History GetStorePurchaseHistory(string ownerID, bool sysAdmin);
         Product GetProduct(string productID);
     }
     public class Store : IStoreOperations
@@ -31,7 +31,7 @@ namespace eCommerce.src.DomainLayer.Store
         public Boolean Active { get; set;  }
         public StoreOwner Founder { get; }
         public InventoryManager InventoryManager { get; }
-        public StoreHistory History { get; }
+        public History History { get; }
         public Double Rate { get; private set; }
         public int NumberOfRates { get; private set; }
         public ConcurrentDictionary<String,StoreOwner> Owners { get; }
@@ -39,6 +39,7 @@ namespace eCommerce.src.DomainLayer.Store
 
         public Store(String name, RegisteredUser founder)
         {
+            Id = Service.GenerateId();
             Name = name;
             Active = true;
             Founder = new StoreOwner(founder, Id, null);
@@ -46,10 +47,10 @@ namespace eCommerce.src.DomainLayer.Store
             Owners.TryAdd(founder.Id, Founder);
             Managers = new ConcurrentDictionary<string, StoreManager>();
             InventoryManager = new InventoryManager();
-            History = new StoreHistory();
+            History = new History();
         }
 
-        public Double AddRating(Double rate)
+        public void AddRating(Double rate)
         {
             if (rate < 1 || rate > 5)
             {
@@ -59,7 +60,6 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 NumberOfRates += 1;
                 Rate = (Rate * (NumberOfRates - 1) + rate) / NumberOfRates;
-                return Rate;
             }
         }
 
@@ -68,11 +68,11 @@ namespace eCommerce.src.DomainLayer.Store
             return InventoryManager.SearchProduct(Rate, searchAttributes);
         }
 
-        public Product AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null)
+        public void AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null)
         {
             if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.AddNewProduct))
             {
-                return InventoryManager.AddNewProduct(productName, price, initialQuantity, category, keyWords);
+                InventoryManager.AddNewProduct(productName, price, initialQuantity, category, keyWords);
             }
             else
             {
@@ -80,7 +80,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
-        public Product RemoveProduct(String userID, String productID)
+        public void RemoveProduct(String userID, String productID)
         {
             try
             {
@@ -89,7 +89,7 @@ namespace eCommerce.src.DomainLayer.Store
                 {
                     if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.RemoveProduct))
                     {
-                        return InventoryManager.RemoveProduct(productID);
+                        InventoryManager.RemoveProduct(productID);
                     }
                     else
                     {
@@ -108,11 +108,11 @@ namespace eCommerce.src.DomainLayer.Store
             
         }
 
-        public Product EditProduct(String userID, String productID, IDictionary<String, Object> details)
+        public void EditProduct(String userID, String productID, IDictionary<String, Object> details)
         {
             if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.EditProduct))
             {
-                return InventoryManager.EditProduct(productID, details);
+               InventoryManager.EditProduct(productID, details);
             }
             else
             {
@@ -120,17 +120,16 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
-        public bool UpdateInventory(ShoppingBag bag)
+        public void UpdateInventory(ShoppingBag bag)
         {
             ConcurrentDictionary<Product, int> product_quantity = bag.Products;
             foreach (var product in product_quantity)
             {
                 product.Key.Quantity = product.Key.Quantity - product.Value;
             }
-            return true;
         }
 
-        public Boolean AddStoreOwner(RegisteredUser futureOwner, string currentlyOwnerID)
+        public void AddStoreOwner(RegisteredUser futureOwner, string currentlyOwnerID)
         {
             try
             {
@@ -160,7 +159,6 @@ namespace eCommerce.src.DomainLayer.Store
                         {
                             Managers.TryRemove(futureOwner.Id, out _);
                         }
-                        return true;
                     }
                     throw new Exception($"Failed to add store owner: Appointing owner (Email: {currentlyOwnerID}). The user is already an owner.");
                 }
@@ -175,7 +173,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
-        public Boolean AddStoreManager(RegisteredUser futureManager, string currentlyOwnerID)
+        public void AddStoreManager(RegisteredUser futureManager, string currentlyOwnerID)
         {
             try
             {
@@ -200,8 +198,6 @@ namespace eCommerce.src.DomainLayer.Store
                         {
                             throw new Exception($"Failed to add store manager because appoitend user is not an owner or manager with relevant permissions at the store");
                         }
-
-                        return true;
                     }
                     throw new Exception($"Failed to add store manager. The user is already an manager or owner in the store");
                 }
@@ -216,21 +212,20 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
-        public bool RemoveStoreManager(String removedManagerID, string currentlyOwnerID)
+        public void RemoveStoreManager(String removedManagerID, string currentlyOwnerID)
         {
             if (Owners.TryGetValue(currentlyOwnerID, out StoreOwner owner) && Managers.TryGetValue(removedManagerID, out StoreManager manager))
             {
                 if (manager.AppointedBy.Equals(owner))
                 {
                     Managers.TryRemove(removedManagerID, out _);
-                    return true;
                 }
                 throw new Exception($"Failed to remove user (Email: {removedManagerID}) from store management: Unauthorized owner (Email: {currentlyOwnerID})");
             }
             throw new Exception($"Failed to remove user (Email: {removedManagerID}) from store management: Either not a manager or owner not found");
         }
 
-        public bool SetPermissions(string managerID, string ownerID, LinkedList<int> permissions)
+        public void SetPermissions(string managerID, string ownerID, LinkedList<int> permissions)
         {
             if ((CheckIfStoreOwner(ownerID) || CheckStoreManagerAndPermissions(ownerID, Methods.SetPermissions)) && Managers.TryGetValue(managerID, out StoreManager manager))
             {
@@ -240,7 +235,6 @@ namespace eCommerce.src.DomainLayer.Store
                     {
                         manager.SetPermission(per, true);
                     }
-                    return true;
                 }
                 throw new Exception($"Can't set permissions: Manager (ID: {managerID}) was not appointed by given staff member (ID: {ownerID})");
             }
@@ -270,7 +264,7 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception("The given store staff does not have permission to see the stores staff members");
         }
 
-        public StoreHistory GetStorePurchaseHistory(string userID, bool sysAdmin)
+        public History GetStorePurchaseHistory(string userID, bool sysAdmin)
         {
             if (sysAdmin || CheckStoreManagerAndPermissions(userID, Methods.GetStorePurchaseHistory) || CheckIfStoreOwner(userID))
             {
@@ -279,7 +273,7 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception("No permission to see store purchase history");
         }
 
-        public bool RemovePermissions(string managerID, string ownerID, LinkedList<int> permissions)
+        public void RemovePermissions(string managerID, string ownerID, LinkedList<int> permissions)
         {
             if ((CheckIfStoreOwner(ownerID) || CheckStoreManagerAndPermissions(ownerID, Methods.SetPermissions)) && Managers.TryGetValue(managerID, out StoreManager manager))
             {
@@ -289,7 +283,6 @@ namespace eCommerce.src.DomainLayer.Store
                     {
                         manager.SetPermission(per, false);
                     }
-                    return true;
                 }
                 throw new Exception($"Can't remove permissions: Manager (ID: {managerID}) was not appointed by given staff member (ID: {ownerID})");
             }

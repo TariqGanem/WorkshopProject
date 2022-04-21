@@ -25,44 +25,48 @@ namespace eCommerce.src.DomainLayer.User
 
         public Boolean AddProtuctToShoppingBag(Product product, int quantity)
         {
-            /* if (product.Quantity >= quantity && quantity > 0)
-             {
-                 return Products.TryAdd(product, quantity);
-             }
-             throw new Exception($"Asked quantity ({quantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).");*/
-            throw new NotImplementedException();
+            if (product.Quantity >= quantity && quantity > 0)
+            {
+                return Products.TryAdd(product, quantity);
+            }
+            throw new Exception($"Asked quantity ({quantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).");
         }
 
         // This quantity will be the updated quantity of the product in the bag .
         // If negative or zero then the product will be removed
         public Boolean UpdateShoppingBag(Product product, int quantity)
         {
-            /* if (Products.ContainsKey(product))
-             {
-                 if (quantity <= 0)
-                 {
-                     return Products.Remove(product, out int q);
-                 }
+            if (Products.ContainsKey(product))
+            {
+                if (quantity <= 0)
+                {
+                    return Products.Remove(product, out int q);
+                }
 
-                 if (product.Quantity >= quantity)
-                 {
-                     bool getCurrquantity = Products.TryGetValue(product, out int currQuantity);
-                     bool update = Products.TryUpdate(product, quantity, currQuantity);
-                     if (getCurrquantity && update)
-                     {
-                         return true;
-                     }
-                     throw new Exception("Update shopping cart faild!");
-                 }
-                 throw new Exception($"Asked quantity ({quantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).");
-             }
-             throw new Exception($"You did not add the product {product.Name} to this shopping bag. Therefore attempt to update shopping bag faild!");*/
-            throw new NotImplementedException();
+                if (product.Quantity >= quantity)
+                {
+                    bool getCurrquantity = Products.TryGetValue(product, out int currQuantity);
+                    bool update = Products.TryUpdate(product, quantity, currQuantity);
+                    if (getCurrquantity && update)
+                    {
+                        return true;
+                    }
+                    throw new Exception("Update shopping cart faild!");
+                }
+                throw new Exception($"Asked quantity ({quantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).");
+            }
+            throw new Exception($"You did not add the product {product.Name} to this shopping bag. Therefore attempt to update shopping bag faild!");
         }
 
         public double GetTotalPrice()
         {
-            throw new NotImplementedException();
+            double sum = 0;
+            foreach (Product product in Products.Keys)
+            {
+                sum = sum + product.Price;
+            }
+            TotalBagPrice = sum;
+            return sum;
         }
     }
 }

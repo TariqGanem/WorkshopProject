@@ -34,8 +34,7 @@ namespace eCommerce.src.DomainLayer.User
 
         public Boolean AddShoppingBagToCart(ShoppingBag shoppingBag)
         {
-            //return ShoppingBags.TryAdd(shoppingBag.Store.Id, shoppingBag);
-            throw new NotImplementedException();
+            return ShoppingBags.TryAdd(shoppingBag.Store.Id, shoppingBag);
         }
 
         public Double GetTotalShoppingCartPrice()

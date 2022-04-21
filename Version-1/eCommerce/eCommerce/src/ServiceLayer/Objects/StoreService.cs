@@ -12,11 +12,11 @@ namespace eCommerce.src.ServiceLayer.Objects
         public String Founder { get; set; }
         public LinkedList<String> Owners { get; set; }
         public LinkedList<String> Managers { get; set; }
-        public StoreHistoryService History { get; set; }
+        public UserHistorySO History { get; set; }
         public Double Rate { get; set; }
         public int NumberOfRates { get; set; }
 
-        public StoreService(string id, string name, String founder, LinkedList<String> owners, LinkedList<String> managers, StoreHistoryService history, double rating, int numberOfRates)
+        public StoreService(string id, string name, String founder, LinkedList<String> owners, LinkedList<String> managers, UserHistorySO history, double rating, int numberOfRates)
         {
             Id = id;
             Name = name;
