@@ -12,17 +12,17 @@ namespace eCommerce.src.ServiceLayer.Controllers
 {
     public interface IStoreStaffInterface
     {
-        void AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
-        void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
-        void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
-        void SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
-        void RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
+        Result AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
+        Result AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
+        Result RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
+        Result SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
+        Result RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Result<Dictionary<IStaffService, PermissionService>> GetStoreStaff(String ownerID, String storeID);
-        void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        Result AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         Result RemoveProductFromStore(String userID, String storeID, String productID);
-        void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
+        Result EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         Result<List<ProductService>> SearchProduct(IDictionary<String, Object> productDetails);
-        Result<StoreHistoryService> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false);
+        Result<UserHistorySO> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false);
 
     }
     public class StoreStaffController : IStoreStaffInterface
@@ -36,7 +36,17 @@ namespace eCommerce.src.ServiceLayer.Controllers
             this.SystemFacade = systemFacade;
         }
 
-        public void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null) { SystemFacade.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords); }
+        public Result AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null) { 
+            try
+            {
+                SystemFacade.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                return new Result(error.Message);
+            }
+        }
         public Result RemoveProductFromStore(String userID, String storeID, String productID)
         {
             try
@@ -49,11 +59,62 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result(error.Message);
             }
         }
-        public void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details) { SystemFacade.EditProductDetails(userID, storeID, productID, details); }
-        public void AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID) { SystemFacade.AddStoreOwner(addedOwnerID, currentlyOwnerID, storeID); }
-        public void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID) { SystemFacade.AddStoreManager(addedManagerID, currentlyOwnerID, storeID); }
-        public void SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions) { SystemFacade.SetPermissions(storeID, managerID, ownerID, permissions); }
-        public void RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions) { SystemFacade.RemovePermissions(storeID, managerID, ownerID, permissions); }
+        public Result EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details) { 
+            SystemFacade.EditProductDetails(userID, storeID, productID, details);
+            try
+            {
+                SystemFacade.EditProductDetails(userID, storeID, productID, details);
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                return new Result(error.Message);
+            }
+        }
+        public Result AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID) { 
+            try
+            {
+                SystemFacade.AddStoreOwner(addedOwnerID, currentlyOwnerID, storeID);
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                return new Result(error.Message);
+            }
+        }
+        public Result AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID) { 
+            try
+            {
+                SystemFacade.AddStoreManager(addedManagerID, currentlyOwnerID, storeID);
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                return new Result(error.Message);
+            }
+        }
+        public Result SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions) { 
+            try
+            {
+                SystemFacade.SetPermissions(storeID, managerID, ownerID, permissions);
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                return new Result(error.Message);
+            }
+        }
+        public Result RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions) { 
+            try
+            {
+                SystemFacade.RemovePermissions(storeID, managerID, ownerID, permissions);
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                return new Result(error.Message);
+            }
+        }
         public Result<Dictionary<IStaffService, PermissionService>> GetStoreStaff(String ownerID, String storeID) {
             try
             {
@@ -64,17 +125,27 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<Dictionary<IStaffService, PermissionService>>(error.Message);
             }
         }
-        public Result<StoreHistoryService> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false) {
+        public Result<UserHistorySO> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false) {
             try
             {
-                return new Result<StoreHistoryService>(SystemFacade.GetStorePurchaseHistory(ownerID, storeID));
+                return new Result<UserHistorySO>(SystemFacade.GetStorePurchaseHistory(ownerID, storeID));
             }
             catch (Exception error)
             {
-                return new Result<StoreHistoryService>(error.Message);
+                return new Result<UserHistorySO>(error.Message);
             }
         }
-        public void RemoveStoreManager(string removedManagerID, string currentlyOwnerID, string storeID) { SystemFacade.RemoveStoreManager(removedManagerID, currentlyOwnerID, storeID); }
+        public Result RemoveStoreManager(string removedManagerID, string currentlyOwnerID, string storeID) { 
+            try
+            {
+                SystemFacade.RemoveStoreManager(removedManagerID, currentlyOwnerID, storeID);
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                return new Result<UserHistorySO>(error.Message);
+            }
+        }
         public Result<List<ProductService>> SearchProduct(IDictionary<String, Object> productDetails) 
         {
             try

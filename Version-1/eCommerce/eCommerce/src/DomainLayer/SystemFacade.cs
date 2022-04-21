@@ -21,7 +21,7 @@ namespace eCommerce.src.DomainLayer
         #endregion
 
         #region Staff Management
-        StoreHistoryService GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false);
+        UserHistorySO GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false);
         void AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
         void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
@@ -129,7 +129,7 @@ namespace eCommerce.src.DomainLayer
             {
                 Store.Store store = storeFacade.GetStore(bag.Key);
                 store.UpdateInventory(bag.Value);
-                store.History.addShoppingBasket(bag.Value);
+                store.History.AddPurchasedShoppingBag(bag.Value);
             }
             return new ShoppingCartSO(purchasedCart);
 
@@ -237,12 +237,19 @@ namespace eCommerce.src.DomainLayer
 
         public Dictionary<IStaffService, PermissionService> GetStoreStaff(string userID, string storeID)
         {
-            throw new NotImplementedException();
+            Dictionary<IStaff, Permission> storeStaff = storeFacade.GetStoreStaff(userID, storeID);
+            Dictionary<IStaffService, PermissionService> storeStaffResult = new Dictionary<IStaffService, PermissionService>();
+            foreach (var user in storeStaff)
+            {
+                storeStaffResult.Add(new IStaffService(user.Key.GetId()), new PermissionService(user.Value.functionsBitMask, user.Value.isOwner));
+            }
+            return storeStaffResult;
         }
 
-        public StoreHistoryService GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false)
+        public UserHistorySO GetStorePurchaseHistory(string userID, string storeID, bool systemAdmin = false)
         {
-            throw new NotImplementedException();
+            History history = storeFacade.GetStorePurchaseHistory(userID, storeID, systemAdmin);
+            return new UserHistorySO(history);
         }
         #endregion
     }

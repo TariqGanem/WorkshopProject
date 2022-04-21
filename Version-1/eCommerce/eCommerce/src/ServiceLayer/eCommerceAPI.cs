@@ -95,7 +95,7 @@ namespace eCommerce.src.ServiceLayer
             return SystemAdminController.GetUserPurchaseHistory(sysAdminId, userId);
         }
 
-        Result<StoreHistoryService> ISystemAdminController.GetStorePurchaseHistory(string sysAdminId, string storeId)
+        Result<UserHistorySO> ISystemAdminController.GetStorePurchaseHistory(string sysAdminId, string storeId)
         {
             return SystemAdminController.GetStorePurchaseHistory(sysAdminId, storeId);
         }

@@ -20,7 +20,7 @@ namespace eCommerce.src.DomainLayer.Store
         Boolean SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Boolean RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaff, Permission> GetStoreStaff(string ownerID, string storeID);
-        StoreHistory GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin);
+        History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin);
         Store CloseStore(RegisteredUser founder, string storeID);
     }
     public class StoreFacade : IStoresFacade
@@ -120,7 +120,7 @@ namespace eCommerce.src.DomainLayer.Store
 
         }
 
-        public StoreHistory GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin)
+        public History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {

@@ -21,7 +21,7 @@ namespace eCommerce.src.DomainLayer.Store
         Boolean SetPermissions(String managerID, String ownerID, LinkedList<int> permissions);
         Boolean RemovePermissions(String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaff, Permission> GetStoreStaff(String userID);
-        StoreHistory GetStorePurchaseHistory(string ownerID, bool sysAdmin);
+        History GetStorePurchaseHistory(string ownerID, bool sysAdmin);
         Product GetProduct(string productID);
     }
     public class Store : IStoreOperations
@@ -31,7 +31,7 @@ namespace eCommerce.src.DomainLayer.Store
         public Boolean Active { get; set;  }
         public StoreOwner Founder { get; }
         public InventoryManager InventoryManager { get; }
-        public StoreHistory History { get; }
+        public History History { get; }
         public Double Rate { get; private set; }
         public int NumberOfRates { get; private set; }
         public ConcurrentDictionary<String,StoreOwner> Owners { get; }
@@ -46,7 +46,7 @@ namespace eCommerce.src.DomainLayer.Store
             Owners.TryAdd(founder.Id, Founder);
             Managers = new ConcurrentDictionary<string, StoreManager>();
             InventoryManager = new InventoryManager();
-            History = new StoreHistory();
+            History = new History();
         }
 
         public Double AddRating(Double rate)
@@ -270,7 +270,7 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception("The given store staff does not have permission to see the stores staff members");
         }
 
-        public StoreHistory GetStorePurchaseHistory(string userID, bool sysAdmin)
+        public History GetStorePurchaseHistory(string userID, bool sysAdmin)
         {
             if (sysAdmin || CheckStoreManagerAndPermissions(userID, Methods.GetStorePurchaseHistory) || CheckIfStoreOwner(userID))
             {
