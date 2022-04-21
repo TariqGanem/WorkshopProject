@@ -23,38 +23,6 @@ namespace eCommerce.src.ServiceLayer.Controllers
 
         public Result AddProductToCart(string userId, string productId, int quantity, string storeId)
         {
-<<<<<<< HEAD
-            SystemFacade = systemFacade;
-        }
-        #endregion
-        /* 
-        #region GuestControllerMethods
-               public Response<guestUser> EnterSystem()
-                {
-                    GuestUser output = SystemFacade.Login();
-                    guestUser guestUser = new guestUser(output);
-                    return new Response<guestUser>(guestUser,null);
-                }
-
-                public Response<string> ExitSystem(string userID)
-                {
-                    if (userID == null || userID == "")
-                        return new Response<string>("the userId is empty!!!");
-                    SystemFacade.ExitSystem(userID);
-                    return new Response<string>(null);
-                }*/
-
-        /*
-        public Response<registeredUser> Register(string username, string email, string password)
-        {
-            if (username == null || username == "")
-                return new Response<registeredUser>("The username is invalid!!!");
-            if (email == null || email == "")
-                return new Response<registeredUser>("The email is invalid!!!");
-            if (password == null || password == "")
-                return new Response<registeredUser>("The password is invalid!!!");
-=======
->>>>>>> dev1-Version1
             try
             {
                 ValidateId(userId);
@@ -206,6 +174,5 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
         }
         #endregion
-        */
     }
 }
