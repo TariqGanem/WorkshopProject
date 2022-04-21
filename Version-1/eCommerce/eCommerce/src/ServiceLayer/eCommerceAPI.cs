@@ -148,6 +148,16 @@ namespace eCommerce.src.ServiceLayer
         {
             return StoreStaffController.GetStorePurchaseHistory(ownerID, storeID, isSystemAdmin);
         }
+
+        Result IRegisteredUserController.OpenNewStore(string storeName, string userId)
+        {
+            return RegisteredUserController.OpenNewStore(storeName, userId);
+        }
+
+        Result IRegisteredUserController.CloseStore(string userId, string storeId)
+        {
+            return RegisteredUserController.CloseStore(userId, storeId);
+        }
         #endregion
     }
 }

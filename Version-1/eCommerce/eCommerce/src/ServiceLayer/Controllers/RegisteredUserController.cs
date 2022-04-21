@@ -12,6 +12,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
     {
         Result<RegisteredUserSO> Login(String userName, String password);
         Result<UserHistorySO> GetUserPurchaseHistory(String userId);
+        Result OpenNewStore(String storeName, String userId);
+        Result CloseStore(string userId, string storeId);
     }
 
     public class RegisteredUserController : UserController, IRegisteredUserController
@@ -43,6 +45,37 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception e)
             {
                 return new Result<UserHistorySO>(e.Message);
+            }
+        }
+
+        Result IRegisteredUserController.OpenNewStore(string storeName, string userId)
+        {
+            try
+            {
+                ValidateId(userId);
+                if (storeName == null || storeName.Length == 0)
+                    return new Result("Store name can't be null or empty!");
+                SystemFacade.OpenNewStore(storeName, userId);
+                return new Result();
+            }
+            catch (Exception e)
+            {
+                return new Result(e.Message);
+            }
+        }
+
+        Result IRegisteredUserController.CloseStore(string userId, string storeId)
+        {
+            try
+            {
+                ValidateId(userId);
+                ValidateId(storeId);
+                SystemFacade.CloseStore(userId, storeId);
+                return new Result();
+            }
+            catch (Exception e)
+            {
+                return new Result(e.Message);
             }
         }
         #endregion
