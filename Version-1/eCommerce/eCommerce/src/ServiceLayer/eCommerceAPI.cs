@@ -11,13 +11,14 @@ using eCommerce.src.ServiceLayer.Response;
 namespace eCommerce.src.ServiceLayer
 {
 
-    public interface IeCommerceAPI : IUserController, IGuestController, IRegisteredUserController, ISystemAdminController /*TODO:, IStoreStaffInterface*/{ }
+    public interface IeCommerceAPI : IUserController, IGuestController, IRegisteredUserController, ISystemAdminController, IStoreStaffController { }
     public class eCommerceSystem : IeCommerceAPI
     {
         public IUserController UserController;
         public IGuestController GuestController { get; }
         public IRegisteredUserController RegisteredUserController { get; }
         public ISystemAdminController SystemAdminController { get; }
+        public IStoreStaffController StoreStaffController { get; }
 
         public eCommerceSystem()
         {
@@ -27,6 +28,7 @@ namespace eCommerce.src.ServiceLayer
             GuestController = new GuestController(systemFacade);
             RegisteredUserController = new RegisteredUserController(systemFacade);
             SystemAdminController = new SystemAdminController(systemFacade);
+            StoreStaffController = new StoreStaffController(systemFacade);
         }
 
         #region User Related Methods
@@ -98,6 +100,53 @@ namespace eCommerce.src.ServiceLayer
         Result<UserHistorySO> ISystemAdminController.GetStorePurchaseHistory(string sysAdminId, string storeId)
         {
             return SystemAdminController.GetStorePurchaseHistory(sysAdminId, storeId);
+        }
+        #endregion
+
+        #region Store Related Methods
+        public Result AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID)
+        {
+            return StoreStaffController.AddStoreOwner(addedOwnerID, currentlyOwnerID, storeID);
+        }
+        public Result AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID)
+        {
+            return StoreStaffController.AddStoreManager(addedManagerID, currentlyOwnerID, storeID);
+        }
+        public Result RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID)
+        {
+            return StoreStaffController.RemoveStoreManager(removedManagerID, currentlyOwnerID, storeID);
+        }
+        public Result SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions)
+        {
+            return StoreStaffController.SetPermissions(storeID, managerID, ownerID, permissions);
+        }
+        public Result RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions)
+        {
+            return StoreStaffController.RemovePermissions(storeID, managerID, ownerID, permissions);
+        }
+        public Result<Dictionary<IStaffService, PermissionService>> GetStoreStaff(String ownerID, String storeID)
+        {
+            return StoreStaffController.GetStoreStaff(ownerID, storeID);
+        }
+        public Result AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null)
+        {
+            return StoreStaffController.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
+        }
+        public Result RemoveProductFromStore(String userID, String storeID, String productID)
+        {
+            return StoreStaffController.RemoveProductFromStore(userID, storeID, productID);
+        }
+        public Result EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details)
+        {
+            return StoreStaffController.EditProductDetails(userID, storeID, productID, details);
+        }
+        public Result<List<ProductService>> SearchProduct(IDictionary<String, Object> productDetails)
+        {
+            return StoreStaffController.SearchProduct(productDetails);
+        }
+        public Result<UserHistorySO> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false)
+        {
+            return StoreStaffController.GetStorePurchaseHistory(ownerID, storeID, isSystemAdmin);
         }
         #endregion
     }

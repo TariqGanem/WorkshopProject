@@ -10,7 +10,7 @@ using System.Text;
 
 namespace eCommerce.src.ServiceLayer.Controllers
 {
-    public interface IStoreStaffInterface
+    public interface IStoreStaffController
     {
         Result AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         Result AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
@@ -25,7 +25,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<UserHistorySO> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false);
 
     }
-    public class StoreStaffController : IStoreStaffInterface
+    public class StoreStaffController : IStoreStaffController
     {
         //Properties
         public ISystemFacade SystemFacade { get; }
