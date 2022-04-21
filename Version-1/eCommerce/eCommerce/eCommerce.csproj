@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="src\DataLayer\" />
+    <Compile Remove="src\DataLayer\**" />
+    <EmbeddedResource Remove="src\DataLayer\**" />
+    <None Remove="src\DataLayer\**" />
   </ItemGroup>
 
 </Project>
