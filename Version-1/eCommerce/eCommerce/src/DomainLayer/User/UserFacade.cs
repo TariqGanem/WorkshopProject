@@ -18,7 +18,7 @@ namespace eCommerce.src.DomainLayer.User
         void AddProductToCart(string userId, Product product, int quantity, Store.Store store);
         void UpdateShoppingCart(string userId, string storeId, Product product, int quantity);
         ShoppingCart GetUserShoppingCart(string userId);
-        Double GetTotalShoppingCartPrice(String userID);
+        Double GetTotalShoppingCartPrice(String userId);
         ShoppingCart Purchase(String userId, IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails);
         RegisteredUser AddSystemAdmin(String userName);
         RegisteredUser RemoveSystemAdmin(String userName);
@@ -161,24 +161,14 @@ namespace eCommerce.src.DomainLayer.User
             }
             else
             {
-                throw new Exception("User does not exist!");
+                throw new Exception($"There is no suck user with ID:{userId}!");
             }
         }
 
         public double GetTotalShoppingCartPrice(string userID)
         {
-            if (RegisteredUsers.ContainsKey(userID))
-            {
-                //User Found
-                Double TotalPrice = RegisteredUsers[userID].ShoppingCart.GetTotalShoppingCartPrice();
-                return TotalPrice;
-            }
-            else
-            {
-                //No user if found using the given email
-                throw new Exception($"There is no suck user with ID:{userID}!");
-
-            }
+            ShoppingCart shoppingCart = GetUserShoppingCart(userID);
+            return shoppingCart.GetTotalShoppingCartPrice();
         }
 
         public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)

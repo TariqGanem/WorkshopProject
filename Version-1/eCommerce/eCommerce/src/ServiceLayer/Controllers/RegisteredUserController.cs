@@ -1,5 +1,6 @@
 ﻿using eCommerce.src.DomainLayer;
 using eCommerce.src.DomainLayer.User;
+using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.Response;
 using System;
 using System.Collections.Generic;
@@ -9,29 +10,65 @@ namespace eCommerce.src.ServiceLayer.Controllers
 {
     public interface IRegisteredUserController
     {
-        public Response<RegisteredUser> Login(String userName, String password);
+        Result<RegisteredUserSO> Login(String userName, String password);
+        Result<UserHistorySO> GetUserPurchaseHistory(String userId);
+        Result<RegisteredUserSO> AddSystemAdmin(String userName);
+        Result<RegisteredUserSO> RemoveSystemAdmin(String userName);
     }
 
-    public class RegisteredUserController : GuestController, IRegisteredUserController
+    public class RegisteredUserController : UserController, IRegisteredUserController
     {
-        #region constructors
         public RegisteredUserController(ISystemFacade systemFacade) : base(systemFacade) { }
-        #endregion
 
-        #region GuestUserInterfaceMethods
-        public Response<RegisteredUser> Login(String userName, String password)
+        #region RegisteredtUserInterfaceMethods
+        public Result<RegisteredUserSO> Login(String userName, String password)
         {
-            RegisteredUser registeredUser = null;
             try
             {
                 ValidateCredentials(userName, password);
-                registeredUser = SystemFacade.Login(userName, password);
+                RegisteredUserSO user = SystemFacade.Login(userName, password);
+                return new Result<RegisteredUserSO>(user);
             }
             catch (Exception e)
             {
-                return new Response<RegisteredUser>(e.Message);
+                return new Result<RegisteredUserSO>(e.Message);
             }
-            return new Response<RegisteredUser>(registeredUser);
+        }
+        public Result<UserHistorySO> GetUserPurchaseHistory(String userId)
+        {
+            try
+            {
+                UserHistorySO history = SystemFacade.GetUserPurchaseHistory(userId);
+                return new Result<UserHistorySO>(history);
+            }
+            catch (Exception e)
+            {
+                return new Result<UserHistorySO>(e.Message);
+            }
+        }
+        public Result<RegisteredUserSO> AddSystemAdmin(String userName)
+        {
+            try
+            {
+                RegisteredUserSO user = SystemFacade.AddSystemAdmin(userName);
+                return new Result<RegisteredUserSO>(user);
+            }
+            catch (Exception e)
+            {
+                return new Result<RegisteredUserSO>(e.Message);
+            }
+        }
+        public Result<RegisteredUserSO> RemoveSystemAdmin(String userName)
+        {
+            try
+            {
+                RegisteredUserSO user = SystemFacade.RemoveSystemAdmin(userName);
+                return new Result<RegisteredUserSO>(user);
+            }
+            catch (Exception e)
+            {
+                return new Result<RegisteredUserSO>(e.Message);
+            }
         }
         #endregion
 
@@ -47,6 +84,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 throw new ArgumentNullException("Password is null!");
             }
         }
+
         #endregion
     }
 }
