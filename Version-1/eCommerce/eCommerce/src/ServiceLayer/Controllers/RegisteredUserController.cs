@@ -12,8 +12,6 @@ namespace eCommerce.src.ServiceLayer.Controllers
     {
         Result<RegisteredUserSO> Login(String userName, String password);
         Result<UserHistorySO> GetUserPurchaseHistory(String userId);
-        Result<RegisteredUserSO> AddSystemAdmin(String userName);
-        Result<RegisteredUserSO> RemoveSystemAdmin(String userName);
     }
 
     public class RegisteredUserController : UserController, IRegisteredUserController
@@ -45,32 +43,6 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception e)
             {
                 return new Result<UserHistorySO>(e.Message);
-            }
-        }
-        public Result<RegisteredUserSO> AddSystemAdmin(String userName)
-        {
-            try
-            {
-                ValidateUserName(userName);
-                RegisteredUserSO user = SystemFacade.AddSystemAdmin(userName);
-                return new Result<RegisteredUserSO>(user);
-            }
-            catch (Exception e)
-            {
-                return new Result<RegisteredUserSO>(e.Message);
-            }
-        }
-        public Result<RegisteredUserSO> RemoveSystemAdmin(String userName)
-        {
-            try
-            {
-                ValidateUserName(userName);
-                RegisteredUserSO user = SystemFacade.RemoveSystemAdmin(userName);
-                return new Result<RegisteredUserSO>(user);
-            }
-            catch (Exception e)
-            {
-                return new Result<RegisteredUserSO>(e.Message);
             }
         }
         #endregion

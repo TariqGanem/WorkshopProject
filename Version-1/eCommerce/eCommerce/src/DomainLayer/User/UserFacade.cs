@@ -215,6 +215,10 @@ namespace eCommerce.src.DomainLayer.User
             }
 
         }
+        public Boolean isSystemAdmin(String userId)
+        {
+            return SystemAdmins.ContainsKey(userId);
+        }
         #endregion
 
         #region privateMethods

@@ -147,6 +147,10 @@ namespace eCommerce.src.DomainLayer
             Product resProduct = resStore.GetProduct(productId);
             userFacade.UpdateShoppingCart(userId, resStore.Id, resProduct, quantity);
         }
+        public Boolean isSystemAdmin(String userId)
+        {
+            return userFacade.SystemAdmins.ContainsKey(userId);
+        }
         #endregion
 
         #region StoreFacadeMethods
