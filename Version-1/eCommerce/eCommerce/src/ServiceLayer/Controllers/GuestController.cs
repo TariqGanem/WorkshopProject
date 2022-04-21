@@ -16,10 +16,10 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<Double> GetTotalShoppingCartPrice(String userId);
         Result Logout(String userId);
     }
-    public abstract class UserController : IUserController
+    public class UserController : IUserController
     {
-        protected ISystemFacade SystemFacade;
-        protected UserController(ISystemFacade systemFacade) { SystemFacade = systemFacade; }
+        public ISystemFacade SystemFacade;
+        public UserController(ISystemFacade systemFacade) { SystemFacade = systemFacade; }
 
         public Result AddProductToCart(string userId, string productId, int quantity, string storeId)
         {

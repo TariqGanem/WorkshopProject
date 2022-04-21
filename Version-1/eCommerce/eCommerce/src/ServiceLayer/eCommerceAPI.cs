@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using eCommerce.src.DomainLayer;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Controllers;
@@ -10,73 +11,93 @@ using eCommerce.src.ServiceLayer.Response;
 namespace eCommerce.src.ServiceLayer
 {
 
-    public interface IeCommerceAPI : IUserController, IGuestController, IRegisteredUserController /*TODO:, IStoreStaffInterface*/{ }
+    public interface IeCommerceAPI : IUserController, IGuestController, IRegisteredUserController, ISystemAdminController /*TODO:, IStoreStaffInterface*/{ }
     public class eCommerceSystem : IeCommerceAPI
     {
+        public IUserController UserController;
+        public IGuestController GuestController { get; }
+        public IRegisteredUserController RegisteredUserController { get; }
+        public ISystemAdminController SystemAdminController { get; }
+
         public eCommerceSystem()
         {
+            SystemFacade systemFacade = new SystemFacade();
 
+            UserController = new UserController(systemFacade);
+            GuestController = new GuestController(systemFacade);
+            RegisteredUserController = new RegisteredUserController(systemFacade);
+            SystemAdminController = new SystemAdminController(systemFacade);
         }
 
         #region User Related Methods
         public Result AddProductToCart(string userId, string productId, int quantity, string storeId)
         {
-            throw new NotImplementedException();
+            return UserController.AddProductToCart(userId, productId, quantity, storeId);
         }
 
-        public Result<RegisteredUserSO> AddSystemAdmin(string userName)
+        public Result<RegisteredUserSO> AddSystemAdmin(string sysAdminId, string userName)
         {
-            throw new NotImplementedException();
+            return SystemAdminController.AddSystemAdmin(sysAdminId, userName);
         }
 
         public Result<double> GetTotalShoppingCartPrice(string userId)
         {
-            throw new NotImplementedException();
+            return UserController.GetTotalShoppingCartPrice(userId);
         }
 
         public Result<UserHistorySO> GetUserPurchaseHistory(string userId)
         {
-            throw new NotImplementedException();
+            return RegisteredUserController.GetUserPurchaseHistory(userId);
         }
 
         public Result<ShoppingCartSO> GetUserShoppingCart(string userId)
         {
-            throw new NotImplementedException();
+            return UserController.GetUserShoppingCart(userId);
         }
 
         public Result<GuestUserSO> Login()
         {
-            throw new NotImplementedException();
+            return GuestController.Login();
         }
 
         public Result<RegisteredUserSO> Login(string userName, string password)
         {
-            throw new NotImplementedException();
+            return RegisteredUserController.Login(userName, password);
         }
 
         public Result Logout(string userId)
         {
-            throw new NotImplementedException();
+            return UserController.Logout(userId);
         }
 
         public Result<ShoppingCartSO> Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
         {
-            throw new NotImplementedException();
+            return UserController.Purchase(userId, paymentDetails, deliveryDetails);
         }
 
         public Result<RegisteredUserSO> Register(string username, string password)
         {
-            throw new NotImplementedException();
+            return GuestController.Register(username, password);
         }
 
-        public Result<RegisteredUserSO> RemoveSystemAdmin(string userName)
+        public Result<RegisteredUserSO> RemoveSystemAdmin(string sysAdminId, string userName)
         {
-            throw new NotImplementedException();
+            return SystemAdminController.RemoveSystemAdmin(sysAdminId, userName);
         }
 
         public Result UpdateShoppingCart(string userId, string storeId, string productId, int quantity)
         {
-            throw new NotImplementedException();
+            return UserController.UpdateShoppingCart(userId, storeId, productId, quantity);
+        }
+
+        Result<UserHistorySO> ISystemAdminController.GetUserPurchaseHistory(string sysAdminId, string userId)
+        {
+            return SystemAdminController.GetUserPurchaseHistory(sysAdminId, userId);
+        }
+
+        Result<StoreHistoryService> ISystemAdminController.GetStorePurchaseHistory(string sysAdminId, string storeId)
+        {
+            return SystemAdminController.GetStorePurchaseHistory(sysAdminId, storeId);
         }
         #endregion
     }
