@@ -39,6 +39,7 @@ namespace eCommerce.src.DomainLayer.Store
 
         public Store(String name, RegisteredUser founder)
         {
+            Id = Service.GenerateId();
             Name = name;
             Active = true;
             Founder = new StoreOwner(founder, Id, null);
