@@ -25,6 +25,9 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
+                ValidateId(userId);
+                ValidateId(productId);
+                ValidateId(storeId);
                 SystemFacade.AddProductToCart(userId, productId, quantity, storeId);
                 return new Result();
             }
@@ -38,6 +41,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
+                ValidateId(userId);
                 Double total = SystemFacade.GetTotalShoppingCartPrice(userId);
                 return new Result<Double>(total);
             }
@@ -51,6 +55,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
+                ValidateId(userId);
                 ShoppingCartSO shoppingCart = SystemFacade.GetUserShoppingCart(userId);
                 return new Result<ShoppingCartSO>(shoppingCart);
             }
@@ -64,6 +69,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
+                ValidateId(userId);
                 ShoppingCartSO shoppingCart = SystemFacade.Purchase(userId, paymentDetails, deliveryDetails);
                 return new Result<ShoppingCartSO>(shoppingCart);
             }
@@ -77,6 +83,9 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
+                ValidateId(userId);
+                ValidateId(storeId);
+                ValidateId(productId);
                 SystemFacade.UpdateShoppingCart(userId, storeId, productId, quantity);
                 return new Result();
             }
@@ -87,10 +96,9 @@ namespace eCommerce.src.ServiceLayer.Controllers
         }
         public Result Logout(string userId)
         {
-            if (userId == null || userId == "")
-                return new Result("The userId is empty!!!");
             try
             {
+                ValidateId(userId);
                 SystemFacade.Logout(userId);
                 return new Result();
             }
@@ -99,6 +107,31 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result(e.Message);
             }
         }
+        #region Protected Validation Methods
+        protected void ValidateCredentials(String userName, String password)
+        {
+            ValidateUserName(userName);
+            if (password == null || password.Length == 0)
+            {
+                throw new ArgumentNullException("Password is null or empty!");
+            }
+        }
+
+        protected void ValidateUserName(String userName)
+        {
+            if (userName == null || userName.Length == 0)
+            {
+                throw new ArgumentNullException("Username is null or empty!");
+            }
+        }
+        protected void ValidateId(String userId)
+        {
+            if (userId == null || userId.Length == 0)
+            {
+                throw new ArgumentNullException("UserId is null or empty!");
+            }
+        }
+        #endregion
     }
 
 
@@ -129,12 +162,9 @@ namespace eCommerce.src.ServiceLayer.Controllers
 
         public Result<RegisteredUserSO> Register(string username, string password)
         {
-            if (username == null || username == "")
-                return new Result<RegisteredUserSO>("The username is invalid!!!");
-            if (password == null || password == "")
-                return new Result<RegisteredUserSO>("The password is invalid!!!");
             try
             {
+                ValidateCredentials(username, password);
                 RegisteredUserSO user = SystemFacade.Register(username, password);
                 return new Result<RegisteredUserSO>(user);
             }

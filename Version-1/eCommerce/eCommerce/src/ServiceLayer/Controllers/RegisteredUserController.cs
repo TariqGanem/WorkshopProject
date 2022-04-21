@@ -38,6 +38,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
+                ValidateId(userId);
                 UserHistorySO history = SystemFacade.GetUserPurchaseHistory(userId);
                 return new Result<UserHistorySO>(history);
             }
@@ -50,6 +51,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
+                ValidateUserName(userName);
                 RegisteredUserSO user = SystemFacade.AddSystemAdmin(userName);
                 return new Result<RegisteredUserSO>(user);
             }
@@ -62,6 +64,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
+                ValidateUserName(userName);
                 RegisteredUserSO user = SystemFacade.RemoveSystemAdmin(userName);
                 return new Result<RegisteredUserSO>(user);
             }
@@ -70,21 +73,6 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<RegisteredUserSO>(e.Message);
             }
         }
-        #endregion
-
-        #region privateMethods
-        private void ValidateCredentials(String userName, String password)
-        {
-            if (userName == null)
-            {
-                throw new ArgumentNullException("Username is null!");
-            }
-            if (password == null)
-            {
-                throw new ArgumentNullException("Password is null!");
-            }
-        }
-
         #endregion
     }
 }
