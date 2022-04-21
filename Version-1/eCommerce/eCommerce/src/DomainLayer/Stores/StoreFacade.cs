@@ -9,19 +9,19 @@ namespace eCommerce.src.DomainLayer.Store
 {
     public interface IStoresFacade
     {
-        Store OpenNewStore(RegisteredUser founder, String storeName);
-        Product AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
-        Boolean RemoveProductFromStore(String userID, String storeID, String productID);
-        Product EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
+        void OpenNewStore(RegisteredUser founder, String storeName);
+        void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        void RemoveProductFromStore(String userID, String storeID, String productID);
+        void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         List<Product> SearchProduct(IDictionary<String, Object> productDetails);
-        Boolean AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID, String storeID);
-        Boolean AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID, String storeID);
-        Boolean RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
-        Boolean SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
-        Boolean RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
+        void AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID, String storeID);
+        void AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID, String storeID);
+        void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
+        void SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
+        void RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaff, Permission> GetStoreStaff(string ownerID, string storeID);
         History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin);
-        Store CloseStore(RegisteredUser founder, string storeID);
+        void CloseStore(RegisteredUser founder, string storeID);
     }
     public class StoreFacade : IStoresFacade
     {
@@ -32,58 +32,57 @@ namespace eCommerce.src.DomainLayer.Store
             Stores = new ConcurrentDictionary<String, Store>();
         }
 
-        public Product AddProductToStore(String userID, String storeID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
+        public void AddProductToStore(String userID, String storeID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.AddNewProduct(userID, productName, price, initialQuantity, category, keywords);
+                store.AddNewProduct(userID, productName, price, initialQuantity, category, keywords);
             }
             throw new Exception($"Store ID {storeID} not found");
 
         }
 
-        public Boolean RemoveProductFromStore(string userID, string storeID, string productID)
+        public void RemoveProductFromStore(string userID, string storeID, string productID)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
                 store.RemoveProduct(userID, productID);
-                return true;
             }
             throw new Exception($"Store ID {storeID} not found");
         }
 
-        public Product EditProductDetails(string userID, string storeID, string productID, IDictionary<String, Object> details)
+        public void EditProductDetails(string userID, string storeID, string productID, IDictionary<String, Object> details)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.EditProduct(userID, productID, details);
+                store.EditProduct(userID, productID, details);
             }
             throw new Exception($"Store ID {storeID} not found");
         }
 
-        public Boolean AddStoreOwner(RegisteredUser futureOwner, string currentlyOwnerID, string storeID)
+        public void AddStoreOwner(RegisteredUser futureOwner, string currentlyOwnerID, string storeID)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.AddStoreOwner(futureOwner, currentlyOwnerID);
+                store.AddStoreOwner(futureOwner, currentlyOwnerID);
             }
             throw new Exception($"Store ID {storeID} not found");
         }
 
-        public Boolean AddStoreManager(RegisteredUser futureManager, string currentlyOwnerID, string storeID)
+        public void AddStoreManager(RegisteredUser futureManager, string currentlyOwnerID, string storeID)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.AddStoreManager(futureManager, currentlyOwnerID);
+                store.AddStoreManager(futureManager, currentlyOwnerID);
             }
             throw new Exception($"Store ID {storeID} not found");
         }
 
-        public Boolean RemoveStoreManager(String removedManagerID, string currentlyOwnerID, string storeID)
+        public void RemoveStoreManager(String removedManagerID, string currentlyOwnerID, string storeID)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.RemoveStoreManager(removedManagerID, currentlyOwnerID);
+                store.RemoveStoreManager(removedManagerID, currentlyOwnerID);
             }
             throw new Exception($"Store ID {storeID} not found");
         }
@@ -130,14 +129,13 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception("The given store ID does not exists");
         }
 
-        public Store OpenNewStore(RegisteredUser founder, string storeName)
+        public void OpenNewStore(RegisteredUser founder, string storeName)
         {
             Store newStore = new Store(storeName, founder);
             Stores.TryAdd(newStore.Id, newStore);
-            return newStore;
         }
 
-        public Store CloseStore(RegisteredUser founder, string storeID)
+        public void CloseStore(RegisteredUser founder, string storeID)
         {
             Store currStore = GetStore(storeID);
             if (!founder.Id.Equals(currStore.Founder.GetId()))
@@ -145,24 +143,23 @@ namespace eCommerce.src.DomainLayer.Store
                 throw new Exception($"Non-founder Trying to close store {currStore.Name}");
             }
             currStore.Active = false;
-            return currStore;
         }
 
 
-        public bool SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions)
+        public void SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.SetPermissions(managerID, ownerID, permissions);
+                store.SetPermissions(managerID, ownerID, permissions);
             }
             throw new Exception($"No has been found");
         }
 
-        public bool RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
+        public void RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                return store.RemovePermissions(managerID, ownerID, permissions);
+                store.RemovePermissions(managerID, ownerID, permissions);
             }
             throw new Exception($"No has been found");
         }

@@ -19,12 +19,11 @@ namespace eCommerce.src.DomainLayer.Store
 
         public Product(string name, double price, string category, int quantity, LinkedList<String> kws = null)
         {
-            //Id = id;
+            Id = Service.GenerateId();
             Name = name;
             Price = price;
             Category = category;
             Quantity = quantity;
-            NumberOfRates = 0;
             KeyWords = kws == null ? new LinkedList<string>() : kws;
         }
 
@@ -33,7 +32,7 @@ namespace eCommerce.src.DomainLayer.Store
             this.KeyWords.AddLast(kw);
         }
 
-        public Double AddRating(Double rate)
+        public void AddRating(Double rate)
         {
             if (rate < 1 || rate > 5)
             {
@@ -43,14 +42,7 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 NumberOfRates += 1;
                 Rate = (Rate + rate) / (Double)NumberOfRates;
-                return Rate;
             }
-        }
-
-        public String AddKeyword(String keyWord)
-        {
-            KeyWords.AddLast(keyWord);
-            return keyWord;
         }
     }
 }

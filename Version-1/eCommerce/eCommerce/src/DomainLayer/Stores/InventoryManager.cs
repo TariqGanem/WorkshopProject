@@ -2,14 +2,15 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using static eCommerce.src.DomainLayer.Service;
 
 namespace eCommerce.src.DomainLayer.Store
 {
     public interface IInventoryManager
     {
-        Product AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null);
-        Product RemoveProduct(String productID);
-        Product EditProduct(String productID, IDictionary<String, Object> details);
+        void AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null);
+        void RemoveProduct(String productID);
+        void EditProduct(String productID, IDictionary<String, Object> details);
         List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes);
     }
 
@@ -27,30 +28,27 @@ namespace eCommerce.src.DomainLayer.Store
             Products = products;
         }
 
-        public Product AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
+        public void AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
             Product newProduct = new Product(productName, price, category, initialQuantity, keywords);
             Products.TryAdd(newProduct.Id, newProduct);
-            return newProduct;
         }
 
-        public Product RemoveProduct(string productID)
+        public void RemoveProduct(string productID)
         {
-            if (Products.TryRemove(productID, out Product toRemove))
+            if (!Products.TryRemove(productID, out Product toRemove))
             {
-                return toRemove;
+                throw new Exception($"Trying to remove non-existed product. (ID: {productID})");
             }
-            throw new Exception($"Trying to remove non-existed product. (ID: {productID})");
         }
 
-        public Product EditProduct(string productID, IDictionary<String, object> details)
+        public void EditProduct(string productID, IDictionary<String, object> details)
         {
-            /*if (Products.TryGetValue(productID, out Product toEdit))
+            if (Products.TryGetValue(productID, out Product toEdit))
             {
                 ObjectDictionaryMapper<Product>.SetPropertyValue(toEdit, details);
             }
-            throw new Exception($"Faild to edit product (ID: {productID}) - Product not found");*/
-            throw new NotImplementedException();
+            throw new Exception($"Faild to edit product (ID: {productID}) - Product not found");
         }
 
         public List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes)
