@@ -10,7 +10,7 @@ namespace eCommerce.src.DomainLayer.Store
     public interface IStoresFacade
     {
         Store OpenNewStore(RegisteredUser founder, String storeName);
-        void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        String AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         void RemoveProductFromStore(String userID, String storeID, String productID);
         void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         List<Product> SearchProduct(IDictionary<String, Object> productDetails);
@@ -32,11 +32,11 @@ namespace eCommerce.src.DomainLayer.Store
             Stores = new ConcurrentDictionary<String, Store>();
         }
 
-        public void AddProductToStore(String userID, String storeID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
+        public String AddProductToStore(String userID, String storeID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                store.AddNewProduct(userID, productName, price, initialQuantity, category, keywords);
+                return store.AddNewProduct(userID, productName, price, initialQuantity, category, keywords);
             }
             else
             {
@@ -216,7 +216,6 @@ namespace eCommerce.src.DomainLayer.Store
                 throw new Exception("Store does not exists");
             }
         }
-
         public Product GetProduct(String storeID, String productID)
         {
             if (Stores.TryGetValue(storeID, out Store store))

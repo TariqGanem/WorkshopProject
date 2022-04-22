@@ -18,13 +18,13 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Result RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Result<Dictionary<IStaffService, PermissionService>> GetStoreStaff(String ownerID, String storeID);
-        Result AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        Result<String> AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         Result RemoveProductFromStore(String userID, String storeID, String productID);
         Result EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         Result<List<ProductService>> SearchProduct(IDictionary<String, Object> productDetails);
         Result<UserHistorySO> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false);
-
     }
+
     public class StoreStaffController : IStoreStaffController
     {
         //Properties
@@ -36,15 +36,15 @@ namespace eCommerce.src.ServiceLayer.Controllers
             this.SystemFacade = systemFacade;
         }
 
-        public Result AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null) { 
+        public Result<String> AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null) { 
             try
             {
-                SystemFacade.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
-                return new Result();
+                string id = SystemFacade.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
+                return new Result<String>(id);
             }
             catch (Exception error)
             {
-                return new Result(error.Message);
+                return new Result<String>(error.Message);
             }
         }
         public Result RemoveProductFromStore(String userID, String storeID, String productID)

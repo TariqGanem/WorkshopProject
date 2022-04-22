@@ -10,7 +10,7 @@ namespace eCommerce.src.DomainLayer.Store
     public interface IStoreOperations
     {
         void AddRating(Double rate);
-        void AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        String AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         List<Product> SearchProduct(IDictionary<String, Object> searchAttributes);
         void RemoveProduct(String userID, String productID);
         void EditProduct(String userID, String productID, IDictionary<String, Object> details);
@@ -68,11 +68,11 @@ namespace eCommerce.src.DomainLayer.Store
             return InventoryManager.SearchProduct(Rate, searchAttributes);
         }
 
-        public void AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null)
+        public String AddNewProduct(String userID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null)
         {
             if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.AddNewProduct))
             {
-                InventoryManager.AddNewProduct(productName, price, initialQuantity, category, keyWords);
+                return InventoryManager.AddNewProduct(productName, price, initialQuantity, category, keyWords);
             }
             else
             {

@@ -15,7 +15,7 @@ namespace eCommerce.src.DomainLayer
         StoreService OpenNewStore(String storeName, String userID);
         void CloseStore(string userID, string storeID);
         #region Inventory Management
-        void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        String AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         void RemoveProductFromStore(String userID, String storeID, String productID);
         void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         List<ProductService> SearchProduct(IDictionary<String, Object> productDetails);
@@ -194,9 +194,9 @@ namespace eCommerce.src.DomainLayer
             }
         }
 
-        public void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null)
+        public String AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
-            storeFacade.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
+            return storeFacade.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
         }
 
         public void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details)
@@ -281,12 +281,6 @@ namespace eCommerce.src.DomainLayer
         {
             History history = storeFacade.GetStorePurchaseHistory(userID, storeID, systemAdmin);
             return new UserHistorySO(history);
-        }
-
-        public ProductService GetProduct(String storeID, String productID)
-        {
-            Product product = storeFacade.GetProduct(storeID, productID);
-            return new ProductService(product.Id, product.Name, product.Price, product.Quantity, product.Category);
         }
         #endregion
     }

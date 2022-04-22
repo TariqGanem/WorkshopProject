@@ -8,7 +8,7 @@ namespace eCommerce.src.DomainLayer.Store
 {
     public interface IInventoryManager
     {
-        void AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null);
+        String AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null);
         void RemoveProduct(String productID);
         void EditProduct(String productID, IDictionary<String, Object> details);
         List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes);
@@ -28,15 +28,16 @@ namespace eCommerce.src.DomainLayer.Store
             Products = products;
         }
 
-        public void AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
+        public String AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
             Product newProduct = new Product(productName, price, category, initialQuantity, keywords);
-            Products.TryAdd(newProduct.Id, newProduct); 
+            Products.TryAdd(newProduct.Id, newProduct);
+            return newProduct.Id;
         }
 
         public void RemoveProduct(string productID)
         {
-            if (!Products.TryRemove(productID, out Product toRemove))
+            if (!Products.TryRemove(productID, out Product _))
             {
                 throw new Exception($"Trying to remove non-existed product. (ID: {productID})");
             }

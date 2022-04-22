@@ -128,7 +128,7 @@ namespace eCommerce.src.ServiceLayer
         {
             return StoreStaffController.GetStoreStaff(ownerID, storeID);
         }
-        public Result AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null)
+        public Result<String> AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null)
         {
             return StoreStaffController.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
         }

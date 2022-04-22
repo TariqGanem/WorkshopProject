@@ -1,15 +1,17 @@
-using eCommerce.src.ServiceLayer;
+﻿using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Response;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace ConcurrencyTests
 {
-    public class AddStoreManagerTest
+    public class AddStoreOwnerTest
     {
         private eCommerceSystem api = new eCommerceSystem();
         private string tariq_id;
@@ -19,7 +21,7 @@ namespace ConcurrencyTests
         private string store_id;
         private BlockingCollection<bool> results;
 
-        public AddStoreManagerTest()
+        public AddStoreOwnerTest()
         {
             api.Register("tariq@gmail.com", "test1");
             api.Register("yazan@gmail.com", "test12");
@@ -30,28 +32,24 @@ namespace ConcurrencyTests
             this.eran_id = api.Login("eran@gmail.com", "navtut").Value.Id;
             this.random_id = api.Login("random@gmail.com", "randomPass").Value.Id;
             this.store_id = api.OpenNewStore("test_store", tariq_id).Value.Id;
-            api.AddStoreManager(yazan_id, tariq_id, store_id);
-            api.AddStoreManager(eran_id, tariq_id, store_id);
-            LinkedList<int> permission = new LinkedList<int>();
-            permission.AddLast(4);
-            api.SetPermissions(store_id, yazan_id, tariq_id, permission);
-            api.SetPermissions(store_id, eran_id, tariq_id, permission);
+            api.AddStoreOwner(yazan_id, tariq_id, store_id);
+            api.AddStoreOwner(eran_id, tariq_id, store_id);
             results = new BlockingCollection<bool>();
         }
 
-        internal void ThreadWork(string manager_id)
+        internal void ThreadWork(string owner_id)
         {
-            Result result = api.AddStoreManager(random_id, manager_id, store_id);
+            Result result = api.AddStoreOwner(random_id, owner_id, store_id);
             if (!result.ErrorOccured)
                 results.TryAdd(true);
             else
                 results.TryAdd(false);
         }
 
-        // 3 threads tying to add a new manager to the store, but only 1 should success!
+        // 3 threads tying to add a new owner to the store, but only 1 should success!
         [Fact]
         [Trait("Category", "concurrency")]
-        public void AddStoreManager()
+        public void AddStoreOwner()
         {
             Thread thread1 = new Thread(() => ThreadWork(tariq_id));
             Thread thread2 = new Thread(() => ThreadWork(yazan_id));
@@ -74,5 +72,4 @@ namespace ConcurrencyTests
             Assert.True(count == 1, count + " succeded out of " + results.Count);
         }
     }
-
 }
