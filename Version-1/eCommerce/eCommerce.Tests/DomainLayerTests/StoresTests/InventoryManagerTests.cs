@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using eCommerce.src.DomainLayer.Store;
 using Xunit;
 
-namespace eCommerce.Tests.DomainLayerTests.StoresTests
+namespace eCommerceTests.DomainLayerTests.StoresTests
 {
     public  class InventoryManagerTests
     {
