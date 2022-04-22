@@ -16,7 +16,7 @@ namespace eCommerce.src.DomainLayer.User
 
         protected User()
         {
-            //this.Id = ServiceLayer.GetId();
+            this.Id = Service.GenerateId();
             Active = false;
             ShoppingCart = new ShoppingCart();
         }
