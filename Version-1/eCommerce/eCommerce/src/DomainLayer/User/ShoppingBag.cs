@@ -16,7 +16,7 @@ namespace eCommerce.src.DomainLayer.User
 
         public ShoppingBag(String userId, Store.Store store)
         {
-            //Id = Service.GetId();
+            Id = Service.GenerateId();
             this.UserId = userId;
             this.Store = store;
             Products = new ConcurrentDictionary<Product, int>();

@@ -6,6 +6,7 @@ using System.Text;
 using System.Collections.Concurrent;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.DomainLayer.User.Roles;
+using System.Threading;
 
 namespace eCommerce.src.DomainLayer
 {
@@ -55,6 +56,7 @@ namespace eCommerce.src.DomainLayer
     {
         private UserFacade userFacade;
         private StoreFacade storeFacade;
+        private readonly object my_lock = new object();
 
         public SystemFacade()
         {
@@ -121,18 +123,31 @@ namespace eCommerce.src.DomainLayer
 
         public ShoppingCartSO Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
         {
-            // TODO - lock products ?
-            ShoppingCart purchasedCart = userFacade.Purchase(userId, paymentDetails, deliveryDetails);
-
-            ConcurrentDictionary<String, ShoppingBag> purchasedBags = purchasedCart.ShoppingBags;
-            foreach (var bag in purchasedBags)
+            try
             {
-                Store.Store store = storeFacade.GetStore(bag.Key);
-                store.UpdateInventory(bag.Value);
-                store.History.AddPurchasedShoppingBag(bag.Value);
-            }
-            return new ShoppingCartSO(purchasedCart);
+                Monitor.TryEnter(my_lock);
+                try
+                {
+                    ShoppingCart purchasedCart = userFacade.Purchase(userId, paymentDetails, deliveryDetails);
 
+                    ConcurrentDictionary<String, ShoppingBag> purchasedBags = purchasedCart.ShoppingBags;
+                    foreach (var bag in purchasedBags)
+                    {
+                        Store.Store store = storeFacade.GetStore(bag.Key);
+                        store.UpdateInventory(bag.Value);
+                        store.History.AddPurchasedShoppingBag(bag.Value);
+                    }
+                    return new ShoppingCartSO(purchasedCart);
+                }
+                finally
+                {
+                    Monitor.Exit(my_lock);
+                }
+            }
+            catch (SynchronizationLockException SyncEx)
+            {
+                throw new Exception("A SynchronizationLockException occurred. Message:" + SyncEx.Message);
+            }
         }
 
         public RegisteredUserSO RemoveSystemAdmin(string userName)

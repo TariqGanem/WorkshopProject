@@ -28,14 +28,14 @@ namespace eCommerce.src.DomainLayer.Store
     {
         public String Id { get; }
         public String Name { get; }
-        public Boolean Active { get; set;  }
+        public Boolean Active { get; set; }
         public StoreOwner Founder { get; }
         public InventoryManager InventoryManager { get; }
         public History History { get; }
         public Double Rate { get; private set; }
         public int NumberOfRates { get; private set; }
-        public ConcurrentDictionary<String,StoreOwner> Owners { get; }
-        public ConcurrentDictionary<String,StoreManager> Managers { get; }
+        public ConcurrentDictionary<String, StoreOwner> Owners { get; }
+        public ConcurrentDictionary<String, StoreManager> Managers { get; }
 
         public Store(String name, RegisteredUser founder)
         {
@@ -105,14 +105,14 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 throw new Exception("A SynchronizationLockException occurred. Message: " + SyncEx.Message);
             }
-            
+
         }
 
         public void EditProduct(String userID, String productID, IDictionary<String, Object> details)
         {
             if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.EditProduct))
             {
-               InventoryManager.EditProduct(productID, details);
+                InventoryManager.EditProduct(productID, details);
             }
             else
             {
@@ -125,9 +125,11 @@ namespace eCommerce.src.DomainLayer.Store
             ConcurrentDictionary<Product, int> product_quantity = bag.Products;
             foreach (var product in product_quantity)
             {
+
                 product.Key.Quantity = product.Key.Quantity - product.Value;
             }
         }
+
 
         public void AddStoreOwner(RegisteredUser futureOwner, string currentlyOwnerID)
         {
