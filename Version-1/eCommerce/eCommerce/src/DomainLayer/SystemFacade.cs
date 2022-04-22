@@ -54,8 +54,8 @@ namespace eCommerce.src.DomainLayer
 
     public class SystemFacade : ISystemFacade
     {
-        private UserFacade userFacade;
-        private StoreFacade storeFacade;
+        public UserFacade userFacade { get; }
+        public StoreFacade storeFacade { get; }
         private readonly object my_lock = new object();
 
         public SystemFacade()
@@ -175,7 +175,10 @@ namespace eCommerce.src.DomainLayer
             {
                 storeFacade.OpenNewStore(founder, storeName);
             }
-            throw new Exception($"Failed to open store {storeName}: {userID} is not a registered user");
+            else
+            {
+                throw new Exception($"Failed to open store {storeName}: {userID} is not a registered user");
+            }
         }
 
         public void CloseStore(string userID, string storeID)
@@ -184,7 +187,10 @@ namespace eCommerce.src.DomainLayer
             {
                 storeFacade.CloseStore(founder, storeID);
             }
-            throw new Exception($"Failed to close store with id {storeID}: {userID} is not a registered user");
+            else
+            {
+                throw new Exception($"Failed to close store with id {storeID}: {userID} is not a registered user");
+            }
         }
 
         public void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null)
@@ -214,7 +220,10 @@ namespace eCommerce.src.DomainLayer
             {
                 storeFacade.AddStoreOwner(futureOwner, currentlyOwnerID, storeID);
             }
-            throw new Exception($"Failed to appoint store owner: {addedOwnerID} is not a registered user");
+            else
+            {
+                throw new Exception($"Failed to appoint store owner: {addedOwnerID} is not a registered user");
+            }
         }
 
         public void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID)
@@ -223,7 +232,10 @@ namespace eCommerce.src.DomainLayer
             {
                 storeFacade.AddStoreManager(futureManager, currentlyOwnerID, storeID);
             }
-            throw new Exception($"Failed to appoint store manager: {addedManagerID} is not a registered user");
+            else
+            {
+                throw new Exception($"Failed to appoint store manager: {addedManagerID} is not a registered user");
+            }
         }
 
         public void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID)
@@ -232,7 +244,10 @@ namespace eCommerce.src.DomainLayer
             {
                 storeFacade.RemoveStoreManager(removedManagerID, currentlyOwnerID, storeID);
             }
-            throw new Exception($"Failed to remove store manager: {removedManagerID} is not a registered user");
+            else
+            {
+                throw new Exception($"Failed to remove store manager: {removedManagerID} is not a registered user");
+            }
         }
 
         public void RemoveProductFromStore(String userID, String storeID, String productID)
@@ -265,6 +280,12 @@ namespace eCommerce.src.DomainLayer
         {
             History history = storeFacade.GetStorePurchaseHistory(userID, storeID, systemAdmin);
             return new UserHistorySO(history);
+        }
+
+        public ProductService GetProduct(String storeID, String productID)
+        {
+            Product product = storeFacade.GetProduct(storeID, productID);
+            return new ProductService(product.Id, product.Name, product.Price, product.Quantity, product.Category);
         }
         #endregion
     }

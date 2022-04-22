@@ -162,7 +162,10 @@ namespace eCommerce.src.DomainLayer.Store
                             Managers.TryRemove(futureOwner.Id, out _);
                         }
                     }
-                    throw new Exception($"Failed to add store owner: Appointing owner (Email: {currentlyOwnerID}). The user is already an owner.");
+                    else
+                    {
+                        throw new Exception($"Failed to add store owner: Appointing owner (Email: {currentlyOwnerID}). The user is already an owner.");
+                    }
                 }
                 finally
                 {
@@ -201,7 +204,10 @@ namespace eCommerce.src.DomainLayer.Store
                             throw new Exception($"Failed to add store manager because appoitend user is not an owner or manager with relevant permissions at the store");
                         }
                     }
-                    throw new Exception($"Failed to add store manager. The user is already an manager or owner in the store");
+                    else
+                    {
+                        throw new Exception($"Failed to add store manager. The user is already an manager or owner in the store");
+                    }
                 }
                 finally
                 {
@@ -222,9 +228,15 @@ namespace eCommerce.src.DomainLayer.Store
                 {
                     Managers.TryRemove(removedManagerID, out _);
                 }
-                throw new Exception($"Failed to remove user (Email: {removedManagerID}) from store management: Unauthorized owner (Email: {currentlyOwnerID})");
+                else
+                {
+                    throw new Exception($"Failed to remove user (Email: {removedManagerID}) from store management: Unauthorized owner (Email: {currentlyOwnerID})");
+                }
             }
-            throw new Exception($"Failed to remove user (Email: {removedManagerID}) from store management: Either not a manager or owner not found");
+            else
+            {
+                throw new Exception($"Failed to remove user (Email: {removedManagerID}) from store management: Either not a manager or owner not found");
+            }
         }
 
         public void SetPermissions(string managerID, string ownerID, LinkedList<int> permissions)
@@ -238,9 +250,15 @@ namespace eCommerce.src.DomainLayer.Store
                         manager.SetPermission(per, true);
                     }
                 }
-                throw new Exception($"Can't set permissions: Manager (ID: {managerID}) was not appointed by given staff member (ID: {ownerID})");
+                else
+                {
+                    throw new Exception($"Can't set permissions: Manager (ID: {managerID}) was not appointed by given staff member (ID: {ownerID})");
+                }
             }
-            throw new Exception($"Staff ID not found in store.");
+            else
+            {
+                throw new Exception($"Staff ID not found in store.");
+            }
         }
 
         public Dictionary<IStaff, Permission> GetStoreStaff(string userID)
@@ -263,7 +281,10 @@ namespace eCommerce.src.DomainLayer.Store
 
                 return storeStaff;
             }
-            throw new Exception("The given store staff does not have permission to see the stores staff members");
+            else
+            {
+                throw new Exception("The given store staff does not have permission to see the stores staff members");
+            }
         }
 
         public History GetStorePurchaseHistory(string userID, bool sysAdmin)
@@ -272,7 +293,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 return History;
             }
-            throw new Exception("No permission to see store purchase history");
+            else
+            {
+                throw new Exception("No permission to see store purchase history");
+            }
         }
 
         public void RemovePermissions(string managerID, string ownerID, LinkedList<int> permissions)
@@ -286,9 +310,15 @@ namespace eCommerce.src.DomainLayer.Store
                         manager.SetPermission(per, false);
                     }
                 }
-                throw new Exception($"Can't remove permissions: Manager (ID: {managerID}) was not appointed by given staff member (ID: {ownerID})");
+                else
+                {
+                    throw new Exception($"Can't remove permissions: Manager (ID: {managerID}) was not appointed by given staff member (ID: {ownerID})");
+                }
             }
-            throw new Exception($"Staff ID not found in store");
+            else
+            {
+                throw new Exception($"Staff ID not found in store");
+            }
         }
 
         public Product GetProduct(String productID)

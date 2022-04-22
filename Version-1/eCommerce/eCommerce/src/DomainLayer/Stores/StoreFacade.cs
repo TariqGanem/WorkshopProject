@@ -38,9 +38,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.AddNewProduct(userID, productName, price, initialQuantity, category, keywords);
             }
-            else // fix : added else
+            else
+            {
                 throw new Exception($"Store ID {storeID} not found");
-
+            }
         }
 
         public void RemoveProductFromStore(string userID, string storeID, string productID)
@@ -49,8 +50,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.RemoveProduct(userID, productID);
             }
-            else // fix : added else
+            else
+            {
                 throw new Exception($"Store ID {storeID} not found");
+            }
         }
 
         public void EditProductDetails(string userID, string storeID, string productID, IDictionary<String, Object> details)
@@ -59,7 +62,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.EditProduct(userID, productID, details);
             }
-            throw new Exception($"Store ID {storeID} not found");
+            else
+            {
+                throw new Exception($"Store ID {storeID} not found");
+            }
         }
 
         public void AddStoreOwner(RegisteredUser futureOwner, string currentlyOwnerID, string storeID)
@@ -68,7 +74,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.AddStoreOwner(futureOwner, currentlyOwnerID);
             }
-            throw new Exception($"Store ID {storeID} not found");
+            else
+            {
+                throw new Exception($"Store ID {storeID} not found");
+            }
         }
 
         public void AddStoreManager(RegisteredUser futureManager, string currentlyOwnerID, string storeID)
@@ -77,7 +86,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.AddStoreManager(futureManager, currentlyOwnerID);
             }
-            throw new Exception($"Store ID {storeID} not found");
+            else
+            {
+                throw new Exception($"Store ID {storeID} not found");
+            }
         }
 
         public void RemoveStoreManager(String removedManagerID, string currentlyOwnerID, string storeID)
@@ -86,7 +98,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.RemoveStoreManager(removedManagerID, currentlyOwnerID);
             }
-            throw new Exception($"Store ID {storeID} not found");
+            else
+            {
+                throw new Exception($"Store ID {storeID} not found");
+            }
         }
 
         public List<Product> SearchProduct(IDictionary<String, Object> searchAttributes)
@@ -115,10 +130,18 @@ namespace eCommerce.src.DomainLayer.Store
             if (Stores.TryGetValue(storeID, out Store store))
             {
                 if (store.Active || store.Owners.TryGetValue(userID, out _))
+                {
                     return store.GetStoreStaff(userID);
+                }
+                else
+                {
+                    throw new Exception($"The store closed or the given user Id {userID} is not an owner");
+                }
             }
-            throw new Exception("The given store ID does not exists");
-
+            else
+            {
+                throw new Exception("The given store ID does not exists");
+            }
         }
 
         public History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin)
@@ -126,9 +149,18 @@ namespace eCommerce.src.DomainLayer.Store
             if (Stores.TryGetValue(storeID, out Store store))
             {
                 if (store.Active || store.Owners.TryGetValue(userID, out _))
+                {
                     return store.GetStorePurchaseHistory(userID, sysAdmin);
+                }
+                else
+                {
+                    throw new Exception($"The store closed or the given user Id {userID} is not an owner");
+                }
             }
-            throw new Exception("The given store ID does not exists");
+            else
+            {
+                throw new Exception("The given store ID does not exists");
+            }
         }
 
         public void OpenNewStore(RegisteredUser founder, string storeName)
@@ -154,7 +186,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.SetPermissions(managerID, ownerID, permissions);
             }
-            throw new Exception($"No has been found");
+            else
+            {
+                throw new Exception($"No has been found");
+            }
         }
 
         public void RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
@@ -163,7 +198,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.RemovePermissions(managerID, ownerID, permissions);
             }
-            throw new Exception($"No has been found");
+            else
+            {
+                throw new Exception($"No has been found");
+            }
         }
 
         public Store GetStore(String storeID)
@@ -172,7 +210,22 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 return store;
             }
-            throw new Exception("Store does not exists");
+            else
+            {
+                throw new Exception("Store does not exists");
+            }
+        }
+
+        public Product GetProduct(String storeID, String productID)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))
+            {
+                return store.GetProduct(productID);
+            }
+            else
+            {
+                throw new Exception("Store does not exists");
+            }
         }
     }
 }

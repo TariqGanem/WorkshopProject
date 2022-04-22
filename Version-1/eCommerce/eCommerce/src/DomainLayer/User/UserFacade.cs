@@ -127,8 +127,10 @@ namespace eCommerce.src.DomainLayer.User
             {
                 guest.AddProductToCart(product, quantity, store);
             }
-            //else failed
-            throw new Exception($"User (ID: {userId}) does not exists!");
+            else
+            {
+                throw new Exception($"User (ID: {userId}) does not exists!");
+            }
         }
 
         public void UpdateShoppingCart(string userId, string storeId, Product product, int quantity)

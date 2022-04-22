@@ -66,7 +66,6 @@ namespace eCommerce.src.DomainLayer.User
             if (!paymentSuccess)
             {
                 throw new Exception("Atempt to purchase the shopping cart faild due to error in payment details!");
-
             }
 
             bool deliverySuccess = Logistics.Deliver(deliveryDetails);
@@ -75,7 +74,6 @@ namespace eCommerce.src.DomainLayer.User
                 Payments.CancelTransaction(paymentDetails);
                 throw new Exception("Atempt to purchase the shopping cart faild due to error in delivery details!");
             }
-
             ShoppingCart copy = new ShoppingCart(ShoppingCart);
             ShoppingCart = new ShoppingCart();              // create new shopping cart for user
             return copy;
