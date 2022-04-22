@@ -9,7 +9,7 @@ namespace eCommerce.src.DomainLayer.Store
 {
     public interface IStoresFacade
     {
-        void OpenNewStore(RegisteredUser founder, String storeName);
+        Store OpenNewStore(RegisteredUser founder, String storeName);
         void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         void RemoveProductFromStore(String userID, String storeID, String productID);
         void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
@@ -163,10 +163,11 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
-        public void OpenNewStore(RegisteredUser founder, string storeName)
+        public Store OpenNewStore(RegisteredUser founder, string storeName)
         {
             Store newStore = new Store(storeName, founder);
             Stores.TryAdd(newStore.Id, newStore);
+            return newStore;
         }
 
         public void CloseStore(RegisteredUser founder, string storeID)

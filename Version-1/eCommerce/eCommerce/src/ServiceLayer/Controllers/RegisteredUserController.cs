@@ -12,7 +12,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
     {
         Result<RegisteredUserSO> Login(String userName, String password);
         Result<UserHistorySO> GetUserPurchaseHistory(String userId);
-        Result OpenNewStore(String storeName, String userId);
+        Result<StoreService> OpenNewStore(String storeName, String userId);
         Result CloseStore(string userId, string storeId);
     }
 
@@ -48,23 +48,23 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
         }
 
-        Result IRegisteredUserController.OpenNewStore(string storeName, string userId)
+        public Result<StoreService> OpenNewStore(string storeName, string userId)
         {
             try
             {
                 ValidateId(userId);
                 if (storeName == null || storeName.Length == 0)
-                    return new Result("Store name can't be null or empty!");
-                SystemFacade.OpenNewStore(storeName, userId);
-                return new Result();
+                    return new Result<StoreService>("Tyring to open new store with invalid args.");
+                StoreService store = SystemFacade.OpenNewStore(storeName, userId);
+                return new Result<StoreService>(store);
             }
             catch (Exception e)
             {
-                return new Result(e.Message);
+                return new Result<StoreService>(e.Message);
             }
         }
 
-        Result IRegisteredUserController.CloseStore(string userId, string storeId)
+        public Result CloseStore(string userId, string storeId)
         {
             try
             {

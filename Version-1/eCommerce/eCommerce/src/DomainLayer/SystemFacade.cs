@@ -12,7 +12,7 @@ namespace eCommerce.src.DomainLayer
 {
     public interface ISystemFacade
     {
-        void OpenNewStore(String storeName, String userID);
+        StoreService OpenNewStore(String storeName, String userID);
         void CloseStore(string userID, string storeID);
         #region Inventory Management
         void AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
@@ -169,11 +169,12 @@ namespace eCommerce.src.DomainLayer
         #endregion
 
         #region StoreFacadeMethods
-        public void OpenNewStore(String storeName, String userID)
+        public StoreService OpenNewStore(String storeName, String userID)
         {
             if (userFacade.RegisteredUsers.TryGetValue(userID, out RegisteredUser founder))  // Check if userID is a registered user
             {
-                storeFacade.OpenNewStore(founder, storeName);
+                Store.Store s = storeFacade.OpenNewStore(founder, storeName);
+                return new StoreService(s.Id, s.Name, s.Founder.GetId(), new LinkedList<string>(s.Owners.Keys), new LinkedList<string>(s.Managers.Keys), new UserHistorySO(s.History), s.Rate, s.NumberOfRates);
             }
             else
             {
