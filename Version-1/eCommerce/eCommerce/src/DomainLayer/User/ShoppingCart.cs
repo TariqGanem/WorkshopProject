@@ -13,7 +13,7 @@ namespace eCommerce.src.DomainLayer.User
 
         public ShoppingCart()
         {
-            //Id = Service.GetId();
+            Id = Service.GenerateId();
             ShoppingBags = new ConcurrentDictionary<string, ShoppingBag>();
             TotalCartPrice = 0;
         }

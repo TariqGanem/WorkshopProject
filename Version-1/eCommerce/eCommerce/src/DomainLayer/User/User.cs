@@ -23,36 +23,22 @@ namespace eCommerce.src.DomainLayer.User
 
         public void AddProductToCart(Product product, int productQuantity, Store.Store store)
         {
+            ShoppingBag sb;
             try
             {
-                Monitor.TryEnter(product.Id);
-                try
-                {
-                    ShoppingBag sb;
-                    try
-                    {
-                        ShoppingBag getSB = ShoppingCart.GetShoppingBag(store.Id);
-                        getSB.AddProtuctToShoppingBag(product, productQuantity);
-                    }
-                    catch (Exception)
-                    {
-                        //else create shopping bag for storeID
-                        sb = new ShoppingBag(this.Id, store);
-                        sb.AddProtuctToShoppingBag(product, productQuantity);
-                        ShoppingCart.AddShoppingBagToCart(sb);
-                    }
-                }
-                finally
-                {
-                    Monitor.Exit(product.Id);
-                }
+                ShoppingBag getSB = ShoppingCart.GetShoppingBag(store.Id);
+                getSB.AddProtuctToShoppingBag(product, productQuantity);
             }
-            catch (SynchronizationLockException SyncEx)
+            catch (Exception)
             {
-                Console.WriteLine("A SynchronizationLockException occurred. Message:");
-                Console.WriteLine(SyncEx.Message);
+                //else create shopping bag for storeID
+                sb = new ShoppingBag(this.Id, store);
+                sb.AddProtuctToShoppingBag(product, productQuantity);
+                ShoppingCart.AddShoppingBagToCart(sb);
             }
         }
+
+
         public void UpdateShoppingCart(String storeID, Product product, int quantity)
         {
             ShoppingBag bag = ShoppingCart.GetShoppingBag(storeID);
@@ -63,9 +49,6 @@ namespace eCommerce.src.DomainLayer.User
 
         public ShoppingCart Purchase(IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails)
         {
-
-            // TODO - lock products so no two users buy a product simultaneously - the lock needs to be fromt the StoresAndManadement inerface
-
             if (ShoppingCart.ShoppingBags.IsEmpty)
             {
                 throw new Exception("The shopping cart is empty!");
@@ -73,7 +56,7 @@ namespace eCommerce.src.DomainLayer.User
 
             if (!isValidCartQuantity())
             {
-                throw new Exception("Notice - The store is out of stock!");   // TODO - do we want to reduce the products from the bag (i think not) and do we want to inform which of the products are out of stock ?
+                throw new Exception("Notice - The store is out of stock!");
             }
 
             Double amount = ShoppingCart.GetTotalShoppingCartPrice();

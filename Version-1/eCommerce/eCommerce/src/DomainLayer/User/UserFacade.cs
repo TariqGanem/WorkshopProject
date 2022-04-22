@@ -105,9 +105,7 @@ namespace eCommerce.src.DomainLayer.User
             }
             catch (SynchronizationLockException SyncEx)
             {
-                Console.WriteLine("A SynchronizationLockException occurred. Message:");
-                Console.WriteLine(SyncEx.Message);
-                return null;
+                throw new Exception("A SynchronizationLockException occurred. Message:" + SyncEx.Message);
             }
         }
         public History GetUserPurchaseHistory(string userId)
