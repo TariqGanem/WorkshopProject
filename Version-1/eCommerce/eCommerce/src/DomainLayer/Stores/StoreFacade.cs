@@ -38,7 +38,8 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.AddNewProduct(userID, productName, price, initialQuantity, category, keywords);
             }
-            throw new Exception($"Store ID {storeID} not found");
+            else // fix : added else
+                throw new Exception($"Store ID {storeID} not found");
 
         }
 
@@ -48,7 +49,8 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 store.RemoveProduct(userID, productID);
             }
-            throw new Exception($"Store ID {storeID} not found");
+            else // fix : added else
+                throw new Exception($"Store ID {storeID} not found");
         }
 
         public void EditProductDetails(string userID, string storeID, string productID, IDictionary<String, Object> details)
