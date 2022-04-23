@@ -184,7 +184,7 @@ namespace eCommerce.src.ServiceLayer
             if (res.ErrorOccured)
                 return new Result<string>(res.ErrorMessage);
             else
-                return new Result<string>(res.Value.Id);
+                return new Result<string>(res.Value.Id, null);
         }
 
         public Result<List<String>> Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)

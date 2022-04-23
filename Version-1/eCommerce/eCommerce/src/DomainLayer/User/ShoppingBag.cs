@@ -40,7 +40,7 @@ namespace eCommerce.src.DomainLayer.User
             {
                 if (quantity <= 0)
                 {
-                    return Products.Remove(product, out int q);
+                    return Products.TryRemove(product, out int q);
                 }
 
                 if (product.Quantity >= quantity)
@@ -53,9 +53,11 @@ namespace eCommerce.src.DomainLayer.User
                     }
                     throw new Exception("Update shopping cart faild!");
                 }
-                throw new Exception($"Asked quantity ({quantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).");
+                else
+                    throw new Exception($"Asked quantity ({quantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).");
             }
-            throw new Exception($"You did not add the product {product.Name} to this shopping bag. Therefore attempt to update shopping bag faild!");
+            else
+                throw new Exception($"You did not add the product {product.Name} to this shopping bag. Therefore attempt to update shopping bag faild!");
         }
 
         public double GetTotalPrice()
@@ -63,7 +65,8 @@ namespace eCommerce.src.DomainLayer.User
             double sum = 0;
             foreach (Product product in Products.Keys)
             {
-                sum = sum + product.Price;
+                Products.TryGetValue(product, out int quantity);
+                sum = sum + product.Price * quantity;
             }
             TotalBagPrice = sum;
             return sum;
