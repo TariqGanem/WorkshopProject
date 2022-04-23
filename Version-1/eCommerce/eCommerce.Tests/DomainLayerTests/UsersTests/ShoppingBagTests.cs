@@ -13,18 +13,20 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
 {
     public class ShoppingBagTests
     {
-        public ShoppingBag bag =  new ShoppingBag("1",null);
+        public ShoppingBag bag =  new ShoppingBag("1",new Store("rami-levi", new RegisteredUser("ahmed3", "ahmed3")));
 
         [SetUp]
         public void Setup()
         {
-            bag.Products[new Product("a", 2, "b", 4)] = 3;
-            bag.Products[new Product("aa", 3, "bb", 2)] = 1;
+            
         }
 
         [Fact]
         public void AddProtuctToShoppingBagTest()
         {
+            bag.Products[new Product("a", 2, "b", 4)] = 3;
+            bag.Products[new Product("aa", 3, "bb", 2)] = 1;
+
             Product p1 = new Product("bamba", 5, "snacks", 3);
             Assert.IsTrue(bag.AddProtuctToShoppingBag(p1,2));
             Assert.IsTrue(bag.Products.ContainsKey(p1));
@@ -35,7 +37,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
                 bag.AddProtuctToShoppingBag(p2, 4);
             } catch(Exception ex1)
             {
-                Assert.Equals($"Asked quantity (4) of product {p2.Name} is higher than quantity in store ({p2.Quantity}).", ex1.Message);
+                Assert.AreEqual($"Asked quantity (4) of product {p2.Name} is higher than quantity in store ({p2.Quantity}).", ex1.Message);
                 Assert.IsFalse(bag.Products.ContainsKey(p2));
             }
 
@@ -45,7 +47,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             }
             catch (Exception ex1)
             {
-                Assert.Equals($"Asked quantity (-1) of product {p2.Name} is higher than quantity in store ({p2.Quantity}).", ex1.Message);
+                Assert.AreEqual($"Asked quantity (-1) of product {p2.Name} is higher than quantity in store ({p2.Quantity}).", ex1.Message);
                 Assert.IsFalse(bag.Products.ContainsKey(p2));
             }
         }
@@ -53,6 +55,9 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         [Fact]
         public void UpdateShoppingBagTest()
         {
+            bag.Products[new Product("a", 2, "b", 4)] = 3;
+            bag.Products[new Product("aa", 3, "bb", 2)] = 1;
+
             Product p1 = new Product("bamba", 2, "snacks", 4);
             try
             {
@@ -81,7 +86,10 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         [Fact]
         public void GetTotalPriceTest()
         {
-            Assert.Equals(bag.GetTotalPrice(),5);
+            bag.Products[new Product("a", 2, "b", 4)] = 3;
+            bag.Products[new Product("aa", 3, "bb", 2)] = 1;
+
+            Assert.AreEqual(bag.GetTotalPrice(),5);
         }
     }
 }

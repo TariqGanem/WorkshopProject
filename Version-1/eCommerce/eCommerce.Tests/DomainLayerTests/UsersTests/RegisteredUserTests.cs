@@ -22,27 +22,27 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         }
 
         [Fact]
-        public void AddProductToCartTests()
+        public void AddProductToCartTest()
         {
             Product p1 = new Product("bamba", 3, "snacks", 4);
-            Store s1 = new Store("shofersal", null);
+            Store s1 = new Store("shofersal", new RegisteredUser("ahmed1","ahmed1"));
             ShoppingBag bag1 = new ShoppingBag("1",s1);
             user.ShoppingCart.AddShoppingBagToCart(bag1);
             user.AddProductToCart(p1, 2, s1);
             Assert.IsTrue(user.ShoppingCart.ShoppingBags[s1.Id].Products.ContainsKey(p1));
 
             Product p2 = new Product("bamba2", 3, "snacks", 4);
-            Store s2 = new Store("shofersal2", null);
+            Store s2 = new Store("shofersal2", new RegisteredUser("ahmed2", "ahmed2"));
             ShoppingBag bag2 = new ShoppingBag("2", s1);
             user.AddProductToCart(p2, 2, s2);
             Assert.IsTrue(user.ShoppingCart.ShoppingBags[s2.Id].Products.ContainsKey(p2));
         }
 
         [Fact]
-        public void UpdateShoppingCartTests()
+        public void UpdateShoppingCartTest()
         {
             Product p1 = new Product("bamba", 3, "snacks", 4);
-            Store s1 = new Store("shofersal", null);
+            Store s1 = new Store("shofersal", new RegisteredUser("ahmed", "ahmed"));
             ShoppingBag bag1 = new ShoppingBag("1", s1);
             bag1.AddProtuctToShoppingBag(p1, 3);
             user.ShoppingCart.AddShoppingBagToCart(bag1);
@@ -51,7 +51,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         }
 
         [Fact]
-        public void PurchaseTests()
+        public void PurchaseTest()
         {
             IDictionary<string, object> payments = new Dictionary<string, object>();
             IDictionary<string, object> delivery = new Dictionary<string, object>();
@@ -65,10 +65,10 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
                 Assert.AreEqual(ex.Message, "The shopping cart is empty!");
             }
 
-            Store s1 = new Store("shofersal", null);
+            Store s1 = new Store("shofersal", new RegisteredUser("ahmed", "ahmed"));
             ShoppingBag bag1 = new ShoppingBag("1", s1);
             Product p1 = new Product("bamba", 3, "snacks", 4);
-            bag1.AddProtuctToShoppingBag(p1, 5);
+            bag1.Products[p1] = 5;
             user.ShoppingCart.AddShoppingBagToCart(bag1);
 
             try
@@ -79,9 +79,16 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             {
                 Assert.AreEqual(ex.Message, "Notice - The store is out of stock!");
             }
-            ShoppingCart cart = user.ShoppingCart;
-            Assert.AreEqual(user.Purchase(payments, delivery), cart);
-            Assert.IsTrue(user.ShoppingCart != cart);
+
+            user.ShoppingCart.ShoppingBags.TryRemove(bag1.Store.Id,out ShoppingBag s);
+            Product p2 = new Product("besli", 3, "snacks", 4);
+            user.AddProductToCart(p2,2,s1);
+            ShoppingCart cart1 = user.ShoppingCart;
+            ShoppingCart cart2 = user.Purchase(payments, delivery);
+            Assert.AreEqual(cart2.Id, cart1.Id);
+            Assert.AreEqual(cart2.TotalCartPrice, cart1.TotalCartPrice);
+            Assert.AreEqual(cart2.ShoppingBags, cart1.ShoppingBags);
+            Assert.IsTrue(user.ShoppingCart != cart1);
             Assert.IsTrue(user.ShoppingCart.ShoppingBags.Count == 0);
         }
 
