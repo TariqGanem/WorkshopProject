@@ -177,7 +177,9 @@ namespace eCommerce.src.DomainLayer.User
             }
             else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
             {
-                return registerd_user.Purchase(paymentDetails, deliveryDetails);
+                ShoppingCart shoppingCart = registerd_user.Purchase(paymentDetails, deliveryDetails);
+                registerd_user.History.AddPurchasedShoppingCart(shoppingCart);
+                return shoppingCart;
             }
             else
             {
