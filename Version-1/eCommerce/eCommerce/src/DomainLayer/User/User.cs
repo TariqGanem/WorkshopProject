@@ -44,58 +44,5 @@ namespace eCommerce.src.DomainLayer.User
             ShoppingBag bag = ShoppingCart.GetShoppingBag(storeID);
             bag.UpdateShoppingBag(product, quantity);
         }
-
-        public ShoppingCart Purchase(IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails)
-        {
-            if (ShoppingCart.ShoppingBags.IsEmpty)
-            {
-                throw new Exception("The shopping cart is empty!");
-            }
-
-            if (!isValidCartQuantity())
-            {
-                throw new Exception("Notice - The store is out of stock!");
-            }
-
-            Double amount = ShoppingCart.GetTotalShoppingCartPrice();
-
-            bool paymentSuccess = Payments.Pay(amount, paymentDetails);
-
-            if (!paymentSuccess)
-            {
-                throw new Exception("Atempt to purchase the shopping cart faild due to error in payment details!");
-            }
-
-            bool deliverySuccess = Logistics.Deliver(deliveryDetails);
-            if (!deliverySuccess)
-            {
-                Payments.CancelTransaction(paymentDetails);
-                throw new Exception("Atempt to purchase the shopping cart faild due to error in delivery details!");
-            }
-            ShoppingCart copy = new ShoppingCart(ShoppingCart);
-            ShoppingCart = new ShoppingCart();              // create new shopping cart for user
-            return copy;
-        }
-
-
-
-        private Boolean isValidCartQuantity()
-        {
-            ConcurrentDictionary<String, ShoppingBag> ShoppingBags = ShoppingCart.ShoppingBags;
-
-            foreach (var bag in ShoppingBags)
-            {
-                ConcurrentDictionary<Product, int> Products = bag.Value.Products;
-
-                foreach (var product in Products)
-                {
-                    if (product.Key.Quantity < product.Value)
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
     }
 }
