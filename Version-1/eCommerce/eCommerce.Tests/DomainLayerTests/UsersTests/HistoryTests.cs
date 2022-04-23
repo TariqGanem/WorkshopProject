@@ -15,20 +15,19 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
     {
         public History history = new History();
         public ShoppingCart cart = new ShoppingCart();
-        public Store mashbir = new Store("Mashbir", null);
-        public Store shofersal = new Store("Shofersal", null);
+        public Store mashbir = new Store("Mashbir", new RegisteredUser("ahmed1", "ahmed1"));
+        public Store shofersal = new Store("Shofersal", new RegisteredUser("ahmed2", "ahmed2"));
 
         [SetUp]
-        public void Setup()
-        {
-            history.ShoppingBags.AddLast(new ShoppingBag("1", null));
-            cart.AddShoppingBagToCart(new ShoppingBag("2", mashbir));
-            cart.AddShoppingBagToCart(new ShoppingBag("3", shofersal));
-        }
+        public void Setup() { }
         
         [Fact]
         public void AddPurchasedShoppingCartTest()
         {
+            history.ShoppingBags.AddLast(new ShoppingBag("1", mashbir));
+            cart.AddShoppingBagToCart(new ShoppingBag("2", mashbir));
+            cart.AddShoppingBagToCart(new ShoppingBag("3", shofersal));
+
             history.AddPurchasedShoppingCart(cart);
             Assert.That(history.ShoppingBags.Count, Is.EqualTo(3));
             Assert.IsTrue(history.ShoppingBags.Contains(cart.ShoppingBags[mashbir.Id]));
@@ -38,7 +37,11 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         [Fact]
         public void AddPurchasedShoppingBagTest()
         {
-            ShoppingBag shoppingBag = new ShoppingBag("2",null);
+            history.ShoppingBags.AddLast(new ShoppingBag("1", mashbir));
+            cart.AddShoppingBagToCart(new ShoppingBag("2", mashbir));
+            cart.AddShoppingBagToCart(new ShoppingBag("3", shofersal));
+
+            ShoppingBag shoppingBag = new ShoppingBag("4",new Store("shofersal", new RegisteredUser("ahmed", "ahmed")));
             history.AddPurchasedShoppingBag(shoppingBag);
             Assert.That(history.ShoppingBags.Count, Is.EqualTo(2));
             Assert.IsTrue(history.ShoppingBags.Contains(shoppingBag));
