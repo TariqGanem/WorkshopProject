@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
+using Assert = NUnit.Framework.Assert;
 
 namespace eCommerce.Tests.DomainLayerTests.UsersTests
 {
@@ -23,8 +25,8 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             cart.AddShoppingBagToCart(new ShoppingBag("2", mashbir));
             cart.AddShoppingBagToCart(new ShoppingBag("3", shofersal));
         }
-
-        [Test]
+        
+        [Fact]
         public void AddPurchasedShoppingCartTest()
         {
             history.AddPurchasedShoppingCart(cart);
@@ -33,7 +35,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             Assert.IsTrue(history.ShoppingBags.Contains(cart.ShoppingBags[shofersal.Id]));
         }
 
-        [Test]
+        [Fact]
         public void AddPurchasedShoppingBagTest()
         {
             ShoppingBag shoppingBag = new ShoppingBag("2",null);

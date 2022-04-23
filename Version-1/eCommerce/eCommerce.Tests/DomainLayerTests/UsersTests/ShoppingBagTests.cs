@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
+using Assert = NUnit.Framework.Assert;
 
 namespace eCommerce.Tests.DomainLayerTests.UsersTests
 {
@@ -20,7 +22,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             bag.Products[new Product("aa", 3, "bb", 2)] = 1;
         }
 
-        [Test]
+        [Fact]
         public void AddProtuctToShoppingBagTest()
         {
             Product p1 = new Product("bamba", 5, "snacks", 3);
@@ -48,12 +50,35 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             }
         }
 
-        [Test]
-        public void UpdateShoppingBagTest(Product product, int quantity)
+        [Fact]
+        public void UpdateShoppingBagTest()
         {
+            Product p1 = new Product("bamba", 2, "snacks", 4);
+            try
+            {
+                bag.UpdateShoppingBag(p1, 3);
+            }catch(Exception ex)
+            {
+                Assert.AreEqual(ex.Message, $"You did not add the product {p1.Name} to this shopping bag. Therefore attempt to update shopping bag faild!");
+                Assert.IsFalse(bag.Products.ContainsKey(p1));
+            }
 
+            bag.Products[p1] = 2;
+            try
+            {
+                bag.UpdateShoppingBag(p1, 5);
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(ex.Message, $"Asked quantity (5) of product {p1.Name} is higher than quantity in store ({p1.Quantity}).");
+                Assert.IsFalse(bag.Products[p1] == 5);
+            }
+
+            bag.UpdateShoppingBag(p1, 3);
+            Assert.IsTrue(bag.Products[p1] == 3);
         }
 
+        [Fact]
         public void GetTotalPriceTest()
         {
             Assert.Equals(bag.GetTotalPrice(),5);

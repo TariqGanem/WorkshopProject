@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
+using Assert = NUnit.Framework.Assert;
 
 namespace eCommerce.Tests.DomainLayerTests.UsersTests
 {
@@ -32,7 +34,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             cart.ShoppingBags.TryAdd(s2.Id,bag2);
         }
 
-        [Test]
+        [Fact]
         public void GetShoppingBag()
         {
             Assert.Equals(cart.GetShoppingBag(s1.Id),bag1);
@@ -48,7 +50,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             }
         }
 
-        [Test]
+        [Fact]
         public void AddShoppingBagToCart()
         {
             Store s3 = new Store("rami-levi", null);
@@ -59,7 +61,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             Assert.IsTrue(cart.ShoppingBags.ContainsKey(s3.Id));
         }
 
-        [Test]
+        [Fact]
         public void GetTotalShoppingCartPrice()
         {
             Assert.Equals(cart.GetTotalShoppingCartPrice(), 10);
