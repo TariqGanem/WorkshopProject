@@ -78,6 +78,9 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             storefacade.RemoveProductFromStore(founder1.Id, tempstore.Id, tempproduct.Id);
             Assert.False(store1.InventoryManager.Products.ContainsKey(tempproduct.Id));
         }
+
+        // @toadd : 1) setPermissions
+                  //2) removePermissions
     }
 
 }
