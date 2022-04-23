@@ -1,5 +1,6 @@
 ﻿using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Response;
+using eCommerceIntegrationTests.Utils;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,12 +12,11 @@ using Xunit;
 
 namespace ConcurrencyTests
 {
-    public class ResgisterTest
+    public class ResgisterTest : XeCommerceTestCase
     {
-        private eCommerceSystem api = new eCommerceSystem();
         private BlockingCollection<bool> results;
 
-        public ResgisterTest()
+        public ResgisterTest() : base()
         {
             results = new BlockingCollection<bool>();
         }

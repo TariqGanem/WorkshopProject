@@ -21,6 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\eCommerceIntegrationTests\eCommerceIntegrationTests.csproj" />
 		<ProjectReference Include="..\eCommerce\eCommerce.csproj" />
 	</ItemGroup>
 

@@ -17,7 +17,7 @@ namespace eCommerce.src.ServiceLayer
         public IUserController UserController;
         public IGuestController GuestController { get; }
         public IRegisteredUserController RegisteredUserController { get; }
-        public ISystemAdminController SystemAdminController { get; }
+        public SystemAdminController SystemAdminController { get; }
         public IStoreStaffController StoreStaffController { get; }
 
         public eCommerceSystem()
@@ -96,11 +96,6 @@ namespace eCommerce.src.ServiceLayer
         {
             return SystemAdminController.GetUserPurchaseHistory(sysAdminId, userId);
         }
-
-        Result<UserHistorySO> ISystemAdminController.GetStorePurchaseHistory(string sysAdminId, string storeId)
-        {
-            return SystemAdminController.GetStorePurchaseHistory(sysAdminId, storeId);
-        }
         #endregion
 
         #region Store Related Methods
@@ -146,7 +141,8 @@ namespace eCommerce.src.ServiceLayer
         }
         public Result<UserHistorySO> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false)
         {
-            return StoreStaffController.GetStorePurchaseHistory(ownerID, storeID, isSystemAdmin);
+            return !isSystemAdmin ? StoreStaffController.GetStorePurchaseHistory(ownerID, storeID) :
+                                SystemAdminController.GetStorePurchaseHistory(ownerID, storeID);
         }
 
         public Result<StoreService> OpenNewStore(string storeName, string userId)
