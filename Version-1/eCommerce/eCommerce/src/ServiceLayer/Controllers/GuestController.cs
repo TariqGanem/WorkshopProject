@@ -1,7 +1,6 @@
 ﻿using eCommerce.src.DomainLayer;
-using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ServiceLayer.Objects;
-using eCommerce.src.ServiceLayer.Response;
+using eCommerce.src.ServiceLayer.ResultService;
 using System;
 using System.Collections.Generic;
 
@@ -29,10 +28,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateId(productId);
                 ValidateId(storeId);
                 SystemFacade.AddProductToCart(userId, productId, quantity, storeId);
+                Logger.LogInfo($"Product with id: {productId}, has been added successfully to the cart.");
                 return new Result();
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<GuestUserSO>(e.Message);
             }
         }
@@ -43,10 +44,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateId(userId);
                 Double total = SystemFacade.GetTotalShoppingCartPrice(userId);
+                Logger.LogInfo($"User with id: {userId}, successfully getting the total of his shopping cart price.");
                 return new Result<Double>(total);
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<Double>(e.Message);
             }
         }
@@ -57,10 +60,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateId(userId);
                 ShoppingCartSO shoppingCart = SystemFacade.GetUserShoppingCart(userId);
+                Logger.LogInfo($"User with id: {userId}, successfully getting his shopping cart.");
                 return new Result<ShoppingCartSO>(shoppingCart);
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<ShoppingCartSO>(e.Message);
             }
         }
@@ -71,10 +76,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateId(userId);
                 ShoppingCartSO shoppingCart = SystemFacade.Purchase(userId, paymentDetails, deliveryDetails);
+                Logger.LogInfo($"User with id: {userId}, has purchased the items successfully.");
                 return new Result<ShoppingCartSO>(shoppingCart);
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<ShoppingCartSO>(e.Message);
             }
         }
@@ -87,10 +94,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateId(storeId);
                 ValidateId(productId);
                 SystemFacade.UpdateShoppingCart(userId, storeId, productId, quantity);
+                Logger.LogInfo($"User with id: {userId}, successfully updated his shopping cart.");
                 return new Result();
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<GuestUserSO>(e.Message);
             }
         }
@@ -100,10 +109,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateId(userId);
                 SystemFacade.Logout(userId);
+                Logger.LogInfo($"User with id: {userId}, successfully logged out.");
                 return new Result();
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result(e.Message);
             }
         }
@@ -156,6 +167,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<GuestUserSO>(e.Message);
             }
         }
@@ -166,10 +178,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateCredentials(username, password);
                 RegisteredUserSO user = SystemFacade.Register(username, password);
+                Logger.LogInfo($"A new user has been registered to the system with id: {username}, password: {password}");
                 return new Result<RegisteredUserSO>(user);
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<RegisteredUserSO>(e.Message);
             }
         }

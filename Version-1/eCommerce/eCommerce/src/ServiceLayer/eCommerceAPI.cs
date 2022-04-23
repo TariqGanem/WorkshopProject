@@ -6,7 +6,7 @@ using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Controllers;
 using eCommerce.src.ServiceLayer.Objects;
-using eCommerce.src.ServiceLayer.Response;
+using eCommerce.src.ServiceLayer.ResultService;
 
 namespace eCommerce.src.ServiceLayer
 {

@@ -1,4 +1,4 @@
-﻿using eCommerce.src.ServiceLayer.Response;
+﻿using eCommerce.src.ServiceLayer.ResultService;
 using System;
 using System.Collections.Generic;
 using System.Text;

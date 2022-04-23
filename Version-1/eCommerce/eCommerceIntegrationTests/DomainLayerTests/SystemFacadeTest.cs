@@ -3,7 +3,7 @@ using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.ServiceLayer.Objects;
-using eCommerce.src.ServiceLayer.Response;
+using eCommerce.src.ServiceLayer.ResultService;
 using eCommerceIntegrationTests.Utils;
 using System;
 using System.Collections.Generic;

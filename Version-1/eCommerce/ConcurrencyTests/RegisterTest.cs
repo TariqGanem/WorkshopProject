@@ -1,5 +1,5 @@
 ﻿using eCommerce.src.ServiceLayer;
-using eCommerce.src.ServiceLayer.Response;
+using eCommerce.src.ServiceLayer.ResultService;
 using eCommerceIntegrationTests.Utils;
 using System;
 using System.Collections.Concurrent;

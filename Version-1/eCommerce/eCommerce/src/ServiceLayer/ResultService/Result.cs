@@ -1,4 +1,4 @@
-﻿namespace eCommerce.src.ServiceLayer.Response
+﻿namespace eCommerce.src.ServiceLayer.ResultService
 {
     /// <summary>
     /// Class <c>Response</c> represents the result of a call to a void function.
