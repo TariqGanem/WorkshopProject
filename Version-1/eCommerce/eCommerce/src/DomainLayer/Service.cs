@@ -15,36 +15,6 @@ namespace eCommerce.src.DomainLayer
 
         public static class ObjectDictionaryMapper<T>
         {
-            // function to build an object of type T from dictionary
-            public static T GetObject(IDictionary<String, Object> dict)
-            {
-                PropertyInfo[] props = typeof(T).GetProperties();
-                T res = Activator.CreateInstance<T>();
-                for (int i = 0; i < props.Length; i++)
-                {
-                    if (props[i].CanWrite && dict.ContainsKey(props[i].Name))
-                    {
-                        props[i].SetValue(res, dict[props[i].Name], null);
-                    }
-                }
-                return res;
-            }
-
-            // function to dump object of type T to dictionary
-            public static IDictionary<String, Object> GetDictionary(T obj)
-            {
-                IDictionary<String, Object> res = new Dictionary<String, Object>();
-                PropertyInfo[] props = typeof(T).GetProperties();
-                for (int i = 0; i < props.Length; i++)
-                {
-                    if (props[i].CanRead)
-                    {
-                        res.Add(props[i].Name, props[i].GetValue(obj, null));
-                    }
-                }
-                return res;
-            }
-
             //function for updating several properties of an object using dictionary
             public static void SetPropertyValue(Object obj, IDictionary<String, Object> dict)
             {

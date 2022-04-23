@@ -1,7 +1,7 @@
 ﻿using eCommerce.src.DomainLayer;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ServiceLayer.Objects;
-using eCommerce.src.ServiceLayer.Response;
+using eCommerce.src.ServiceLayer.ResultService;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,10 +27,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateCredentials(userName, password);
                 RegisteredUserSO user = SystemFacade.Login(userName, password);
+                Logger.LogInfo($"User with id: {userName}, successfully logged in to the system.");
                 return new Result<RegisteredUserSO>(user);
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<RegisteredUserSO>(e.Message);
             }
         }
@@ -40,10 +42,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateId(userId);
                 UserHistorySO history = SystemFacade.GetUserPurchaseHistory(userId);
+                Logger.LogInfo($"Getting user: {userId} purchase history successfully.");
                 return new Result<UserHistorySO>(history);
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<UserHistorySO>(e.Message);
             }
         }
@@ -56,10 +60,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 if (storeName == null || storeName.Length == 0)
                     return new Result<StoreService>("Tyring to open new store with invalid args.");
                 StoreService store = SystemFacade.OpenNewStore(storeName, userId);
+                Logger.LogInfo($"User with id: {userId}, has opened a new store with name: {storeName} successfully.");
                 return new Result<StoreService>(store);
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result<StoreService>(e.Message);
             }
         }
@@ -71,10 +77,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateId(userId);
                 ValidateId(storeId);
                 SystemFacade.CloseStore(userId, storeId);
+                Logger.LogInfo($"User with id: {userId}, closed a store with id: {storeId} successfully.");
                 return new Result();
             }
             catch (Exception e)
             {
+                Logger.LogError(e.Message);
                 return new Result(e.Message);
             }
         }

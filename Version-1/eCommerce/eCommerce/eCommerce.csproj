@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="src\DataLayer\**" />
-    <EmbeddedResource Remove="src\DataLayer\**" />
-    <None Remove="src\DataLayer\**" />
+    <PackageReference Include="log4net" Version="2.0.12" />
   </ItemGroup>
 
 </Project>

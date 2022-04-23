@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eCommerce.src.ServiceLayer.Response
+namespace eCommerce.src.ServiceLayer.ResultService
 {
     /// <summary>
     /// This class extends <c>Response</c> and represents the result of a call to a non-void function. 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.Concurrent;
-using eCommerce.src.ServiceLayer.Response;
+using eCommerce.src.ServiceLayer.ResultService;
 
 namespace eCommerce.src.DomainLayer.Store
 {
