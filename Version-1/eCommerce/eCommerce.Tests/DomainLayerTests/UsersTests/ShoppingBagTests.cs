@@ -89,7 +89,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             bag.Products[new Product("a", 2, "b", 4)] = 3;
             bag.Products[new Product("aa", 3, "bb", 2)] = 1;
 
-            Assert.AreEqual(bag.GetTotalPrice(),5);
+            Assert.AreEqual(bag.GetTotalPrice(),9);
         }
     }
 }

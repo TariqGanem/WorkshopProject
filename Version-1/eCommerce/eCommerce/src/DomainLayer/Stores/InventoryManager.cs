@@ -37,7 +37,8 @@ namespace eCommerce.src.DomainLayer.Store
 
         public void RemoveProduct(string productID)
         {
-            if (!Products.TryRemove(productID, out Product _))
+            if (Products.Remove(productID, out Product _)){  }
+            else
             {
                 throw new Exception($"Trying to remove non-existed product. (ID: {productID})");
             }
