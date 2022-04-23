@@ -43,8 +43,6 @@ namespace eCommerce.src.DomainLayer.User
         {
             ShoppingBag bag = ShoppingCart.GetShoppingBag(storeID);
             bag.UpdateShoppingBag(product, quantity);
-            if (!bag.Products.ContainsKey(product))
-                ShoppingCart.ShoppingBags.TryRemove(storeID, out _);
         }
 
         public ShoppingCart Purchase(IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails)
