@@ -152,12 +152,48 @@ namespace eCommerce.src.ServiceLayer
 
         public Result<List<String>> GetUserShoppingCart(String userID)
         {
-            throw new NotImplementedException();
+            Result<ShoppingCartSO> res = system.GetUserShoppingCart(userID);
+            if (!res.ErrorOccured)
+            {
+                List<ShoppingBagSO> ShoppingBags = new List<ShoppingBagSO>(res.Value.shoppingBags.Values);
+                List<string> Ids = new List<string>();
+                foreach (ShoppingBagSO item in ShoppingBags) { Ids.Add(item.Id); }
+                return new Result<List<string>>(Ids);
+            }
+            else
+            {
+                return new Result<List<string>>(res.ErrorMessage);
+            }
         }
 
         public Result<Dictionary<string, int>> GetUserShoppingBag(String userID, String shoppingBagID)
         {
-            throw new NotImplementedException();
+            Result<ShoppingCartSO> res = system.GetUserShoppingCart(userID);
+            if (!res.ErrorOccured)
+            {
+                ShoppingCartSO shoppingCart = res.Value;
+                foreach (string id in shoppingCart.shoppingBags.Keys)
+                {
+                    if (id == shoppingBagID)
+                    {
+                        if(shoppingCart.shoppingBags.TryGetValue(id, out ShoppingBagSO bag))
+                        {
+                            return new Result<Dictionary<string, int>>(ConvertObjectToID(bag.Products));
+                        }
+                    }
+                }
+            }
+            return new Result<Dictionary<string, int>>("Failed to find the shopping bag");
+        }
+
+        private Dictionary<string, int> ConvertObjectToID(Dictionary<ProductService, int> dct)
+        {
+            Dictionary<string, int> result = new Dictionary<string, int>();
+            foreach (ProductService p in dct.Keys)
+            {
+                result.Add(p.Id, p.Quantity);
+            }
+            return result;
         }
 
         public Result<string> Login(string userName, string password)

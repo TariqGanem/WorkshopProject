@@ -3,13 +3,15 @@ using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.ServiceLayer.Objects;
+using eCommerce.src.ServiceLayer.Response;
+using eCommerceIntegrationTests.Utils;
 using System;
 using System.Collections.Generic;
 using Xunit;
 
 namespace eCommerceIntegrationTests
 {
-    public class SystemFacadeTest
+    public class SystemFacadeTest : XeCommerceTestCase
     {
         public SystemFacade Facade { get; }
         public StoreFacade StoresFacade { get; }
@@ -19,7 +21,7 @@ namespace eCommerceIntegrationTests
         public RegisteredUser RegisteredUser { get; }
         public GuestUser GuestUser { get; }
 
-        public SystemFacadeTest()
+        public SystemFacadeTest() : base()
         {
             // Facade to check
             Facade = new SystemFacade();
@@ -167,7 +169,7 @@ namespace eCommerceIntegrationTests
             Assert.True(TestStore.Managers.ContainsKey(manager.GetId()));
         }
 
-        public void AddProductToCartTest(int productQuantity, Boolean expectedResult)
+        public void AddProductToCartTest(int productQuantity, Boolean expectedResult, Boolean expectedResult2)
         {
             throw new NotImplementedException();
         }
