@@ -14,6 +14,11 @@
 *.userosscache
 *.sln.docstates
 
+# Ignore any files in /bin and /obj Folders
+**/bin/*
+**/obj/*
+Version-1/eCommerce/eCommerce/obj
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

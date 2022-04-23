@@ -7,10 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="src\DataLayer\" />
-    <Folder Include="src\DomainLayer\Store\" />
-    <Folder Include="src\DomainLayer\User\" />
-    <Folder Include="src\ServiceLayer\" />
+    <Compile Remove="src\DataLayer\**" />
+    <EmbeddedResource Remove="src\DataLayer\**" />
+    <None Remove="src\DataLayer\**" />
   </ItemGroup>
 
 </Project>
