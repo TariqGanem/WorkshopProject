@@ -175,14 +175,12 @@ namespace eCommerce.src.DomainLayer.User
         {
             if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
             {
-                ShoppingCart cart = PurchaseHandler.Purchase(guest_user.ShoppingCart, paymentDetails, deliveryDetails);
-                guest_user.ShoppingCart = new ShoppingCart();              // create new shopping cart for user
+                ShoppingCart cart = guest_user.Purchase(paymentDetails, deliveryDetails);
                 return cart;
             }
             else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
             {
-                ShoppingCart cart = PurchaseHandler.Purchase(registerd_user.ShoppingCart, paymentDetails, deliveryDetails);
-                registerd_user.ShoppingCart = new ShoppingCart();              // create new shopping cart for user
+                ShoppingCart cart = registerd_user.Purchase(paymentDetails, deliveryDetails);
                 registerd_user.History.AddPurchasedShoppingCart(cart);
                 return cart;
             }

@@ -38,8 +38,15 @@ namespace eCommerce.src.DomainLayer.User
             }
         }
 
+        public ShoppingCart Purchase(IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
+        {
+            ShoppingCart cart = PurchaseHandler.Purchase(ShoppingCart, paymentDetails, deliveryDetails);
+            ShoppingCart = new ShoppingCart();              // create new shopping cart for user
+            return cart;
+        }
 
-        public void UpdateShoppingCart(String storeID, Product product, int quantity)
+
+            public void UpdateShoppingCart(String storeID, Product product, int quantity)
         {
             ShoppingBag bag = ShoppingCart.GetShoppingBag(storeID);
             bag.UpdateShoppingBag(product, quantity);
