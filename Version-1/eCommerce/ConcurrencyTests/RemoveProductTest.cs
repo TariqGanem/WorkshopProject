@@ -9,13 +9,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace ConcurrencyTests
 {
     public class RemoveProductTest : XeCommerceTestCase
     {
-        private readonly ITestOutputHelper output;
         private string tariq_id;
         private string yazan_id;
         private string eran_id;
@@ -24,7 +22,7 @@ namespace ConcurrencyTests
         private string product_id;
         private BlockingCollection<bool> results;
 
-        public RemoveProductTest(ITestOutputHelper output) : base()
+        public RemoveProductTest() : base()
         {
             api.Register("tariq@gmail.com", "test1");
             api.Register("yazan@gmail.com", "test12");
@@ -46,7 +44,6 @@ namespace ConcurrencyTests
             api.SetPermissions(store_id, random_id, tariq_id, permission);
             this.product_id = api.AddProductToStore(tariq_id, store_id, "sushi", 300, 1, "Asia").Value;
             results = new BlockingCollection<bool>();
-            this.output = output;
         }
 
         internal void ThreadWork(string user_id)

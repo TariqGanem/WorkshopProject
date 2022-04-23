@@ -40,7 +40,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 string id = SystemFacade.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
-                return new Result<String>(id);
+                return new Result<String>(id, null);
             }
             catch (Exception error)
             {
