@@ -63,7 +63,8 @@ namespace eCommerce.src.DomainLayer.User
             double sum = 0;
             foreach (Product product in Products.Keys)
             {
-                sum = sum + product.Price;
+                Products.TryGetValue(product, out int quantity);
+                sum = sum + product.Price * quantity;
             }
             TotalBagPrice = sum;
             return sum;
