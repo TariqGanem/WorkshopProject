@@ -14,6 +14,7 @@ namespace eCommerce.src.ServiceLayer.ResultService
         private static void init()
         {
             log4net.Config.XmlConfigurator.Configure();
+            log4net.Util.LogLog.InternalDebugging = true;
             IsInitiated = true;
         }
 

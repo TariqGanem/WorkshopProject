@@ -6,7 +6,7 @@ namespace eCommerce
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("This is a test for gitignore");
+            Console.WriteLine("Start here");
         }
     }
 }
