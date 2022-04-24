@@ -36,7 +36,16 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
         public void AddRatingTests(double rating)
         {
             if (rating < 1 | rating > 5 )
-                Assert.Throws<Exception>(() => store.AddRating(rating));
+            {
+                try
+                {
+                    this.store.AddRating(rating);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("Store Candy could not be rated. Please use number between 1 to 5", e.Message);
+                }
+            }
             else
             {
                 store.AddRating(rating);
@@ -53,7 +62,16 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
         public void AddRatingsTests(double rating)
         {
             if (rating < 1 | rating > 5)
-                Assert.Throws<Exception>(() => store.AddRating(rating));
+            {
+                try
+                {
+                    this.store.AddRating(rating);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("Store Candy could not be rated. Please use number between 1 to 5", e.Message);
+                }
+            }
             else
             {
                 addRatingsFurtherTesting();

@@ -7,7 +7,7 @@ namespace eCommerce.src.ServiceLayer.ResultService
 {
     public class Logger
     {
-        private static string path = Path.GetFullPath(@"..\..\..\Logs\");
+        private static string path = Path.GetFullPath(@"..\..\..\..\eCommerce\Logs\");
         private static object _myLock = new object();
         private static Logger logger = null;
 

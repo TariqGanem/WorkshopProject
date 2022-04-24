@@ -37,7 +37,16 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
         public void addRating(double rate , double expected)
         {
             if (rate < 1 | rate > 5)
-                Assert.Throws<Exception>(() => this.Product.AddRating(rate));
+            {
+                try
+                {
+                    this.Product.AddRating(rate);
+                }
+                catch(Exception e)
+                {
+                    Assert.Equal("Product RTX3080 could not be rated. Please use number between 1 to 5", e.Message);
+                }
+            }
             else
             {
                 this.Product.AddRating(rate);

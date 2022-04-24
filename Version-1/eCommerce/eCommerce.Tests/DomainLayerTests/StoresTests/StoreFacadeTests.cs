@@ -56,7 +56,14 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             this.storefacade.OpenNewStore(founder1, store1.Name);
             Store tempstore = storefacade.Stores.Values.First();
             Assert.True(storefacade.Stores.ContainsKey(tempstore.Id) & tempstore.Active);
-            Assert.Throws<Exception>(()=>this.storefacade.CloseStore(founder2, tempstore.Id));
+            try
+            {
+                this.storefacade.CloseStore(founder2, tempstore.Id);
+            }
+            catch(Exception e)
+            {
+                Assert.Equal("Non-founder Trying to close store Razer", e.Message);
+            }
             Assert.True(storefacade.Stores.ContainsKey(tempstore.Id) & tempstore.Active);
             this.storefacade.CloseStore(founder1, tempstore.Id);
             Assert.False(tempstore.Active);
@@ -68,19 +75,29 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
         {
             this.storefacade.OpenNewStore(founder1, store1.Name);
             Store tempstore = storefacade.Stores.Values.First();
-            Console.WriteLine(tempstore.Name);
-            Assert.Throws<Exception>(()=>storefacade.AddProductToStore(founder2.Id, tempstore.Id, "RazerKeyboard", 449.99, 25, "Keyboard"));
+            try
+            {
+                storefacade.AddProductToStore(founder2.Id, tempstore.Id, "RazerKeyboard", 449.99, 25, "Keyboard");
+            }
+            catch (Exception e)
+            {
+                Assert.Equal(founder2.Id + " does not have permissions to add new product to Razer", e.Message);
+            }
             storefacade.AddProductToStore(founder1.Id, tempstore.Id, "RazerKeyboard", 449.99, 25, "Keyboard");
             Product tempproduct = tempstore.InventoryManager.Products.Values.First();
             Assert.NotNull(tempproduct);
-            Assert.Throws<Exception>(() => storefacade.RemoveProductFromStore(founder2.Id, store1.Id, tempproduct.Id));
+            try
+            {
+                storefacade.RemoveProductFromStore(founder2.Id, store1.Id, tempproduct.Id);
+            }
+            catch (Exception e)
+            {
+                Assert.Equal("Store ID " + store1.Id + " not found", e.Message);
+            }
             Assert.True(tempstore.InventoryManager.Products.ContainsKey(tempproduct.Id));
             storefacade.RemoveProductFromStore(founder1.Id, tempstore.Id, tempproduct.Id);
             Assert.False(store1.InventoryManager.Products.ContainsKey(tempproduct.Id));
         }
-
-        // @toadd : 1) setPermissions
-                  //2) removePermissions
     }
 
 }

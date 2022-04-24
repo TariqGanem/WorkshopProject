@@ -35,7 +35,16 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             if(Name.Equals("Nutella"))
                 Assert.NotEmpty(InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes));
             else
-                Assert.Throws<Exception>(() => InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes));
+            {
+                try
+                {
+                    InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("No item has been found", e.Message);
+                }
+            }
         }
 
         [Theory()]
@@ -51,13 +60,31 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             if(price < 25.99)
                 Assert.NotEmpty(InventoryManager.SearchProduct(notImportantStoreRating, searchAttributeslow));
             else
-                Assert.Throws<Exception>(() => InventoryManager.SearchProduct(notImportantStoreRating, searchAttributeslow));
+            {
+                try
+                {
+                    InventoryManager.SearchProduct(notImportantStoreRating, searchAttributeslow);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("No item has been found", e.Message);
+                }
+            }
             IDictionary<String, Object> searchAttributeshigh = new Dictionary<String, Object>()
                                                             {{ "highprice", price }};
             if (price > 25.99)
                 Assert.NotEmpty(InventoryManager.SearchProduct(notImportantStoreRating, searchAttributeshigh));
             else
-                Assert.Throws<Exception>(() => InventoryManager.SearchProduct(notImportantStoreRating, searchAttributeshigh));
+            {
+                try
+                {
+                    InventoryManager.SearchProduct(notImportantStoreRating, searchAttributeslow);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("No item has been found", e.Message);
+                }
+            }
         }
 
         [Theory()]
@@ -74,7 +101,16 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             if (Category.Equals("Food"))
                 Assert.NotEmpty(InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes));
             else
-                Assert.Throws<Exception>(() => InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes));
+            {
+                try
+                {
+                    InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("No item has been found", e.Message);
+                }
+            }
         }
 
         [Theory()]
@@ -90,7 +126,16 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             if (ProductRating <= 3)
                 Assert.NotEmpty(InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes));
             else
-                Assert.Throws<Exception>(() => InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes));
+            {
+                try
+                {
+                    InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("No item has been found", e.Message);
+                }
+            }
         }
 
 
@@ -106,7 +151,16 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             if (StoreRatingActaul >= StoreRatingTest)
                 Assert.NotEmpty(InventoryManager.SearchProduct(StoreRatingActaul, searchAttributes));
             else
-                Assert.Throws<Exception>(() => InventoryManager.SearchProduct(StoreRatingActaul, searchAttributes));
+            {
+                try
+                {
+                    InventoryManager.SearchProduct(StoreRatingActaul, searchAttributes);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("No item has been found", e.Message);
+                }
+            }
         }
 
         [Theory()]
@@ -125,7 +179,16 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             if (Keyword.Equals("Chocolate") | Keyword.Equals("Sugar"))
                 Assert.NotEmpty(InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes));
             else
-                Assert.Throws<Exception>(() => InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes));
+            {
+                try
+                {
+                    InventoryManager.SearchProduct(notImportantStoreRating, searchAttributes);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("No item has been found", e.Message);
+                }
+            }
         }
 
     }
