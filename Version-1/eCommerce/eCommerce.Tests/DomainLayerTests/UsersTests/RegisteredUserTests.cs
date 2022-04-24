@@ -1,5 +1,6 @@
 ﻿using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.DomainLayer.User;
+using eCommerceIntegrationTests.Utils;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using Assert = NUnit.Framework.Assert;
 
 namespace eCommerce.Tests.DomainLayerTests.UsersTests
 {
-    public class RegisteredUserTests
+    public class RegisteredUserTests: XeCommerceTestCase
     {
         public RegisteredUser user = new RegisteredUser("ahmed","ahmed");
 

@@ -258,6 +258,7 @@ namespace eCommerceIntegrationTests
             ShoppingCartSO res = Facade.Purchase(RegisteredUser.Id, paymentDetails, deliveryDetails);
 
             Assert.Equal(16.3, res.TotalPrice);
+            Assert.Empty(RegisteredUser.ShoppingCart.ShoppingBags);
 
             Assert.Single(RegisteredUser.History.ShoppingBags);
 
