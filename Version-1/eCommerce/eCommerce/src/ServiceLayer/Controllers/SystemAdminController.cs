@@ -15,6 +15,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
     }
     public class SystemAdminController : RegisteredUserController, ISystemAdminController
     {
+        Logger logger = Logger.GetInstance();
         public SystemAdminController(ISystemFacade systemFacade) : base(systemFacade) { }
 
         #region Public Methods
@@ -26,12 +27,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateId(storeId);
                 checkSystemAdmin(sysAdminId);
                 UserHistorySO history = SystemFacade.GetStorePurchaseHistory(sysAdminId, storeId, true);
-                Logger.LogInfo($"User with id: {sysAdminId} getting store with id {storeId} purchase history successfully.");
+                logger.LogInfo($"User with id: {sysAdminId} getting store with id {storeId} purchase history successfully.");
                 return new Result<UserHistorySO>(history);
             }
             catch (Exception e)
             {
-                Logger.LogError(e.Message);
+                logger.LogError(e.Message);
                 return new Result<UserHistorySO>(e.Message);
             }
         }
@@ -44,12 +45,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateId(userId);
                 checkSystemAdmin(sysAdminId);
                 UserHistorySO history = SystemFacade.GetUserPurchaseHistory(userId);
-                Logger.LogInfo($"User with id: {sysAdminId} getting user with id {userId} purchase history successfully.");
+                logger.LogInfo($"User with id: {sysAdminId} getting user with id {userId} purchase history successfully.");
                 return new Result<UserHistorySO>(history);
             }
             catch (Exception e)
             {
-                Logger.LogError(e.Message);
+                logger.LogError(e.Message);
                 return new Result<UserHistorySO>(e.Message);
             }
         }
@@ -61,12 +62,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateUserName(userName);
                 checkSystemAdmin(sysAdminId);
                 RegisteredUserSO user = SystemFacade.AddSystemAdmin(userName);
-                Logger.LogInfo($"User with id: {sysAdminId} added a new system admin with id: {userName} successfully.");
+                logger.LogInfo($"User with id: {sysAdminId} added a new system admin with id: {userName} successfully.");
                 return new Result<RegisteredUserSO>(user);
             }
             catch (Exception e)
             {
-                Logger.LogError(e.Message);
+                logger.LogError(e.Message);
                 return new Result<RegisteredUserSO>(e.Message);
             }
         }
@@ -77,12 +78,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateUserName(userName);
                 checkSystemAdmin(sysAdminId);
                 RegisteredUserSO user = SystemFacade.RemoveSystemAdmin(userName);
-                Logger.LogInfo($"User with id: {sysAdminId} removed a system admin with id {userName} successfully.");
+                logger.LogInfo($"User with id: {sysAdminId} removed a system admin with id {userName} successfully.");
                 return new Result<RegisteredUserSO>(user);
             }
             catch (Exception e)
             {
-                Logger.LogError(e.Message);
+                logger.LogError(e.Message);
                 return new Result<RegisteredUserSO>(e.Message);
             }
         }

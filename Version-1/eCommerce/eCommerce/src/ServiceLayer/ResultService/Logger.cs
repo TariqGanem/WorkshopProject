@@ -1,37 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace eCommerce.src.ServiceLayer.ResultService
 {
-    public static class Logger
+    public class Logger
     {
-        private static readonly log4net.ILog InfoLogger = log4net.LogManager.GetLogger("EventLogger");
-        private static readonly log4net.ILog ErrorLogger = log4net.LogManager.GetLogger("ErrorLogger");
+        private static string path = Path.GetFullPath(@"..\..\..\Logs\");
+        private static object _myLock = new object();
+        private static Logger logger = null;
 
-        private static bool IsInitiated = false;
+        private Logger() { }
 
-        private static void init()
+        public static Logger GetInstance()
         {
-            log4net.Config.XmlConfigurator.Configure();
-            log4net.Util.LogLog.InternalDebugging = true;
-            IsInitiated = true;
+            if (logger == null) // The first check
+            {
+                lock (_myLock)
+                {
+                    if (logger == null) // The second (double) check
+                    {
+                        logger = new Logger();
+                    }
+                }
+            }
+            return logger;
         }
 
-        //for action in the system
-        public static void LogInfo(String msg)
+        public void LogError(string msg)
         {
-            if (!IsInitiated)
-                init();
-            InfoLogger.Info(msg);
+            string errorLogger = path + "LogError.log";
+            try
+            {
+                if (!File.Exists(errorLogger))
+                {
+                    File.Create(errorLogger);
+                }
+                using (StreamWriter sw = File.AppendText(errorLogger))
+                {
+                    sw.WriteLine(DateTime.Now.ToString() + ": " + msg);
+                    sw.Dispose();
+                    sw.Close();
+                }
+            }
+            catch
+            { }
         }
 
-        //for error and failed action
-        public static void LogError(String msg)
+        public void LogInfo(string msg)
         {
-            if (!IsInitiated)
-                init();
-            ErrorLogger.Error(msg);
+            string infoLogger = path + "LogInfo.log";
+            try
+            {
+                if (!File.Exists(infoLogger))
+                {
+                    File.Create(infoLogger);
+                }
+                using (StreamWriter sw = File.AppendText(infoLogger))
+                {
+                    sw.WriteLine(DateTime.Now.ToString() + ": " + msg);
+                    sw.Dispose();
+                    sw.Close();
+                }
+            }
+            catch { }
         }
     }
 }
