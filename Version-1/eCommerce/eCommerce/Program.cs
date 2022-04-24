@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.src.ServiceLayer;
+using System;
 
 namespace eCommerce
 {
@@ -6,7 +7,8 @@ namespace eCommerce
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Start here");
+            eCommerceSystem system = new eCommerceSystem();
+            system.run();
         }
     }
 }

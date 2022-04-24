@@ -154,6 +154,11 @@ namespace eCommerce.src.ServiceLayer
         {
             return RegisteredUserController.CloseStore(userId, storeId);
         }
+
+        public void run()
+        {
+            //TODO
+        }
         #endregion
     }
 }
