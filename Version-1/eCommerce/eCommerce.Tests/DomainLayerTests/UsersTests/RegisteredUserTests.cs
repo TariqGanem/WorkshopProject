@@ -23,8 +23,9 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         }
 
         [Fact]
-        public void AddProductToCartTest()
+        public void AddProductToCartTesthappy()
         {
+            //test happy1
             Product p1 = new Product("bamba", 3, "snacks", 4);
             Store s1 = new Store("shofersal", new RegisteredUser("ahmed1","ahmed1"));
             ShoppingBag bag1 = new ShoppingBag("1",s1);
@@ -32,6 +33,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             user.AddProductToCart(p1, 2, s1);
             Assert.IsTrue(user.ShoppingCart.ShoppingBags[s1.Id].Products.ContainsKey(p1));
 
+            //test happy2
             Product p2 = new Product("bamba2", 3, "snacks", 4);
             Store s2 = new Store("shofersal2", new RegisteredUser("ahmed2", "ahmed2"));
             ShoppingBag bag2 = new ShoppingBag("2", s1);
@@ -40,7 +42,25 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         }
 
         [Fact]
-        public void UpdateShoppingCartTest()
+        public void AddProductToCartTestbad()
+        {
+            //test happy1
+            Product p1 = new Product("bamba", 3, "snacks", 4);
+            Store s1 = new Store("shofersal", new RegisteredUser("ahmed1", "ahmed1"));
+            ShoppingBag bag1 = new ShoppingBag("1", s1);
+            user.ShoppingCart.AddShoppingBagToCart(bag1);
+            Store s2 = new Store("shofersal2", new RegisteredUser("ahmed2", "ahmed2"));
+            try
+            {
+                user.AddProductToCart(p1, 2, s2);
+            }catch (Exception ex)
+            {
+                Assert.AreEqual(ex.Message, $"Shopping bag not found for the store id: {s2.Id}.");
+            }
+        }
+
+        [Fact]
+        public void UpdateShoppingCartTesthappy()
         {
             Product p1 = new Product("bamba", 3, "snacks", 4);
             Store s1 = new Store("shofersal", new RegisteredUser("ahmed", "ahmed"));
@@ -52,7 +72,30 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         }
 
         [Fact]
-        public void PurchaseTest()
+        public void PurchaseTesthappy()
+        {
+            IDictionary<string, object> payments = new Dictionary<string, object>();
+            IDictionary<string, object> delivery = new Dictionary<string, object>();
+
+            Store s1 = new Store("shofersal", new RegisteredUser("ahmed", "ahmed"));
+            ShoppingBag bag1 = new ShoppingBag("1", s1);
+            Product p1 = new Product("bamba", 3, "snacks", 4);
+            bag1.Products[p1] = 5;
+            user.ShoppingCart.AddShoppingBagToCart(bag1);
+
+            user.ShoppingCart.ShoppingBags.TryRemove(bag1.Store.Id,out ShoppingBag s);
+            Product p2 = new Product("besli", 3, "snacks", 4);
+            user.AddProductToCart(p2,2,s1);
+            ShoppingCart cart1 = user.ShoppingCart;
+            ShoppingCart cart2 = user.Purchase(payments, delivery);
+            Assert.AreEqual(cart2.Id, cart1.Id);
+            Assert.AreEqual(cart2.TotalCartPrice, cart1.TotalCartPrice);
+            Assert.AreEqual(cart2.ShoppingBags, cart1.ShoppingBags);
+            Assert.IsTrue(user.ShoppingCart != cart1);
+            Assert.IsTrue(user.ShoppingCart.ShoppingBags.Count == 0);
+        }
+        [Fact]
+        public void PurchaseTestbad()
         {
             IDictionary<string, object> payments = new Dictionary<string, object>();
             IDictionary<string, object> delivery = new Dictionary<string, object>();
@@ -65,6 +108,13 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             {
                 Assert.AreEqual(ex.Message, "The shopping cart is empty!");
             }
+        }
+
+        [Fact]
+        public void PurchaseTestsad()
+        {
+            IDictionary<string, object> payments = new Dictionary<string, object>();
+            IDictionary<string, object> delivery = new Dictionary<string, object>();
 
             Store s1 = new Store("shofersal", new RegisteredUser("ahmed", "ahmed"));
             ShoppingBag bag1 = new ShoppingBag("1", s1);
@@ -80,46 +130,48 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             {
                 Assert.AreEqual(ex.Message, "Notice - The store is out of stock!");
             }
-
-            user.ShoppingCart.ShoppingBags.TryRemove(bag1.Store.Id,out ShoppingBag s);
-            Product p2 = new Product("besli", 3, "snacks", 4);
-            user.AddProductToCart(p2,2,s1);
-            ShoppingCart cart1 = user.ShoppingCart;
-            ShoppingCart cart2 = user.Purchase(payments, delivery);
-            Assert.AreEqual(cart2.Id, cart1.Id);
-            Assert.AreEqual(cart2.TotalCartPrice, cart1.TotalCartPrice);
-            Assert.AreEqual(cart2.ShoppingBags, cart1.ShoppingBags);
-            Assert.IsTrue(user.ShoppingCart != cart1);
-            Assert.IsTrue(user.ShoppingCart.ShoppingBags.Count == 0);
         }
 
         [Fact]
-        public void Login()
-        {
-            try
-            {
-                user.Login("a");
-            }catch(Exception e)
-            {
-                Assert.AreEqual(e.Message, "Wrong password!");
-                Assert.IsFalse(user.Active);
-            }
-
+        public void Loginhappy()
+        { 
             user.Login("ahmed");
             Assert.IsTrue(user.Active);
         }
 
         [Fact]
-        public void Logout()
+        public void Loginsad()
+        {
+            try
+            {
+                user.Login("a");
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual(e.Message, "Wrong password!");
+                Assert.IsFalse(user.Active);
+            }
+        }
+
+        [Fact]
+        public void Logouthappy()
         {
             user.Login("ahmed");
             user.Logout();
             Assert.IsFalse(user.Active);
+        }
+
+        [Fact]
+        public void Logoutsad()
+        {
+            user.Login("ahmed");
+            user.Logout();
 
             try
             {
                 user.Logout();
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Assert.AreEqual(e.Message, "User already loged out!");
                 Assert.IsFalse(user.Active);
