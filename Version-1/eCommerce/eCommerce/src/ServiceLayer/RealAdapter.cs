@@ -195,10 +195,19 @@ namespace eCommerce.src.ServiceLayer
             }
             return result;
         }
-
+        
         public Result<string> Login(string userName, string password)
         {
             Result<RegisteredUserSO> res = system.Login(userName, password);
+            if (!res.ErrorOccured)
+                return new Result<string>(res.Value.Id, null);
+            else
+                return new Result<string>(res.ErrorMessage);
+        }
+
+        public Result<string> Login() // added while writing acceptance testing
+        {
+            Result<GuestUserSO> res = system.Login();
             if (!res.ErrorOccured)
                 return new Result<string>(res.Value.Id, null);
             else

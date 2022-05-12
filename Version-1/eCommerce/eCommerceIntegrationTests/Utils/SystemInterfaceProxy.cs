@@ -109,6 +109,14 @@ namespace eCommerceIntegrationTests.Utils
             return Real.Login(email, password);
         }
 
+        public Result<String> Login() // added while writing acceptance testing
+        {
+            if (Real == null)
+                return new Result<string>(null);
+
+            return Real.Login();
+        }
+
         public Result<bool> Logout(string email)
         {
             if (Real == null)

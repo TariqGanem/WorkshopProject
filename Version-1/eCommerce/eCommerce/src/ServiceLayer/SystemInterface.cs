@@ -11,6 +11,7 @@ namespace eCommerce.src.ServiceLayer
         Result<Boolean> Register(String email, String password);
 
         Result<String> Login(String email, String password); //user id
+        Result<String> Login(); // Guest User - added while writing acceptance testing
 
         Result<Boolean> Logout(String email);
 
@@ -47,6 +48,7 @@ namespace eCommerce.src.ServiceLayer
         Result<Boolean> SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Result<Dictionary<String, List<int>>> GetStoreStaff(String ownerID, String storeID);
         Result<List<String>> GetStorePurchaseHistory(String ownerID, String storeID); //userID to List<permissions>
+
 
         #endregion
     }
