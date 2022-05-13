@@ -40,6 +40,16 @@ namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsRegisteredUser
             Assert.True(storeId.ErrorOccured);
         }
 
+        [Fact]
+        [Trait("Category", "acceptance")]
+        public void SadOpenNewStore_NotLoginnedUserCantOpenStore()
+        {
+            Result<bool> logout_store_owner = api.Logout(store_owner);
+            Assert.True(!logout_store_owner.Value); // logout succeeded
+            Result<String> storeId = this.api.OpenNewStore("AmazonWanaBe", store_owner);
+            Assert.True(storeId.ErrorOccured);
+        }
+
         // you don't have to be loggined to Open a Store ?
 
     }
