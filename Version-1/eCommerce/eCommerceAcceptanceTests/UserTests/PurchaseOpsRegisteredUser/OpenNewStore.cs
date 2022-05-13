@@ -50,7 +50,5 @@ namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsRegisteredUser
             Assert.True(storeId.ErrorOccured);
         }
 
-        // you don't have to be loggined to Open a Store ?
-
     }
 }
