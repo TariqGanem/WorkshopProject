@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceTests", "eCommerce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceIntegrationTests", "eCommerceIntegrationTests\eCommerceIntegrationTests.csproj", "{3020DBD5-E971-4466-A9DE-7D21D42927BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcurrencyTests", "ConcurrencyTests\ConcurrencyTests.csproj", "{EE316125-FC06-4F8A-9EBF-6A879920683F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcurrencyTests", "ConcurrencyTests\ConcurrencyTests.csproj", "{EE316125-FC06-4F8A-9EBF-6A879920683F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
