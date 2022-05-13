@@ -161,7 +161,7 @@ namespace eCommerce.src.DomainLayer.User
             }
             else
             {
-                throw new Exception($"There is no suck user with ID:{userId}!");
+                throw new Exception($"There is no such user with ID:{userId}!");
             }
         }
 

@@ -6,8 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-// Req II.2.4
-namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsGuestUser
+// Req II.3(2.4)
+namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsRegisteredUser
 {
     public class UpadeShoppingCart : XeCommerceTestCase
     {
@@ -24,8 +24,10 @@ namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsGuestUser
             this.user_id = userId.Value;
             Result<String> productId = this.api.AddProductToStore(user_id, store_id, "CODBO2", 300, 10, "VideoGames");
             this.product_id = productId.Value;
-            this.buyer_id = api.Login().Value;
-            
+            this.api.Register("Buyer@gmail.com", "StrongPassword");
+            Result<String> buyer = this.api.Login("Buyer@gmail.com", "StrongPassword"); // Reg User
+            this.buyer_id = buyer.Value;
+
         }
 
         [Fact]
@@ -53,7 +55,7 @@ namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsGuestUser
             Assert.True(update_success);
             List<String> shopping_bags = api.GetUserShoppingCart(buyer_id).Value;
             Dictionary<String, int> shopping_bag = api.GetUserShoppingBag(buyer_id, store_id).Value;
-            Assert.True(shopping_bag.Count == 0); 
+            Assert.True(shopping_bag.Count == 0);
         }
 
         [Fact]
