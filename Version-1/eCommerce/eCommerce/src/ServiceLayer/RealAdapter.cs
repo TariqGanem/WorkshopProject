@@ -172,11 +172,11 @@ namespace eCommerce.src.ServiceLayer
             if (!res.ErrorOccured)
             {
                 ShoppingCartSO shoppingCart = res.Value;
-                foreach (string id in shoppingCart.shoppingBags.Keys)
+                foreach (String Id in shoppingCart.shoppingBags.Keys)
                 {
-                    if (id == shoppingBagID)
+                    if (Id == shoppingBagID)
                     {
-                        if(shoppingCart.shoppingBags.TryGetValue(id, out ShoppingBagSO bag))
+                        if(shoppingCart.shoppingBags.TryGetValue(Id, out ShoppingBagSO bag))
                         {
                             return new Result<Dictionary<string, int>>(ConvertObjectToID(bag.Products));
                         }
@@ -189,9 +189,9 @@ namespace eCommerce.src.ServiceLayer
         private Dictionary<string, int> ConvertObjectToID(Dictionary<ProductService, int> dct)
         {
             Dictionary<string, int> result = new Dictionary<string, int>();
-            foreach (ProductService p in dct.Keys)
+            foreach (KeyValuePair<ProductService, int> entry in dct) // major bug fix
             {
-                result.Add(p.Id, p.Quantity);
+                result.Add(entry.Key.Id, entry.Value);
             }
             return result;
         }

@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-
+// Req II.2.2
 namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsGuestUser
 {
-    public class StoresProductsInfo : XeCommerceTestCase
+    public class SearchProducts : XeCommerceTestCase
     {
         public String user_id { set; get; }
         public String store_id { set; get; }
-        public StoresProductsInfo () : base() {
+        public SearchProducts () : base() {
             Result<bool> reguserId = this.api.Register("WantToOpenAStore@gmail.com", "StringPassword");
             Result<String> userId = this.api.Login("WantToOpenAStore@gmail.com", "StringPassword");
             Result<String> storeId = this.api.OpenNewStore("AmazonWanaBe", userId.Value);
@@ -43,9 +43,6 @@ namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsGuestUser
         {
             Assert.True(api.SearchProduct(new Dictionary<String, Object>() { { "Name", "test" } }).ErrorOccured);
         }
-
-        // ADD STORE SEARCH ACCEPTANCE TESTS - WHEN SEARCH STORE FUNCTIONALITY IS ADDED
-
 
     }
 }

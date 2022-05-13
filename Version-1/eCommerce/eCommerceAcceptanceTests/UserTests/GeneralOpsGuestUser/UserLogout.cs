@@ -3,7 +3,7 @@ using eCommerce.src.ServiceLayer.ResultService;
 using eCommerceIntegrationTests.Utils;
 using System;
 using Xunit;
-
+// Req II.1.2
 namespace eCommerceAcceptanceTests.UserTests
 {
     public class UserLogout : XeCommerceTestCase
