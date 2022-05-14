@@ -64,7 +64,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         }
         public Result EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details)
         {
-            SystemFacade.EditProductDetails(userID, storeID, productID, details);
+            //SystemFacade.EditProductDetails(userID, storeID, productID, details);
             try
             {
                 SystemFacade.EditProductDetails(userID, storeID, productID, details);

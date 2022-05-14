@@ -13,6 +13,28 @@ namespace eCommerce
             // FOR TESTNG PURPOSES
             RealAdapter api = new RealAdapter();
             /*
+                String store_owner;
+                String store_id;
+                String user_id;
+            
+                Result<bool> reguserId = api.Register("WantToOpenAStore@gmail.com", "StringPassword");
+                Result<String> userId = api.Login("WantToOpenAStore@gmail.com", "StringPassword");
+                Result<String> storeId = api.OpenNewStore("AmazonWanaBe", userId.Value);
+                store_id = storeId.Value;
+                store_owner = userId.Value;
+                Result<bool> reguserId2 = api.Register("Buyer@gmail.com", "BuyerPassword");
+                Result<String> userId2 = api.Login("Buyer@gmail.com", "BuyerPassword");
+                user_id = userId2.Value;
+                Result<String> productId = api.AddProductToStore(store_owner, store_id, "CODBO2", 300, 10, "VideoGames");
+                System.Console.WriteLine(productId.Value);
+                //Assert.False(productId.ErrorOccured);
+                IDictionary<String, Object> dictonary = new Dictionary<String, Object>() { { "Name", "new_name" } };
+                Result<bool> editRes = api.EditProductDetails(store_owner, store_id, productId.Value, dictonary);
+                System.Console.WriteLine(editRes.ErrorMessage);
+            */
+            //Assert.False(editRes.ErrorOccured);
+            //Assert.True(!api.SearchProduct(dictonary).ErrorOccured);
+            /*
             String user_id;
             String store_id;
             String product_id;

@@ -31,7 +31,7 @@ namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsRegisteredUser
 
         [Fact]
         [Trait("Category", "acceptance")]
-        public void HappyUserShoppingHistory() // needs fixing
+        public void HappyUserShoppingHistory() // needs fixing - USER HISTORY BUG
         {
             Result resPro = api.AddProductToCart(buyer_id, product_id, 5, store_id);
             Assert.False(resPro.ErrorOccured);
