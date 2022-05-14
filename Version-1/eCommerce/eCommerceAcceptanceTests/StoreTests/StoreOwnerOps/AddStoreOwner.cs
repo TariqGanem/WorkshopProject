@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-
+// Req II.4.4
 namespace eCommerceAcceptanceTests.StoreTests.StoreOwnerOps
 {
-    public class AddStoreOwner : XeCommerceTestCase // (Adding , Removing , Detail Editing) from products
+    public class AddStoreOwner : XeCommerceTestCase 
     {
         public String store_owner { set; get; }
         public String store_id { set; get; }
@@ -40,10 +40,34 @@ namespace eCommerceAcceptanceTests.StoreTests.StoreOwnerOps
             Result<bool> reguserId2 = this.api.Register("Buyer@gmail.com", "BuyerPassword");
             Result<String> userId2 = this.api.Login("Buyer@gmail.com", "BuyerPassword");
             String user_id = userId2.Value;
-            reguserId2 = this.api.Register("Buyer@gmail.com", "BuyerPassword");
-            userId2 = this.api.Login("Buyer@gmail.com", "BuyerPassword");
+            reguserId2 = this.api.Register("Buyer2@gmail.com", "BuyerPassword");
+            userId2 = this.api.Login("Buyer2@gmail.com", "BuyerPassword");
             String user_id2 = userId2.Value;
             Result<bool> addStoreOwnRes = api.AddStoreOwner(user_id, user_id2, store_id);
+            Assert.True(addStoreOwnRes.ErrorOccured);
+        }
+
+        [Fact]
+        [Trait("Category", "acceptance")]
+        public void SadAddStoreOwner_makeStoreOwnerTwice()
+        {
+            Result<bool> reguserId2 = this.api.Register("Buyer@gmail.com", "BuyerPassword");
+            Result<String> userId2 = this.api.Login("Buyer@gmail.com", "BuyerPassword");
+            String user_id = userId2.Value;
+            reguserId2 = this.api.Register("Buyer2@gmail.com", "BuyerPassword");
+            userId2 = this.api.Login("Buyer2@gmail.com", "BuyerPassword");
+            String user_id2 = userId2.Value;
+
+            Result<bool> addStoreOwnRes = api.AddStoreOwner(user_id, store_owner, store_id);
+            Assert.True(addStoreOwnRes.ErrorOccured == false);
+
+            addStoreOwnRes = api.AddStoreOwner(user_id, store_owner, store_id);
+            Assert.True(addStoreOwnRes.ErrorOccured);
+
+            addStoreOwnRes = api.AddStoreOwner(user_id2, user_id, store_id);
+            Assert.True(addStoreOwnRes.ErrorOccured == false);
+
+            addStoreOwnRes = api.AddStoreOwner(user_id2, store_owner, store_id);
             Assert.True(addStoreOwnRes.ErrorOccured);
         }
     }
