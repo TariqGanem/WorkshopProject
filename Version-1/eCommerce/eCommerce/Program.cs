@@ -12,6 +12,31 @@ namespace eCommerce
         {
             // FOR TESTNG PURPOSES
             RealAdapter api = new RealAdapter();
+
+                /*
+                String store_owner;
+                String store_id;
+                String manager_id;
+                Result<bool> reguserId = api.Register("WantToOpenAStore@gmail.com", "StringPassword");
+                Result<String> userId = api.Login("WantToOpenAStore@gmail.com", "StringPassword");
+                Result<String> storeId = api.OpenNewStore("AmazonWanaBe", userId.Value);
+                store_id = storeId.Value;
+                store_owner = userId.Value;
+                Result<bool> reguserId2 = api.Register("Manager@gmail.com", "ManagerPassword");
+                Result<String> userId2 = api.Login("Manager@gmail.com", "ManagerPassword");
+                manager_id = userId2.Value;
+                Result<bool> managerRes = api.AddStoreManager(manager_id, store_owner, store_id);
+                LinkedList<int> permission = new LinkedList<int>();
+                permission.AddLast(0);
+                permission.AddLast(1);
+                Result<String> addProdRes = api.AddProductToStore(manager_id, store_id, "Product_name", 10, 10, "Category");
+                //Assert.True(addProdRes.ErrorOccured);
+                Result<bool> permRes = api.SetPermissions(store_id, manager_id, store_owner, permission);
+                System.Console.WriteLine(permRes.ErrorMessage);
+                //Assert.True(permRes.ErrorOccured == false);
+                addProdRes = api.AddProductToStore(manager_id, store_id, "Product_name", 10, 10, "Category");
+                //Assert.False(addProdRes.ErrorOccured);
+                */
             /*
             String store_owner;
             String store_id;
@@ -27,26 +52,26 @@ namespace eCommerce
             System.Console.WriteLine(managerRes.ErrorMessage);
             //Assert.True(!managerRes.ErrorOccured);
             */
-                /*
-                String store_owner;
-                String store_id;
-                String user_id;
-            
-                Result<bool> reguserId = api.Register("WantToOpenAStore@gmail.com", "StringPassword");
-                Result<String> userId = api.Login("WantToOpenAStore@gmail.com", "StringPassword");
-                Result<String> storeId = api.OpenNewStore("AmazonWanaBe", userId.Value);
-                store_id = storeId.Value;
-                store_owner = userId.Value;
-                Result<bool> reguserId2 = api.Register("Buyer@gmail.com", "BuyerPassword");
-                Result<String> userId2 = api.Login("Buyer@gmail.com", "BuyerPassword");
-                user_id = userId2.Value;
-                Result<String> productId = api.AddProductToStore(store_owner, store_id, "CODBO2", 300, 10, "VideoGames");
-                System.Console.WriteLine(productId.Value);
-                //Assert.False(productId.ErrorOccured);
-                IDictionary<String, Object> dictonary = new Dictionary<String, Object>() { { "Name", "new_name" } };
-                Result<bool> editRes = api.EditProductDetails(store_owner, store_id, productId.Value, dictonary);
-                System.Console.WriteLine(editRes.ErrorMessage);
-                */
+            /*
+            String store_owner;
+            String store_id;
+            String user_id;
+
+            Result<bool> reguserId = api.Register("WantToOpenAStore@gmail.com", "StringPassword");
+            Result<String> userId = api.Login("WantToOpenAStore@gmail.com", "StringPassword");
+            Result<String> storeId = api.OpenNewStore("AmazonWanaBe", userId.Value);
+            store_id = storeId.Value;
+            store_owner = userId.Value;
+            Result<bool> reguserId2 = api.Register("Buyer@gmail.com", "BuyerPassword");
+            Result<String> userId2 = api.Login("Buyer@gmail.com", "BuyerPassword");
+            user_id = userId2.Value;
+            Result<String> productId = api.AddProductToStore(store_owner, store_id, "CODBO2", 300, 10, "VideoGames");
+            System.Console.WriteLine(productId.Value);
+            //Assert.False(productId.ErrorOccured);
+            IDictionary<String, Object> dictonary = new Dictionary<String, Object>() { { "Name", "new_name" } };
+            Result<bool> editRes = api.EditProductDetails(store_owner, store_id, productId.Value, dictonary);
+            System.Console.WriteLine(editRes.ErrorMessage);
+            */
             //Assert.False(editRes.ErrorOccured);
             //Assert.True(!api.SearchProduct(dictonary).ErrorOccured);
             /*
