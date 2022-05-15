@@ -26,7 +26,18 @@ namespace eCommerceAcceptanceTests.StoreTests.StoreOwnerOps
         [Trait("Category", "acceptance")]
         public void HappyCloseStore()
         {
+            Result<bool> closestore = api.CloseStore(store_owner, store_id);
+            Assert.True(closestore.ErrorOccured == false); // closestore.Value = false -> store closed
+        }
 
+        [Fact]
+        [Trait("Category", "acceptance")]
+        public void SadCloseStore_OtherUserTryingToCloseStore()
+        {
+            Result<bool> reguserIdRand = this.api.Register("Random@gmail.com", "StringPassword");
+            Result<String> randomUser = this.api.Login("Random@gmail.com", "StringPassword");
+            Result<bool> closestore = api.CloseStore(randomUser.Value, store_id);
+            Assert.True(closestore.ErrorOccured);
         }
     }
 }
