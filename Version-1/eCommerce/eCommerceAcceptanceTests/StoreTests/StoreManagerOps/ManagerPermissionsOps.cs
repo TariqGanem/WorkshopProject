@@ -2,16 +2,16 @@
 using eCommerceIntegrationTests.Utils;
 using System;
 using System.Collections.Generic;
-using Xunit;
+ using Xunit;
 
 namespace eCommerceAcceptanceTests.StoreTests.StoreOwnerOps
 {
-    public class ManagerPermissions : XeCommerceTestCase
+    public class ManagerPermissionsOps : XeCommerceTestCase
     {
         public String store_owner { set; get; }
         public String store_id { set; get; }
         public String manager_id { set; get; }
-        public ManagerPermissions() : base()
+        public ManagerPermissionsOps() : base()
         {
             Result<bool> reguserId = this.api.Register("WantToOpenAStore@gmail.com", "StringPassword");
             Result<String> userId = this.api.Login("WantToOpenAStore@gmail.com", "StringPassword");
