@@ -3,7 +3,7 @@ using eCommerceIntegrationTests.Utils;
 using System;
 using System.Collections.Generic;
  using Xunit;
-
+// Req II.5
 namespace eCommerceAcceptanceTests.StoreTests.StoreOwnerOps
 {
     public class ManagerPermissionsOps : XeCommerceTestCase

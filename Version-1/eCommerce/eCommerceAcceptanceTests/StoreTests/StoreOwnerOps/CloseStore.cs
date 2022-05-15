@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-
+// Req II.4.9
+// CHECK FUNCTIONALITY AGAIN!
 namespace eCommerceAcceptanceTests.StoreTests.StoreOwnerOps
 {
     public class CloseStore : XeCommerceTestCase

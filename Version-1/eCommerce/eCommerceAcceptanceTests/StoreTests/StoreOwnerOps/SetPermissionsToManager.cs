@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-
+// Req II.4.7
 namespace eCommerceAcceptanceTests.StoreTests.StoreOwnerOps
 {
     public class SetPermissionsToManager : XeCommerceTestCase
