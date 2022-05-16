@@ -38,7 +38,7 @@ namespace eCommerceAcceptanceTests.UserTests.PurchaseOpsGuestUser
             List<String> sbs = purchaseRes.Value;
             Result<List<String>> sbsAfterPurchase = api.GetUserShoppingCart(buyer_id);
             Assert.True(sbsAfterPurchase.Value.Count == 0);
-            // make sure in Registered User to check if the user history updates
+            // make sure in Registered User Tests to check if the user history updates
             Result<List<String>> StoreHistory = api.GetStorePurchaseHistory(user_id, store_id);
             Assert.True(StoreHistory.Value.Count == 1);
         }
