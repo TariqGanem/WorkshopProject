@@ -132,6 +132,33 @@ namespace eCommerce.src.ServiceLayer
             }
         }
 
+        public Result<Dictionary<String,int>> GetUserPurchaseHistoryProducts(string userId,String shoppingbagId)
+        {
+            Result<UserHistorySO> res = system.GetUserPurchaseHistory(userId);
+            if (!res.ErrorOccured)
+            {
+                List<ShoppingBagSO> ShoppingBags = new List<ShoppingBagSO>(res.Value.ShoppingBags);
+                Dictionary<string,int> Ids = new Dictionary<string, int>();
+                foreach (ShoppingBagSO bag in ShoppingBags)
+                {
+                    if (shoppingbagId == bag.Id)
+                    {
+                        foreach (KeyValuePair<ProductService, int> product_quantity in bag.Products)
+                        {
+                            Ids.Add(product_quantity.Key.Name, product_quantity.Value);
+                        }
+                        return new Result<Dictionary<String,int>>(Ids);
+                    }
+                }
+                return new Result<Dictionary<String, int>>("Cant Find Shopping Bag Id");
+            }
+            else
+            {
+                return new Result<Dictionary<string,int>>(res.ErrorMessage);
+            }
+
+        }
+
         public Result<string> AddSystemAdmin(string sysAdminId, string userName)
         {
             Result<RegisteredUserSO> res = system.AddSystemAdmin(sysAdminId, userName);

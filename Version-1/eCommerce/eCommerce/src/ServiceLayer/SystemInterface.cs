@@ -34,6 +34,8 @@ namespace eCommerce.src.ServiceLayer
         Result<string> AddSystemAdmin(string sysAdminId, string userName);
 
         Result<string> RemoveSystemAdmin(string sysAdminId, string userName);
+        Result<Dictionary<String, int>> GetUserPurchaseHistoryProducts(string userId, String shoppingbagId);
+
 
         #endregion
 
