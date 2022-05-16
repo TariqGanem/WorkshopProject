@@ -26,6 +26,7 @@ namespace eCommerce.src.DomainLayer
         void AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
         void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
+        void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID, String storeID);
         void SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         void RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaffService, PermissionService> GetStoreStaff(String ownerID, String storeID);
@@ -241,13 +242,25 @@ namespace eCommerce.src.DomainLayer
 
         public void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID)
         {
-            if (userFacade.RegisteredUsers.ContainsKey(removedManagerID))  // Check if addedManagerID is a registered user
+            if (userFacade.RegisteredUsers.ContainsKey(removedManagerID))
             {
                 storeFacade.RemoveStoreManager(removedManagerID, currentlyOwnerID, storeID);
             }
             else
             {
                 throw new Exception($"Failed to remove store manager: {removedManagerID} is not a registered user");
+            }
+        }
+
+        public void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID, String storeID)
+        {
+            if (userFacade.RegisteredUsers.ContainsKey(removedOwnerID))
+            {
+                storeFacade.RemoveStoreManager(removedOwnerID, currentlyOwnerID, storeID);
+            }
+            else
+            {
+                throw new Exception($"Failed to remove store owner: {removedOwnerID} is not a registered user");
             }
         }
 

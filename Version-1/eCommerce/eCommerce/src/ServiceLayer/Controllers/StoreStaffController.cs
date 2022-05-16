@@ -12,6 +12,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         Result AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
         Result RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
+        Result RemoveStoreOwner(String removedOwnerID, String currentlyOwnerID, String storeID);
         Result SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Result RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Result<Dictionary<IStaffService, PermissionService>> GetStoreStaff(String ownerID, String storeID);
@@ -174,6 +175,22 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<UserHistorySO>(error.Message);
             }
         }
+
+        public Result RemoveStoreOwner(String removedOwnerID, String currentlyOwnerID, String storeID)
+        {
+            try
+            {
+                SystemFacade.RemoveStoreOwner(removedOwnerID, currentlyOwnerID, storeID);
+                logger.LogInfo($"StoreStaffController --> User with id: {currentlyOwnerID} has removed user with id: {removedOwnerID} from management successfully.");
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                logger.LogError("StoreStaffController --> " + error.Message);
+                return new Result<UserHistorySO>(error.Message);
+            }
+        }
+
         public Result<List<ProductService>> SearchProduct(IDictionary<String, Object> productDetails)
         {
             try

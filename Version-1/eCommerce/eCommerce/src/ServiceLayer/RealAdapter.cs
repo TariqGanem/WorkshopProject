@@ -306,6 +306,14 @@ namespace eCommerce.src.ServiceLayer
             return new Result<bool>(res.ErrorMessage);
         }
 
+        public Result<bool> RemoveStoreOwner(string removedOwnerID, string currentlyOwnerID, string storeID)
+        {
+            Result res = system.RemoveStoreOwner(removedOwnerID, currentlyOwnerID, storeID);
+            if (!res.ErrorOccured)
+                return new Result<bool>(true);
+            return new Result<bool>(res.ErrorMessage);
+        }
+
         public Result<string> RemoveSystemAdmin(string sysAdminId, string userName)
         {
             Result<RegisteredUserSO> res = system.RemoveSystemAdmin(sysAdminId, userName);
