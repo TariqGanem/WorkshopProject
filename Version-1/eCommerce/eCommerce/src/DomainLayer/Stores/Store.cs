@@ -18,6 +18,7 @@ namespace eCommerce.src.DomainLayer.Store
         void AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID);
         void AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID);
         void RemoveStoreManager(String removedManagerID, String currentlyOwnerID);
+        void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID);
         void SetPermissions(String managerID, String ownerID, LinkedList<int> permissions);
         void RemovePermissions(String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaff, Permission> GetStoreStaff(String userID);
@@ -239,6 +240,22 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
+        public void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID)
+        {
+            if (Owners.TryGetValue(currentlyOwnerID, out StoreOwner ownerBoss) && Owners.TryGetValue(removedOwnerID, out StoreOwner ownerToRemove))
+            {
+                if (ownerToRemove.AppointedBy != null && ownerToRemove.AppointedBy.Equals(ownerBoss))
+                {
+                    Owners.TryRemove(removedOwnerID, out StoreOwner removedOwner);
+                    RemoveAllStaffAppointedByOwner(removedOwner);
+                }
+                //else failed
+                throw new Exception($"Failed to remove user (Id: {removedOwnerID}) as store owner: Unauthorized owner (Id: {currentlyOwnerID})");
+            }
+            //else failed
+            throw new Exception($"Failed to remove user (Id: {removedOwnerID}) as store owner: Either currently owner or owner to be romoved not found");
+        }
+
         public void SetPermissions(string managerID, string ownerID, LinkedList<int> permissions)
         {
             if ((CheckIfStoreOwner(ownerID) || CheckStoreManagerAndPermissions(ownerID, Methods.SetPermissions)) && Managers.TryGetValue(managerID, out StoreManager manager))
@@ -344,6 +361,33 @@ namespace eCommerce.src.DomainLayer.Store
         private Boolean CheckIfStoreManager(String userID)
         {
             return Managers.ContainsKey(userID);
+        }
+
+        private void RemoveAllStaffAppointedByOwner(StoreOwner owner)
+        {
+            //NotificationManager.notifyOwnerSubscriptionRemoved(owner.GetId(), owner);
+            if (Owners.Count != 0)
+            {
+                foreach (var staff_owner in Owners)
+                {
+                    if (staff_owner.Value.AppointedBy != null && staff_owner.Value.AppointedBy.GetId() == owner.GetId())
+                    {
+                        Owners.TryRemove(staff_owner.Value.AppointedBy.GetId(), out StoreOwner removedOwner);
+                        RemoveAllStaffAppointedByOwner(removedOwner);
+                    }
+                }
+            }
+
+            if (Managers.Count != 0)
+            {
+                foreach (var staff_manager in Managers)
+                {
+                    if (staff_manager.Value.AppointedBy.GetId() == owner.GetId())
+                    {
+                        Managers.TryRemove(staff_manager.Value.GetId(), out _);
+                    }
+                }
+            }
         }
     }
 }
