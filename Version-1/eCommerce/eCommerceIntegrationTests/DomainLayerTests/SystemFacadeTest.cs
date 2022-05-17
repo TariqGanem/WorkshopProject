@@ -239,15 +239,15 @@ namespace eCommerceIntegrationTests
         [Fact()]
         public void PurchaseTest()
         {
+            Store store2 = this.StoresFacade.OpenNewStore(Founder,"NiceToMeat");
             // Add products to store
-            Product product = new Product("Banana", 5.7, "Fruits", 5);
-            Product product2 = new Product("Apple", 4.9, "Fruits", 5);
-            TestStore.InventoryManager.Products.TryAdd(product.Id, product);
-            TestStore.InventoryManager.Products.TryAdd(product2.Id, product2);
-
+            //Product product = new Product("Banana", 5.7, "Fruits", 5);
+            //Product product2 = new Product("Apple", 4.9, "Fruits", 5);
+            string product1 = store2.AddNewProduct(Founder.Id, "Bannan", 5.7, 5, "Fruits");
+            string product2 = store2.AddNewProduct(Founder.Id, "Apple", 4.9, 5, "Fruits");
             // Add product to user shopping bag
-            Facade.AddProductToCart(RegisteredUser.Id, product.Id, 2, TestStore.Id);
-            Facade.AddProductToCart(RegisteredUser.Id, product2.Id, 1, TestStore.Id);
+            Facade.AddProductToCart(RegisteredUser.Id, product1, 2, store2.Id);
+            Facade.AddProductToCart(RegisteredUser.Id, product2, 1, store2.Id);
 
             IDictionary<String, Object> paymentDetails = new Dictionary<String, Object>();
             IDictionary<String, Object> deliveryDetails = new Dictionary<String, Object>();
@@ -270,7 +270,7 @@ namespace eCommerceIntegrationTests
             Assert.Equal(16.3, bagSO.TotalBagPrice);
 
             //Check Store History
-            History storeHistory = TestStore.History;
+            History storeHistory = store2.History;
             LinkedList<ShoppingBag> storeBags = storeHistory.ShoppingBags;
             ShoppingBag storeBagSO = storeBags.First.Value;
 
