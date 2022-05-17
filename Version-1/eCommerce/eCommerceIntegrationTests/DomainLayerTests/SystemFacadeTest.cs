@@ -159,7 +159,7 @@ namespace eCommerceIntegrationTests
         [Fact()]
         public void RemoveStoreManagerTest2()
         {
-            RegisteredUser user = new RegisteredUser("shmar@gmail.com", "Password");
+            RegisteredUser user = new RegisteredUser("randomuser@gmail.com", "Password");
             UserFacade.RegisteredUsers.TryAdd(user.Id, user);
 
             StoreManager manager = new StoreManager(user, TestStore, new Permission(), TestStore.Founder);
@@ -381,7 +381,7 @@ namespace eCommerceIntegrationTests
 
             // Add 1 owner and 1 manager to store
             StoreOwner owner = new StoreOwner(RegisteredUser, TestStore.Id, TestStore.Founder);
-            RegisteredUser user = new RegisteredUser("shmar@gmail.com", "Password");
+            RegisteredUser user = new RegisteredUser("randomuser@gmail.com", "Password");
             UserFacade.RegisteredUsers.TryAdd(user.Id, user);
             StoreManager manager = new StoreManager(user, TestStore, new Permission(), TestStore.Founder);
             TestStore.Owners.TryAdd(owner.GetId(), owner);
@@ -420,7 +420,6 @@ namespace eCommerceIntegrationTests
                     Assert.True(n.isStoreStaff);
                     Assert.Equal(DateTime.Now.ToString("MM/dd/yyyy HH:mm"), n.Date.ToString("MM/dd/yyyy HH:mm"));
                     Assert.Equal(owner.GetId(), n.ClientId);
-
                 }
 
                 foreach (Notification n in manager.User.PendingNotification)
