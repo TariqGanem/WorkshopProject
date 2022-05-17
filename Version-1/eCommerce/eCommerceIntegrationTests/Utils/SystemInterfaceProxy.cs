@@ -109,6 +109,14 @@ namespace eCommerceIntegrationTests.Utils
             return Real.Login(email, password);
         }
 
+        public Result<String> Login() // added while writing acceptance testing
+        {
+            if (Real == null)
+                return new Result<string>(null);
+
+            return Real.Login();
+        }
+
         public Result<bool> Logout(string email)
         {
             if (Real == null)
@@ -196,6 +204,15 @@ namespace eCommerceIntegrationTests.Utils
 
             return Real.CloseStore(userID, storeName);
         }
+        public Result<Dictionary<String, int>> GetUserPurchaseHistoryProducts(string userId, String shoppingbagId)
+        {
+            if (Real == null)
+                return new Result<Dictionary<String, int>>(null, null);
+
+            return Real.GetUserPurchaseHistoryProducts(userId, shoppingbagId);
+        }
+
+
 
     }
 }

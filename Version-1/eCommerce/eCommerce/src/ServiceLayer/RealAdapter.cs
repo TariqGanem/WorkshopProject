@@ -132,6 +132,33 @@ namespace eCommerce.src.ServiceLayer
             }
         }
 
+        public Result<Dictionary<String,int>> GetUserPurchaseHistoryProducts(string userId,String shoppingbagId)
+        {
+            Result<UserHistorySO> res = system.GetUserPurchaseHistory(userId);
+            if (!res.ErrorOccured)
+            {
+                List<ShoppingBagSO> ShoppingBags = new List<ShoppingBagSO>(res.Value.ShoppingBags);
+                Dictionary<string,int> Ids = new Dictionary<string, int>();
+                foreach (ShoppingBagSO bag in ShoppingBags)
+                {
+                    if (shoppingbagId == bag.Id)
+                    {
+                        foreach (KeyValuePair<ProductService, int> product_quantity in bag.Products)
+                        {
+                            Ids.Add(product_quantity.Key.Name, product_quantity.Value);
+                        }
+                        return new Result<Dictionary<String,int>>(Ids);
+                    }
+                }
+                return new Result<Dictionary<String, int>>("Cant Find Shopping Bag Id");
+            }
+            else
+            {
+                return new Result<Dictionary<string,int>>(res.ErrorMessage);
+            }
+
+        }
+
         public Result<string> AddSystemAdmin(string sysAdminId, string userName)
         {
             Result<RegisteredUserSO> res = system.AddSystemAdmin(sysAdminId, userName);
@@ -172,11 +199,11 @@ namespace eCommerce.src.ServiceLayer
             if (!res.ErrorOccured)
             {
                 ShoppingCartSO shoppingCart = res.Value;
-                foreach (string id in shoppingCart.shoppingBags.Keys)
+                foreach (String Id in shoppingCart.shoppingBags.Keys)
                 {
-                    if (id == shoppingBagID)
+                    if (Id == shoppingBagID)
                     {
-                        if(shoppingCart.shoppingBags.TryGetValue(id, out ShoppingBagSO bag))
+                        if(shoppingCart.shoppingBags.TryGetValue(Id, out ShoppingBagSO bag))
                         {
                             return new Result<Dictionary<string, int>>(ConvertObjectToID(bag.Products));
                         }
@@ -189,16 +216,25 @@ namespace eCommerce.src.ServiceLayer
         private Dictionary<string, int> ConvertObjectToID(Dictionary<ProductService, int> dct)
         {
             Dictionary<string, int> result = new Dictionary<string, int>();
-            foreach (ProductService p in dct.Keys)
+            foreach (KeyValuePair<ProductService, int> entry in dct) // major bug fix
             {
-                result.Add(p.Id, p.Quantity);
+                result.Add(entry.Key.Id, entry.Value);
             }
             return result;
         }
-
+        
         public Result<string> Login(string userName, string password)
         {
             Result<RegisteredUserSO> res = system.Login(userName, password);
+            if (!res.ErrorOccured)
+                return new Result<string>(res.Value.Id, null);
+            else
+                return new Result<string>(res.ErrorMessage);
+        }
+
+        public Result<string> Login() // added while writing acceptance testing
+        {
+            Result<GuestUserSO> res = system.Login();
             if (!res.ErrorOccured)
                 return new Result<string>(res.Value.Id, null);
             else

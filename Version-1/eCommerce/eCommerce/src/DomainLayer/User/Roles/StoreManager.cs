@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
 
 namespace eCommerce.src.DomainLayer.User.Roles
@@ -33,6 +34,10 @@ namespace eCommerce.src.DomainLayer.User.Roles
         public String GetId()
         {
             return User.Id;
+        }
+        public bool Update(Notification notification)
+        {
+            return User.Update(notification);
         }
     }
 }

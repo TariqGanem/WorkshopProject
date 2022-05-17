@@ -171,7 +171,7 @@ namespace eCommerce.src.DomainLayer
         #region StoreFacadeMethods
         public StoreService OpenNewStore(String storeName, String userID)
         {
-            if (userFacade.RegisteredUsers.TryGetValue(userID, out RegisteredUser founder))  // Check if userID is a registered user
+            if (userFacade.RegisteredUsers.TryGetValue(userID, out RegisteredUser founder)  && founder.Active)  // Check if userID is a registered user
             {
                 Store.Store s = storeFacade.OpenNewStore(founder, storeName);
                 return new StoreService(s.Id, s.Name, s.Founder.GetId(), new LinkedList<string>(s.Owners.Keys), new LinkedList<string>(s.Managers.Keys), new UserHistorySO(s.History), s.Rate, s.NumberOfRates);

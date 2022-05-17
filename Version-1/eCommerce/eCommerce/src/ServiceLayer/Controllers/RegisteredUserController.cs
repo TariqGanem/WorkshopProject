@@ -28,7 +28,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateCredentials(userName, password);
                 RegisteredUserSO user = SystemFacade.Login(userName, password);
-                logger.LogInfo($"User with id: {userName}, successfully logged in to the system.");
+                logger.LogInfo($"RegisteredUserController --> User with id: {userName}, successfully logged in to the system.");
                 return new Result<RegisteredUserSO>(user);
             }
             catch (Exception e)
@@ -43,7 +43,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateId(userId);
                 UserHistorySO history = SystemFacade.GetUserPurchaseHistory(userId);
-                logger.LogInfo($"Getting user: {userId} purchase history successfully.");
+                logger.LogInfo($"RegisteredUserController --> Getting user: {userId} purchase history successfully.");
                 return new Result<UserHistorySO>(history);
             }
             catch (Exception e)
@@ -61,7 +61,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 if (storeName == null || storeName.Length == 0)
                     return new Result<StoreService>("Tyring to open new store with invalid args.");
                 StoreService store = SystemFacade.OpenNewStore(storeName, userId);
-                logger.LogInfo($"User with id: {userId}, has opened a new store with name: {storeName} successfully.");
+                logger.LogInfo($"RegisteredUserController --> User with id: {userId}, has opened a new store with name: {storeName} successfully.");
                 return new Result<StoreService>(store);
             }
             catch (Exception e)
@@ -78,7 +78,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateId(userId);
                 ValidateId(storeId);
                 SystemFacade.CloseStore(userId, storeId);
-                logger.LogInfo($"User with id: {userId}, closed a store with id: {storeId} successfully.");
+                logger.LogInfo($"RegisteredUserController --> User with id: {userId}, closed a store with id: {storeId} successfully.");
                 return new Result();
             }
             catch (Exception e)
