@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User.Roles
 {
-    public class StoreOwner : IStaff
+    public class StoreOwner : IStaff , SubscriberInterface
     {
         public RegisteredUser User { get; }
         public String StoreId { get; }

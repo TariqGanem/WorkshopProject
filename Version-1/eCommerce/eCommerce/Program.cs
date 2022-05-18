@@ -12,7 +12,6 @@ namespace eCommerce
         {
             // FOR TESTNG PURPOSES
             RealAdapter api = new RealAdapter();
-
                 /*
                 String store_owner;
                 String store_id;
@@ -155,5 +154,6 @@ namespace eCommerce
             */
             return;
         }
+
     }
 }

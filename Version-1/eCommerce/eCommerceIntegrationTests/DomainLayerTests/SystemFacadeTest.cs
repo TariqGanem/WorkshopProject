@@ -368,8 +368,6 @@ namespace eCommerceIntegrationTests
             }
         }
 
-
-
         [Theory()]
         [InlineData(true)]
         [InlineData(false)]

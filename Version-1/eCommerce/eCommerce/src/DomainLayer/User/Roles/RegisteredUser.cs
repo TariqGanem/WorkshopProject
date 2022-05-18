@@ -9,7 +9,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.User
 {
-    public class RegisteredUser : User
+    public class RegisteredUser : User , SubscriberInterface
     {
         public string UserName { get; }
         private string _password;
