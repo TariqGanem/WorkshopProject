@@ -48,6 +48,7 @@ namespace eCommerce.src.DomainLayer
         #region System Management
         RegisteredUserSO AddSystemAdmin(string userName);
         RegisteredUserSO RemoveSystemAdmin(string userName);
+        RegisteredUserSO RemoveRegisteredUser(string userName);
         Boolean IsSystemAdmin(String userId);
         #endregion
 
@@ -157,6 +158,25 @@ namespace eCommerce.src.DomainLayer
             return new RegisteredUserSO(user);
         }
 
+        public RegisteredUserSO RemoveRegisteredUser(string userName)
+        {
+            RegisteredUser result = userFacade.RemoveRegisteredUser(userName);
+            bool cond_1 = userFacade.isSystemAdmin(userName);
+            foreach (var item in storeFacade.Stores)
+            {
+                if (item.Value.Founder.User.UserName.Equals(userName))
+                    throw new Exception("Could not remove the registered user.");
+                if (item.Value.Owners.TryGetValue(userName, out StoreOwner v1))
+                    throw new Exception("Could not remove the registered user.");
+                if (item.Value.Managers.TryGetValue(userName, out StoreManager v2))
+                    throw new Exception("Could not remove the registered user.");
+            }
+            if(!cond_1)
+                return new RegisteredUserSO(result);
+            else
+                throw new Exception("Could not remove the registered user.");
+        }
+
         public void UpdateShoppingCart(string userId, string storeId, String productId, int quantity)
         {
             Store.Store resStore = storeFacade.GetStore(storeId);
@@ -256,7 +276,7 @@ namespace eCommerce.src.DomainLayer
         {
             if (userFacade.RegisteredUsers.ContainsKey(removedOwnerID))
             {
-                storeFacade.RemoveStoreManager(removedOwnerID, currentlyOwnerID, storeID);
+                storeFacade.RemoveStoreOwner(removedOwnerID, currentlyOwnerID, storeID);
             }
             else
             {
