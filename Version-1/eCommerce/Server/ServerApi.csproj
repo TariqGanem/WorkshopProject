@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="eCommerce">
+      <HintPath>..\eCommerce\bin\Debug\netcoreapp3.1\eCommerce.dll</HintPath>
+    </Reference>
     <Reference Include="Fleck, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fleck.1.2.0\lib\net45\Fleck.dll</HintPath>
     </Reference>
@@ -179,6 +182,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Cryptography.cs" />
     <Compile Include="src\FacadeController.cs" />
     <Compile Include="src\Logger.cs" />
     <Compile Include="src\ObserverUser.cs" />
