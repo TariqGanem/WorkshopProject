@@ -10,14 +10,31 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
     internal class ProductPolicy : PrimitivePolicy
     {
         public string ProductId { get; set; }
+        public string Category { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
 
-        public ProductPolicy(string productId, int min = -1, int max = -1, string id = "") : base(id)
+        public ProductPolicy(string productId = null, int min = -1, int max = -1, string category = null, string id = "") : base(id)
         {
             if (min == -1 && max == -1)
-                throw new Exception("One of min or max should be given a value.");
-            this.ProductId = productId;
+                throw new Exception("One of Min or Max should be given a value.");
+            if (string.IsNullOrEmpty(productId) && string.IsNullOrEmpty(category))
+                throw new Exception("One of productId or Category should be given a value.");
+            if (!string.IsNullOrEmpty(productId) && !string.IsNullOrEmpty(category))
+                throw new Exception("One of productId or Category should be given a value but not both!.");
+
+            if (!string.IsNullOrEmpty(productId))
+            {
+                this.ProductId = productId;
+                this.Category = null;
+            }
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                this.ProductId = null;
+                this.Category = category;
+            }
+
             if (min == -1)
                 this.Min = 0;
             this.Min = min;
@@ -28,9 +45,18 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
 
         public override PrimitivePolicy Create(Dictionary<string, object> info)
         {
-            if (!info.ContainsKey("ProductId"))
-                throw new Exception("ProductId not found in Keys!");
-            string productId = ((JsonElement)info["ProductId"]).GetString();
+            if (!info.ContainsKey("ProductId") && !info.ContainsKey("Category"))
+                throw new Exception("ProductId and Category are not found in Keys!");
+
+            if (info.ContainsKey("ProductId") && info.ContainsKey("Category"))
+                throw new Exception("ProductId and Category can't be together in Keys!");
+
+            string productId = null;
+            string category = null;
+            if (info.ContainsKey("ProductId"))
+                productId = ((JsonElement)info["ProductId"]).GetString();
+            if (info.ContainsKey("Category"))
+                category = ((JsonElement)info["Category"]).GetString();
 
             if (!info.ContainsKey("Min") && !info.ContainsKey("Max"))
                 throw new Exception("Max or Min not found in Keys!");
@@ -42,23 +68,42 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
             if (info.ContainsKey("Min"))
                 min = ((JsonElement)info["Max"]).GetInt32();
 
-            return new ProductPolicy(productId, min, max);
+            return new ProductPolicy(productId, min, max, category);
         }
 
         public override bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user)
         {
-            foreach (KeyValuePair<Product, int> entry in bag)
-            {
-                if (entry.Key.Id.Equals(ProductId))
+            if (String.IsNullOrEmpty(Category))
+                foreach (KeyValuePair<Product, int> entry in bag)
                 {
-                    Product product = entry.Key;
-                    if (product != null)
+                    if (entry.Key.Id.Equals(ProductId))
                     {
-                        int quantity = 0;
-                        bag.TryGetValue(product, out quantity);
-                        return quantity >= Min && quantity <= Max;
+                        Product product = entry.Key;
+                        if (product != null)
+                        {
+                            int quantity = 0;
+                            bag.TryGetValue(product, out quantity);
+                            return quantity >= Min && quantity <= Max;
+                        }
                     }
                 }
+            else if (String.IsNullOrEmpty(ProductId))
+            {
+                foreach (KeyValuePair<Product, int> entry in bag)
+                {
+                    if (entry.Key.Category.Equals(Category))
+                    {
+                        Product product = entry.Key;
+                        if (product != null)
+                        {
+                            int quantity = 0;
+                            bag.TryGetValue(product, out quantity);
+                            if (!(quantity >= Min && quantity <= Max))
+                                return false;
+                        }
+                    }
+                }
+                return true;
             }
             return false;
         }
