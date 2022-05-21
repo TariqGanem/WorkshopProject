@@ -11,7 +11,7 @@ namespace Client
 {
 
 
-    public partial class Home
+    public partial class Shops
     {
 
         /// <summary>

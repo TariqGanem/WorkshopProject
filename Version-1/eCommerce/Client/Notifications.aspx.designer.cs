@@ -11,16 +11,16 @@ namespace Client
 {
 
 
-    public partial class Home
+    public partial class Notifications
     {
 
         /// <summary>
-        /// DataListproducts control.
+        /// Data_cart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListproducts;
+        protected global::System.Web.UI.WebControls.DataList Data_cart;
     }
 }
