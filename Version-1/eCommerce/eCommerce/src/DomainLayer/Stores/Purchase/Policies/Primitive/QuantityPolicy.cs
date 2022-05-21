@@ -43,7 +43,7 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
             this.Max = max;
         }
 
-        public override PrimitivePolicy Create(Dictionary<string, object> info)
+        public override PrimitivePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy = null)
         {
             if (!info.ContainsKey("ProductId") && !info.ContainsKey("Category"))
                 throw new Exception("ProductId and Category are not found in Keys!");
@@ -103,9 +103,9 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
                         }
                     }
                 }
-                return true;
             }
-            return false;
+
+            return false || Max == 0;
         }
     }
 }

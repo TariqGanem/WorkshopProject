@@ -19,6 +19,6 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
 
         public abstract bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user);
 
-        public abstract PrimitivePolicy Create(Dictionary<string, object> info);
+        public abstract PrimitivePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy = null);
     }
 }

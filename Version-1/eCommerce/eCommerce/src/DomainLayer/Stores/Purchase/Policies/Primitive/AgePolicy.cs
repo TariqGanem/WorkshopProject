@@ -19,7 +19,7 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
             MinAge = minAge;
 
         }
-        public override PrimitivePolicy Create(Dictionary<string, object> info)
+        public override PrimitivePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy = null)
         {
             if (!info.ContainsKey("Age"))
                 throw new Exception("Age must be in the Keys!");
