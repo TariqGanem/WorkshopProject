@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Client.Code;
 
 namespace Client
 {
@@ -11,13 +12,13 @@ namespace Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelPasword.Visible = false;
+            LabelPassword.Visible = false;
             LabelUsername.Visible = false;
             Labelname.Visible = true;
             OpenShop.Visible = false;
             MyShops.Visible = false;
             Notifications.Visible = false;
-            InitSystem.Visible = false;
+            
 
             if (Session["isLogin"] != null)
             {
