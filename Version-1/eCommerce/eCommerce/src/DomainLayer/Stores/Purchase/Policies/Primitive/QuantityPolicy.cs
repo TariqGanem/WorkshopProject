@@ -7,14 +7,14 @@ using System.Text.Json;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
 {
-    internal class ProductPolicy : PrimitivePolicy
+    internal class QuantityPolicy : PrimitivePolicy
     {
         public string ProductId { get; set; }
         public string Category { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
 
-        public ProductPolicy(string productId = null, int min = -1, int max = -1, string category = null, string id = "") : base(id)
+        public QuantityPolicy(string productId = null, int min = -1, int max = -1, string category = null, string id = "") : base(id)
         {
             if (min == -1 && max == -1)
                 throw new Exception("One of Min or Max should be given a value.");
@@ -68,7 +68,7 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
             if (info.ContainsKey("Min"))
                 min = ((JsonElement)info["Max"]).GetInt32();
 
-            return new ProductPolicy(productId, min, max, category);
+            return new QuantityPolicy(productId, min, max, category);
         }
 
         public override bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user)
