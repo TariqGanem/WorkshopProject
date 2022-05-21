@@ -10,4 +10,8 @@
     <PackageReference Include="log4net" Version="2.0.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="src\DomainLayer\Stores\Discount\" />
+  </ItemGroup>
+
 </Project>
