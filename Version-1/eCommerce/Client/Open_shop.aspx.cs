@@ -17,6 +17,7 @@ namespace Client
 
         protected void ButtonSend_Click(object sender, EventArgs e)
         {
+
             ShopHandler s = new ShopHandler();
             string userId = Session["userId"].ToString();
             bool open = s.OpenShop(userId, TextBoxShopname.Text);

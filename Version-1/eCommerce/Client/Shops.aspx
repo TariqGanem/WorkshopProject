@@ -24,7 +24,7 @@
                <tr>
                     <td><span style="font-size: 16px;">Founder: <%#Eval("Founder") %></span></td>
                 </tr>
-                <tr>
+               <tr>
                     <td><span style="font-size: 16px;">Rate: <%#Eval("Rate") %></span></td>
                 </tr>
                 <tr>

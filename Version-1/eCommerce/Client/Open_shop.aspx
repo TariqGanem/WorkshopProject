@@ -24,6 +24,15 @@
         </tr>
         <tr>
             <td class="auto-style10">
+                <asp:Label ID="policyLabel" runat="server" Text="policy :"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="TextBoxpolicy" runat="server"></asp:TextBox>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style10">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
