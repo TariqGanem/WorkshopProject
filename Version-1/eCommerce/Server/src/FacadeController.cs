@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using eCommerce.src.ServiceLayer;
+using eCommerce.src.ServiceLayer.Objects;
+using eCommerce.src.ServiceLayer.ResultService;
 using ServerApi.src;
+using Logger = ServerApi.src.Logger;
 
 namespace Server.src
 {
@@ -57,7 +60,7 @@ namespace Server.src
             payments.Add("visa", creditCard);
             IDictionary<string, object> deliverys = new Dictionary<string, object>();
             deliverys.Add("carShipping", "ups");
-            bool output = !system.Purchase(userName, payments,deliverys).ErrorOccured;
+            bool output = !system.Purchase(userName, payments, deliverys).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(userName + "has purchased succesfully ");
             return output;
@@ -65,7 +68,7 @@ namespace Server.src
 
         [HttpGet]
         public bool UpdateCart(string userId, string storeId, string productId, int newAmount)
-        { 
+        {
             bool output = !system.UpdateShoppingCart(userId, storeId, productId, newAmount).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event("cart has updated succesfully ");
@@ -76,7 +79,7 @@ namespace Server.src
         public bool AddProductToCart(string userId, string productId, int quantity, string storeId)
         {
             bool output = !system.AddProductToCart(userId, productId, quantity, storeId).ErrorOccured;
-            if(output)
+            if (output)
                 Logger.GetInstance().Event(userId + " has has added product :" + productId + "form store: " + storeId + " to his Cart");
             else
                 Logger.GetInstance().Error(userId + " could not add product :" + productId + "form store: " + storeId + " to his Cart");
@@ -95,7 +98,7 @@ namespace Server.src
         }
 
         [HttpGet]
-        public bool AddProductToStore(string userId,string storeId, string productName, int price, int quantity,string category)
+        public bool AddProductToStore(string userId, string storeId, string productName, int price, int quantity, string category)
         {
             LinkedList<string> keywords = new LinkedList<string>();
             keywords.AddLast(userId);
@@ -103,7 +106,7 @@ namespace Server.src
             keywords.AddLast(productName);
             keywords.AddLast(category);
             bool output = !system.AddProductToStore(userId, storeId, productName, price, quantity, category, keywords).ErrorOccured;
-            if(output)
+            if (output)
                 Logger.GetInstance().Event(" user: " + userId + " product: " + productName + " has been added to the shop : " + storeId);
             else
                 Logger.GetInstance().Error(" user: " + userId + " product: " + productName + " has not been added to the shop : " + storeId);
@@ -114,7 +117,7 @@ namespace Server.src
         public bool RemoveProductFromStore(String userID, String storeID, String productID)
         {
             bool output = !system.RemoveProductFromStore(userID, storeID, productID).ErrorOccured;
-            if(output)
+            if (output)
                 Logger.GetInstance().Event(" user: " + userID + " product: " + productID + " has been removed from the shop : " + storeID);
             else
                 Logger.GetInstance().Error(" user: " + userID + " product: " + productID + " has not been removed from the shop : " + storeID);
@@ -167,6 +170,26 @@ namespace Server.src
             else
                 Logger.GetInstance().Error(currentOwnerId + " could not removed manager for " + storeId);
             return output;
+        }
+
+
+        [HttpGet]
+        public string[][] Search(string keyword)
+        {
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters["keywords"] = keyword;
+            Result<List<ProductService>> results = system.SearchProduct(parameters);
+            if (results.ErrorOccured)
+            {
+                return new string[0][];
+            }
+            List<ProductService> products = results.Value;
+            List<string[]> output = new List<string[]>();
+            foreach (ProductService product in products)
+            {
+                output.Add(product.ToStringArray());
+            }
+            return output.ToArray();
         }
     }
 }
