@@ -34,7 +34,7 @@ namespace Client.Code
         public bool OpenShop(string userName, string shopName, string policy)
         {
             string param = string.Format("userName={0}&shopName={1}&policy={2}", userName, shopName, policy);
-            return bool.Parse(System.SendApi("OpenShop", param));
+            return bool.Parse(system.SendApi("OpenShop", param));
         }
 
         //public DataSet getAllStores()
@@ -60,7 +60,7 @@ namespace Client.Code
         public bool AddProductToBasket(string userName, string storeName, string productBarCode, int amount)
         {
             string param = string.Format("userName={0}&storeName={1}&productBarCode={2}&amount={3}", userName, storeName, productBarCode, amount);
-            return bool.Parse(System.SendApi("AddProductToBasket", param));
+            return bool.Parse(system.SendApi("AddProductToBasket", param));
         }
 
         //public DataSet GetUserBaskets(string userName)
@@ -111,7 +111,7 @@ namespace Client.Code
         public bool AddItemToStore(string shopName, string itemBarCode, int amount)
         {
             string param = string.Format("shopName={0}&itemBarCode={1}&amount={2}", shopName, itemBarCode, amount);
-            return bool.Parse(System.SendApi("AddItemToStore", param));
+            return bool.Parse(system.SendApi("AddItemToStore", param));
 
         }
 
@@ -120,7 +120,7 @@ namespace Client.Code
         {
 
             string param = string.Format("barcode={0}&productName={1}&description={2}&price={3}&categories={4}", barcode, productName, description, price, categories);
-            return bool.Parse(System.SendApi("AddNewProductToSystem", param));
+            return bool.Parse(system.SendApi("AddNewProductToSystem", param));
         }
 
         //public DataSet GetStoreManagers(string storeName)
@@ -201,20 +201,20 @@ namespace Client.Code
         public bool remove_item_from_cart(string userName, string storeName, string productBarcode, int amount)
         {
             string param = string.Format("userName={0}&storeName={1}&productBarcode={2}&amount={3}", userName, storeName, productBarcode, amount);
-            return bool.Parse(System.SendApi("remove_item_from_cart", param));
+            return bool.Parse(system.SendApi("remove_item_from_cart", param));
         }
 
         public bool UpdateCart(string userName, string storeName, string productBarcode, int newAmount)
         {
             string param = string.Format("userName={0}&storeName={1}&productBarcode={2}&newAmount={3}", userName, storeName, productBarcode, newAmount);
-            return bool.Parse(System.SendApi("UpdateCart", param));
+            return bool.Parse(system.SendApi("UpdateCart", param));
         }
 
 
         public bool Purchase(string userName, string creditCard)
         {
             string param = string.Format("userName={0}&creditCard={1}", userName, creditCard);
-            return bool.Parse(System.SendApi("Purchase", param));
+            return bool.Parse(system.SendApi("Purchase", param));
 
         }
     }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Client.Code
 {
-    public class System
+    public class system
     {
         private const string server_domain = "https://localhost:44300/api";
 
