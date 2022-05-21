@@ -10,7 +10,15 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
     {
         public string Id { get; }
 
+        protected PrimitivePolicy(string id = "")
+        {
+            this.Id = id;
+            if (id.Equals(""))
+                this.Id = Service.GenerateId();
+        }
+
         public abstract bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user);
 
+        public abstract PrimitivePolicy Create(Dictionary<string, object> info);
     }
 }
