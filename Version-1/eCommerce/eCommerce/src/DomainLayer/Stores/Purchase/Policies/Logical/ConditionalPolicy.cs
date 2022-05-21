@@ -12,7 +12,7 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
         {
 
         }
-        public ConditionalPolicy(List<LogicPolicy> policies, string id = "") : base(policies, id)
+        public ConditionalPolicy(List<IPurchasePolicy> policies, string id = "") : base(policies, id)
         {
             if (policies.Count < 2)
                 throw new Exception("In Conditional Policy 2 or more polices are needed, (pre-condition and condition)!");

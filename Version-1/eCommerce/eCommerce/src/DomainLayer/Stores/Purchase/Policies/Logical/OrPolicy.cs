@@ -12,14 +12,14 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
         {
 
         }
-        public OrPolicy(List<LogicPolicy> policies, string id = "") : base(policies, id)
+        public OrPolicy(List<IPurchasePolicy> policies, string id = "") : base(policies, id)
         {
 
         }
 
         public override bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user)
         {
-            foreach (LogicPolicy policy in Policies)
+            foreach (IPurchasePolicy policy in Policies)
             {
                 if (policy.IsSatisfiedCond(bag, user))
                 {

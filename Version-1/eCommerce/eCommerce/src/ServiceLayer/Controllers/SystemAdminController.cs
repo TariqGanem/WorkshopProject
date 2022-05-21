@@ -11,7 +11,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
     {
         Result<RegisteredUserSO> AddSystemAdmin(string sysAdminId, String userName);
         Result<RegisteredUserSO> RemoveSystemAdmin(string sysAdminId, String userName);
-        Result<RegisteredUserSO> RemoveRegisteredUser(string sysAdminId, String userName);
+        //Result<RegisteredUserSO> RemoveRegisteredUser(string sysAdminId, String userName);
         Result<UserHistorySO> GetUserPurchaseHistory(string sysAdminId, String userId);
     }
     public class SystemAdminController : RegisteredUserController, ISystemAdminController

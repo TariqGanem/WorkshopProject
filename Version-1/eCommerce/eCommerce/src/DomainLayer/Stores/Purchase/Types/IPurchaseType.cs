@@ -12,9 +12,8 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Types
     {
         string Id { get; }
         bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user);
-        bool AddPolicy(LogicPolicy policy, string id);
-        LogicPolicy RemovePolicy(string id);
-        bool EditPolicy(Dictionary<string, object> info, string id);
+        bool AddPolicy(IPurchasePolicy policy);
+        IPurchasePolicy RemovePolicy(string id);
 
     }
 }

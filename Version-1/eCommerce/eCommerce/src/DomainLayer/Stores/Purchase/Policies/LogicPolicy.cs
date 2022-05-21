@@ -6,10 +6,10 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
 {
-    internal abstract class LogicPolicy
+    internal abstract class LogicPolicy : IPurchasePolicy
     {
         public string Id { get; }
-        public List<LogicPolicy> Policies { get; }
+        public List<IPurchasePolicy> Policies { get; }
 
         public abstract bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user);
 
@@ -18,16 +18,16 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
             this.Id = id;
             if (id.Equals(""))
                 this.Id = Service.GenerateId();
-            this.Policies = new List<LogicPolicy>();
+            this.Policies = new List<IPurchasePolicy>();
         }
-        protected LogicPolicy(List<LogicPolicy> policies, string id = "") : this(id)
+        protected LogicPolicy(List<IPurchasePolicy> policies, string id = "") : this(id)
         {
             if (policies != null)
                 this.Policies = policies;
         }
-        public bool AddPolicy(LogicPolicy policy)
+        public bool AddPolicy(IPurchasePolicy policy)
         {
-            LogicPolicy p = Policies.Find(p => p.Id.Equals(policy.Id));
+            IPurchasePolicy p = Policies.Find(p => p.Id.Equals(policy.Id));
             if (p != null)
             {
                 throw new Exception("Policy already exists, therefore can't be added!");
@@ -37,9 +37,9 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
             return true;
         }
 
-        public LogicPolicy RemovePolicy(string id)
+        public IPurchasePolicy RemovePolicy(string id)
         {
-            LogicPolicy policy = Policies.Find(policy => policy.Id.Equals(id));
+            IPurchasePolicy policy = Policies.Find(policy => policy.Id.Equals(id));
             if (policy != null)
             {
                 Policies.Remove(policy);

@@ -9,26 +9,36 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Types
 {
     internal class BuyNow : IPurchaseType
     {
-        public string Id => throw new NotImplementedException();
+        public LogicPolicy Policy { get; set; }
+        public string Id { get; }
 
-        public bool AddPolicy(LogicPolicy policy, string id)
+        public BuyNow(string id = "")
         {
-            throw new NotImplementedException();
+            this.Id = id;
+            if (id.Equals(""))
+                this.Id = Service.GenerateId();
+            this.Policy = new AndPolicy();
         }
 
-        public bool EditPolicy(Dictionary<string, object> info, string id)
+        public BuyNow(AndPolicy policy, string id)
         {
-            throw new NotImplementedException();
+            Policy = policy;
+            Id = id;
+        }
+
+        public bool AddPolicy(IPurchasePolicy policy)
+        {
+            return Policy.AddPolicy(policy);
         }
 
         public bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user)
         {
-            throw new NotImplementedException();
+            return Policy.IsSatisfiedCond(bag, user);
         }
 
-        public LogicPolicy RemovePolicy(string id)
+        public IPurchasePolicy RemovePolicy(string id)
         {
-            throw new NotImplementedException();
+            return Policy.RemovePolicy(id);
         }
     }
 }
