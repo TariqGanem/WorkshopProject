@@ -27,12 +27,12 @@ namespace Server.src
         }
 
         [HttpGet]
-        public bool Login(string username, string password)
+        public string Login(string username, string password)
         {
-            bool output = !system.Login(username, password).ErrorOccured;
-            if (output)
+            Result< RegisteredUserSO> output = system.Login(username, password);
+            if (!output.ErrorOccured)
                 Logger.GetInstance().Event(username + "has LoggedIn ");
-            return output;
+            return output.Value.Id;
         }
 
         [HttpGet]

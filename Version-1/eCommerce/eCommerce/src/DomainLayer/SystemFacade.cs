@@ -12,6 +12,8 @@ namespace eCommerce.src.DomainLayer
 {
     public interface ISystemFacade
     {
+        List<StoreService> GetAllStores();
+        List<ProductService> GetAllProducts(string storeId);
         StoreService OpenNewStore(String storeName, String userID);
         void CloseStore(string userID, string storeID);
         #region Inventory Management
@@ -281,6 +283,51 @@ namespace eCommerce.src.DomainLayer
         {
             History history = storeFacade.GetStorePurchaseHistory(userID, storeID, systemAdmin);
             return new UserHistorySO(history);
+        }
+
+        public List<StoreService> GetAllStores()
+        {
+            List<StoreService> result = new List<StoreService>();
+            ConcurrentDictionary<string, Store.Store> stores = storeFacade.Stores;
+            LinkedList<string> ownersIds = new LinkedList<string>();
+            foreach(var item in stores)
+            {
+                ConcurrentDictionary<string, StoreManager> temp1 = item.Value.Managers;
+                LinkedList<string> managers = new LinkedList<string>();
+                foreach (var manager in temp1.Values)
+                {
+                    managers.AddLast(manager.GetId());
+                }
+
+                ConcurrentDictionary<string, StoreManager> temp2 = item.Value.Managers;
+                LinkedList<string> owners = new LinkedList<string>();
+                foreach (var owner in temp2.Values)
+                {
+                    owners.AddLast(owner.GetId());
+                }
+
+                result.Add(new StoreService(item.Value.Id, item.Value.Name, item.Value.Founder.GetId(), owners, managers, new UserHistorySO(item.Value.History), item.Value.Rate, item.Value.NumberOfRates));
+            }
+            return result;
+        }
+
+        public List<ProductService> GetAllProducts(string storeId)
+        {
+            
+            List<ProductService> output = new List<ProductService>();
+            if(storeFacade.Stores.TryGetValue(storeId, out var result))
+            {
+                foreach(var item in result.InventoryManager.Products)
+                {
+                    output.Add(new ProductService(item.Value.Id, item.Value.Name, item.Value.Price, item.Value.Quantity, item.Value.Category));
+                }
+                return output;
+            }
+            else
+            {
+                throw new Exception("Couldnt find store!");
+            }
+            
         }
         #endregion
     }
