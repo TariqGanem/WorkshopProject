@@ -50,7 +50,8 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 ObjectDictionaryMapper<Product>.SetPropertyValue(toEdit, details);
             }
-            throw new Exception($"Faild to edit product (ID: {productID}) - Product not found");
+            else // bug fix ( added else )
+                throw new Exception($"Faild to edit product (ID: {productID}) - Product not found");
         }
 
         public List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes)

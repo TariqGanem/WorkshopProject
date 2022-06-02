@@ -22,6 +22,7 @@ namespace eCommerce.src.DomainLayer.User
         ShoppingCart Purchase(String userId, IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails);
         RegisteredUser AddSystemAdmin(String userName);
         RegisteredUser RemoveSystemAdmin(String userName);
+        RegisteredUser RemoveRegisteredUser(String userName);
 
     }
 
@@ -161,7 +162,7 @@ namespace eCommerce.src.DomainLayer.User
             }
             else
             {
-                throw new Exception($"There is no suck user with ID:{userId}!");
+                throw new Exception($"There is no such user with ID:{userId}!");
             }
         }
 
@@ -218,6 +219,13 @@ namespace eCommerce.src.DomainLayer.User
             }
 
         }
+
+        public RegisteredUser RemoveRegisteredUser(string userName)
+        {
+            RegisteredUser searchResult = GetUserByUserName(userName);
+            return searchResult;
+        }
+
         public Boolean isSystemAdmin(String userId)
         {
             return SystemAdmins.ContainsKey(userId);

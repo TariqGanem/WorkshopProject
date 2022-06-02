@@ -14,6 +14,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         Result AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
         Result RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
+        Result RemoveStoreOwner(String removedOwnerID, String currentlyOwnerID, String storeID);
         Result SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Result RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Result<Dictionary<IStaffService, PermissionService>> GetStoreStaff(String ownerID, String storeID);
@@ -41,12 +42,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 string id = SystemFacade.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
-                logger.LogInfo($"User with id: {userID}, added {productName} product to the store with id: {storeID}.");
+                logger.LogInfo($"StoreStaffController --> User with id: {userID}, added {productName} product to the store with id: {storeID}.");
                 return new Result<String>(id, null);
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result<String>(error.Message);
             }
         }
@@ -55,27 +56,27 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 SystemFacade.RemoveProductFromStore(userID, storeID, productID);
-                logger.LogInfo($"User with id: {userID}, removed product with id: {productID} from the store with id: {storeID}.");
+                logger.LogInfo($"StoreStaffController --> User with id: {userID}, removed product with id: {productID} from the store with id: {storeID}.");
                 return new Result();
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result(error.Message);
             }
         }
         public Result EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details)
         {
-            SystemFacade.EditProductDetails(userID, storeID, productID, details);
+            //SystemFacade.EditProductDetails(userID, storeID, productID, details);
             try
             {
                 SystemFacade.EditProductDetails(userID, storeID, productID, details);
-                logger.LogInfo($"User with id: {userID}, edited a product: {productID} details.");
+                logger.LogInfo($"StoreStaffController --> User with id: {userID}, edited a product: {productID} details.");
                 return new Result();
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result(error.Message);
             }
         }
@@ -84,12 +85,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 SystemFacade.AddStoreOwner(addedOwnerID, currentlyOwnerID, storeID);
-                logger.LogInfo($"User with id: {currentlyOwnerID}, added a new store owner with id {addedOwnerID} to store {storeID}.");
+                logger.LogInfo($"StoreStaffController --> User with id: {currentlyOwnerID}, added a new store owner with id {addedOwnerID} to store {storeID}.");
                 return new Result();
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result(error.Message);
             }
         }
@@ -98,12 +99,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 SystemFacade.AddStoreManager(addedManagerID, currentlyOwnerID, storeID);
-                logger.LogInfo($"User with id: {currentlyOwnerID}, added a new store owner with id {addedManagerID} to store {storeID}.");
+                logger.LogInfo($"StoreStaffController --> User with id: {currentlyOwnerID}, added a new store owner with id {addedManagerID} to store {storeID}.");
                 return new Result();
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result(error.Message);
             }
         }
@@ -112,12 +113,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 SystemFacade.SetPermissions(storeID, managerID, ownerID, permissions);
-                logger.LogInfo($"User with id: {ownerID}, added new permissions to the user with id: {managerID} in store {storeID}.");
+                logger.LogInfo($"StoreStaffController --> User with id: {ownerID}, added new permissions to the user with id: {managerID} in store {storeID}.");
                 return new Result();
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result(error.Message);
             }
         }
@@ -126,12 +127,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 SystemFacade.RemovePermissions(storeID, managerID, ownerID, permissions);
-                logger.LogInfo($"User with id: {ownerID}, removed permissions to the user with id: {managerID} in store {storeID}.");
+                logger.LogInfo($"StoreStaffController --> User with id: {ownerID}, removed permissions to the user with id: {managerID} in store {storeID}.");
                 return new Result();
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result(error.Message);
             }
         }
@@ -140,12 +141,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 Dictionary<IStaffService, PermissionService> res = SystemFacade.GetStoreStaff(ownerID, storeID);
-                logger.LogInfo($"Getting store staff details with id: {storeID} successfully.");
+                logger.LogInfo($"StoreStaffController --> Getting store staff details with id: {storeID} successfully.");
                 return new Result<Dictionary<IStaffService, PermissionService>>(res);
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result<Dictionary<IStaffService, PermissionService>>(error.Message);
             }
         }
@@ -153,12 +154,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
-                logger.LogInfo($"User with id: {ownerID} getting store purchase history with id: {storeID} successfully.");
+                logger.LogInfo($"StoreStaffController --> User with id: {ownerID} getting store purchase history with id: {storeID} successfully.");
                 return new Result<UserHistorySO>(SystemFacade.GetStorePurchaseHistory(ownerID, storeID));
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result<UserHistorySO>(error.Message);
             }
         }
@@ -167,26 +168,42 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 SystemFacade.RemoveStoreManager(removedManagerID, currentlyOwnerID, storeID);
-                logger.LogInfo($"User with id: {currentlyOwnerID} has removed user with id: {removedManagerID} from management successfully.");
+                logger.LogInfo($"StoreStaffController --> User with id: {currentlyOwnerID} has removed user with id: {removedManagerID} from management successfully.");
                 return new Result();
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result<UserHistorySO>(error.Message);
             }
         }
+
+        public Result RemoveStoreOwner(String removedOwnerID, String currentlyOwnerID, String storeID)
+        {
+            try
+            {
+                SystemFacade.RemoveStoreOwner(removedOwnerID, currentlyOwnerID, storeID);
+                logger.LogInfo($"StoreStaffController --> User with id: {currentlyOwnerID} has removed user with id: {removedOwnerID} from management successfully.");
+                return new Result();
+            }
+            catch (Exception error)
+            {
+                logger.LogError("StoreStaffController --> " + error.Message);
+                return new Result<UserHistorySO>(error.Message);
+            }
+        }
+
         public Result<List<ProductService>> SearchProduct(IDictionary<String, Object> productDetails)
         {
             try
             {
                 List<ProductService> res = SystemFacade.SearchProduct(productDetails);
-                logger.LogInfo($"Getting product details successfully");
+                logger.LogInfo($"StoreStaffController --> Getting product details successfully");
                 return new Result<List<ProductService>>(res);
             }
             catch (Exception error)
             {
-                logger.LogError(error.Message);
+                logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result<List<ProductService>>(error.Message);
             }
         }
