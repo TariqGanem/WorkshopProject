@@ -37,6 +37,8 @@ namespace eCommerce.src.DomainLayer.Store
         public int NumberOfRates { get; private set; }
         public ConcurrentDictionary<String, StoreOwner> Owners { get; }
         public ConcurrentDictionary<String, StoreManager> Managers { get; }
+        public NotificationPublisher NotificationPublisher { get; set; }
+
 
         public Store(String name, RegisteredUser founder)
         {
@@ -73,7 +75,7 @@ namespace eCommerce.src.DomainLayer.Store
         {
             if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.AddNewProduct))
             {
-                return InventoryManager.AddNewProduct(productName, price, initialQuantity, category, keyWords);
+                return InventoryManager.AddNewProduct(productName, price, initialQuantity, category,this.NotificationPublisher ,keyWords);
             }
             else
             {
@@ -127,7 +129,7 @@ namespace eCommerce.src.DomainLayer.Store
             foreach (var product in product_quantity)
             {
 
-                product.Key.Quantity = product.Key.Quantity - product.Value;
+                product.Key.UpdatePurchasedProductQuantity(product.Value);
             }
         }
 

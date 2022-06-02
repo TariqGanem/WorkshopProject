@@ -16,6 +16,8 @@ namespace eCommerce.src.DomainLayer.Store
         public int Quantity { get; set; }
         public String Category { get; set; }
         public LinkedList<String> KeyWords { get; set; }
+        public NotificationPublisher NotificationPublisher { get; set; }
+
 
         public Product(string name, double price, string category, int quantity, LinkedList<String> kws = null)
         {
@@ -25,6 +27,7 @@ namespace eCommerce.src.DomainLayer.Store
             Category = category;
             Quantity = quantity;
             KeyWords = kws == null ? new LinkedList<string>() : kws;
+            NotificationPublisher = null;
         }
 
         public void AddKeyWord(String kw)
@@ -43,6 +46,16 @@ namespace eCommerce.src.DomainLayer.Store
                 NumberOfRates += 1;
                 Rate = (Rate + rate) / (Double)NumberOfRates;
             }
+        }
+
+        public bool UpdatePurchasedProductQuantity(int quantity)
+        {
+            if (this.NotificationPublisher == null)
+            {
+                throw new Exception("Error: No Notification Publisher set for this product\n");
+            }
+            Quantity = Quantity - quantity;
+            return NotificationPublisher.notifyStorePurchase(this, quantity);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace eCommerce.src.DomainLayer.Store
 {
     public interface IInventoryManager
     {
-        String AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keyWords = null);
+        String AddNewProduct(String productName, Double price, int initialQuantity, String category,NotificationPublisher np, LinkedList<String> keyWords = null);
         void RemoveProduct(String productID);
         void EditProduct(String productID, IDictionary<String, Object> details);
         List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes);
@@ -28,9 +28,10 @@ namespace eCommerce.src.DomainLayer.Store
             Products = products;
         }
 
-        public String AddNewProduct(String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
+        public String AddNewProduct(String productName, Double price, int initialQuantity, String category,NotificationPublisher np , LinkedList<String> keywords = null)
         {
             Product newProduct = new Product(productName, price, category, initialQuantity, keywords);
+            newProduct.NotificationPublisher = np;
             Products.TryAdd(newProduct.Id, newProduct);
             return newProduct.Id;
         }
