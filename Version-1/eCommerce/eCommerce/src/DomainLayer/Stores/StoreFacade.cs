@@ -167,6 +167,9 @@ namespace eCommerce.src.DomainLayer.Store
         {
             Store newStore = new Store(storeName, founder);
             Stores.TryAdd(newStore.Id, newStore);
+            NotificationPublisher NotificationPublisher = new NotificationPublisher(newStore);
+            newStore.NotificationPublisher = NotificationPublisher;
+            newStore.NotificationPublisher.notifyStoreOpened();
             return newStore;
         }
 
@@ -178,6 +181,7 @@ namespace eCommerce.src.DomainLayer.Store
                 throw new Exception($"Non-founder Trying to close store {currStore.Name}");
             }
             currStore.Active = false;
+            currStore.NotificationPublisher.notifyStoreClosed();
         }
 
 

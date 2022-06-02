@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
 
 namespace eCommerce.src.DomainLayer.User.Roles
 {
-    public class StoreManager : IStaff
+    public class StoreManager : IStaff , SubscriberInterface
     {
         public RegisteredUser User { get; }
         public Permission Permission { get; }
@@ -33,6 +34,10 @@ namespace eCommerce.src.DomainLayer.User.Roles
         public String GetId()
         {
             return User.Id;
+        }
+        public bool Update(Notification notification)
+        {
+            return User.Update(notification);
         }
     }
 }
