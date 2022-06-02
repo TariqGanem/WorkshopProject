@@ -7,7 +7,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Discount.Policies.Logical
 {
-    public class OrPolicy : DiscountPolicy
+    public class OrPolicy : DiscountType
     {
         public List<IDiscountType> Discounts { get; }
 

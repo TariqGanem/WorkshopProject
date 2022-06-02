@@ -7,7 +7,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Discount.Policies.Logical
 {
-    public class XorPolicy : DiscountPolicy
+    public class XorPolicy : DiscountType
     {
         public IDiscountType Discount1 { get; }
         public IDiscountType Discount2 { get; }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Discount.Policies.Primitive
 {
-    public class AdditionPolicy : DiscountPolicy
+    public class AdditionPolicy : DiscountType
     {
         public List<IDiscountType> Discounts { get; }
 
