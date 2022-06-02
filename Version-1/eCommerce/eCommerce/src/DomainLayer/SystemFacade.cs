@@ -26,6 +26,7 @@ namespace eCommerce.src.DomainLayer
         void AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
         void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
+        void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID, String storeID);
         void SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         void RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaffService, PermissionService> GetStoreStaff(String ownerID, String storeID);
@@ -47,6 +48,7 @@ namespace eCommerce.src.DomainLayer
         #region System Management
         RegisteredUserSO AddSystemAdmin(string userName);
         RegisteredUserSO RemoveSystemAdmin(string userName);
+        RegisteredUserSO RemoveRegisteredUser(string userName);
         Boolean IsSystemAdmin(String userId);
         #endregion
 
@@ -156,6 +158,25 @@ namespace eCommerce.src.DomainLayer
             return new RegisteredUserSO(user);
         }
 
+        public RegisteredUserSO RemoveRegisteredUser(string userName)
+        {
+            RegisteredUser result = userFacade.RemoveRegisteredUser(userName);
+            bool cond_1 = userFacade.isSystemAdmin(userName);
+            foreach (var item in storeFacade.Stores)
+            {
+                if (item.Value.Founder.User.UserName.Equals(userName))
+                    throw new Exception("Could not remove the registered user.");
+                if (item.Value.Owners.TryGetValue(userName, out StoreOwner v1))
+                    throw new Exception("Could not remove the registered user.");
+                if (item.Value.Managers.TryGetValue(userName, out StoreManager v2))
+                    throw new Exception("Could not remove the registered user.");
+            }
+            if(!cond_1)
+                return new RegisteredUserSO(result);
+            else
+                throw new Exception("Could not remove the registered user.");
+        }
+
         public void UpdateShoppingCart(string userId, string storeId, String productId, int quantity)
         {
             Store.Store resStore = storeFacade.GetStore(storeId);
@@ -241,13 +262,25 @@ namespace eCommerce.src.DomainLayer
 
         public void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID)
         {
-            if (userFacade.RegisteredUsers.ContainsKey(removedManagerID))  // Check if addedManagerID is a registered user
+            if (userFacade.RegisteredUsers.ContainsKey(removedManagerID))
             {
                 storeFacade.RemoveStoreManager(removedManagerID, currentlyOwnerID, storeID);
             }
             else
             {
                 throw new Exception($"Failed to remove store manager: {removedManagerID} is not a registered user");
+            }
+        }
+
+        public void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID, String storeID)
+        {
+            if (userFacade.RegisteredUsers.ContainsKey(removedOwnerID))
+            {
+                storeFacade.RemoveStoreOwner(removedOwnerID, currentlyOwnerID, storeID);
+            }
+            else
+            {
+                throw new Exception($"Failed to remove store owner: {removedOwnerID} is not a registered user");
             }
         }
 

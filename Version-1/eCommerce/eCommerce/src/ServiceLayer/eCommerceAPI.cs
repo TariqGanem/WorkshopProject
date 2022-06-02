@@ -111,6 +111,10 @@ namespace eCommerce.src.ServiceLayer
         {
             return StoreStaffController.RemoveStoreManager(removedManagerID, currentlyOwnerID, storeID);
         }
+        public Result RemoveStoreOwner(String removedOwnerID, String currentlyOwnerID, String storeID)
+        {
+            return StoreStaffController.RemoveStoreOwner(removedOwnerID, currentlyOwnerID, storeID);
+        }
         public Result SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions)
         {
             return StoreStaffController.SetPermissions(storeID, managerID, ownerID, permissions);

@@ -11,6 +11,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
     {
         Result<RegisteredUserSO> AddSystemAdmin(string sysAdminId, String userName);
         Result<RegisteredUserSO> RemoveSystemAdmin(string sysAdminId, String userName);
+        //Result<RegisteredUserSO> RemoveRegisteredUser(string sysAdminId, String userName);
         Result<UserHistorySO> GetUserPurchaseHistory(string sysAdminId, String userId);
     }
     public class SystemAdminController : RegisteredUserController, ISystemAdminController
@@ -80,6 +81,22 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 checkSystemAdmin(sysAdminId);
                 RegisteredUserSO user = SystemFacade.RemoveSystemAdmin(userName);
                 logger.LogInfo($"SystemAdminController --> User with id: {sysAdminId} removed a system admin with id {userName} successfully.");
+                return new Result<RegisteredUserSO>(user);
+            }
+            catch (Exception e)
+            {
+                logger.LogError("SystemAdminController --> " + e.Message);
+                return new Result<RegisteredUserSO>(e.Message);
+            }
+        }
+
+        public Result<RegisteredUserSO> RemoveRegisteredUser(string sysAdminId, string userName)
+        {
+            try
+            {
+                ValidateUserName(userName);
+                checkSystemAdmin(sysAdminId);
+                RegisteredUserSO user = SystemFacade.RemoveRegisteredUser(userName);
                 return new Result<RegisteredUserSO>(user);
             }
             catch (Exception e)

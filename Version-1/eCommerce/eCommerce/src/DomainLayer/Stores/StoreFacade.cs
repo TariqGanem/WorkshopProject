@@ -17,6 +17,7 @@ namespace eCommerce.src.DomainLayer.Store
         void AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID, String storeID);
         void AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID, String storeID);
         void RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
+        void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID, String storeID);
         void SetPermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         void RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaff, Permission> GetStoreStaff(string ownerID, string storeID);
@@ -101,6 +102,18 @@ namespace eCommerce.src.DomainLayer.Store
             else
             {
                 throw new Exception($"Store ID {storeID} not found");
+            }
+        }
+
+        public void RemoveStoreOwner(string removedOwnerID, string currentlyOwnerID, string storeID)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))     // Check if storeID exists
+            {
+                store.RemoveStoreOwner(removedOwnerID, currentlyOwnerID);
+            }
+            else
+            {
+                throw new Exception($"Store ID {storeID} not found.");
             }
         }
 
