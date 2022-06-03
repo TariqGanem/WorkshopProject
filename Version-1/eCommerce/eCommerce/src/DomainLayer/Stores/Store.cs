@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.DomainLayer.User;
 using System.Threading;
+using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -390,6 +391,29 @@ namespace eCommerce.src.DomainLayer.Store
                     }
                 }
             }
+        }
+
+        public DTO_Store getDTO()
+        {
+            LinkedList<String> owners_dto = new LinkedList<string>();
+            foreach (var owner in Owners)
+            {
+                owners_dto.AddLast(owner.Key);
+            }
+            LinkedList<String> managers_dto = new LinkedList<string>();
+            foreach (var manager in Managers)
+            {
+                managers_dto.AddLast(manager.Key);
+            }
+            LinkedList<String> inventoryManagerProducts_dto = new LinkedList<string>();
+            ConcurrentDictionary<String, Product> Products = InventoryManager.Products;
+            foreach (var p in Products)
+            {
+                inventoryManagerProducts_dto.AddLast(p.Key);
+            }
+            return new DTO_Store(Id, Name, Founder.User.Id, owners_dto, managers_dto,
+                       inventoryManagerProducts_dto, History.getDTO(), Rate, NumberOfRates, this.Active);
+
         }
     }
 }

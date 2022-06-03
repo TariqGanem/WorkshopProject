@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
 
@@ -38,6 +39,10 @@ namespace eCommerce.src.DomainLayer.User.Roles
         public bool Update(Notification notification)
         {
             return User.Update(notification);
+        }
+        public DTO_StoreManager getDTO()
+        {
+            return new DTO_StoreManager(User.Id, Permission.functionsBitMask, AppointedBy.GetId(), Store.Id);
         }
     }
 }

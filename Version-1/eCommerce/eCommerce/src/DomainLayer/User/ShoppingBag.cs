@@ -1,4 +1,5 @@
-﻿using eCommerce.src.DomainLayer.Store;
+﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
+using eCommerce.src.DomainLayer.Store;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -70,6 +71,16 @@ namespace eCommerce.src.DomainLayer.User
             }
             TotalBagPrice = sum;
             return sum;
+        }
+
+        public DTO_ShoppingBag getDTO()
+        {
+            ConcurrentDictionary<string, int> products_dto = new ConcurrentDictionary<string, int>();
+            foreach (var p in Products)
+            {
+                products_dto.TryAdd(p.Key.Id, p.Value);
+            }
+            return new DTO_ShoppingBag(Id, UserId, Store.Id, products_dto, TotalBagPrice);
         }
     }
 }

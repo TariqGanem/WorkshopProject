@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
@@ -46,6 +47,16 @@ namespace eCommerce.src.DomainLayer.User
             }
             TotalCartPrice = sum;
             return sum;
+        }
+
+        public DTO_ShoppingCart getDTO()
+        {
+            ConcurrentDictionary<string, DTO_ShoppingBag> bags = new ConcurrentDictionary<string, DTO_ShoppingBag>();
+            foreach (var sb in this.ShoppingBags)
+            {
+                bags.TryAdd(sb.Key, sb.Value.getDTO());
+            }
+            return new DTO_ShoppingCart(this.Id, bags, this.TotalCartPrice);
         }
     }
 }

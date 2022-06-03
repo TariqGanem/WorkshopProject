@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -26,6 +27,11 @@ namespace eCommerce.src.DomainLayer.Notifications
         public String ToString()
         {
             return $"{Date.ToString("MM/dd/yyyy HH:mm")}\nNotice:\n{Message}\n";
+        }
+        
+        public DTO_Notification getDTO()
+        {
+            return new DTO_Notification(Message, Date.ToString(), isOpened, isStoreStaff, ClientId);
         }
     }
 }

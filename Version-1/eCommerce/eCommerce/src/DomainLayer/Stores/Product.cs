@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections.Concurrent;
 using eCommerce.src.ServiceLayer.ResultService;
+using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -56,6 +57,10 @@ namespace eCommerce.src.DomainLayer.Store
             }
             Quantity = Quantity - quantity;
             return NotificationPublisher.notifyStorePurchase(this, quantity);
+        }
+        public DTO_Product getDTO()
+        {
+            return new DTO_Product(Id, Name, Price, Quantity, Category, Rate, NumberOfRates,this.KeyWords);
         }
     }
 }

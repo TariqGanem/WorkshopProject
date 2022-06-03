@@ -1,4 +1,5 @@
-﻿using eCommerce.src.DomainLayer.Notifications;
+﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
+using eCommerce.src.DomainLayer.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,6 +30,21 @@ namespace eCommerce.src.DomainLayer.User.Roles
         public bool Update(Notification notification)
         {
             return User.Update(notification);
+        }
+        public DTO_StoreOwner getDTO()
+        {
+            LinkedList<string> managers_dto = new LinkedList<string>();
+            foreach (StoreManager sm in StoreManagers)
+            {
+                managers_dto.AddLast(sm.GetId());
+            }
+
+            LinkedList<string> owners_dto = new LinkedList<string>();
+            foreach (StoreOwner so in StoreOwners)
+            {
+                owners_dto.AddLast(so.GetId());
+            }
+            return new DTO_StoreOwner(User.Id, StoreId, AppointedBy.GetId(), managers_dto, owners_dto);
         }
     }
 }

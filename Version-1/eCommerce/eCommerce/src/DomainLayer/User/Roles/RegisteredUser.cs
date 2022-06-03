@@ -1,4 +1,6 @@
-﻿using eCommerce.src.DomainLayer.Notifications;
+﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
+using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
+using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.ExternalSystems;
 using eCommerce.src.ServiceLayer.ResultService;
@@ -78,6 +80,18 @@ namespace eCommerce.src.DomainLayer.User
                     PendingNotification.Remove(notification);
                 }
             }
+        }
+
+        public DTO_RegisteredUser getDTO()
+        {
+            LinkedList<DTO_Notification> notifications_dto = new LinkedList<DTO_Notification>();
+            foreach (var n in PendingNotification)
+            {
+                notifications_dto.AddLast(n.getDTO());
+            }
+            return new DTO_RegisteredUser(Id, ShoppingCart.getDTO(), UserName, _password,
+                                        Active, History.getDTO(), notifications_dto);
+
         }
     }
 }
