@@ -6,7 +6,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
 {
-    internal abstract class PrimitivePolicy : IPurchasePolicy
+    public abstract class PrimitivePolicy : IPurchasePolicy
     {
         public string Id { get; }
 

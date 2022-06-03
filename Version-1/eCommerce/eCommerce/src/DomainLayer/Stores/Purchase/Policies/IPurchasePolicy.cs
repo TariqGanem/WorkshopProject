@@ -6,7 +6,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
 {
-    internal interface IPurchasePolicy
+    public interface IPurchasePolicy
     {
         public string Id { get; }
         bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user);

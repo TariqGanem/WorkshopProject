@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
 {
-    internal class TimePolicy : PrimitivePolicy
+    public class TimePolicy : PrimitivePolicy
     {
         public DateTime StartRestrict { get; set; }
         public DateTime EndRestrict { get; set; }
@@ -32,7 +32,7 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
             this.Minute = Minute;
             Policy = policy;
         }
-        public override PrimitivePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy)
+        public override IPurchasePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy)
         {
             if (!info.ContainsKey("StartRestrict") && !info.ContainsKey("EndRestrict"))
                 throw new Exception("StartRestrict and EndRestrict not found!");

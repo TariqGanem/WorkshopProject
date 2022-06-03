@@ -6,7 +6,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
 {
-    internal class OrPolicy : LogicPolicy
+    public class OrPolicy : LogicPolicy
     {
         public OrPolicy(string id = "") : base(id)
         {

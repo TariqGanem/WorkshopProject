@@ -22,6 +22,9 @@ namespace eCommerce.src.DomainLayer.User
                 throw new Exception("Notice - The store is out of stock!");
             }
 
+            if (!shoppingCart.ValidPolicy())
+                throw new Exception("Some shopping bag doesn't match the store policy!");
+
             Double amount = shoppingCart.GetTotalShoppingCartPrice();
 
             bool paymentSuccess = Proxy.Pay(amount, paymentDetails);

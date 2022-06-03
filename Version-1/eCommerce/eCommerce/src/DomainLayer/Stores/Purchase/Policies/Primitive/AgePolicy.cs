@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
 {
-    internal class AgePolicy : PrimitivePolicy
+    public class AgePolicy : PrimitivePolicy
     {
         public int MinAge { get; set; }
 
@@ -19,7 +19,7 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
             MinAge = minAge;
 
         }
-        public override PrimitivePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy = null)
+        public override IPurchasePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy = null)
         {
             if (!info.ContainsKey("Age"))
                 throw new Exception("Age must be in the Keys!");

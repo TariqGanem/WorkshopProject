@@ -7,7 +7,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Types
 {
-    internal class BuyNow : IPurchaseType
+    public class BuyNow : IPurchaseType
     {
         public LogicPolicy Policy { get; set; }
         public string Id { get; }

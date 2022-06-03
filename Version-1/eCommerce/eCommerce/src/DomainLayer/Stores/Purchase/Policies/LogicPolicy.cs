@@ -6,7 +6,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
 {
-    internal abstract class LogicPolicy : IPurchasePolicy
+    public abstract class LogicPolicy : IPurchasePolicy
     {
         public string Id { get; }
         public List<IPurchasePolicy> Policies { get; }

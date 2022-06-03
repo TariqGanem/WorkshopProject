@@ -6,7 +6,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies
 {
-    internal class ConditionalPolicy : LogicPolicy
+    public class ConditionalPolicy : LogicPolicy
     {
         public ConditionalPolicy(string id = "") : base(id)
         {

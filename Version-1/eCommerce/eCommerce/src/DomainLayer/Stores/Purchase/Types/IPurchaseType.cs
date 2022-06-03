@@ -8,7 +8,7 @@ using System.Text;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Types
 {
-    internal interface IPurchaseType
+    public interface IPurchaseType
     {
         string Id { get; }
         bool IsSatisfiedCond(ConcurrentDictionary<Product, int> bag, User.User user);

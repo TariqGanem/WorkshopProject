@@ -49,6 +49,16 @@ namespace eCommerce.src.DomainLayer.User
             return sum;
         }
 
+        public bool ValidPolicy()
+        {
+            foreach (ShoppingBag bag in ShoppingBags.Values)
+            {
+                if (!bag.ValidPolicy())
+                    return false;
+            }
+            return true;
+        }
+
         public DTO_ShoppingCart getDTO()
         {
             ConcurrentDictionary<string, DTO_ShoppingBag> bags = new ConcurrentDictionary<string, DTO_ShoppingBag>();

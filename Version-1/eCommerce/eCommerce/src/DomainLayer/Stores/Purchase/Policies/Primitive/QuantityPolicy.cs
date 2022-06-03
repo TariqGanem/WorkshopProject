@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
 {
-    internal class QuantityPolicy : PrimitivePolicy
+    public class QuantityPolicy : PrimitivePolicy
     {
         public string ProductId { get; set; }
         public string Category { get; set; }
@@ -43,7 +43,7 @@ namespace eCommerce.src.DomainLayer.Stores.Purchase.Policies.Primitive
             this.Max = max;
         }
 
-        public override PrimitivePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy = null)
+        public override IPurchasePolicy Create(Dictionary<string, object> info, IPurchasePolicy policy = null)
         {
             if (!info.ContainsKey("ProductId") && !info.ContainsKey("Category"))
                 throw new Exception("ProductId and Category are not found in Keys!");

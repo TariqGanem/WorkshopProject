@@ -5,6 +5,7 @@ using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.DomainLayer.User;
 using System.Threading;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
+using eCommerce.src.DomainLayer.Stores;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -39,7 +40,7 @@ namespace eCommerce.src.DomainLayer.Store
         public ConcurrentDictionary<String, StoreOwner> Owners { get; }
         public ConcurrentDictionary<String, StoreManager> Managers { get; }
         public NotificationPublisher NotificationPublisher { get; set; }
-
+        public PolicyHandler PolicyHandler;
 
         public Store(String name, RegisteredUser founder)
         {
@@ -52,6 +53,7 @@ namespace eCommerce.src.DomainLayer.Store
             Managers = new ConcurrentDictionary<string, StoreManager>();
             InventoryManager = new InventoryManager();
             History = new History();
+            PolicyHandler = new PolicyHandler();
         }
 
         public void AddRating(Double rate)

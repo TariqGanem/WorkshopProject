@@ -15,6 +15,8 @@ namespace eCommerce.src.DomainLayer.User
         public ConcurrentDictionary<Product, int> Products { get; }     // <Product, Quantity>
         public Double TotalBagPrice { get; set; }
 
+        public User User { get; set; } // we need it for polices.
+
         public ShoppingBag(String userId, Store.Store store)
         {
             Id = Service.GenerateId();
@@ -22,6 +24,8 @@ namespace eCommerce.src.DomainLayer.User
             this.Store = store;
             Products = new ConcurrentDictionary<Product, int>();
             TotalBagPrice = 0;
+
+            // update the user in constructor.
         }
 
         public Boolean AddProtuctToShoppingBag(Product product, int quantity)
@@ -71,6 +75,12 @@ namespace eCommerce.src.DomainLayer.User
             }
             TotalBagPrice = sum;
             return sum;
+        }
+
+        public bool ValidPolicy()
+        {
+            // Should we send the whole User or the userID, sinsce we need his age.
+            return Store.PolicyHandler.ValidPolicy(this.Products, this.User);
         }
 
         public DTO_ShoppingBag getDTO()
