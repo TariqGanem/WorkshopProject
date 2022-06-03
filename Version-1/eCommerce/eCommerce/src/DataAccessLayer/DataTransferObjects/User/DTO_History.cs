@@ -8,9 +8,9 @@ namespace eCommerce.src.DataAccessLayer.DataTransferObjects.User
     public class DTO_History
     {
         [BsonElement]
-        public LinkedList<DTO_ShoppingBag> ShoppingBags { get; set; }
+        public LinkedList<DTO_PurchasedShoppingBag> ShoppingBags { get; set; }
 
-        public DTO_History(LinkedList<DTO_ShoppingBag> shoppingBags)
+        public DTO_History(LinkedList<DTO_PurchasedShoppingBag> shoppingBags)
         {
             ShoppingBags = shoppingBags;
         }

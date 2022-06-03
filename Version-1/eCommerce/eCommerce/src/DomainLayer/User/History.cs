@@ -34,20 +34,17 @@ namespace eCommerce.src.DomainLayer.User
 
         public DTO_History getDTO()
         {
-            LinkedList<DTO_ShoppingBag> hsp_dto = new LinkedList<DTO_ShoppingBag>();
+            LinkedList<DTO_PurchasedShoppingBag> hsp_dto = new LinkedList<DTO_PurchasedShoppingBag>();
             foreach (var sb in ShoppingBags)
             {
-                LinkedList<DTO_Product> products_dto = new LinkedList<DTO_Product>();
+                LinkedList<DTO_PurchasedProduct> products_dto = new LinkedList<DTO_PurchasedProduct>();
                 foreach (var tup in sb.Products)
                 {
                     Product p = tup.Key;
-                    DTO_Product hp_dto = new DTO_Product(p.Id, p.Name, p.Price, tup.Value, p.Category , 0 , 0 , null);
+                    DTO_PurchasedProduct hp_dto = new DTO_PurchasedProduct(p.Id, p.Name, p.Price, tup.Value, p.Category );
                     products_dto.AddLast(hp_dto);
                 }
-                ConcurrentDictionary<String,int> tempDic = new ConcurrentDictionary<String,int>();
-                foreach (DTO_Product dt_pro in products_dto)
-                    tempDic.TryAdd(dt_pro._id, dt_pro.Quantity);
-                hsp_dto.AddLast(new DTO_ShoppingBag(sb.Id, sb.UserId, sb.Store.Id, tempDic, sb.TotalBagPrice));
+                hsp_dto.AddLast(new DTO_PurchasedShoppingBag(sb.Id, sb.UserId, sb.Store.Id, products_dto, sb.TotalBagPrice));
             }
             return new DTO_History(hsp_dto);
         }
