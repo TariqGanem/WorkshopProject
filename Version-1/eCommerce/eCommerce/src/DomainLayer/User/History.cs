@@ -2,6 +2,7 @@
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
 using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.ServiceLayer.Objects;
+using eCommerce.src.ServiceLayer.ResultService;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -30,6 +31,10 @@ namespace eCommerce.src.DomainLayer.User
         public void AddPurchasedShoppingBag(ShoppingBag shoppingBag)
         {
             ShoppingBags.AddLast(shoppingBag);
+        }
+        public UserHistorySO getSO()
+        {
+            return new UserHistorySO(this);
         }
 
         public DTO_History getDTO()

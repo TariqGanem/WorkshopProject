@@ -1,5 +1,6 @@
 ﻿using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.ExternalSystems;
+using eCommerce.src.ServiceLayer.Objects;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -51,5 +52,8 @@ namespace eCommerce.src.DomainLayer.User
             ShoppingBag bag = ShoppingCart.GetShoppingBag(storeID);
             bag.UpdateShoppingBag(product, quantity);
         }
+
+        public abstract UserSO getSO();
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerce.src.ServiceLayer.Objects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -62,6 +63,11 @@ namespace eCommerce.src.DomainLayer.User
             {
                 functionsBitMask[i] = true;
             }
+        }
+
+        public PermissionService getSO()
+        { 
+            return new PermissionService(this.functionsBitMask, isOwner);
         }
     }
 }

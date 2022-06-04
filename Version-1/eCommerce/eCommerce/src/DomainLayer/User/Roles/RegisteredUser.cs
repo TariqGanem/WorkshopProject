@@ -3,6 +3,7 @@ using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.ExternalSystems;
+using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
 using System;
 using System.Collections.Concurrent;
@@ -92,6 +93,12 @@ namespace eCommerce.src.DomainLayer.User
             return new DTO_RegisteredUser(Id, ShoppingCart.getDTO(), UserName, _password,
                                         Active, History.getDTO(), notifications_dto);
 
+        }
+
+        public override UserSO getSO()
+        {
+            UserSO user = new RegisteredUserSO(this);
+            return user;
         }
     }
 }

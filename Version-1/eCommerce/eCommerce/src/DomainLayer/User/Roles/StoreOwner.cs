@@ -1,5 +1,6 @@
 ﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Notifications;
+using eCommerce.src.ServiceLayer.Objects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -45,6 +46,25 @@ namespace eCommerce.src.DomainLayer.User.Roles
                 owners_dto.AddLast(so.GetId());
             }
             return new DTO_StoreOwner(User.Id, StoreId, AppointedBy.GetId(), managers_dto, owners_dto);
+        }
+
+        public StoreOwnerService getSO()
+        {
+            LinkedList<String> storeOwners = new LinkedList<String>();
+            LinkedList<String> storeManagers = new LinkedList<String>();
+
+            foreach (StoreOwner so in StoreOwners)
+            {
+                storeOwners.AddLast(so.User.Id);
+            }
+
+            foreach (StoreManager sm in StoreManagers)
+            {
+                storeManagers.AddLast(sm.User.Id);
+            }
+            if (AppointedBy != null)
+                return new StoreOwnerService(User.Id, StoreId, AppointedBy.GetId(), storeOwners, storeManagers);
+            return new StoreOwnerService(User.Id, StoreId, null, storeOwners, storeManagers);
         }
     }
 }

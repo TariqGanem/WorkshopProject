@@ -4,6 +4,7 @@ using System.Text;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
+using eCommerce.src.ServiceLayer.Objects;
 
 namespace eCommerce.src.DomainLayer.User.Roles
 {
@@ -43,6 +44,12 @@ namespace eCommerce.src.DomainLayer.User.Roles
         public DTO_StoreManager getDTO()
         {
             return new DTO_StoreManager(User.Id, Permission.functionsBitMask, AppointedBy.GetId(), Store.Id);
+        }
+
+        public StoreManagerService getSO()
+        {
+            PermissionService permission = Permission.getSO();
+            return new StoreManagerService(User.Id, permission, AppointedBy.GetId());
         }
     }
 }

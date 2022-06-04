@@ -1,4 +1,5 @@
 ﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
+using eCommerce.src.ServiceLayer.Objects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,5 +17,10 @@ namespace eCommerce.src.DomainLayer.User
             return new DTO_GuestUser(Id, ShoppingCart.getDTO(), Active);
         }
 
+        public override UserSO getSO()
+        {
+            UserSO user = new GuestUserSO(this);
+            return user;
+        }
     }
 }

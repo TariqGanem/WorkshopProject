@@ -5,6 +5,7 @@ using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.DomainLayer.User;
 using System.Threading;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
+using eCommerce.src.ServiceLayer.Objects;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -393,6 +394,19 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
+        public StoreService getSO()
+        {
+            LinkedList<String> owners = new LinkedList<String>();
+            foreach (var so in Owners)
+                owners.AddLast(so.Key);
+            LinkedList<String> managers = new LinkedList<String>();
+            foreach (var sm in Managers)
+                managers.AddLast(sm.Key);
+            UserHistorySO history = History.getSO();
+
+            StoreService store = new StoreService(this.Id, this.Name, Founder.User.Id, owners, managers, history, this.Rate, this.NumberOfRates);
+            return store;
+        }
         public DTO_Store getDTO()
         {
             LinkedList<String> owners_dto = new LinkedList<string>();

@@ -1,4 +1,5 @@
 ﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
+using eCommerce.src.ServiceLayer.Objects;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -49,6 +50,10 @@ namespace eCommerce.src.DomainLayer.User
             return sum;
         }
 
+        public ShoppingCartSO getSO()
+        {
+            return new ShoppingCartSO(this);
+        }
         public DTO_ShoppingCart getDTO()
         {
             ConcurrentDictionary<string, DTO_ShoppingBag> bags = new ConcurrentDictionary<string, DTO_ShoppingBag>();

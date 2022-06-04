@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections.Concurrent;
 using eCommerce.src.ServiceLayer.ResultService;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
+using eCommerce.src.ServiceLayer.Objects;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -57,6 +58,10 @@ namespace eCommerce.src.DomainLayer.Store
             }
             Quantity = Quantity - quantity;
             return NotificationPublisher.notifyStorePurchase(this, quantity);
+        }
+        public ProductService getSO()
+        {
+            return new ProductService(this.Id, this.Name, this.Price, this.Quantity, this.Category);
         }
         public DTO_Product getDTO()
         {
