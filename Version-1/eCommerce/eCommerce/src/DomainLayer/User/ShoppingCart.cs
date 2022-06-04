@@ -27,6 +27,13 @@ namespace eCommerce.src.DomainLayer.User
             TotalCartPrice = shoppingCart.TotalCartPrice;
         }
 
+        public ShoppingCart(String id , ConcurrentDictionary<String, ShoppingBag> sb , double tcp)
+        {
+            Id = id;
+            ShoppingBags = sb;
+            TotalCartPrice = tcp;
+        }
+
         public ShoppingBag GetShoppingBag(string storeId)
         {
             if (ShoppingBags.TryGetValue(storeId, out ShoppingBag shoppingBag))

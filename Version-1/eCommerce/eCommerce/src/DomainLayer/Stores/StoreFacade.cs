@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
+using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.DomainLayer.User.Roles;
 
@@ -27,6 +28,7 @@ namespace eCommerce.src.DomainLayer.Store
     public class StoreFacade : IStoresFacade
     {
         public ConcurrentDictionary<String, Store> Stores { get; }
+        //public DBUtil dbfuncs;
 
         public StoreFacade()
         {

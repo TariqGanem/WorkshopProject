@@ -19,6 +19,11 @@ namespace eCommerce.src.DomainLayer.User
             ShoppingBags = new LinkedList<ShoppingBag>();
         }
 
+        public History(LinkedList<ShoppingBag> sb)
+        {
+            this.ShoppingBags = sb;
+        }
+
         public void AddPurchasedShoppingCart(ShoppingCart shoppingCart)
         {
             ConcurrentDictionary<String, ShoppingBag> bags = shoppingCart.ShoppingBags;

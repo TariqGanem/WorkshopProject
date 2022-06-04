@@ -32,6 +32,17 @@ namespace eCommerce.src.DomainLayer.Store
             NotificationPublisher = null;
         }
 
+        public Product(string id, string name, double price, int productQuantity, string category , LinkedList<String> kws = null)
+        {
+            Id = id;
+            Name = name;
+            Price = price;
+            Category = category;
+            Quantity = productQuantity;
+            KeyWords = kws == null ? new LinkedList<string>() : kws;
+            NotificationPublisher = null;
+        }
+
         public void AddKeyWord(String kw)
         {
             this.KeyWords.AddLast(kw);

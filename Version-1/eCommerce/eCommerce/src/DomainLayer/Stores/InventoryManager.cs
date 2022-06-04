@@ -28,6 +28,11 @@ namespace eCommerce.src.DomainLayer.Store
             Products = products;
         }
 
+        public InventoryManager(ConcurrentDictionary<String, Product> products)
+        {
+            Products = products;
+        }
+
         public String AddNewProduct(String productName, Double price, int initialQuantity, String category,NotificationPublisher np , LinkedList<String> keywords = null)
         {
             Product newProduct = new Product(productName, price, category, initialQuantity, keywords);

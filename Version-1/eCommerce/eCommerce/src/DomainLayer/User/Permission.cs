@@ -46,7 +46,11 @@ namespace eCommerce.src.DomainLayer.User
             functionsBitMask = new Boolean[13];
             functionsBitMask[(int)Methods.GetStoreStaff] = true;
         }
-
+        public Permission(Boolean[] functionsBitMask)
+        {
+            this.isOwner = false;
+            this.functionsBitMask = functionsBitMask;
+        }
         public void SetPermission(Methods method, Boolean active)
         {
             functionsBitMask[(int)method] = active;

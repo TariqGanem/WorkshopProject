@@ -15,7 +15,7 @@ namespace eCommerce.src.DomainLayer.User
     public class RegisteredUser : User , SubscriberInterface
     {
         public string UserName { get; }
-        private string _password;
+        public string _password;
         public History History { get; set; }
         public LinkedList<Notification> PendingNotification { get; }
         public NotificationsDistributer NotificationsDistributer { get; }
@@ -27,6 +27,16 @@ namespace eCommerce.src.DomainLayer.User
             this.History = new History();
             this.PendingNotification = new LinkedList<Notification>();
             this.NotificationsDistributer = NotificationsDistributer.GetInstance();
+        }
+
+        public RegisteredUser(string id, string userName, string password, bool active, History history, LinkedList<Notification> notifications) 
+        {
+            this.Id = id;
+            UserName = userName;
+            Active = active;
+            History = history;
+            this._password = password;
+            this.PendingNotification = notifications;
         }
 
         public void Login(String password)

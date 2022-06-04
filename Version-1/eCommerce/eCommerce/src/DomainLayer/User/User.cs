@@ -11,7 +11,7 @@ namespace eCommerce.src.DomainLayer.User
 {
     public abstract class User
     {
-        public String Id { get; }
+        public String Id { get; set; }
         public Boolean Active { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
 

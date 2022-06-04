@@ -32,7 +32,7 @@ namespace eCommerce.src.DomainLayer.Store
         public String Id { get; }
         public String Name { get; }
         public Boolean Active { get; set; }
-        public StoreOwner Founder { get; }
+        public StoreOwner Founder { get; set; }
         public InventoryManager InventoryManager { get; }
         public History History { get; }
         public Double Rate { get; private set; }
@@ -53,6 +53,21 @@ namespace eCommerce.src.DomainLayer.Store
             Managers = new ConcurrentDictionary<string, StoreManager>();
             InventoryManager = new InventoryManager();
             History = new History();
+        }
+
+        public Store(string id, string name, InventoryManager inventoryManager, History history, double rate, int numberOfRates, NotificationPublisher notificationManager, bool active)
+        {
+            Id = id;
+            Name = name;
+            InventoryManager = inventoryManager;
+            History = history;
+            Rate = rate;
+            NumberOfRates = numberOfRates;
+            this.NotificationPublisher = notificationManager;
+            Active = active;
+            Owners = new ConcurrentDictionary<string, StoreOwner>();
+            Managers = new ConcurrentDictionary<string, StoreManager>();
+
         }
 
         public void AddRating(Double rate)

@@ -25,6 +25,15 @@ namespace eCommerce.src.DomainLayer.User
             TotalBagPrice = 0;
         }
 
+        public ShoppingBag(String id , String userId , Store.Store store , ConcurrentDictionary<Product, int> products , Double tp)
+        {
+            this.Id = id; 
+            this.Products = products;
+            this.Store = store;
+            this.UserId=userId;
+            this.TotalBagPrice = tp;
+        }
+
         public Boolean AddProtuctToShoppingBag(Product product, int quantity)
         {
             if (product.Quantity >= quantity && quantity > 0)

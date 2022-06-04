@@ -30,6 +30,15 @@ namespace eCommerce.src.ServiceLayer.Objects
                 this.Products[new_p] = shoppingBag.Products[p];
             }
         }
+
+        public ShoppingBagSO(string id, string userId, string storeId, Dictionary<ProductService, int> products, double totalBagPrice)
+        {
+            Id = id;
+            UserId = userId;
+            StoreId = storeId;
+            this.Products = products;
+            this.TotalPrice = totalBagPrice;
+        }
         #endregion
     }
 }

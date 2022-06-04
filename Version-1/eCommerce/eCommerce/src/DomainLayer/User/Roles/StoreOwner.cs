@@ -11,7 +11,7 @@ namespace eCommerce.src.DomainLayer.User.Roles
     {
         public RegisteredUser User { get; }
         public String StoreId { get; }
-        public IStaff AppointedBy { get; }
+        public IStaff AppointedBy { get; set; }
         public LinkedList<StoreManager> StoreManagers { get; }
         public LinkedList<StoreOwner> StoreOwners { get; }
 

@@ -24,6 +24,15 @@ namespace eCommerce.src.DomainLayer.Notifications
             this.ClientId = clientId;
         }
 
+        public Notification(string clientId, string msg, bool staff, bool isOpened, string date) 
+        {
+            this.Message =msg;
+            this.Date = Convert.ToDateTime(date);
+            this.isStoreStaff = staff;
+            this.ClientId = clientId;
+            this.isOpened = isOpened;
+        }
+
         public String ToString()
         {
             return $"{Date.ToString("MM/dd/yyyy HH:mm")}\nNotice:\n{Message}\n";

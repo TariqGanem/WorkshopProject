@@ -20,6 +20,10 @@ namespace eCommerce.src.DomainLayer.Store
             logger = Logger.GetInstance();
         }
 
+        public NotificationPublisher()
+        {
+        }
+
         public bool notifyStorePurchase(Product product, int quantity)
         {
             String msg = $"Event : Product Purchased\nStore Id : {Store.Id}\nProduct Name : {product.Name}\nProduct Quantity : {quantity}\n";
