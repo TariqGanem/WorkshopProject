@@ -13,9 +13,6 @@
         .auto-style16 {
             margin-left: 3px;
         }
-        .auto-style22 {
-            margin-left: 0px;
-        }
         .auto-style23 {
             width: 1px;
         }
@@ -30,6 +27,22 @@
             vertical-align: middle;
             text-align: center;
         }
+        .auto-style25 {
+            width: 184px;
+            height: 27px;
+            margin-left: 0;
+        }
+        .auto-style26 {
+            width: 137px;
+            height: 27px;
+        }
+        .auto-style27 {
+            width: 812px;
+            height: 27px;
+        }
+        .auto-style28 {
+            height: 27px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -43,7 +56,7 @@
         </tr>
         <tr>
             <td class="auto-style14">
-                            <asp:Label ID="LabelproductName" runat="server" Text="productName : "></asp:Label>
+                            <asp:Label ID="LabelproductName" runat="server" Text="Name : "></asp:Label>
                         </td>
             <td class="auto-style15">
                             <asp:Label ID="LabelproductName0" runat="server"></asp:Label>
@@ -53,17 +66,7 @@
         </tr>
         <tr>
             <td class="auto-style14">
-                            <asp:Label ID="Labeldescription" runat="server" Text="description : "></asp:Label>
-                        </td>
-            <td class="auto-style15">
-                            <asp:Label ID="Labeldescription0" runat="server"></asp:Label>
-                        </td>
-            <td class="auto-style13">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style14">
-                            <asp:Label ID="Labelbarcode" runat="server" Text="barcode : "></asp:Label>
+                            <asp:Label ID="Labelbarcode" runat="server" Text="Id : "></asp:Label>
                         </td>
             <td class="auto-style15">
                             <asp:Label ID="Labelbarcode0" runat="server"></asp:Label>
@@ -73,7 +76,17 @@
         </tr>
         <tr>
             <td class="auto-style14">
-                            <asp:Label ID="Labelcategories" runat="server" Text="categories : "></asp:Label>
+                            <asp:Label ID="LabelstoreId" runat="server" Text="storeId : "></asp:Label>
+                        </td>
+            <td class="auto-style15">
+                            <asp:Label ID="LabelstoreId0" runat="server"></asp:Label>
+                        </td>
+            <td class="auto-style13">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style14">
+                            <asp:Label ID="Labelcategories" runat="server" Text="Category : "></asp:Label>
                         </td>
             <td class="auto-style15">
                             <asp:Label ID="Labelcategories0" runat="server"></asp:Label>
@@ -83,17 +96,7 @@
         </tr>
         <tr>
             <td class="auto-style14">
-                            <asp:Label ID="LabelnameShop" runat="server" Text="nameShop : "></asp:Label>
-                        </td>
-            <td class="auto-style15">
-                            <asp:Label ID="LabelnameShop0" runat="server"></asp:Label>
-                        </td>
-            <td class="auto-style13">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style14">
-                            <asp:Label ID="Labelprice" runat="server" Text="price : "></asp:Label>
+                            <asp:Label ID="Labelprice" runat="server" Text="Price : "></asp:Label>
                         </td>
             <td class="auto-style15">
                             <asp:Label ID="Labelprice0" runat="server"></asp:Label>

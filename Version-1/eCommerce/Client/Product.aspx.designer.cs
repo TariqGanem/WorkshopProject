@@ -33,24 +33,6 @@ namespace Client
         protected global::System.Web.UI.WebControls.Label LabelproductName0;
 
         /// <summary>
-        /// Labeldescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labeldescription;
-
-        /// <summary>
-        /// Labeldescription0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labeldescription0;
-
-        /// <summary>
         /// Labelbarcode control.
         /// </summary>
         /// <remarks>
@@ -69,6 +51,24 @@ namespace Client
         protected global::System.Web.UI.WebControls.Label Labelbarcode0;
 
         /// <summary>
+        /// LabelstoreId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelstoreId;
+
+        /// <summary>
+        /// LabelstoreId0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelstoreId0;
+
+        /// <summary>
         /// Labelcategories control.
         /// </summary>
         /// <remarks>
@@ -85,24 +85,6 @@ namespace Client
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Labelcategories0;
-
-        /// <summary>
-        /// LabelnameShop control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelnameShop;
-
-        /// <summary>
-        /// LabelnameShop0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelnameShop0;
 
         /// <summary>
         /// Labelprice control.

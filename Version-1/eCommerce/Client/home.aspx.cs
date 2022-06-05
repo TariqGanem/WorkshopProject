@@ -50,9 +50,10 @@ namespace Client
             {
                 string[] cargs = e.CommandArgument.ToString().Split(',');
                 Session["Id"] = cargs[0];
-                Session["Name"] = cargs[1];
-                Session["Price"] = cargs[2];
-                Session["Catagory"] = cargs[3];
+                Session["storeId"] = cargs[1];
+                Session["Name"] = cargs[2];
+                Session["Price"] = cargs[3];
+                Session["Catagory"] = cargs[4];
                 Response.Redirect("~/Product.aspx");
             }
         }

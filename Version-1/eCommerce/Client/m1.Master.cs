@@ -76,7 +76,6 @@ namespace Client
                     Labelname.Text = "Hello " + txtusername.Text;
                     Session["userId"] = msg;
                     Session["admin"] = null;
-                    Session["basket"] = null;
                     if (txtusername.Text.ToString().Equals("admin"))
                     {
                         Session["admin"] = "admin";
