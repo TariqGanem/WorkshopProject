@@ -1,5 +1,9 @@
-﻿using eCommerce.src.DomainLayer.Store;
+﻿using eCommerce.src.DataAccessLayer;
+using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
+using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.DomainLayer.User.Roles;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -32,6 +36,7 @@ namespace eCommerce.src.DomainLayer.User
         public ConcurrentDictionary<String, RegisteredUser> SystemAdmins { get; }
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; }
         public ConcurrentDictionary<String, GuestUser> GuestUsers { get; }
+        public DBUtil dbutil = DBUtil.getInstance();
 
         private readonly object my_lock = new object();
         #endregion
@@ -42,6 +47,8 @@ namespace eCommerce.src.DomainLayer.User
             SystemAdmins = new ConcurrentDictionary<string, RegisteredUser>();
             RegisteredUsers = new ConcurrentDictionary<string, RegisteredUser>();
             GuestUsers = new ConcurrentDictionary<string, GuestUser>();
+            LoadAllRegisterUsers();
+            LoadSystemAdmins();
         }
         #endregion
 
@@ -61,6 +68,12 @@ namespace eCommerce.src.DomainLayer.User
                 throw new Exception($"The username {userName} doesn't exist!");
             }
             registeredUser.Login(password);
+
+            // DB
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", registeredUser.Id);
+            var update = Builders<BsonDocument>.Update.Set("Active", true);
+            dbutil.UpdateRegisteredUser(filter, update);
+            // 
             return registeredUser;
         }
 
@@ -74,6 +87,9 @@ namespace eCommerce.src.DomainLayer.User
             else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registeredUser))
             {
                 registeredUser.Logout();
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", registeredUser.Id);
+                var update = Builders<BsonDocument>.Update.Set("Active", false);
+                dbutil.UpdateRegisteredUser(filter, update);
             }
             else
             {
@@ -92,6 +108,7 @@ namespace eCommerce.src.DomainLayer.User
                     {
                         RegisteredUser newUser = new RegisteredUser(userName, password);
                         this.RegisteredUsers.TryAdd(newUser.Id, newUser);
+                        dbutil.Create(newUser);
                         return newUser;
                     }
                     else
@@ -123,6 +140,9 @@ namespace eCommerce.src.DomainLayer.User
             if (RegisteredUsers.TryGetValue(userId, out RegisteredUser user))   // Check if user is registered
             {
                 user.AddProductToCart(product, quantity, store);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", user.Id);
+                var update = Builders<BsonDocument>.Update.Set("ShoppingCart", user.ShoppingCart.getDTO());
+                dbutil.UpdateRegisteredUser(filter, update);
             }
             else if (GuestUsers.TryGetValue(userId, out GuestUser guest))   // Check if active guest
             {
@@ -143,6 +163,9 @@ namespace eCommerce.src.DomainLayer.User
             else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
             {
                 registerd_user.UpdateShoppingCart(storeId, product, quantity);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", registerd_user.Id);
+                var update = Builders<BsonDocument>.Update.Set("ShoppingCart", registerd_user.ShoppingCart.getDTO());
+                dbutil.UpdateRegisteredUser(filter, update);
             }
             else
             {
@@ -183,6 +206,9 @@ namespace eCommerce.src.DomainLayer.User
             {
                 ShoppingCart cart = registerd_user.Purchase(paymentDetails, deliveryDetails);
                 registerd_user.History.AddPurchasedShoppingCart(cart);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", registerd_user.Id);
+                var update = Builders<BsonDocument>.Update.Set("ShoppingCart", cart.getDTO());
+                dbutil.UpdateRegisteredUser(filter, update);
                 return cart;
             }
             else
@@ -193,9 +219,12 @@ namespace eCommerce.src.DomainLayer.User
 
         public RegisteredUser AddSystemAdmin(string userName)
         {
-            RegisteredUser admin = GetUserByUserName(userName);
+            RegisteredUser admin = GetUserById(userName);
             //registered user has been found
             this.SystemAdmins.TryAdd(admin.Id, admin);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", ""); 
+            var update = Builders<BsonDocument>.Update.Set("SystemAdmins", getDTO_admins().SystemAdmins);
+            dbutil.UpdateSystemAdmins(filter, update);
             return admin;
         }
 
@@ -208,6 +237,9 @@ namespace eCommerce.src.DomainLayer.User
             if (this.SystemAdmins.Count > 1)
             {
                 this.SystemAdmins.TryRemove(searchResult.Id, out removedUser);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", "");  
+                var update = Builders<BsonDocument>.Update.Set("SystemAdmins", getDTO_admins().SystemAdmins);
+                dbutil.UpdateSystemAdmins(filter, update);
                 return removedUser;
             }
 
@@ -230,6 +262,49 @@ namespace eCommerce.src.DomainLayer.User
         {
             return SystemAdmins.ContainsKey(userId);
         }
+
+        public DTO_SystemAdmins getDTO_admins()
+        {
+            LinkedList<String> admins_dto = new LinkedList<string>();
+
+            foreach (var admin in SystemAdmins)
+            {
+                admins_dto.AddLast(admin.Key);
+            }
+            return new DTO_SystemAdmins(admins_dto);
+        }
+
+        public void LoadAllRegisterUsers()
+        {
+            List<RegisteredUser> _registeredUsers = dbutil.LoadAllRegisterUsers();
+            foreach (RegisteredUser registered in _registeredUsers)
+            {
+                RegisteredUsers.TryAdd(registered.Id, registered);
+            }
+        }
+        public void LoadSystemAdmins()
+        {
+            LinkedList<String> systemAdminsIDs = dbutil.LoadAllSystemAdmins();
+            if (!(systemAdminsIDs is null))
+            {
+                foreach (string id in systemAdminsIDs)
+                {
+                    RegisteredUser user;
+                    RegisteredUsers.TryGetValue(id, out user);
+                    SystemAdmins.TryAdd(id, user);
+                }
+            }
+
+        }
+
+        public String getRegUserIdByUsername(String username)
+        {
+            foreach (KeyValuePair<String, RegisteredUser> kvp in this.RegisteredUsers)
+                if (kvp.Value.UserName == username)
+                    return kvp.Key;
+            return "";
+        }
+
         #endregion
 
         #region privateMethods
@@ -243,6 +318,18 @@ namespace eCommerce.src.DomainLayer.User
                 }
             }
             throw new Exception($"Username {userName} doesn't exist!");
+        }
+
+        private RegisteredUser GetUserById(String Id)
+        {
+            foreach (RegisteredUser registeredUser in RegisteredUsers.Values)
+            {
+                if (registeredUser.Id.Equals(Id))
+                {
+                    return registeredUser;
+                }
+            }
+            throw new Exception($"Username {Id} doesn't exist!");
         }
         private Boolean isUniqueEmail(string userName)
         {

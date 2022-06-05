@@ -17,7 +17,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
     }
     public class UserController : IUserController
     {
-        public ISystemFacade SystemFacade;
+        public ISystemFacade SystemFacade { set; get; }
         private Logger logger = Logger.GetInstance();
         public UserController(ISystemFacade systemFacade) { SystemFacade = systemFacade; }
 

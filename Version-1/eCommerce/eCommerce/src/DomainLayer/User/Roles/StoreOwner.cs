@@ -45,6 +45,11 @@ namespace eCommerce.src.DomainLayer.User.Roles
             {
                 owners_dto.AddLast(so.GetId());
             }
+            if (AppointedBy is null)
+            {
+                return new DTO_StoreOwner(User.Id, StoreId, "", managers_dto, owners_dto);
+
+            }
             return new DTO_StoreOwner(User.Id, StoreId, AppointedBy.GetId(), managers_dto, owners_dto);
         }
 

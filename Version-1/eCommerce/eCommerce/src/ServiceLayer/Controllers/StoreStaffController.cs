@@ -26,7 +26,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
     public class StoreStaffController : IStoreStaffController
     {
         //Properties
-        public ISystemFacade SystemFacade { get; }
+        public ISystemFacade SystemFacade { get; set; }
         Logger logger = Logger.GetInstance();
 
         //Constructor

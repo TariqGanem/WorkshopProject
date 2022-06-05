@@ -1,8 +1,11 @@
-﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
+﻿using eCommerce.src.DataAccessLayer;
+using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
 using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -27,15 +30,36 @@ namespace eCommerce.src.DomainLayer.User
         public void AddPurchasedShoppingCart(ShoppingCart shoppingCart)
         {
             ConcurrentDictionary<String, ShoppingBag> bags = shoppingCart.ShoppingBags;
+            String userid = "";
             foreach (ShoppingBag bag in bags.Values)
             {
+                userid = bag.UserId;
                 ShoppingBags.AddLast(bag);
             }
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", userid);
+            var update_history = Builders<BsonDocument>.Update.Set("History", getDTO());
+            DBUtil.getInstance().UpdateRegisteredUser(filter, update_history);
         }
 
         public void AddPurchasedShoppingBag(ShoppingBag shoppingBag)
         {
+            ShoppingBagSO shoppingBagService = shoppingBag.getSO();
             ShoppingBags.AddLast(shoppingBag);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", shoppingBag.Store.Id);
+            var update_history = Builders<BsonDocument>.Update.Push("History.ShoppingBags", GetDTO_HistoryShoppingBag(shoppingBagService));
+            DBUtil.getInstance().UpdateStore(filter, update_history);
+        }
+
+        public DTO_PurchasedShoppingBag GetDTO_HistoryShoppingBag(ShoppingBagSO sb)
+        {
+            LinkedList<DTO_PurchasedProduct> products_dto = new LinkedList<DTO_PurchasedProduct>();
+            foreach (var tup in sb.Products)
+            {
+                ProductService p = tup.Key;
+                DTO_PurchasedProduct hp_dto = new DTO_PurchasedProduct(p.Id, p.Name, p.Price, tup.Value, p.Category);
+                products_dto.AddLast(hp_dto);
+            }
+            return new DTO_PurchasedShoppingBag(sb.Id, sb.UserId, sb.StoreId, products_dto, sb.TotalPrice);
         }
         public UserHistorySO getSO()
         {

@@ -14,16 +14,16 @@ namespace eCommerce.src.ServiceLayer
     public interface IeCommerceAPI : IUserController, IGuestController, IRegisteredUserController, ISystemAdminController, IStoreStaffController { }
     public class eCommerceSystem : IeCommerceAPI
     {
-        public IUserController UserController;
-        public IGuestController GuestController { get; }
-        public IRegisteredUserController RegisteredUserController { get; }
-        public SystemAdminController SystemAdminController { get; }
-        public IStoreStaffController StoreStaffController { get; }
+        public IUserController UserController { get; set; }
+        public IGuestController GuestController { get; set; }
+        public IRegisteredUserController RegisteredUserController { get; set; }
+        public SystemAdminController SystemAdminController { get; set; }
+        public IStoreStaffController StoreStaffController { get; set; }
+        public SystemFacade systemFacade { get; set; }
 
         public eCommerceSystem()
         {
-            SystemFacade systemFacade = new SystemFacade();
-
+            systemFacade = new SystemFacade();
             UserController = new UserController(systemFacade);
             GuestController = new GuestController(systemFacade);
             RegisteredUserController = new RegisteredUserController(systemFacade);

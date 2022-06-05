@@ -189,6 +189,7 @@ namespace eCommerce.src.DomainLayer
         }
         #endregion
 
+
         #region StoreFacadeMethods
         public StoreService OpenNewStore(String storeName, String userID)
         {

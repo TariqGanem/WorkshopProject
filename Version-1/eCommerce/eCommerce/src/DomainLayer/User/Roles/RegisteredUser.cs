@@ -1,10 +1,13 @@
-﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
+﻿using eCommerce.src.DataAccessLayer;
+using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.ExternalSystems;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -14,11 +17,11 @@ namespace eCommerce.src.DomainLayer.User
 {
     public class RegisteredUser : User , SubscriberInterface
     {
-        public string UserName { get; }
-        public string _password;
+        public string UserName { get; set; }
+        public string _password { get; set; }
         public History History { get; set; }
-        public LinkedList<Notification> PendingNotification { get; }
-        public NotificationsDistributer NotificationsDistributer { get; }
+        public LinkedList<Notification> PendingNotification { get; set; }
+        public NotificationsDistributer NotificationsDistributer { get; set; }
 
         public RegisteredUser(String userName, String password) : base()
         {
@@ -65,9 +68,22 @@ namespace eCommerce.src.DomainLayer.User
             }
             PendingNotification.AddLast(notification);
             Logger.GetInstance().LogInfo("User not logged in , therefore the notification is added to pending list\n");
-
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
+            var update_notification = Builders<BsonDocument>.Update.Set("PendingNotification", getPendingNotificationsDTO());
+            DBUtil.getInstance().UpdateRegisteredUser(filter, update_notification);
             return false;
         }
+
+        public LinkedList<DTO_Notification> getPendingNotificationsDTO()
+        {
+            LinkedList<DTO_Notification> notifications_dto = new LinkedList<DTO_Notification>();
+            foreach (var n in PendingNotification)
+            {
+                notifications_dto.AddLast(n.getDTO());
+            }
+            return notifications_dto;
+        }
+
 
         private void DisplayPendingNotifications()
         {
@@ -91,6 +107,9 @@ namespace eCommerce.src.DomainLayer.User
                     PendingNotification.Remove(notification);
                 }
             }
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
+            var update_notification = Builders<BsonDocument>.Update.Set("PendingNotification", getPendingNotificationsDTO());
+            DBUtil.getInstance().UpdateRegisteredUser(filter, update_notification);
         }
 
         public DTO_RegisteredUser getDTO()

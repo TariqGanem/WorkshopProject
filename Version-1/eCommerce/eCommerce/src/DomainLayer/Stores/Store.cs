@@ -29,16 +29,16 @@ namespace eCommerce.src.DomainLayer.Store
     }
     public class Store : IStoreOperations
     {
-        public String Id { get; }
-        public String Name { get; }
+        public String Id { get; set; }
+        public String Name { get; set; }
         public Boolean Active { get; set; }
         public StoreOwner Founder { get; set; }
-        public InventoryManager InventoryManager { get; }
-        public History History { get; }
+        public InventoryManager InventoryManager { get; set; }
+        public History History { get; set; }
         public Double Rate { get; private set; }
         public int NumberOfRates { get; private set; }
-        public ConcurrentDictionary<String, StoreOwner> Owners { get; }
-        public ConcurrentDictionary<String, StoreManager> Managers { get; }
+        public ConcurrentDictionary<String, StoreOwner> Owners { get; set; }
+        public ConcurrentDictionary<String, StoreManager> Managers { get; set; }
         public NotificationPublisher NotificationPublisher { get; set; }
 
 
