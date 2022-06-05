@@ -155,6 +155,16 @@ namespace eCommerce.src.ServiceLayer
             return RegisteredUserController.CloseStore(userId, storeId);
         }
 
+        public Result<List<StoreService>> GetAllStores()
+        {
+            return StoreStaffController.GetAllStores();
+        }
+
+        public Result<List<ProductService>> GetAllProducts(string storeId)
+        {
+            return StoreStaffController.GetAllProducts(storeId);
+        }
+
         public void run()
         {
             //TODO

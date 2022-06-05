@@ -33,7 +33,7 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
         [InlineData("category","Keyboards")]
         [InlineData("storerating",2.9)]
         [InlineData("name", "LogitechKeyboard")]
-        public void SearchProductTest(String attribute , object value)
+        public void SearchProductTesthappy(String attribute , object value)
         {
             store1.AddNewProduct(founder1.Id, "RazerKeyboard", 449.99, 25, "Keyboards");
             IDictionary<String, Object> searchAttributes = new Dictionary<String, Object>()
@@ -51,7 +51,18 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
 
         [Fact]
         [Trait("Category","UnitTesting")]
-        public void CloseOpenStroeTest()
+        public void CloseOpenStroeTesthappy()
+        {
+            this.storefacade.OpenNewStore(founder1, store1.Name);
+            Store tempstore = storefacade.Stores.Values.First();
+            Assert.True(storefacade.Stores.ContainsKey(tempstore.Id) & tempstore.Active);
+            this.storefacade.CloseStore(founder1, tempstore.Id);
+            Assert.False(tempstore.Active);
+        }
+
+        [Fact]
+        [Trait("Category", "UnitTesting")]
+        public void CloseOpenStroeTestsad()
         {
             this.storefacade.OpenNewStore(founder1, store1.Name);
             Store tempstore = storefacade.Stores.Values.First();
@@ -60,18 +71,28 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             {
                 this.storefacade.CloseStore(founder2, tempstore.Id);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Assert.Equal("Non-founder Trying to close store Razer", e.Message);
             }
             Assert.True(storefacade.Stores.ContainsKey(tempstore.Id) & tempstore.Active);
-            this.storefacade.CloseStore(founder1, tempstore.Id);
-            Assert.False(tempstore.Active);
         }
 
         [Fact]
         [Trait("Category","UnitTesting")]
-        public void AddRemoveProduct()
+        public void AddRemoveProducthappy()
+        {
+            this.storefacade.OpenNewStore(founder1, store1.Name);
+            Store tempstore = storefacade.Stores.Values.First();
+            storefacade.AddProductToStore(founder1.Id, tempstore.Id, "RazerKeyboard", 449.99, 25, "Keyboard");
+            Product tempproduct = tempstore.InventoryManager.Products.Values.First();
+            Assert.NotNull(tempproduct);
+            Assert.True(tempstore.InventoryManager.Products.ContainsKey(tempproduct.Id));
+            storefacade.RemoveProductFromStore(founder1.Id, tempstore.Id, tempproduct.Id);
+            Assert.False(store1.InventoryManager.Products.ContainsKey(tempproduct.Id));
+        }
+
+        public void AddRemoveProductsad()
         {
             this.storefacade.OpenNewStore(founder1, store1.Name);
             Store tempstore = storefacade.Stores.Values.First();
@@ -95,8 +116,6 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
                 Assert.Equal("Store ID " + store1.Id + " not found", e.Message);
             }
             Assert.True(tempstore.InventoryManager.Products.ContainsKey(tempproduct.Id));
-            storefacade.RemoveProductFromStore(founder1.Id, tempstore.Id, tempproduct.Id);
-            Assert.False(store1.InventoryManager.Products.ContainsKey(tempproduct.Id));
         }
     }
 

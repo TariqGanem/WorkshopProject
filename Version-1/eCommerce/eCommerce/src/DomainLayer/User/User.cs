@@ -46,7 +46,7 @@ namespace eCommerce.src.DomainLayer.User
         }
 
 
-            public void UpdateShoppingCart(String storeID, Product product, int quantity)
+        public void UpdateShoppingCart(String storeID, Product product, int quantity)
         {
             ShoppingBag bag = ShoppingCart.GetShoppingBag(storeID);
             bag.UpdateShoppingBag(product, quantity);
