@@ -26,7 +26,7 @@ namespace eCommerce.src.DataAccessLayer
         public DAO<DTO_StoreManager> DAO_StoreManager;
         public DAO<DTO_StoreOwner> DAO_StoreOwner;
         public DAO<DTO_Store> DAO_Store;
-        //public DAO<DTO_SystemAdmins> DAO_SystemAdmins;
+        public DAO<DTO_SystemAdmins> DAO_SystemAdmins;
 
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers;
         public ConcurrentDictionary<String, GuestUser> GuestUsers;
@@ -41,12 +41,13 @@ namespace eCommerce.src.DataAccessLayer
 
             this.dbClient = new MongoClient(connection_url);
             db = dbClient.GetDatabase(db_name);
+
             DAO_RegisteredUser = new DAO<DTO_RegisteredUser>(db, "Users");
             DAO_Product = new DAO<DTO_Product>(db, "Products");
             DAO_StoreManager = new DAO<DTO_StoreManager>(db, "Users");
             DAO_StoreOwner = new DAO<DTO_StoreOwner>(db, "Users");
             DAO_Store = new DAO<DTO_Store>(db, "Stores");
-            //DAO_SystemAdmins = new DAO<DTO_SystemAdmins>(database, "SystemAdmins");
+            DAO_SystemAdmins = new DAO<DTO_SystemAdmins>(db, "SystemAdmins");
 
             RegisteredUsers = new ConcurrentDictionary<String, RegisteredUser>();
             GuestUsers = new ConcurrentDictionary<String, GuestUser>();
@@ -444,6 +445,11 @@ namespace eCommerce.src.DataAccessLayer
 
         // system admin
 
+        public void UpdateSystemAdmins(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update, Boolean upsert = false)
+        {
+            DAO_SystemAdmins.Update(filter, update, upsert);
+        }
+
         // product
 
         public void Create(Product p)
@@ -546,7 +552,7 @@ namespace eCommerce.src.DataAccessLayer
                 db.GetCollection<BsonDocument>("Products").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("Stores").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("Users").DeleteMany(emptyFilter);
-                ///database.GetCollection<BsonDocument>("SystemAdmins").DeleteMany(emptyFilter);
+                db.GetCollection<BsonDocument>("SystemAdmins").DeleteMany(emptyFilter);
 
                 RegisteredUsers.Clear();
                 GuestUsers.Clear();
