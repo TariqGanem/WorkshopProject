@@ -157,14 +157,15 @@ namespace eCommerce
                 //Assert.True(PotentialQuantity == 10); // check quantity in shopping bad
                 //Assert.True(buyer_shopping_bags.Value.Count == 1);
             */
+            /*
             Console.Out.WriteLine("testtest");
             Product p = new Product("product", 10, "test", 5);
-            DBUtil dbu = DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority");
+            DBUtil dbu = DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority" , "TestingDB");
             dbu.Create(p);
             var filter = Builders<BsonDocument>.Filter.Eq("_id", p.Id);
             Product p2 = dbu.LoadProduct(filter);
             Console.Out.WriteLine(p2.Id == p.Id);
-            
+            */
             return;
         }
 
