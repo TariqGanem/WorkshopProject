@@ -1,10 +1,13 @@
 ﻿using eCommerce.src.DataAccessLayer;
+using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Store;
+using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.ResultService;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,7 +18,6 @@ namespace eCommerce
         static void Main(string[] args)
         {
             // FOR TESTNG PURPOSES
-            RealAdapter api = new RealAdapter();
 
             /*
             String store_owner;
@@ -166,6 +168,78 @@ namespace eCommerce
             Product p2 = dbu.LoadProduct(filter);
             Console.Out.WriteLine(p2.Id == p.Id);
             */
+
+
+
+
+            // Scenario 1 Described by Email from the course's staff [RUNS] - track through data base
+            String adminId = "e035ddf3301245119e39a6f2a81143da";
+            DBUtil dbutil;
+            String connection_url = "mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority";
+            String db_name = "Scenario1";
+            dbutil = DBUtil.getInstance(connection_url, db_name);
+            RealAdapter api = new RealAdapter(); // everything gets initialized and loaded from db
+
+            // register users u1,u2,u3,u4,u5,u6
+            api.Register("u1", "pass");
+            api.Register("u2", "pass");
+            api.Register("u3", "pass");
+            api.Register("u4", "pass");
+            api.Register("u5", "pass");
+            api.Register("u6", "pass");
+
+            // make u1 admin
+            String id = api.system.systemFacade.userFacade.getRegUserIdByUsername("u1");
+            api.AddSystemAdmin(adminId, id);
+
+            // u1,2,3,4,5,6 login
+            api.Login("u1", "pass");
+            String founderId = api.Login("u2", "pass").Value;
+            String managerid = api.Login("u3", "pass").Value;
+            String storeowner1 = api.Login("u4", "pass").Value;
+            String storeowner2 = api.Login("u5", "pass").Value;
+            api.Login("u6", "pass");
+
+            // u2 open store s1
+            String storeid = api.OpenNewStore("s1", founderId).Value;
+
+            // u2 add item “Bamba” to store s1 with cost 30 and quantity 20
+            api.AddProductToStore(founderId, storeid, "Bamba", 30, 20, "food");
+
+            // u2 appoints u3 to a store manager with permission to manage inventory.
+            api.AddStoreManager(managerid, founderId, storeid);
+            LinkedList<int> per = new LinkedList<int>();
+            per.AddLast(0);
+            per.AddLast(1);
+            per.AddLast(2);
+            api.SetPermissions(storeid, managerid, founderId, per);
+
+            // u2 appoint u4, u5 to store s1 owner
+            api.AddStoreOwner(storeowner1, founderId, storeid);
+            api.AddStoreOwner(storeowner2, founderId, storeid);
+
+            // u5 logs off
+            api.Logout(storeowner2);
+
+
+
+
+
+            //api.Register("Admin", "Admin");
+            //LinkedList<String> admins = new LinkedList<String>();
+            //admins.AddLast("e035ddf3301245119e39a6f2a81143da");
+            //dbutil.DAO_SystemAdmins.Create(new DTO_SystemAdmins(admins));
+            //var filter = Builders<BsonDocument>.Filter.Empty;
+            //var update = Builders<BsonDocument>.Update.Set("Name", "store1NewName");
+            //dbutil.UpdateSystemAdmins
+            //api.Register("u1", "pass1");
+            //api.Register("u2", "pass1");
+            //api.Register("u3", "pass1");
+            //api.Register("u4", "pass1");
+            //api.Register("u5", "pass1");
+            //api.Register("u6", "pass1");
+            //api.AddSystemAdmin(u1);
+
             return;
         }
 
