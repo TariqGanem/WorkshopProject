@@ -35,12 +35,12 @@ namespace eCommerce.src.DataAccessLayer
         public ConcurrentDictionary<String, LinkedList<StoreOwner>> StoreOwners;
         public ConcurrentDictionary<String, Store> Stores;
 
-       private DBUtil(String connection_url)
+       private DBUtil(String connection_url , String db_name)
         {
             //String dbName = "XMart";
-            String dbName = "TestingTestingTesting";
+
             this.dbClient = new MongoClient(connection_url);
-            db = dbClient.GetDatabase(dbName);
+            db = dbClient.GetDatabase(db_name);
             DAO_RegisteredUser = new DAO<DTO_RegisteredUser>(db, "Users");
             DAO_Product = new DAO<DTO_Product>(db, "Products");
             DAO_StoreManager = new DAO<DTO_StoreManager>(db, "Users");
@@ -61,11 +61,11 @@ namespace eCommerce.src.DataAccessLayer
             return Instance;
         }
 
-        public static DBUtil getInstance(String connection_url)
+        public static DBUtil getInstance(String connection_url , String db_name)
         {
             if (Instance == null)
             {
-                Instance = new DBUtil(connection_url);
+                Instance = new DBUtil(connection_url , db_name);
             }
             return Instance;
         }

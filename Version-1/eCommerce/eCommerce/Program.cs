@@ -1,5 +1,9 @@
-﻿using eCommerce.src.ServiceLayer;
+﻿using eCommerce.src.DataAccessLayer;
+using eCommerce.src.DomainLayer.Store;
+using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.ResultService;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -154,6 +158,13 @@ namespace eCommerce
                 //Assert.True(buyer_shopping_bags.Value.Count == 1);
             */
             Console.Out.WriteLine("testtest");
+            Product p = new Product("product", 10, "test", 5);
+            DBUtil dbu = DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority");
+            dbu.Create(p);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", p.Id);
+            Product p2 = dbu.LoadProduct(filter);
+            Console.Out.WriteLine(p2.Id == p.Id);
+            
             return;
         }
 

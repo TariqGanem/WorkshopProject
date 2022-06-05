@@ -23,6 +23,7 @@ namespace eCommerce.src.DataAccessLayer.DataTransferObjects.Stores
         public String Category { get; set; }
         [BsonElement]
         public LinkedList<String> KeyWords { get; set; }
+
         public DTO_Product(string id, string name, double price, int quantity, string category, double rating, int numberOfRates, LinkedList<string> keywords)
         {
             _id = id;
