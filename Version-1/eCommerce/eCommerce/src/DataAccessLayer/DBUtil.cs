@@ -352,7 +352,7 @@ namespace eCommerce.src.DataAccessLayer
         {
             StoreOwner so;
             LinkedList<StoreOwner> list;
-            DTO_StoreOwner dto = DAO_StoreOwner.Load(filter);       // TODO - need to make sure when loading store manager the filter includes user id and store id
+            DTO_StoreOwner dto = DAO_StoreOwner.Load(filter);       
 
             bool listExists = StoreOwners.TryGetValue(dto.UserId, out list);
             if (listExists)
@@ -405,7 +405,7 @@ namespace eCommerce.src.DataAccessLayer
 
         public void DeleteStoreOwner(FilterDefinition<BsonDocument> filter)
         {
-            DTO_StoreOwner deletedStoreOwner = DAO_StoreOwner.Delete(filter); // TODO - need to make sure when loading store manager the filter includes user id and store id
+            DTO_StoreOwner deletedStoreOwner = DAO_StoreOwner.Delete(filter); 
             StoreOwner so = null;
             LinkedList<StoreOwner> list;
             if (!(deletedStoreOwner is null))
