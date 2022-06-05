@@ -7,6 +7,7 @@ using eCommerce.src.DomainLayer.User;
 using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.ServiceLayer.Objects;
 using MongoDB.Bson;
+using Newtonsoft.Json;
 using MongoDB.Driver;
 using System;
 using System.Collections.Concurrent;
@@ -44,8 +45,8 @@ namespace eCommerce.src.DataAccessLayer
 
             DAO_RegisteredUser = new DAO<DTO_RegisteredUser>(db, "Users");
             DAO_Product = new DAO<DTO_Product>(db, "Products");
-            DAO_StoreManager = new DAO<DTO_StoreManager>(db, "Users");
-            DAO_StoreOwner = new DAO<DTO_StoreOwner>(db, "Users");
+            DAO_StoreManager = new DAO<DTO_StoreManager>(db, "StoreStaff");
+            DAO_StoreOwner = new DAO<DTO_StoreOwner>(db, "StoreStaff");
             DAO_Store = new DAO<DTO_Store>(db, "Stores");
             DAO_SystemAdmins = new DAO<DTO_SystemAdmins>(db, "SystemAdmins");
 
@@ -201,7 +202,71 @@ namespace eCommerce.src.DataAccessLayer
             return store;
         }
 
-        //reg user
+        // load all DTOS
+        public List<RegisteredUser> LoadAllRegisterUsers()
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            List<BsonDocument> docs = DAO_RegisteredUser.Documents.Find(filter).ToList();
+            List<DTO_RegisteredUser> registerUsersDTO = new List<DTO_RegisteredUser>();
+            foreach (BsonDocument doc in docs)
+            {
+                var json = doc.ToJson();
+                if (json.StartsWith("{ \"_id\" : ObjectId(")) { json = "{" + json.Substring(47); }
+                DTO_RegisteredUser dto = JsonConvert.DeserializeObject<DTO_RegisteredUser>(json);
+                registerUsersDTO.Add(dto);
+            }
+            List<RegisteredUser> registeredUsers = new List<RegisteredUser>();
+            foreach (DTO_RegisteredUser dto in registerUsersDTO)
+            {
+                RegisteredUser registerUser = LoadRegisteredUser(Builders<BsonDocument>.Filter.Eq("_id", dto._id));
+                registeredUsers.Add(registerUser);
+            }
+            return registeredUsers;
+        }
+
+        public LinkedList<String> LoadAllSystemAdmins()
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            List<BsonDocument> docs = DAO_SystemAdmins.Documents.Find(filter).ToList();
+            List<DTO_SystemAdmins> systemAdminDTO = new List<DTO_SystemAdmins>();
+            foreach (BsonDocument doc in docs)
+            {
+                var json = doc.ToJson();
+                if (json.StartsWith("{ \"_id\" : ObjectId(")) { json = "{" + json.Substring(47); }
+                DTO_SystemAdmins dto = JsonConvert.DeserializeObject<DTO_SystemAdmins>(json);
+                systemAdminDTO.Add(dto);
+            }
+            if (systemAdminDTO.Count > 0)
+            {
+                return systemAdminDTO[0].SystemAdmins;
+            }
+            else { return null; }
+        }
+
+        public List<Store> LoadAllStores()
+        {
+            //load all stores dto
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            List<BsonDocument> docs = DAO_Store.Documents.Find(filter).ToList();
+            List<DTO_Store> storesDTOs = new List<DTO_Store>();
+            foreach (BsonDocument doc in docs)
+            {
+                var json = doc.ToJson();
+                if (json.StartsWith("{ \"_id\" : ObjectId(")) { json = "{" + json.Substring(47); }
+                DTO_Store dto = JsonConvert.DeserializeObject<DTO_Store>(json);
+                storesDTOs.Add(dto);
+            }
+            List<Store> stores = new List<Store>();
+            foreach (DTO_Store dto in storesDTOs)
+            {
+                var f = Builders<BsonDocument>.Filter.Eq("_id", dto._id);
+                Store s = LoadStore(f);
+                stores.Add(s);
+            }
+            return stores;
+        }
+
+        // reg user
         public void Create(RegisteredUser ru)
         {
             DAO_RegisteredUser.Create(new DTO_RegisteredUser(ru.Id, Get_DTO_ShoppingCart(ru), ru.UserName, ru._password, ru.Active, Get_DTO_History(ru.History), Get_DTO_Notifications(ru.PendingNotification)));
@@ -237,6 +302,25 @@ namespace eCommerce.src.DataAccessLayer
             }
         }
 
+        public void Load_RegisteredUserHistory(RegisteredUser user)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", user.Id);
+            DTO_RegisteredUser dto = DAO_RegisteredUser.Load(filter);
+            user.History = ToObject(dto.History);
+        }
+        public void Load_RegisteredUserNotifications(RegisteredUser user)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", user.Id);
+            DTO_RegisteredUser dto = DAO_RegisteredUser.Load(filter);
+            user.PendingNotification = ToObject(dto.PendingNotification);
+        }
+        public void Load_RegisteredUserShoppingCart(RegisteredUser user)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", user.Id);
+            DTO_RegisteredUser dto = DAO_RegisteredUser.Load(filter);
+            user.ShoppingCart = ToObject(dto.ShoppingCart, user);
+        }
+
         // store manager
         public void Create(StoreManager sm)
         {
@@ -261,12 +345,12 @@ namespace eCommerce.src.DataAccessLayer
             LinkedList<StoreManager> list;
             DTO_StoreManager dto = DAO_StoreManager.Load(filter);       
 
-            bool listExists = StoreManagers.TryGetValue(dto.Userid, out list);
+            bool listExists = StoreManagers.TryGetValue(dto.UserId, out list);
             if (listExists)
             {
                 foreach (StoreManager manager in list)
                 {
-                    if (manager.Store.Id == dto.Userid)
+                    if (manager.Store.Id == dto.UserId)
                     {
                         return manager;
                     }
@@ -289,11 +373,11 @@ namespace eCommerce.src.DataAccessLayer
             LinkedList<StoreManager> list;
             if (!(deletedStoreManager is null))
             {
-                if (StoreManagers.TryGetValue(deletedStoreManager.Userid, out list))
+                if (StoreManagers.TryGetValue(deletedStoreManager.UserId, out list))
                 {
                     foreach (StoreManager manager in list)
                     {
-                        if (manager.Store.Id == deletedStoreManager.Userid)
+                        if (manager.Store.Id == deletedStoreManager.UserId)
                         {
                             sm = manager;
                         }
@@ -444,7 +528,6 @@ namespace eCommerce.src.DataAccessLayer
         }
 
         // system admin
-
         public void UpdateSystemAdmins(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update, Boolean upsert = false)
         {
             DAO_SystemAdmins.Update(filter, update, upsert);
@@ -544,6 +627,13 @@ namespace eCommerce.src.DataAccessLayer
             }
         }
 
+        public void Load_StoreHistory(Store store)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+            DTO_Store dto = DAO_Store.Load(filter);
+            store.History = ToObject(dto.History);
+        }
+
         public void clearDB()
         {
             if (!(Instance is null))
@@ -552,6 +642,7 @@ namespace eCommerce.src.DataAccessLayer
                 db.GetCollection<BsonDocument>("Products").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("Stores").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("Users").DeleteMany(emptyFilter);
+                db.GetCollection<BsonDocument>("StoreStaffs").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("SystemAdmins").DeleteMany(emptyFilter);
 
                 RegisteredUsers.Clear();
@@ -560,6 +651,7 @@ namespace eCommerce.src.DataAccessLayer
                 StoreManagers.Clear();
                 StoreOwners.Clear();
                 Stores.Clear();
+
             }
 
         }

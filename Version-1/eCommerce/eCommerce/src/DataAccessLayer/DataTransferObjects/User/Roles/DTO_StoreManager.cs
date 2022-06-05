@@ -8,20 +8,20 @@ namespace eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles
     public class DTO_StoreManager
     {
         [BsonElement]
-        public String Userid { get; set; }
+        public String UserId { get; set; }
         [BsonElement]
         public Boolean[] Permission { get; set; }
         [BsonElement]
         public String AppointedBy { get; set; }
         [BsonElement]
-        public String Storeid { get; set; }
+        public String StoreId { get; set; }
 
         public DTO_StoreManager(String userId, Boolean[] permission, String appointedBy, String storeId)
         {
-            Userid = userId;
+            UserId = userId;
             Permission = permission;
             AppointedBy = appointedBy;
-            Storeid = storeId;
+            StoreId = storeId;
         }
     }
 }
