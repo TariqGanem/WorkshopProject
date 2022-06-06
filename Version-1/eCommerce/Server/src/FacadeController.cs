@@ -22,6 +22,7 @@ namespace Server.src
         public string Login()
         {
             string output = system.Login().Value.Id;
+            Console.WriteLine($"sfds: {output}");
             Logger.GetInstance().Event("Guest has connected with pid : " + output);
             return output;
         }
