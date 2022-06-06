@@ -229,14 +229,7 @@ namespace eCommerce
             //dbutil.DAO_SystemAdmins.Create(new DTO_SystemAdmins(admins));
             //var filter = Builders<BsonDocument>.Filter.Empty;
             //var update = Builders<BsonDocument>.Update.Set("Name", "store1NewName");
-            //dbutil.UpdateSystemAdmins
-            //api.Register("u1", "pass1");
-            //api.Register("u2", "pass1");
-            //api.Register("u3", "pass1");
-            //api.Register("u4", "pass1");
-            //api.Register("u5", "pass1");
-            //api.Register("u6", "pass1");
-            //api.AddSystemAdmin(u1);
+            //dbutil.UpdateSystemAdmins(filter,update);
 
             return;
         }
