@@ -24,18 +24,21 @@ namespace eCommerce.src.DomainLayer.User
 
             Double amount = shoppingCart.GetTotalShoppingCartPrice();
 
-            bool paymentSuccess = Proxy.Pay(amount, paymentDetails);
+            String paymentSuccess = Proxy.Pay(amount, paymentDetails);
 
-            if (!paymentSuccess)
+            if (paymentSuccess.Equals("-1"))
             {
                 throw new Exception("Atempt to purchase the shopping cart faild due to error in payment details!");
             }
 
-            bool deliverySuccess = Proxy.Deliver(deliveryDetails);
-            if (!deliverySuccess)
+            String deliverySuccess = Proxy.Deliver(deliveryDetails);
+            if (deliverySuccess.Equals("-1"))
             {
-                Proxy.CancelTransaction(paymentDetails);
-                throw new Exception("Atempt to purchase the shopping cart faild due to error in delivery details!");
+                String cancelres = Proxy.CancelTransaction(paymentDetails);
+                if (cancelres.Equals("-1"))
+                    throw new Exception("Error in Delivery system yet the transaction could not be canceled!");
+                else
+                    throw new Exception("Error while Delivery , transaction was canceled");
             }
             ShoppingCart copy = new ShoppingCart(shoppingCart);
             return copy;

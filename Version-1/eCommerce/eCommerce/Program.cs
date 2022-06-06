@@ -1,4 +1,5 @@
-﻿using eCommerce.src.DataAccessLayer;
+﻿using eCommerce.src;
+using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.DomainLayer.User;
@@ -174,10 +175,7 @@ namespace eCommerce
 
             // Scenario 1 Described by Email from the course's staff [RUNS] - track through data base
             String adminId = "e035ddf3301245119e39a6f2a81143da";
-            DBUtil dbutil;
-            String connection_url = "mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority";
-            String db_name = "Scenario1";
-            dbutil = DBUtil.getInstance(connection_url, db_name);
+            Initialize.Initializer();
             RealAdapter api = new RealAdapter(); // everything gets initialized and loaded from db
 
             // register users u1,u2,u3,u4,u5,u6

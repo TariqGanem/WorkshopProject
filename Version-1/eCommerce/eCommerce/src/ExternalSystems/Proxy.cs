@@ -4,23 +4,39 @@ using System.Text;
 
 namespace eCommerce.src.ExternalSystems
 {
-    internal static class Proxy
+    public class Proxy
     {
-
-        public static Boolean Deliver(IDictionary<String, Object> deliveryDetails)
+        ExternalSystemsAPIInterface extsys;
+        private static Proxy instance = null;
+        private Proxy(String url = "")
         {
-            return Logistics.Deliver(deliveryDetails);
+            extsys = ExternalSystemAPI.getInstance(url);
         }
 
-        public static Boolean Pay(double amount, IDictionary<String, Object> paymentDetails)
+        public static Proxy getInstance(String url = "")
         {
-            return Payments.Pay(amount, paymentDetails);
+            if(instance == null)
+                instance = new Proxy(url);
+            return instance;
+        }
+        public static String Deliver(IDictionary<String, Object> deliveryDetails)
+        {
+            return "" + Logistics.Supply(deliveryDetails);
         }
 
-
-        public static void CancelTransaction(IDictionary<String, Object> paymentDetails)
+        public static String Pay(double amount, IDictionary<String, Object> paymentDetails)
         {
-            Payments.CancelTransaction(paymentDetails);
+            return "" + Payments.Pay(amount, paymentDetails);
+        }
+
+        public static String CancelTransaction(IDictionary<String, Object> paymentDetails)
+        {
+            return "" + Payments.CancelPay(paymentDetails);
+        }
+
+        public static String CancelDelivery(IDictionary<String, Object> deliveryDetails)
+        {
+            return "" + Logistics.CancelSupply(deliveryDetails);
         }
     }
 }
