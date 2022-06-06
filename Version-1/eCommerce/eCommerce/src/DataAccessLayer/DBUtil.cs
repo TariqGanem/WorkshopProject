@@ -266,6 +266,50 @@ namespace eCommerce.src.DataAccessLayer
             return stores;
         }
 
+        public ConcurrentDictionary<String,StoreOwner> loadAllStoreOwnerForStore(FilterDefinition<BsonDocument> storefilter)
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            List<BsonDocument> docs = this.DAO_StoreOwner.Documents.Find(filter).ToList();
+            List<DTO_StoreOwner> storesDTOs = new List<DTO_StoreOwner>();
+            foreach (BsonDocument doc in docs)
+            {
+                var json = doc.ToJson();
+                if (json.StartsWith("{ \"_id\" : ObjectId(")) { json = "{" + json.Substring(47); }
+                DTO_StoreOwner dto = JsonConvert.DeserializeObject<DTO_StoreOwner>(json);
+                storesDTOs.Add(dto);
+            }
+            ConcurrentDictionary<String,StoreOwner> owners = new ConcurrentDictionary<String, StoreOwner>();
+            foreach (DTO_StoreOwner dto in storesDTOs)
+            {
+                var f = Builders<BsonDocument>.Filter.Eq("UserId", dto.UserId);
+                StoreOwner s = LoadStoreOwner(f);
+                owners.TryAdd(dto.UserId, s);
+            }
+            return owners;
+        }
+
+        public ConcurrentDictionary<String, StoreManager> LoadAllManagersForStore(FilterDefinition<BsonDocument> storefilter)
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            List<BsonDocument> docs = this.DAO_StoreManager.Documents.Find(filter).ToList();
+            List<DTO_StoreManager> storesDTOs = new List<DTO_StoreManager>();
+            foreach (BsonDocument doc in docs)
+            {
+                var json = doc.ToJson();
+                if (json.StartsWith("{ \"_id\" : ObjectId(")) { json = "{" + json.Substring(47); }
+                DTO_StoreManager dto = JsonConvert.DeserializeObject<DTO_StoreManager>(json);
+                storesDTOs.Add(dto);
+            }
+            ConcurrentDictionary<String, StoreManager> owners = new ConcurrentDictionary<String, StoreManager>();
+            foreach (DTO_StoreManager dto in storesDTOs)
+            {
+                var f = Builders<BsonDocument>.Filter.Eq("UserId", dto.UserId);
+                StoreManager s = LoadStoreManager(f);
+                owners.TryAdd(dto.UserId, s);
+            }
+            return owners;
+        }
+
         // reg user
         public void Create(RegisteredUser ru)
         {
@@ -610,6 +654,12 @@ namespace eCommerce.src.DataAccessLayer
 
             s.Founder = founder;
 
+
+            // loading staff
+            //var filterstaff = Builders<BsonDocument>.Filter.Eq("StoreId",s.Id);
+            //s.Managers = LoadAllManagersForStore(filterstaff);
+            //s.Owners = loadAllStoreOwnerForStore(filterstaff);
+            
             return s;
         }
 
