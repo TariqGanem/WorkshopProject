@@ -47,7 +47,7 @@ namespace Client.Code
         public bool AddItemToStore(string userId, string storeId, string productName, int price, int quantity, string category)
         {
             string param = string.Format("userId={0}&storeId={1}&productName={2}&price={3}&quantity={4}&category={5}", userId, storeId, productName, price, quantity, category);
-            return (system.SendApi("AddProductToStore", param));
+            return bool.Parse(system.SendApi("AddProductToStore", param));
         }
 
         public bool AddProductToBasket(string userId, string productId, int quantity, string storeId)

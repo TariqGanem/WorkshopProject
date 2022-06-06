@@ -22,6 +22,10 @@ namespace eCommerce.src.DomainLayer.Store
         Dictionary<IStaff, Permission> GetStoreStaff(string ownerID, string storeID);
         History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin);
         void CloseStore(RegisteredUser founder, string storeID);
+        Boolean CheckIfStoreOwner(String userID);
+        ConcurrentDictionary<String, StoreOwner> GetStoreOwners(string storeID);
+        ConcurrentDictionary<String, StoreManager> GetStoreManagers(string storeID);
+        void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID, String storeID);
     }
     public class StoreFacade : IStoresFacade
     {
@@ -225,6 +229,54 @@ namespace eCommerce.src.DomainLayer.Store
             else
             {
                 throw new Exception("Store does not exists");
+            }
+        }
+
+        public Boolean CheckIfStoreOwner(String userID)
+        {
+            foreach(Store store in Stores.Values)
+            {
+                if (store.CheckIfStoreOwner(userID))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void RemoveStoreOwner(string removedOwnerID, string currentlyOwnerID, string storeID)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))     // Check if storeID exists
+            {
+                store.RemoveStoreOwner(removedOwnerID, currentlyOwnerID);
+            }
+            else
+            {
+                throw new Exception($"Store ID {storeID} not found.");
+            }
+        }
+
+        public ConcurrentDictionary<String, StoreOwner> GetStoreOwners(string storeID)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))     // Check if storeID exists
+            {
+                return store.GetStoreOwners();
+            }
+            else
+            {
+                throw new Exception($"Store ID {storeID} not found.");
+            }
+        }
+
+        public ConcurrentDictionary<String, StoreManager> GetStoreManagers(string storeID)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))     // Check if storeID exists
+            {
+                return store.GetStoreManagers();
+            }
+            else
+            {
+                throw new Exception($"Store ID {storeID} not found.");
             }
         }
     }
