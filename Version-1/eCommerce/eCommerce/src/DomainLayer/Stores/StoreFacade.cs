@@ -26,6 +26,7 @@ namespace eCommerce.src.DomainLayer.Store
         ConcurrentDictionary<String, StoreOwner> GetStoreOwners(string storeID);
         ConcurrentDictionary<String, StoreManager> GetStoreManagers(string storeID);
         void RemoveStoreOwner(String removedOwnerID, string currentlyOwnerID, String storeID);
+
     }
     public class StoreFacade : IStoresFacade
     {
