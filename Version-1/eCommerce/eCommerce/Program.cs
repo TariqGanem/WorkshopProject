@@ -220,6 +220,10 @@ namespace eCommerce
             api.Logout(storeowner2);
 
 
+            // close store - to test notifications in db
+            api.CloseStore(founderId, storeid);
+
+
 
 
 
