@@ -175,7 +175,7 @@ namespace eCommerce
 
             // Scenario 1 Described by Email from the course's staff [RUNS] - track through data base
             String adminId = "e035ddf3301245119e39a6f2a81143da";
-            Initialize.Initializer();
+            eCommerceSystem ecom = new eCommerceSystem();
             RealAdapter api = new RealAdapter(); // everything gets initialized and loaded from db
 
             // register users u1,u2,u3,u4,u5,u6

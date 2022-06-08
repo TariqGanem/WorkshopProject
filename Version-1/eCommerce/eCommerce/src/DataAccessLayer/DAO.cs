@@ -12,7 +12,6 @@ namespace eCommerce.src.DataAccessLayer
     {
         public IMongoCollection<BsonDocument> collection;
 
-        //Constructor
         public DAO(IMongoDatabase database, string collectinName)
         {
             collection = database.GetCollection<BsonDocument>(collectinName);
