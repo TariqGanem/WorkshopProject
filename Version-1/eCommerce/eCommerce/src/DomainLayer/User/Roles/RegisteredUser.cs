@@ -121,7 +121,6 @@ namespace eCommerce.src.DomainLayer.User
             }
             return new DTO_RegisteredUser(Id, ShoppingCart.getDTO(), UserName, _password,
                                         Active, History.getDTO(), notifications_dto);
-
         }
 
         public override UserSO getSO()

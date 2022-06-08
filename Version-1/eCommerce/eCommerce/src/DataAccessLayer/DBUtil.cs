@@ -13,6 +13,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
+using eCommerce.src.DataAccessLayer.DataTransferObjects;
 
 namespace eCommerce.src.DataAccessLayer
 {
@@ -28,6 +29,33 @@ namespace eCommerce.src.DataAccessLayer
         public DAO<DTO_StoreOwner> DAO_StoreOwner;
         public DAO<DTO_Store> DAO_Store;
         public DAO<DTO_SystemAdmins> DAO_SystemAdmins;
+        public DAO<DTO_Auction> DAO_Auction;
+        public DAO<DTO_Lottery> DAO_Lottery;
+        public DAO<DTO_MaxProductPolicy> DAO_MaxProductPolicy;
+        public DAO<DTO_MinAgePolicy> DAO_MinAgePolicy;
+        public DAO<DTO_MinProductPolicy> DAO_MinProductPolicy;
+        public DAO<DTO_Offer> DAO_Offer;
+        public DAO<DTO_RestrictedHoursPolicy> DAO_RestrictedHoursPolicy;
+        public DAO<DTO_AndPolicy> DAO_AndPolicy;
+        public DAO<DTO_OrPolicy> DAO_OrPolicy;
+        public DAO<DTO_BuyNow> DAO_BuyNow;
+        public DAO<DTO_ConditionalPolicy> DAO_ConditionalPolicy;
+        public DAO<DTO_VisibleDiscount> DAO_VisibleDiscount;
+        public DAO<DTO_DiscountTargetCategories> DAO_DiscountTargetCategories;
+        public DAO<DTO_DiscountTargetProducts> DAO_DiscountTargetProducts;
+        public DAO<DTO_DiscreetDiscount> DAO_DiscreetDiscount;
+        public DAO<DTO_ConditionalDiscount> DAO_ConditionalDiscount;
+        public DAO<DTO_MinProductCondition> DAO_MinProductCondition;
+        public DAO<DTO_MinBagPriceCondition> DAO_MinBagPriceCondition;
+        public DAO<DTO_MaxProductCondition> DAO_MaxProductCondition;
+        public DAO<DTO_DiscountConditionOr> DAO_DiscountConditionOr;
+        public DAO<DTO_DiscountConditionAnd> DAO_DiscountConditionAnd;
+        public DAO<DTO_DiscountXor> DAO_DiscountXor;
+        public DAO<DTO_DiscountOr> DAO_DiscountOr;
+        public DAO<DTO_DiscountMin> DAO_DiscountMin;
+        public DAO<DTO_DiscountMax> DAO_DiscountMax;
+        public DAO<DTO_DiscountAnd> DAO_DiscountAnd;
+        public DAO<DTO_DiscountAddition> DAO_DiscountAddition;
 
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers;
         public ConcurrentDictionary<String, GuestUser> GuestUsers;
@@ -35,8 +63,35 @@ namespace eCommerce.src.DataAccessLayer
         public ConcurrentDictionary<String, LinkedList<StoreManager>> StoreManagers;
         public ConcurrentDictionary<String, LinkedList<StoreOwner>> StoreOwners;
         public ConcurrentDictionary<String, Store> Stores;
+        public ConcurrentDictionary<String, Auction> Policy_Auctions;
+        public ConcurrentDictionary<String, Lottery> Policy_Lotterys;
+        public ConcurrentDictionary<String, MaxProductPolicy> Policy_MaxProductPolicys;
+        public ConcurrentDictionary<String, MinAgePolicy> Policy_MinAgePolicys;
+        public ConcurrentDictionary<String, MinProductPolicy> Policy_MinProductPolicys;
+        public ConcurrentDictionary<String, Offer> Policy_Offers;
+        public ConcurrentDictionary<String, RestrictedHoursPolicy> Policy_RestrictedHoursPolicys;
+        public ConcurrentDictionary<String, AndPolicy> Policy_AndPolicys;
+        public ConcurrentDictionary<String, OrPolicy> Policy_OrPolicys;
+        public ConcurrentDictionary<String, BuyNow> Policy_BuyNows;
+        public ConcurrentDictionary<String, ConditionalPolicy> Policy_ConditionalPolicys;
+        public ConcurrentDictionary<String, VisibleDiscount> Discount_VisibleDiscounts;
+        public ConcurrentDictionary<String, DiscountTargetCategories> Discount_DiscountTargetCategories;
+        public ConcurrentDictionary<String, DiscountTargetProducts> Discount_DiscountTargetProducts;
+        public ConcurrentDictionary<String, DiscreetDiscount> Discount_DiscreetDiscounts;
+        public ConcurrentDictionary<String, ConditionalDiscount> Discount_ConditionalDiscounts;
+        public ConcurrentDictionary<String, MinProductCondition> Discount_MinProductConditions;
+        public ConcurrentDictionary<String, MinBagPriceCondition> Discount_MinBagPriceConditions;
+        public ConcurrentDictionary<String, MaxProductCondition> Discount_MaxProductConditions;
+        public ConcurrentDictionary<String, DiscountConditionOr> Discount_DiscountConditionOrs;
+        public ConcurrentDictionary<String, DiscountConditionAnd> Discount_DiscountConditionAnds;
+        public ConcurrentDictionary<String, DiscountXor> Discount_DiscountXors;
+        public ConcurrentDictionary<String, DiscountOr> Discount_DiscountOrs;
+        public ConcurrentDictionary<String, DiscountMin> Discount_DiscountMins;
+        public ConcurrentDictionary<String, DiscountMax> Discount_DiscountMaxs;
+        public ConcurrentDictionary<String, DiscountAnd> Discount_DiscountAnds;
+        public ConcurrentDictionary<String, DiscountAddition> Discount_DiscountAdditions;
 
-       private DBUtil(String connection_url , String db_name)
+        private DBUtil(String connection_url , String db_name)
         {
             //String dbName = "XMart";
 

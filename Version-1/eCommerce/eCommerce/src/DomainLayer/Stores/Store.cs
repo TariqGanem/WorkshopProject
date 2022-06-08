@@ -6,6 +6,8 @@ using eCommerce.src.DomainLayer.User;
 using System.Threading;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 using eCommerce.src.ServiceLayer.Objects;
+using Terminal3.DomainLayer.StoresAndManagement.Stores.Policies;
+using Terminal3.DomainLayer.StoresAndManagement.Stores.Policies.Offer;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -40,6 +42,8 @@ namespace eCommerce.src.DomainLayer.Store
         public ConcurrentDictionary<String, StoreOwner> Owners { get; set; }
         public ConcurrentDictionary<String, StoreManager> Managers { get; set; }
         public NotificationPublisher NotificationPublisher { get; set; }
+        public PolicyManager PolicyManager { get; set; }
+
 
 
         public Store(String name, RegisteredUser founder)
@@ -53,6 +57,7 @@ namespace eCommerce.src.DomainLayer.Store
             Managers = new ConcurrentDictionary<string, StoreManager>();
             InventoryManager = new InventoryManager();
             History = new History();
+            PolicyManager = new PolicyManager();
         }
 
         public Store(string id, string name, InventoryManager inventoryManager, History history, double rate, int numberOfRates, NotificationPublisher notificationManager, bool active)
@@ -67,6 +72,7 @@ namespace eCommerce.src.DomainLayer.Store
             Active = active;
             Owners = new ConcurrentDictionary<string, StoreOwner>();
             Managers = new ConcurrentDictionary<string, StoreManager>();
+            PolicyManager = new PolicyManager();
 
         }
 
@@ -443,6 +449,36 @@ namespace eCommerce.src.DomainLayer.Store
             return new DTO_Store(Id, Name, Founder.User.Id, owners_dto, managers_dto,
                        inventoryManagerProducts_dto, History.getDTO(), Rate, NumberOfRates, this.Active);
 
+        }
+
+        public double GetTotalBagPrice(ConcurrentDictionary<Product, int> products, List<Offer> offers, string discountCode = "")
+        {
+            return PolicyManager.GetTotalBagPrice(products, discountCode, offers);
+        }
+
+        public Result<bool> AdheresToPolicy(ConcurrentDictionary<Product, int> products, User user)
+        {
+            return PolicyManager.AdheresToPolicy(products, user);
+        }
+
+        public Result<IDiscountPolicy> AddDiscountPolicy(Dictionary<string, object> info)
+        {
+            return PolicyManager.AddDiscountPolicy(info);
+        }
+
+        public Result<IDiscountPolicy> AddDiscountPolicy(Dictionary<string, object> info, string id)
+        {
+            return PolicyManager.AddDiscountPolicy(info, id);
+        }
+
+        public Result<IDiscountCondition> AddDiscountCondition(Dictionary<string, object> info, string id)
+        {
+            return PolicyManager.AddDiscountCondition(info, id);
+        }
+
+        public Result<IDiscountPolicy> RemoveDiscountPolicy(string id)
+        {
+            return PolicyManager.RemoveDiscountPolicy(id);
         }
     }
 }

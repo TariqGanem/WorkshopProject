@@ -179,6 +179,7 @@ namespace eCommerce
             RealAdapter api = new RealAdapter(); // everything gets initialized and loaded from db
 
             // register users u1,u2,u3,u4,u5,u6
+            
             api.Register("u1", "pass");
             api.Register("u2", "pass");
             api.Register("u3", "pass");
@@ -202,7 +203,7 @@ namespace eCommerce
             String storeid = api.OpenNewStore("s1", founderId).Value;
 
             // u2 add item “Bamba” to store s1 with cost 30 and quantity 20
-            api.AddProductToStore(founderId, storeid, "Bamba", 30, 20, "food");
+            String pro = api.AddProductToStore(founderId, storeid, "Bamba", 30, 20, "food").Value;
 
             // u2 appoints u3 to a store manager with permission to manage inventory.
             api.AddStoreManager(managerid, founderId, storeid);
@@ -219,10 +220,11 @@ namespace eCommerce
             // u5 logs off
             api.Logout(storeowner2);
 
+            //api.AddProductToCart(founderId, pro, 1, storeid);
 
             // close store - to test notifications in db
             api.CloseStore(founderId, storeid);
-
+            
 
 
 

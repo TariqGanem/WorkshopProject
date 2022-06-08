@@ -85,8 +85,6 @@ namespace eCommerce.src.ExternalSystems
             }
             Logger.GetInstance().LogError("Could not connect to external system API");
             return String.Empty;
-
-
         }
 
         public HttpWebResponse CreatePostHttpResponse(IDictionary<String, Object> parametersJson, Encoding charset)
