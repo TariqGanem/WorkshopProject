@@ -32,7 +32,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
                 throw new Exception(errorMsg + "Age not found");
             int age = ((JsonElement)info["Age"]).GetInt32();
 
-            return new MinAgePolicy(age));
+            return new MinAgePolicy(age);
         }
 
         public bool IsConditionMet(ConcurrentDictionary<Product, int> bag, User.User user)
