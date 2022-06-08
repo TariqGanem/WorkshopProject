@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Terminal3.DomainLayer.StoresAndManagement.Stores;
-
 namespace eCommerce.src.DataAccessLayer.DataTransferObjects
 {
     [BsonIgnoreExtraElements]
