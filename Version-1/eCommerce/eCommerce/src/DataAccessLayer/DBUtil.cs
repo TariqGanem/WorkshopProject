@@ -203,6 +203,10 @@ namespace eCommerce.src.DataAccessLayer
             return Instance;
         }
 
+        public MongoClient getMongoClient()
+        {
+            return this.dbClient;
+        }
         private ConcurrentDictionary<String, String> getPoliciesIDs(List<IPurchasePolicy> list)
         {
             ConcurrentDictionary<String, String> Policies = new ConcurrentDictionary<String, String>(); //<id , type>
@@ -390,7 +394,6 @@ namespace eCommerce.src.DataAccessLayer
             return null;
         }
 
-        //shaked
         public void Delete(IPurchasePolicy purchasePolicy)
         {
             string[] type = purchasePolicy.GetType().ToString().Split('.');
@@ -550,7 +553,6 @@ namespace eCommerce.src.DataAccessLayer
 
         private void AddPolicyToDB(String type, IPurchasePolicy policy)
         {
-            // shaked 
             switch (type)
             {
                 case "AndPolicy":
@@ -759,6 +761,20 @@ namespace eCommerce.src.DataAccessLayer
             return owners;
         }
         // 2OBJ
+
+        private List<Offer> ToObject(List<DTO_Offer> dto, User user)
+        {
+            List<Offer> Offers = new List<Offer>();
+            if (dto != null)
+            {
+                foreach (DTO_Offer offer in dto)
+                {
+                    Offers.Add(new Offer(offer.UserID, offer.ProductID, offer.Amount, offer.Price, offer.StoreID, offer._id, offer.CounterOffer, offer.acceptedOwners));
+                }
+            }
+            return Offers;
+        }
+
         private ShoppingCart ToObject(DTO_ShoppingCart dto, User user)
         {
             ConcurrentDictionary<String, ShoppingBag> sb = new ConcurrentDictionary<String, ShoppingBag>();
@@ -920,7 +936,7 @@ namespace eCommerce.src.DataAccessLayer
         // reg user
         public void Create(RegisteredUser ru)
         {
-            DAO_RegisteredUser.Create(new DTO_RegisteredUser(ru.Id, Get_DTO_ShoppingCart(ru), ru.UserName, ru._password, ru.Active, Get_DTO_History(ru.History), Get_DTO_Notifications(ru.PendingNotification)));
+            DAO_RegisteredUser.Create(new DTO_RegisteredUser(ru.Id, Get_DTO_ShoppingCart(ru), ru.UserName, ru._password, ru.Active, Get_DTO_History(ru.History), Get_DTO_Notifications(ru.PendingNotification), Get_DTO_Offers(ru.PendingOffers), Get_DTO_Offers(ru.AcceptedOffers)));
             RegisteredUsers.TryAdd(ru.Id, ru);
         }
 
@@ -939,9 +955,9 @@ namespace eCommerce.src.DataAccessLayer
             return ru;
         }
 
-        public void UpdateRegisteredUser(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update, Boolean upsert = false)
+        public void UpdateRegisteredUser(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update, Boolean upsert = false, MongoDB.Driver.IClientSessionHandle session = null)
         {
-            DAO_RegisteredUser.Update(filter, update, upsert);
+            DAO_RegisteredUser.Update(filter, update, upsert , session);
         }
 
         public void DeleteRegisteredUser(FilterDefinition<BsonDocument> filter)
@@ -1206,9 +1222,9 @@ namespace eCommerce.src.DataAccessLayer
             return p;
         }
 
-        public void UpdateProduct(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update)
+        public void UpdateProduct(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update , MongoDB.Driver.IClientSessionHandle session = null)
         {
-            DAO_Product.Update(filter, update);
+            DAO_Product.Update(filter, update,session:session);
         }
 
         public void DeleteProduct(FilterDefinition<BsonDocument> filter)
@@ -1270,9 +1286,9 @@ namespace eCommerce.src.DataAccessLayer
             return s;
         }
 
-        public void UpdateStore(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update)
+        public void UpdateStore(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update , MongoDB.Driver.IClientSessionHandle session = null)
         {
-            DAO_Store.Update(filter, update);
+            DAO_Store.Update(filter, update,session:session);
         }
 
         public void DeleteStore(FilterDefinition<BsonDocument> filter)
@@ -2559,9 +2575,54 @@ namespace eCommerce.src.DataAccessLayer
             }
         }
 
+        public List<DTO_Offer> Get_DTO_Offers(List<Offer> offers)
+        {
+            List<DTO_Offer> dto_offers = new List<DTO_Offer>();
+            foreach (Offer offer in offers)
+            {
+                dto_offers.Add(new DTO_Offer(offer.Id, offer.UserID, offer.ProductID, offer.StoreID, offer.Amount, offer.Price, offer.CounterOffer, offer.acceptedOwners));
+            }
 
+            return dto_offers;
+        }
 
+        public void Load_RegisteredUserOffers(RegisteredUser user)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", user.Id);
+            DTO_RegisteredUser dto = DAO_RegisteredUser.Load(filter);
+            user.PendingOffers = ToObject(dto.PendingOffers, user);
+            user.AcceptedOffers = ToObject(dto.AcceptedOffers, user);
+        }
 
+        public void RevertTransaction_Purchase(String userID)
+        {
+            RegisteredUser user;
+            RegisteredUsers.TryGetValue(userID, out user);
+            if (user == null)
+            {
+                return;
+            }
+
+            // Revert User - History , ShoppingCart , Notifications
+            Load_RegisteredUserHistory(user);
+            Load_RegisteredUserShoppingCart(user);
+            Load_RegisteredUserOffers(user);
+            Load_RegisteredUserNotifications(user);
+
+            ShoppingCart shoppingCart = user.ShoppingCart;
+            foreach (var bag in shoppingCart.ShoppingBags)
+            {
+                Load_StoreHistory(bag.Value.Store);        // Revert each Store - History
+
+                foreach (var product in bag.Value.Products)              // Revert each Product - Quantity
+                {
+                    Product p = product.Key;
+                    var filter = Builders<BsonDocument>.Filter.Eq("_id", p.Id);
+                    DTO_Product dto = DAO_Product.Load(filter);
+                    p.Quantity = dto.Quantity;
+                }
+            }
+        }
 
         public void clearDB()
         {

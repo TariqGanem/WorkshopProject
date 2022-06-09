@@ -6,6 +6,11 @@ using eCommerce.src.DomainLayer.User;
 using System.Threading;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 using eCommerce.src.ServiceLayer.Objects;
+using eCommerce.src.DomainLayer.Stores.Policies;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using eCommerce.src.DataAccessLayer;
+using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -16,7 +21,7 @@ namespace eCommerce.src.DomainLayer.Store
         List<Product> SearchProduct(IDictionary<String, Object> searchAttributes);
         void RemoveProduct(String userID, String productID);
         void EditProduct(String userID, String productID, IDictionary<String, Object> details);
-        void UpdateInventory(ShoppingBag bag);
+        void UpdateInventory(ShoppingBag bag , MongoDB.Driver.IClientSessionHandle session);
         void AddStoreOwner(RegisteredUser futureOwner, String currentlyOwnerID);
         void AddStoreManager(RegisteredUser futureManager, String currentlyOwnerID);
         void RemoveStoreManager(String removedManagerID, String currentlyOwnerID);
@@ -40,6 +45,9 @@ namespace eCommerce.src.DomainLayer.Store
         public ConcurrentDictionary<String, StoreOwner> Owners { get; set; }
         public ConcurrentDictionary<String, StoreManager> Managers { get; set; }
         public NotificationPublisher NotificationPublisher { get; set; }
+        public PolicyManager PolicyManager { get; set; }
+        public OfferManager OfferManager { get; set; }
+
 
 
         public Store(String name, RegisteredUser founder)
@@ -53,6 +61,8 @@ namespace eCommerce.src.DomainLayer.Store
             Managers = new ConcurrentDictionary<string, StoreManager>();
             InventoryManager = new InventoryManager();
             History = new History();
+            PolicyManager = new PolicyManager();  
+            OfferManager = new OfferManager();     
         }
 
         public Store(string id, string name, InventoryManager inventoryManager, History history, double rate, int numberOfRates, NotificationPublisher notificationManager, bool active)
@@ -67,6 +77,8 @@ namespace eCommerce.src.DomainLayer.Store
             Active = active;
             Owners = new ConcurrentDictionary<string, StoreOwner>();
             Managers = new ConcurrentDictionary<string, StoreManager>();
+            PolicyManager = new PolicyManager();
+            OfferManager = new OfferManager();
         }
 
         public void AddRating(Double rate)
@@ -139,13 +151,14 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
-        public void UpdateInventory(ShoppingBag bag)
+        public void UpdateInventory(ShoppingBag bag , MongoDB.Driver.IClientSessionHandle session = null)
         {
-            ConcurrentDictionary<Product, int> product_quantity = bag.Products;
+            ConcurrentDictionary<Product, int> product_quantity = bag.Products;     // <Product, Quantity user bought>
             foreach (var product in product_quantity)
             {
-
-                product.Key.UpdatePurchasedProductQuantity(product.Value);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", product.Key.Id);
+                var update_product = Builders<BsonDocument>.Update.Set("Quantity", product.Key.Quantity);
+                DBUtil.getInstance().UpdateProduct(filter, update_product, session);
             }
         }
 
@@ -379,6 +392,15 @@ namespace eCommerce.src.DomainLayer.Store
         private Boolean CheckIfStoreManager(String userID)
         {
             return Managers.ContainsKey(userID);
+        }
+
+        public bool SendOfferToStore(Offer offer)
+        {
+            OfferManager.AddOffer(offer);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
+            var update_offer = Builders<BsonDocument>.Update.Set("OfferManager", DBUtil.getInstance().Get_DTO_Offers(OfferManager.PendingOffers));
+            DBUtil.getInstance().UpdateStore(filter, update_offer);
+            return true;
         }
 
         private void RemoveAllStaffAppointedByOwner(StoreOwner owner)

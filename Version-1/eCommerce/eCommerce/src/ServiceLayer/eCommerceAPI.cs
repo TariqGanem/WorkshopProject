@@ -58,5 +58,84 @@ namespace eCommerce.src.ServiceLayer
             StoreStaffController = new StoreStaffController(systemFacade);
         }
 
+        // Guest User Functionality
+        public Result<GuestUserSO> GuestLogin()
+        {
+            return GuestController.Login();
+        }
+
+        public void GuestLogout(String guestid)
+        {
+            this.UserController.Logout(guestid);
+        }
+
+        public Result<RegisteredUserSO> Register(string email, string password)
+        {
+            return GuestController.Register(email, password);
+        }
+
+        public Result<List<StoreService>> SearchStore(IDictionary<string, object> details)
+        {
+            return GuestController.SearchStore(details);
+        }
+
+        public Result<List<ProductService>> SearchProduct(IDictionary<string, object> details)
+        {
+            return GuestController.SearchProduct(details);
+        }
+
+        public Result AddProductToCart(string userID, string ProductID, int ProductQuantity, string StoreID)
+        {
+            return GuestController.AddProductToCart(userID, ProductID, ProductQuantity, StoreID);
+        }
+
+        public Result<ShoppingCartSO> GetUserShoppingCart(string userID)
+        {
+            return UserController.GetUserShoppingCart(userID);
+        }
+
+        public Result UpdateShoppingCart(string userID, string shoppingBagID, string productID, int quantity)
+        {
+            return UserController.UpdateShoppingCart(userID, shoppingBagID, productID, quantity);
+        }
+
+        public Result<ShoppingCartSO> Purchase(string userID, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
+        {
+            return UserController.Purchase(userID, paymentDetails, deliveryDetails);
+        }
+
+        public Result<UserHistorySO> GetUserPurchaseHistory(String userid)
+        {
+            return UserController.GetUserPurchaseHistory(userid);
+        }
+
+        public Result<double> GetTotalShoppingCartPrice(string userID)
+        {
+            return UserController.GetTotalShoppingCartPrice(userID);
+        }
+
+        public Result<bool> SendOfferToStore(string storeID, string userID, string productID, int amount, double price)
+        {
+            return GuestController.SendOfferToStore(storeID, userID, productID, amount, price);
+        }
+
+        public Result<bool> AnswerCounterOffer(string userID, string offerID, bool accepted)
+        {
+            return StoreStaffController.AnswerCounterOffer(userID, offerID, accepted);
+        }
+
+        // reg user functionality
+        public Result<RegisteredUserSO> Login(string email, string password)
+        {
+            return RegisteredUserController.Login(email, password);
+        }
+
+            // guest user login?
+
+
+
+
+
+
     }
 }

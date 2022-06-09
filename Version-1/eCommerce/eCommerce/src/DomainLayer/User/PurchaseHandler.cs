@@ -9,7 +9,7 @@ namespace eCommerce.src.DomainLayer.User
 {
     public static class PurchaseHandler
     {
-
+        /*
         public static ShoppingCart Purchase(ShoppingCart shoppingCart, IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails)
         {
             if (shoppingCart.ShoppingBags.IsEmpty)
@@ -43,7 +43,7 @@ namespace eCommerce.src.DomainLayer.User
             ShoppingCart copy = new ShoppingCart(shoppingCart);
             return copy;
         }
-
+        */
 
 
         private static Boolean isValidCartQuantity(ref ShoppingCart shoppingCart)

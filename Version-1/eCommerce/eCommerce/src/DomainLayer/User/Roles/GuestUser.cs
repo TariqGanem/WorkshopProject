@@ -22,5 +22,22 @@ namespace eCommerce.src.DomainLayer.User
             UserSO user = new GuestUserSO(this);
             return user;
         }
+
+        public override bool DeclineOffer(string offerID)
+        {
+            RemovePendingOffer(offerID);
+            return true;
+        }
+
+        public override bool CounterOffer(string offerID)
+        {
+            return true;
+        }
+
+        public override bool AcceptOffer(string offerID)
+        {
+            return MovePendingOfferToAccepted(offerID);
+        }
+
     }
 }

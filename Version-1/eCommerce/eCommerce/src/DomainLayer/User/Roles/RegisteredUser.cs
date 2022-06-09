@@ -3,6 +3,7 @@ using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
+using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 using eCommerce.src.ExternalSystems;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
@@ -22,6 +23,7 @@ namespace eCommerce.src.DomainLayer.User
         public History History { get; set; }
         public LinkedList<Notification> PendingNotification { get; set; }
         public NotificationsDistributer NotificationsDistributer { get; set; }
+
 
         public RegisteredUser(String userName, String password) : base()
         {
@@ -119,14 +121,56 @@ namespace eCommerce.src.DomainLayer.User
             {
                 notifications_dto.AddLast(n.getDTO());
             }
-            return new DTO_RegisteredUser(Id, ShoppingCart.getDTO(), UserName, _password,
-                                        Active, History.getDTO(), notifications_dto);
+            return new DTO_RegisteredUser(Id, ShoppingCart.getDTO(), this.UserName, _password,
+                                         Active, History.getDTO(), notifications_dto, Get_DTO_Offers(PendingOffers), Get_DTO_Offers(AcceptedOffers));
         }
 
         public override UserSO getSO()
         {
             UserSO user = new RegisteredUserSO(this);
             return user;
+        }
+
+        public new ShoppingCart Purchase(IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails, MongoDB.Driver.IClientSessionHandle session = null)
+        {
+            if (ShoppingCart.ShoppingBags.IsEmpty)
+            {
+                throw new Exception("The shopping cart is empty\n");
+            }
+
+            ShoppingCart result = ShoppingCart.Purchase(paymentDetails, deliveryDetails, AcceptedOffers, this , session);
+            if (result != null)
+            {
+                History.AddPurchasedShoppingCart(ShoppingCart, session);
+                this.ShoppingCart = new ShoppingCart();          // create new shopping cart for user
+
+                Result<bool> removeAccatedOffersResult = removeAcceptedOffers(session);
+            }
+            return result;
+        }
+
+        public Result<bool> removeAcceptedOffers(IClientSessionHandle session)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool AcceptOffer(string offerID)
+        {
+            Offer offer = findPendingOffer(offerID);
+            return MovePendingOfferToAccepted(offerID);
+        }
+
+        public override bool DeclineOffer(string offerID)
+        {
+            Offer offer = findPendingOffer(offerID);
+            RemovePendingOffer(offerID);
+            return true;
+        }
+
+        public override bool CounterOffer(string offerID)
+        {
+            Offer offer = findPendingOffer(offerID);
+            return true;
         }
     }
 }

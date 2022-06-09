@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.Json;
 using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
+using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.DomainLayer.User.Roles;
+using eCommerce.src.ServiceLayer.ResultService;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -28,6 +32,8 @@ namespace eCommerce.src.DomainLayer.Store
         Dictionary<IStaff, Permission> GetStoreStaff(string ownerID, string storeID);
         History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin);
         void CloseStore(RegisteredUser founder, string storeID);
+        public List<Store> SearchStore(IDictionary<string, object> details);
+
     }
     public class StoreFacade : IStoresFacade
     {
@@ -39,6 +45,51 @@ namespace eCommerce.src.DomainLayer.Store
             Stores = new ConcurrentDictionary<String, Store>();
             dbutil = DBUtil.getInstance();
             loadstore();
+        }
+        public List<Store> SearchStore(IDictionary<string, object> details)
+        {
+            List<Store> searchResult = new List<Store>();
+            foreach (Store store in Stores.Values)
+            {
+                if (checkStoreAttributes(store, details))
+                {
+                    searchResult.Add(store);
+                }
+            }
+            if (searchResult.Count > 0)
+            {
+                return searchResult;
+            }
+            else
+            {
+                throw new Exception($"No stores have been found\n");
+            }
+        }
+
+        private bool checkStoreAttributes(Store store, IDictionary<string, object> searchAttributes)
+        {
+            Boolean result = true;
+            ICollection<String> properties = searchAttributes.Keys;
+            IDictionary<String, Object> lowerCaseDict = searchAttributes.ToDictionary(k => k.Key.ToLower(), k => k.Value);
+
+            foreach (string property in properties)
+            {
+                JsonElement jsonElement = (JsonElement)lowerCaseDict[property.ToLower()];
+                Object value = null;
+
+                switch (property.ToLower())
+                {
+                    case "name":
+                        value = jsonElement.GetString().ToLower();
+                        if (!store.Name.ToLower().Contains((String)value)) { result = false; }
+                        break;
+                    case "rating":
+                        value = jsonElement.GetDouble();
+                        if (store.Rate < (Double)value) { result = false; }
+                        break;
+                }
+            }
+            return result;
         }
 
         public String AddProductToStore(String userID, String storeID, String productName, Double price, int initialQuantity, String category, LinkedList<String> keywords = null)
@@ -310,6 +361,15 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 throw new Exception($"No has been found");
             }
+        }
+
+        public bool SendOfferToStore(Offer offer)
+        {
+            if (Stores.TryGetValue(offer.StoreID, out Store store))
+            {
+                return store.SendOfferToStore(offer);
+            }
+            throw new Exception("Failed to add an offer: Failed to locate the store\n");
         }
 
         public void RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)

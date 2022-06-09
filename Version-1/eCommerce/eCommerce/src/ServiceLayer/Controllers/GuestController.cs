@@ -13,13 +13,30 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<ShoppingCartSO> Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails);
         Result<ShoppingCartSO> GetUserShoppingCart(string userId);
         Result<Double> GetTotalShoppingCartPrice(String userId);
-        Result Logout(String userId);
+        Result Logout(String userId);  
+        Result<UserHistorySO> GetUserPurchaseHistory(String userId);
     }
     public class UserController : IUserController
     {
         public ISystemFacade SystemFacade { set; get; }
         private Logger logger = Logger.GetInstance();
         public UserController(ISystemFacade systemFacade) { SystemFacade = systemFacade; }
+
+        public Result<UserHistorySO> GetUserPurchaseHistory(String userId)
+        {
+            try
+            {
+                ValidateId(userId);
+                UserHistorySO res = SystemFacade.GetUserPurchaseHistory(userId);
+                logger.LogInfo($"UserController --> user history for user {userId} was fetched");
+                return new Result<UserHistorySO>(res);
+            }
+            catch (Exception e)
+            {
+                logger.LogError("UserController --> " + e.Message);
+                return new Result<UserHistorySO>(e.Message);
+            }
+        }
 
         public Result AddProductToCart(string userId, string productId, int quantity, string storeId)
         {
@@ -76,7 +93,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 ValidateId(userId);
-                ShoppingCartSO shoppingCart = SystemFacade.Purchase(userId, paymentDetails, deliveryDetails);
+                System.Threading.Tasks.Task<ShoppingCartSO> res = SystemFacade.Purchase(userId, paymentDetails, deliveryDetails);
+                ShoppingCartSO shoppingCart = res.Result;
                 logger.LogInfo($"UserController --> User with id: {userId}, has purchased the items successfully.");
                 return new Result<ShoppingCartSO>(shoppingCart);
             }
@@ -151,9 +169,14 @@ namespace eCommerce.src.ServiceLayer.Controllers
     {
         Result<GuestUserSO> Login();
         Result<RegisteredUserSO> Register(string username, string password);
+        Result<List<StoreService>> SearchStore(IDictionary<String, Object> details);
+        Result<List<ProductService>> SearchProduct(IDictionary<string, object> details);
+        Result AddProductToCart(string userID, string ProductID, int ProductQuantity, string StoreID);
+        Result<ShoppingCartSO> GetUserShoppingCart(string userID);
+        Result<bool> SendOfferToStore(string storeID, string userID, string productID, int amount, double price);
+
 
     }
-
     public class GuestController : UserController, IGuestController
     {
         Logger logger = Logger.GetInstance();
@@ -173,6 +196,22 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
         }
 
+        public Result<bool> SendOfferToStore(string storeID, string userID, string productID, int amount, double price)
+        {
+            try
+            {
+                ValidateId(userID);
+                ValidateId(storeID);
+                ValidateId(productID);
+                bool res = this.SystemFacade.SendOfferToStore(storeID, userID, productID, amount, price);
+                return new Result<bool>(res);
+            }
+            catch (Exception ex)
+            {
+                return new Result<bool>(ex.Message);
+            }
+        }
+
         public Result<RegisteredUserSO> Register(string username, string password)
         {
             try
@@ -188,6 +227,49 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<RegisteredUserSO>(e.Message);
             }
         }
+        public Result<List<ProductService>> SearchProduct(IDictionary<string, object> details)
+        {
+            try
+            {
+                return new Result<List<ProductService>>(this.SystemFacade.SearchProduct(details));
+            }
+            catch(Exception e)
+            {
+                logger.LogError("GuestController --> " + e.Message);
+                return new Result<List<ProductService>>(e.Message);
+            }
+        }
+
+        public Result<List<StoreService>> SearchStore(IDictionary<String, Object> details) {
+            try
+            {
+                return new Result<List<StoreService>>(SystemFacade.SearchStore(details));
+            }
+            catch(Exception e)
+            {
+                logger.LogError("GuestController --> " + e.Message);
+                return new Result<List<StoreService>>(e.Message);
+            }
+        }
+
+        Result AddProductToCart(string userID, string ProductID, int ProductQuantity, string StoreID)
+        {
+            try
+            {
+                ValidateId(userID);
+                ValidateId(ProductID);
+                ValidateId(StoreID);
+                SystemFacade.AddProductToCart(userID, ProductID, ProductQuantity, StoreID);
+                logger.LogInfo($"GuestController --> Product with id: {ProductID}, has been added successfully to the cart.");
+                return new Result();
+            }
+            catch (Exception e)
+            {
+                logger.LogError("GuestController --> " + e.Message);
+                return new Result<GuestUserSO>(e.Message);
+            }
+        }
+
         #endregion
     }
 }

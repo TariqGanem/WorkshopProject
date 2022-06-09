@@ -1,5 +1,6 @@
 ﻿using eCommerce.src.DataAccessLayer.DataTransferObjects.User;
 using eCommerce.src.DomainLayer.Store;
+using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 using eCommerce.src.ServiceLayer.Objects;
 using System;
 using System.Collections.Concurrent;
@@ -71,16 +72,11 @@ namespace eCommerce.src.DomainLayer.User
                 throw new Exception($"You did not add the product {product.Name} to this shopping bag. Therefore attempt to update shopping bag faild!");
         }
 
-        public double GetTotalPrice()
+        public double GetTotalPrice(List<Offer> offers, String DiscountCode = "")
         {
-            double sum = 0;
-            foreach (Product product in Products.Keys)
-            {
-                Products.TryGetValue(product, out int quantity);
-                sum = sum + product.Price * quantity;
-            }
-            TotalBagPrice = sum;
-            return sum;
+            Double amount = Store.PolicyManager.GetTotalBagPrice(this.Products, DiscountCode, offers);
+            this.TotalBagPrice = amount;
+            return amount;
         }
         public ShoppingBagSO getSO()
         {
@@ -95,6 +91,11 @@ namespace eCommerce.src.DomainLayer.User
                 products_dto.TryAdd(p.Key.Id, p.Value);
             }
             return new DTO_ShoppingBag(Id, UserId, Store.Id, products_dto, TotalBagPrice);
+        }
+
+        public bool AdheresToPolicy(User user)
+        {
+            return Store.PolicyManager.AdheresToPolicy(this.Products, user);
         }
     }
 }

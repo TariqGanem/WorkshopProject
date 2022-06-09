@@ -21,8 +21,12 @@ namespace eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles
         public DTO_History History { get; set; }
         [BsonElement]
         public LinkedList<DTO_Notification> PendingNotification { get; set; }
+        [BsonElement]
+        public List<DTO_Offer> PendingOffers { get; set; }
+        [BsonElement]
+        public List<DTO_Offer> AcceptedOffers { get; set; }
 
-        public DTO_RegisteredUser(String id, DTO_ShoppingCart shoppingCart, String username, String password, Boolean loggedIn, DTO_History history, LinkedList<DTO_Notification> pendingNotification)
+        public DTO_RegisteredUser(String id, DTO_ShoppingCart shoppingCart, String username, String password, Boolean loggedIn, DTO_History history, LinkedList<DTO_Notification> pendingNotification, List<DTO_Offer> pendingOffers, List<DTO_Offer> acceptedOffers)
         {
             _id = id;
             ShoppingCart = shoppingCart;
@@ -31,6 +35,8 @@ namespace eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles
             Active = loggedIn;
             History = history;
             PendingNotification = pendingNotification;
+            PendingOffers = pendingOffers;
+            AcceptedOffers = acceptedOffers;
         }
     }
 }

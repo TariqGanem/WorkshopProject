@@ -19,24 +19,24 @@ namespace eCommerce.src.ExternalSystems
                 instance = new Proxy(url);
             return instance;
         }
-        public static String Deliver(IDictionary<String, Object> deliveryDetails)
+        public static int Deliver(IDictionary<String, Object> deliveryDetails)
         {
-            return "" + Logistics.Supply(deliveryDetails);
+            return Logistics.Supply(deliveryDetails);
         }
 
-        public static String Pay(double amount, IDictionary<String, Object> paymentDetails)
+        public static int Pay(double amount, IDictionary<String, Object> paymentDetails)
         {
-            return "" + Payments.Pay(amount, paymentDetails);
+            return Payments.Pay(amount, paymentDetails);
         }
 
-        public static String CancelTransaction(IDictionary<String, Object> paymentDetails)
+        public static int CancelTransaction(IDictionary<String, Object> paymentDetails)
         {
-            return "" + Payments.CancelPay(paymentDetails);
+            return Payments.CancelPay(paymentDetails);
         }
 
-        public static String CancelDelivery(IDictionary<String, Object> deliveryDetails)
+        public static int CancelDelivery(IDictionary<String, Object> deliveryDetails)
         {
-            return "" + Logistics.CancelSupply(deliveryDetails);
+            return Logistics.CancelSupply(deliveryDetails);
         }
     }
 }

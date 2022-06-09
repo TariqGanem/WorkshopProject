@@ -7,6 +7,9 @@ using System.Collections.Concurrent;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.DomainLayer.User.Roles;
 using System.Threading;
+using eCommerce.src.DataAccessLayer;
+using eCommerce.src.ServiceLayer.ResultService;
+using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 
 namespace eCommerce.src.DomainLayer
 {
@@ -19,6 +22,7 @@ namespace eCommerce.src.DomainLayer
         void RemoveProductFromStore(String userID, String storeID, String productID);
         void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         List<ProductService> SearchProduct(IDictionary<String, Object> productDetails);
+        List<StoreService> SearchStore(IDictionary<String, Object> details);
         #endregion
 
         #region Staff Management
@@ -41,7 +45,7 @@ namespace eCommerce.src.DomainLayer
         Double GetTotalShoppingCartPrice(string userId);
         UserHistorySO GetUserPurchaseHistory(string userId);
         ShoppingCartSO GetUserShoppingCart(string userId);
-        ShoppingCartSO Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails);
+        System.Threading.Tasks.Task<ShoppingCartSO> Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails);
         void UpdateShoppingCart(string userId, string storeId, String productId, int quantity);
         #endregion
 
@@ -50,8 +54,9 @@ namespace eCommerce.src.DomainLayer
         RegisteredUserSO RemoveSystemAdmin(string userName);
         RegisteredUserSO RemoveRegisteredUser(string userName);
         Boolean IsSystemAdmin(String userId);
+        bool SendOfferToStore(string storeID, string userID, string productID, int amount, double price);
+        bool AnswerCounterOffer(string userID, string offerID, bool accepted);
         #endregion
-
     }
 
     public class SystemFacade : ISystemFacade
@@ -123,32 +128,59 @@ namespace eCommerce.src.DomainLayer
             return new ShoppingCartSO(shoppingCart);
         }
 
-        public ShoppingCartSO Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
+        public async System.Threading.Tasks.Task<ShoppingCartSO> Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
         {
-            try
+            using (var session = await DBUtil.getInstance().getMongoClient().StartSessionAsync())
             {
-                Monitor.TryEnter(my_lock);
+                // Begin transaction
+                session.StartTransaction();
                 try
                 {
-                    ShoppingCart purchasedCart = userFacade.Purchase(userId, paymentDetails, deliveryDetails);
-
-                    ConcurrentDictionary<String, ShoppingBag> purchasedBags = purchasedCart.ShoppingBags;
-                    foreach (var bag in purchasedBags)
+                    //Monitor.Enter(my_lock);
+                    try
                     {
-                        Store.Store store = storeFacade.GetStore(bag.Key);
-                        store.UpdateInventory(bag.Value);
-                        store.History.AddPurchasedShoppingBag(bag.Value);
+                        ShoppingCart res = userFacade.Purchase(userId, paymentDetails, deliveryDetails, session);
+                        if (res != null)
+                        {
+                            ShoppingCart purchasedCart = res;
+                            ConcurrentDictionary<String, ShoppingBag> purchasedBags = purchasedCart.ShoppingBags;
+                            foreach (var bag in purchasedBags)
+                            {
+                                Store.Store store = this.storeFacade.GetStore(bag.Key);
+                                store.UpdateInventory(bag.Value, session);
+                                store.History.AddPurchasedShoppingBag(bag.Value, session);
+                            }
+
+                            // commit the transaction
+                            session.CommitTransaction();
+                            return res.getSO();
+                        }
+
+                        //else failed
+                        await session.AbortTransactionAsync();
+                        DBUtil.getInstance().RevertTransaction_Purchase(userId);
+                        throw new Exception("Transaction Reverted");
                     }
-                    return new ShoppingCartSO(purchasedCart);
+                    finally
+                    {
+                        //Monitor.Exit(my_lock);
+                    }
                 }
-                finally
+                catch (SynchronizationLockException SyncEx)
                 {
-                    Monitor.Exit(my_lock);
+                    //Console.WriteLine("A SynchronizationLockException occurred. Message:");
+                    //Console.WriteLine(SyncEx.Message);  
+                    Logger.GetInstance().LogError(SyncEx.Message);
+                    DBUtil.getInstance().RevertTransaction_Purchase(userId);
+                    throw new Exception("An error had occurred while you purchase");
                 }
-            }
-            catch (SynchronizationLockException SyncEx)
-            {
-                throw new Exception("A SynchronizationLockException occurred. Message:" + SyncEx.Message);
+                catch (Exception e)
+                {
+                    //Console.WriteLine("Error writing to MongoDB: " + e.Message);
+                    await session.AbortTransactionAsync();
+                    DBUtil.getInstance().RevertTransaction_Purchase(userId);
+                    throw new Exception(e.Message);
+                }
             }
         }
 
@@ -316,6 +348,36 @@ namespace eCommerce.src.DomainLayer
             History history = storeFacade.GetStorePurchaseHistory(userID, storeID, systemAdmin);
             return new UserHistorySO(history);
         }
+
+        public List<StoreService> SearchStore(IDictionary<string, object> details)
+        {
+            List<Store.Store> res = this.storeFacade.SearchStore(details);
+            List<StoreService> storeDALs = new List<StoreService>();
+            foreach (Store.Store store in res)
+            {
+                storeDALs.Add(store.getSO());
+            }
+            return storeDALs;
+        }
         #endregion
+
+        public bool SendOfferToStore(string storeID, string userID, string productID, int amount, double price)
+        {
+
+            Offer userResult = this.userFacade.SendOfferToStore(storeID, userID, productID, amount, price);
+            try { this.storeFacade.SendOfferToStore(userResult); }
+            catch(Exception ex) {
+                userFacade.RemoveOffer(userID, userResult.Id);
+                throw new Exception(ex.Message);
+            }
+            return true;
+        }
+
+        public bool AnswerCounterOffer(string userID, string offerID, bool accepted)
+        {
+            return userFacade.AnswerCounterOffer(userID, offerID, accepted);
+        }
+
+
     }
 }

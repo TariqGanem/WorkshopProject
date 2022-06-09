@@ -27,27 +27,28 @@ namespace eCommerce.src.DomainLayer.User
             this.ShoppingBags = sb;
         }
 
-        public void AddPurchasedShoppingCart(ShoppingCart shoppingCart)
+        public void AddPurchasedShoppingCart(ShoppingCart shoppingCart , MongoDB.Driver.IClientSessionHandle session = null)
         {
             ConcurrentDictionary<String, ShoppingBag> bags = shoppingCart.ShoppingBags;
-            String userid = "";
-            foreach (ShoppingBag bag in bags.Values)
+            String userId = "";
+            foreach (var bag in bags)
             {
-                userid = bag.UserId;
-                ShoppingBags.AddLast(bag);
+                userId = bag.Value.Id;
+                ShoppingBags.AddLast(bag.Value);
             }
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", userid);
+
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", userId);
             var update_history = Builders<BsonDocument>.Update.Set("History", getDTO());
-            DBUtil.getInstance().UpdateRegisteredUser(filter, update_history);
+            DBUtil.getInstance().UpdateRegisteredUser(filter, update_history, session:session);
         }
 
-        public void AddPurchasedShoppingBag(ShoppingBag shoppingBag)
+        public void AddPurchasedShoppingBag(ShoppingBag shoppingBag , MongoDB.Driver.IClientSessionHandle session = null)
         {
-            ShoppingBagSO shoppingBagService = shoppingBag.getSO();
             ShoppingBags.AddLast(shoppingBag);
+
             var filter = Builders<BsonDocument>.Filter.Eq("_id", shoppingBag.Store.Id);
-            var update_history = Builders<BsonDocument>.Update.Push("History.ShoppingBags", GetDTO_HistoryShoppingBag(shoppingBagService));
-            DBUtil.getInstance().UpdateStore(filter, update_history);
+            var update_history = Builders<BsonDocument>.Update.Push("History.ShoppingBags", GetDTO_HistoryShoppingBag(shoppingBag.getSO()));
+            DBUtil.getInstance().UpdateStore(filter, update_history, session);
         }
 
         public DTO_PurchasedShoppingBag GetDTO_HistoryShoppingBag(ShoppingBagSO sb)

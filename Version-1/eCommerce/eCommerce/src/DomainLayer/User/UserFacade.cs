@@ -1,6 +1,7 @@
 ﻿using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Store;
+using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 using eCommerce.src.DomainLayer.User.Roles;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -23,7 +24,7 @@ namespace eCommerce.src.DomainLayer.User
         void UpdateShoppingCart(string userId, string storeId, Product product, int quantity);
         ShoppingCart GetUserShoppingCart(string userId);
         Double GetTotalShoppingCartPrice(String userId);
-        ShoppingCart Purchase(String userId, IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails);
+        ShoppingCart Purchase(String userId, IDictionary<String, Object> paymentDetails, IDictionary<String, Object> deliveryDetails, MongoDB.Driver.IClientSessionHandle session);
         RegisteredUser AddSystemAdmin(String userName);
         RegisteredUser RemoveSystemAdmin(String userName);
         RegisteredUser RemoveRegisteredUser(String userName);
@@ -191,30 +192,40 @@ namespace eCommerce.src.DomainLayer.User
 
         public double GetTotalShoppingCartPrice(string userID)
         {
-            ShoppingCart shoppingCart = GetUserShoppingCart(userID);
-            return shoppingCart.GetTotalShoppingCartPrice();
-        }
-
-        public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails)
-        {
-            if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
+            if (RegisteredUsers.ContainsKey(userID))
             {
-                ShoppingCart cart = guest_user.Purchase(paymentDetails, deliveryDetails);
-                return cart;
+                Double TotalPrice = RegisteredUsers[userID].ShoppingCart.GetTotalShoppingCartPrice(RegisteredUsers[userID].getAcceptedOffers());
+                return TotalPrice;
             }
-            else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
+            else if (GuestUsers.ContainsKey(userID))
             {
-                ShoppingCart cart = registerd_user.Purchase(paymentDetails, deliveryDetails);
-                registerd_user.History.AddPurchasedShoppingCart(cart);
-                var filter = Builders<BsonDocument>.Filter.Eq("_id", registerd_user.Id);
-                var update = Builders<BsonDocument>.Update.Set("ShoppingCart", cart.getDTO());
-                dbutil.UpdateRegisteredUser(filter, update);
-                return cart;
+                //Guest User Found
+                Double TotalPrice = GuestUsers[userID].ShoppingCart.GetTotalShoppingCartPrice(GuestUsers[userID].getAcceptedOffers());
+                return TotalPrice;
             }
             else
             {
-                throw new Exception("User does not exist!");
+                throw new Exception($"There is no user with ID:{userID}\n");
             }
+        }
+
+        public ShoppingCart Purchase(string userId, IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails , MongoDB.Driver.IClientSessionHandle session = null)
+        {
+            if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
+            {
+                ShoppingCart ShoppingCart = guest_user.Purchase(paymentDetails, deliveryDetails,guest_user, session);
+                return ShoppingCart;
+            }
+            else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
+            {
+                ShoppingCart ShoppingCart = registerd_user.Purchase(paymentDetails, deliveryDetails, session);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", registerd_user.Id);
+                ShoppingCart sc = registerd_user.ShoppingCart;
+                var update_shoppingcart = Builders<BsonDocument>.Update.Set("ShoppingCart", sc.getDTO());
+                dbutil.UpdateRegisteredUser(filter, update_shoppingcart, session: session);
+                return ShoppingCart;
+            }
+            else { throw new Exception("User does not exist\n"); }
         }
 
         public RegisteredUser AddSystemAdmin(string userName)
@@ -341,6 +352,33 @@ namespace eCommerce.src.DomainLayer.User
                 }
             }
             return true;
+        }
+
+        public Offer SendOfferToStore(string storeID, string userID, string productID, int amount, double price)
+        {
+            if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+                return guest_user.SendOfferToStore(storeID, productID, amount, price);
+            else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
+                return registerd_user.SendOfferToStore(storeID, productID, amount, price);
+            throw new Exception("Failed to create offer: Failed to locate the user");
+        }
+
+        public void RemoveOffer(string userID, String id)
+        {
+            if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+                guest_user.RemovePendingOffer(id);
+            else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
+                registerd_user.RemovePendingOffer(id);
+            throw new Exception("Failed to remove offer: Failed to locate the user");
+        }
+
+        public bool AnswerCounterOffer(string userID, string offerID, bool accepted)
+        {
+            if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+                return guest_user.AnswerCounterOffer(offerID, accepted);
+            else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
+                return registerd_user.AnswerCounterOffer(offerID, accepted);
+            throw new Exception("Failed to respond to a counter offer: Failed to locate the user");
         }
         #endregion
     }

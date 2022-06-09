@@ -21,6 +21,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
         Result<List<ProductService>> SearchProduct(IDictionary<String, Object> productDetails);
         Result<UserHistorySO> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false);
+        Result<bool> AnswerCounterOffer(string userID, string offerID, bool accepted);
     }
 
     public class StoreStaffController : IStoreStaffController
@@ -203,6 +204,18 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result<List<ProductService>>(error.Message);
+            }
+        }
+
+        public Result<bool> AnswerCounterOffer(string userID, string offerID, bool accepted)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.AnswerCounterOffer(userID, offerID, accepted));
+            }
+            catch(Exception error)
+            {
+                return new Result<bool>(error.Message);
             }
         }
     }
