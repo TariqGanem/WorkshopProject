@@ -14,6 +14,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<UserHistorySO> GetUserPurchaseHistory(String userId);
         Result<StoreService> OpenNewStore(String storeName, String userId);
         Result CloseStore(string userId, string storeId);
+        Result<StoreService> ReOpenStore(string storeid, string userid);
     }
 
     public class RegisteredUserController : UserController, IRegisteredUserController
@@ -87,6 +88,22 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result(e.Message);
             }
         }
+
+        public Result<StoreService> ReOpenStore(string storeid, string userid)
+        {
+            try
+            {
+                ValidateId(storeid);
+                ValidateId(userid);
+                StoreService res = SystemFacade.ReOpenStore(storeid, userid);
+                return new Result<StoreService>(res);
+            }
+            catch(Exception e)
+            {
+                return new Result<StoreService>(e.ToString());
+            }
+        }
+
         #endregion
     }
 }

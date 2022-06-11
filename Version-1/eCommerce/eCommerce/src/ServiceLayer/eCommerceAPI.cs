@@ -130,7 +130,26 @@ namespace eCommerce.src.ServiceLayer
             return RegisteredUserController.Login(email, password);
         }
 
-            // guest user login?
+        // guest user login?
+        public Result Logout(string userid)
+        {
+            return UserController.Logout(userid);
+        }
+
+        public Result OpenNewStore(string storename,string userid)
+        {
+            return RegisteredUserController.OpenNewStore(storename, userid);
+        }
+
+        public Result CloseStore(string storeid,string userid)
+        {
+            return RegisteredUserController.CloseStore(storeid, userid);
+        }
+
+        public Result<StoreService> ReOpenStore(string storeid,string userid)
+        {
+            return RegisteredUserController.ReOpenStore(storeid, userid);
+        }
 
 
 

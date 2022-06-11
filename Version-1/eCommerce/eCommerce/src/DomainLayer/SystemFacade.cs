@@ -56,6 +56,7 @@ namespace eCommerce.src.DomainLayer
         Boolean IsSystemAdmin(String userId);
         bool SendOfferToStore(string storeID, string userID, string productID, int amount, double price);
         bool AnswerCounterOffer(string userID, string offerID, bool accepted);
+        StoreService ReOpenStore(string storeid, string userid);
         #endregion
     }
 
@@ -120,6 +121,19 @@ namespace eCommerce.src.DomainLayer
             History history = userFacade.GetUserPurchaseHistory(userId);
             return new UserHistorySO(history);
 
+        }
+
+        public Result<RegisteredUser> FindUserByEmail(string email)
+        {
+            try
+            {
+                RegisteredUser res = userFacade.FindUserByEmail(email, userFacade.RegisteredUsers);
+                return new Result<RegisteredUser>(res);
+            }
+            catch (Exception ex)
+            {
+                return new Result<RegisteredUser>(ex.ToString());
+            }
         }
 
         public ShoppingCartSO GetUserShoppingCart(string userId)
@@ -377,6 +391,19 @@ namespace eCommerce.src.DomainLayer
         {
             return userFacade.AnswerCounterOffer(userID, offerID, accepted);
         }
+
+        public StoreService ReOpenStore(string storeid, string userid)
+        {
+            if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser owner))  // Check if userID is a registered user
+            {
+                // ReOpen store
+                Store.Store res = storeFacade.ReOpenStore(owner, storeid);
+                return res.getSO();
+            }
+            //else
+            throw new Exception($"Failed to reopen store (Id: {storeid}): {userid} is not a registered user.\n");
+        }
+
 
 
     }

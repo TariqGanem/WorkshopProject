@@ -155,6 +155,18 @@ namespace eCommerce.src.DomainLayer.User
             }
         }
 
+        public RegisteredUser FindUserByEmail(string email, ConcurrentDictionary<string, RegisteredUser> registeredUsers)
+        {
+            foreach (RegisteredUser registeredUser in registeredUsers.Values)
+            {
+                if (registeredUser.UserName.Equals(email))
+                {
+                    return registeredUser;
+                }
+            }
+            throw new Exception($"No user found with the email {email}");
+        }
+
         public void UpdateShoppingCart(string userId, string storeId, Product product, int quantity)
         {
             if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))

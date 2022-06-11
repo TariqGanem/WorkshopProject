@@ -340,7 +340,6 @@ namespace eCommerce.src.DomainLayer.Store
             var filter = Builders<BsonDocument>.Filter.Eq("_id", storeID);
             var update = Builders<BsonDocument>.Update.Set("Active", false);
             dbutil.UpdateStore(filter, update);
-
         }
 
 
@@ -389,6 +388,29 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 throw new Exception($"No has been found");
             }
+        }
+
+        public Store ReOpenStore(RegisteredUser owner, string storeid)
+        {
+            Stores.TryGetValue(storeid, out Store store);
+            if (!store.Active)
+            {
+                if (store.Owners.ContainsKey(owner.Id))
+                {
+                    store.Active = true;
+                    store.NotificationPublisher.notifyStoreOpened();
+
+                    // Update Store in DB
+                    var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                    var update = Builders<BsonDocument>.Update.Set("isClosed", false);
+                    dbutil.UpdateStore(filter, update);
+                    Logger.GetInstance().LogInfo($"The store {store.Name} is reopened\n");
+                    return store;
+                }
+                throw new Exception($"Registered user (Id:{owner.Id}) is not one of the store owners , therefore can not reopen the store\n");
+            }
+            //else faild
+            throw new Exception("Store is not closed or does not exists, therefore can not reopen it\n");
         }
 
         public Store GetStore(String storeID)
