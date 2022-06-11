@@ -22,6 +22,9 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<List<ProductService>> SearchProduct(IDictionary<String, Object> productDetails);
         Result<UserHistorySO> GetStorePurchaseHistory(String ownerID, String storeID, Boolean isSystemAdmin = false);
         Result<bool> AnswerCounterOffer(string userID, string offerID, bool accepted);
+        Result<bool> SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer);
+        Result<List<Dictionary<string, object>>> getStoreOffers(string storeID);
+        Result<List<Dictionary<string, object>>> getUserOffers(string userId);
     }
 
     public class StoreStaffController : IStoreStaffController
@@ -218,5 +221,47 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<bool>(error.Message);
             }
         }
+
+        public Result<bool> SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.SendOfferResponseToUser(storeID, ownerID, userID, offerID, accepted, counterOffer));
+            }
+            catch(Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<List<Dictionary<string, object>>> getStoreOffers(string storeID)
+        {
+            try
+            {
+                return new Result<List<Dictionary<string, object>>>(SystemFacade.getStoreOffers(storeID));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<List<Dictionary<string, object>>>(ex.ToString());
+            }
+        }
+
+        public Result<List<Dictionary<string, object>>> getUserOffers(string userId)
+        {
+            try
+            {
+                return new Result<List<Dictionary<string, object>>>(SystemFacade.getUserOffers(userId));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<List<Dictionary<string, object>>>(ex.ToString());
+            }
+        }
+
+
+
     }
 }

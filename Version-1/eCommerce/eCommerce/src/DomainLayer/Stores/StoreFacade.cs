@@ -413,6 +413,15 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception("Store is not closed or does not exists, therefore can not reopen it\n");
         }
 
+        public OfferResponse SendOfferResponseToUser(string storeID, string ownerID, string offerID, bool accepted, double counterOffer)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))
+            {
+                return store.SendOfferResponseToUser(ownerID, offerID, accepted, counterOffer);
+            }
+            throw new Exception("Failed to response to an offer: Failed to locate the store\n");
+        }
+
         public Store GetStore(String storeID)
         {
             if (Stores.TryGetValue(storeID, out Store store))
@@ -434,6 +443,22 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 throw new Exception("Store does not exists");
             }
+        }
+
+        public List<Dictionary<string, object>> getStoreOffers(string storeID)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))
+            {
+                //mapper.Load_StoreOfferManager(store);
+                return store.getStoreOffers();
+            }
+            throw new Exception("Failed to get store offers: Failed to locate the store\n");
+        }
+
+        public void resetSystem()
+        {
+            Stores.Clear();
+
         }
 
         public void loadstore()

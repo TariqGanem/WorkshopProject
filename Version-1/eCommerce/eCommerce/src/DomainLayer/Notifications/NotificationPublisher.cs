@@ -76,5 +76,30 @@ namespace eCommerce.src.DomainLayer.Store
                 manager.Value.Update(notification);
             }
         }
+
+        public void notifyOfferRecievedUser(string userID, string storeID, string productID, int amount, double price, double counterOffer, bool v)
+        {
+            String msg = "";
+            if (v)
+                msg = $"Event : An offer has been accepted\nProduct Id : {productID}\nStore Id : {storeID}\nAmount : {amount}\nPrice : {price}\n";
+            else if (counterOffer == -1)
+                msg = $"Event : An offer has been declined\nProduct Id : {productID}\nStore Id : {storeID}\nAmount : {amount}\nPrice : {price}\n";
+            else
+                msg = $"Event : A counter offer was recieved\nProduct Id : {productID}\nStore Id : {storeID}\nAmount : {amount}\nNew price : {counterOffer}\n";
+
+            notifyOwners(msg, false);
+            Logger.GetInstance().LogInfo($"All store owners are notified that an offer was recieved from the user : { userID}\n");
+        }
+
+        private void notifyOwners(string msg, bool v)
+        {
+            ConcurrentDictionary<String, StoreOwner> Owners = Store.Owners;
+
+            foreach (var owner in Owners)
+            {
+                Notification notification = new Notification(owner.Value.GetId(), msg, true);
+                owner.Value.Update(notification);
+            }
+        }
     }
 }

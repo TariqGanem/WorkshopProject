@@ -114,6 +114,21 @@ namespace eCommerce.src.ServiceLayer.Controllers
             if (!SystemFacade.IsSystemAdmin(userId))
                 throw new Exception($"user:{userId} is not system admin!");
         }
+
+        public Result<bool> ResetSystem(string sysAdminID)
+        {
+            if (SystemFacade.IsSystemAdmin(sysAdminID))
+            {
+                //return Service.ResetSystem();
+                SystemFacade.resetSystem();
+                logger.LogInfo($"user:{sysAdminID} reset the system\n");
+                return new Result<bool>(true);
+            }
+            else
+            {
+                return new Result<bool>($"user:{sysAdminID} is not system admin\n");
+            }
+        }
         #endregion
 
     }

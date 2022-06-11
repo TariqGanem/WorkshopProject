@@ -57,6 +57,10 @@ namespace eCommerce.src.DomainLayer
         bool SendOfferToStore(string storeID, string userID, string productID, int amount, double price);
         bool AnswerCounterOffer(string userID, string offerID, bool accepted);
         StoreService ReOpenStore(string storeid, string userid);
+        bool SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer);
+        List<Dictionary<string, object>> getStoreOffers(string storeID);
+        List<Dictionary<string, object>> getUserOffers(string userId);
+        void resetSystem();
         #endregion
     }
 
@@ -66,9 +70,9 @@ namespace eCommerce.src.DomainLayer
         public StoreFacade storeFacade { get; }
         private readonly object my_lock = new object();
 
-        public SystemFacade()
+        public SystemFacade(string admin_email , string admin_pass)
         {
-            userFacade = new UserFacade();
+            userFacade = new UserFacade(admin_email , admin_pass);
             storeFacade = new StoreFacade();
         }
 
@@ -403,6 +407,67 @@ namespace eCommerce.src.DomainLayer
             //else
             throw new Exception($"Failed to reopen store (Id: {storeid}): {userid} is not a registered user.\n");
         }
+
+        public bool SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer)
+        {
+            OfferResponse storeResult = storeFacade.SendOfferResponseToUser(storeID, ownerID, offerID, accepted, counterOffer);
+
+            userFacade.UpdateUserOffers_DB(userID, offerID, counterOffer);
+
+            Store.Store store;
+            Offer offer;
+            storeFacade.Stores.TryGetValue(storeID, out store);
+            if (userFacade.GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+            {
+                offer = guest_user.findPendingOffer(offerID);
+            }
+            else
+            {
+                userFacade.RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user);
+                offer = registerd_user.findPendingOffer(offerID);
+            }
+
+
+            OfferResponse respone = storeResult;
+            if (respone == OfferResponse.Accepted)
+            {
+                userFacade.AcceptOffer(userID, offerID);
+                store.sendNotificationToAllOwners(offer, true);
+            }
+            else if (respone == OfferResponse.Declined)
+            {
+                userFacade.DeclineOffer(userID, offerID);
+                store.sendNotificationToAllOwners(offer, false);
+            }
+            else if (respone == OfferResponse.CounterOffered)
+            {
+                userFacade.CounterOffer(userID, offerID);
+                store.sendNotificationToAllOwners(offer, false);
+            }
+
+            Logger.GetInstance().LogInfo("Offer response was sent successfully");
+            return true;
+        }
+
+        public List<Dictionary<string, object>> getStoreOffers(string storeID)
+        {
+            return storeFacade.getStoreOffers(storeID);
+
+        }
+
+        public List<Dictionary<string, object>> getUserOffers(string userId)
+        {
+            return this.userFacade.getUserOffers(userId);
+        }
+
+        public void resetSystem()
+        {
+            DBUtil.getInstance().clearDB();
+            userFacade.resetSystem();
+            storeFacade.resetSystem();
+        }
+
+
 
 
 

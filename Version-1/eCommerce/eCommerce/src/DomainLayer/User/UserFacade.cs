@@ -38,18 +38,25 @@ namespace eCommerce.src.DomainLayer.User
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; }
         public ConcurrentDictionary<String, GuestUser> GuestUsers { get; }
         public DBUtil dbutil = DBUtil.getInstance();
-
+        private RegisteredUser defaultUser;
         private readonly object my_lock = new object();
+
         #endregion
 
         #region constructors
-        public UserFacade()
+        public UserFacade(string adminemail , string adminpassword)
         {
             SystemAdmins = new ConcurrentDictionary<string, RegisteredUser>();
             RegisteredUsers = new ConcurrentDictionary<string, RegisteredUser>();
             GuestUsers = new ConcurrentDictionary<string, GuestUser>();
+            defaultUser = new RegisteredUser(adminemail, adminpassword);
+            defaultUser.Id = "-777";
             LoadAllRegisterUsers();
             LoadSystemAdmins();
+            if (SystemAdmins.IsEmpty)
+            {
+                insertInitializeData(defaultUser);
+            }
         }
         #endregion
 
@@ -391,6 +398,92 @@ namespace eCommerce.src.DomainLayer.User
             else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
                 return registerd_user.AnswerCounterOffer(offerID, accepted);
             throw new Exception("Failed to respond to a counter offer: Failed to locate the user");
+        }
+
+        public void UpdateUserOffers_DB(string userID, string offerID, double counterOffer)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", userID);
+            if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+            {
+                Offer offer = guest_user.findPendingOffer(offerID);
+                if (offer.CounterOffer == -1)
+                    offer.CounterOffer = counterOffer;
+            }
+            else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
+            {
+                Offer offer = registerd_user.findPendingOffer(offerID);
+                if (offer.CounterOffer == -1)
+                    offer.CounterOffer = counterOffer;
+                var update_offer = Builders<BsonDocument>.Update.Set("PendingOffers", registerd_user.Get_DTO_Offers(registerd_user.PendingOffers));
+                DBUtil.getInstance().UpdateRegisteredUser(filter, update_offer);
+            }
+        }
+
+        public bool AcceptOffer(string userID, string offerID)
+        {
+            if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+                return guest_user.AcceptOffer(offerID);
+            else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
+                return registerd_user.AcceptOffer(offerID);
+            throw new Exception("Failed to accept offer: Failed to locate the user");
+        }
+
+        public void DeclineOffer(string userID, string offerID)
+        {
+            if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+                 guest_user.DeclineOffer(offerID);
+            else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
+                 registerd_user.DeclineOffer(offerID);
+            throw new Exception("Failed to decline offer: Failed to locate the user");
+        }
+
+        public void CounterOffer(string userID, string offerID)
+        {
+            if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+                guest_user.CounterOffer(offerID);
+            else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
+                registerd_user.CounterOffer(offerID);
+            throw new Exception("Failed to counter the offer: Failed to locate the user");
+        }
+
+        public List<Dictionary<string, object>> getUserOffers(string userId)
+        {
+            if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
+                return guest_user.getUserPendingOffers();
+            else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registerd_user))
+            {
+                return registerd_user.getUserPendingOffers();
+            }
+            throw new Exception("Failed to get user offers: Failed to locate the user");
+        }
+
+        public void resetSystem()
+        {
+            GuestUsers.Clear();
+            SystemAdmins.Clear();
+            RegisteredUsers.Clear();
+            insertInitializeData(defaultUser);
+        }
+
+        private void insertInitializeData(RegisteredUser defaultUser)
+        {
+            this.SystemAdmins.TryAdd(defaultUser.Id, defaultUser);
+            this.RegisteredUsers.TryAdd(defaultUser.Id, defaultUser);
+            dbutil = DBUtil.getInstance();
+            // Update DB
+            DTO_RegisteredUser user_dto = defaultUser.getDTO();
+            var filter_gu = Builders<BsonDocument>.Filter.Eq("_id", "-777");
+            var update_gu = Builders<BsonDocument>.Update.Set("ShoppingCart", user_dto.ShoppingCart)
+                                                         .Set("Email", user_dto.UserName)
+                                                         .Set("Password", user_dto._password)
+                                                         .Set("LoggedIn", user_dto.Active)
+                                                         .Set("History", user_dto.History)
+                                                         .Set("PendingNotification", user_dto.PendingNotification);
+            dbutil.UpdateRegisteredUser(filter_gu, update_gu, true);
+
+            var filter_admin = Builders<BsonDocument>.Filter.Eq("_id", "");
+            var update_admin = Builders<BsonDocument>.Update.Set("SystemAdmins", getDTO_admins().SystemAdmins);
+            dbutil.UpdateSystemAdmins(filter_admin, update_admin, true);
         }
         #endregion
     }

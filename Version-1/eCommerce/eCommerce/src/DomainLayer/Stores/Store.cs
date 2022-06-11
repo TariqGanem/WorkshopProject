@@ -443,6 +443,37 @@ namespace eCommerce.src.DomainLayer.Store
             StoreService store = new StoreService(this.Id, this.Name, Founder.User.Id, owners, managers, history, this.Rate, this.NumberOfRates);
             return store;
         }
+
+        public void sendNotificationToAllOwners(Offer offer, bool v)
+        {
+            this.NotificationPublisher.notifyOfferRecievedUser(offer.UserID, offer.StoreID, offer.ProductID, offer.Amount, offer.Price, offer.CounterOffer, v);
+        }
+
+        public OfferResponse SendOfferResponseToUser(string ownerID, string offerID, bool accepted, double counterOffer)
+        {
+            List<string> ids = ownerIDs();
+            if (!ids.Contains(ownerID))
+                throw new Exception("Failed to reponse to an offer: The responding user is not an owner");
+            OfferResponse res = OfferManager.SendOfferResponseToUser(ownerID, offerID, accepted, counterOffer, ids);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
+            var update_offer = Builders<BsonDocument>.Update.Set("OfferManager", DBUtil.getInstance().Get_DTO_Offers(OfferManager.PendingOffers));
+            DBUtil.getInstance().UpdateStore(filter, update_offer);
+            return res;
+        }
+
+        private List<string> ownerIDs()
+        {
+            List<string> ids = new List<string>();
+            foreach (string id in Owners.Keys)
+                ids.Add(id);
+            return ids;
+        }
+
+        public List<Dictionary<string, object>> getStoreOffers()
+        {
+            return OfferManager.getStoreOffers();
+        }
+
         public DTO_Store getDTO()
         {
             LinkedList<String> owners_dto = new LinkedList<string>();
