@@ -19,6 +19,84 @@ namespace eCommerce
     {
         static void Main(string[] args)
         {
+            //DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority", "TestScenario1").clearDB();
+            //return;
+            ContScenario2();
+        }
+
+        public static void ContScenario2()
+        {
+            eCommerceSystem ecom = new eCommerceSystem();
+            String productid = ecom.AddProductToStore("a3b4aa6ed3394415ac2d6a1ed82202f7", "a17bfb5971ad46aab5a137b0be167e40", "Bamba", 30, 20, "food").Value;
+            ecom.AddProductRatingInStore("a3b4aa6ed3394415ac2d6a1ed82202f7", "a17bfb5971ad46aab5a137b0be167e40", productid, 4);
+            return;
+
+        }
+        public static void Scenario1()
+        {
+           // String adminId = "-777";
+            eCommerceSystem ecom = new eCommerceSystem();
+            RegisteredUserSO u1 = ecom.Register("u1", "pass").Value;
+            RegisteredUserSO founderId = ecom.Login("u1", "pass").Value;
+            StoreService storeid = ecom.OpenNewStore("s1", founderId.Id).Value;
+            ecom.AddStoreRating(u1.Id, storeid.Id, 2.2);
+            return;
+        }
+        public static void Scenario2()
+        {
+            String adminId = "-777";
+            eCommerceSystem ecom = new eCommerceSystem();
+            // register users u1,u2,u3,u4,u5,u6
+
+            RegisteredUserSO u1 = ecom.Register("u1", "pass").Value;
+            RegisteredUserSO u2 = ecom.Register("u2", "pass").Value;
+            RegisteredUserSO u3 = ecom.Register("u3", "pass").Value;
+            RegisteredUserSO u4 = ecom.Register("u4", "pass").Value;
+            RegisteredUserSO u5 = ecom.Register("u5", "pass").Value;
+            RegisteredUserSO u6 = ecom.Register("u6", "pass").Value;
+
+            // make u1 admin
+            ecom.AddSystemAdmin(adminId, u1.Id);
+
+            // u1,2,3,4,5,6 login
+            ecom.Login("u1", "pass");
+            RegisteredUserSO founderId = ecom.Login("u2", "pass").Value;
+            RegisteredUserSO managerid = ecom.Login("u3", "pass").Value;
+            RegisteredUserSO storeowner1 = ecom.Login("u4", "pass").Value;
+            RegisteredUserSO storeowner2 = ecom.Login("u5", "pass").Value;
+            ecom.Login("u6", "pass");
+
+            // u2 open store s1
+            StoreService storeid = ecom.OpenNewStore("s1", founderId.Id).Value;
+
+            // u2 add item “Bamba” to store s1 with cost 30 and quantity 20
+            String pro = ecom.AddProductToStore(founderId.Id, storeid.Id, "Bamba", 30, 20, "food").Value;
+
+            // u2 appoints u3 to a store manager with permission to manage inventory.
+            ecom.AddStoreManager(managerid.Id, founderId.Id, storeid.Id);
+            LinkedList<int> per = new LinkedList<int>();
+            per.AddLast(0);
+            per.AddLast(1);
+            per.AddLast(2);
+            ecom.SetPermissions(storeid.Id, managerid.Id, founderId.Id, per);
+
+            // u2 appoint u4, u5 to store s1 owner
+            ecom.AddStoreOwner(storeowner1.Id, founderId.Id, storeid.Id);
+            ecom.AddStoreOwner(storeowner2.Id, founderId.Id, storeid.Id);
+
+            // u5 logs off
+            ecom.Logout(storeowner2.Id);
+
+            //api.AddProductToCart(founderId, pro, 1, storeid);
+
+            // close store - to test notifications in db
+            ecom.CloseStore(founderId.Id, storeid.Id);
+            return;
+        }
+
+        public static void testcode()
+        {
+            throw new Exception("testcode");
             // FOR TESTNG PURPOSES
 
             /*
@@ -172,70 +250,6 @@ namespace eCommerce
             */
 
 
-
-
-            // Scenario 1 Described by Email from the course's staff [RUNS] - track through data base
-            String adminId = "-777";
-            eCommerceSystem ecom = new eCommerceSystem();
-            // register users u1,u2,u3,u4,u5,u6
-
-            RegisteredUserSO u1 = ecom.Register("u1", "pass").Value;
-            RegisteredUserSO u2 = ecom.Register("u2", "pass").Value;
-            RegisteredUserSO u3 = ecom.Register("u3", "pass").Value;
-            RegisteredUserSO u4 = ecom.Register("u4", "pass").Value;
-            RegisteredUserSO u5 = ecom.Register("u5", "pass").Value;
-            RegisteredUserSO u6 = ecom.Register("u6", "pass").Value;
-
-            // make u1 admin
-            ecom.AddSystemAdmin(adminId, u1.Id);
-
-            // u1,2,3,4,5,6 login
-            ecom.Login("u1", "pass");
-            RegisteredUserSO founderId = ecom.Login("u2", "pass").Value;
-            RegisteredUserSO managerid = ecom.Login("u3", "pass").Value;
-            RegisteredUserSO storeowner1 = ecom.Login("u4", "pass").Value;
-            RegisteredUserSO storeowner2 = ecom.Login("u5", "pass").Value;
-            ecom.Login("u6", "pass");
-
-            // u2 open store s1
-            StoreService storeid = ecom.OpenNewStore("s1", founderId.Id).Value;
-
-            // u2 add item “Bamba” to store s1 with cost 30 and quantity 20
-            String pro = ecom.AddProductToStore(founderId.Id, storeid.Id, "Bamba", 30, 20, "food").Value;
-
-            // u2 appoints u3 to a store manager with permission to manage inventory.
-            ecom.AddStoreManager(managerid.Id, founderId.Id, storeid.Id);
-            LinkedList<int> per = new LinkedList<int>();
-            per.AddLast(0);
-            per.AddLast(1);
-            per.AddLast(2);
-            ecom.SetPermissions(storeid.Id, managerid.Id, founderId.Id, per);
-
-            // u2 appoint u4, u5 to store s1 owner
-            ecom.AddStoreOwner(storeowner1.Id, founderId.Id, storeid.Id);
-            ecom.AddStoreOwner(storeowner2.Id, founderId.Id, storeid.Id);
-
-            // u5 logs off
-            ecom.Logout(storeowner2.Id);
-
-            //api.AddProductToCart(founderId, pro, 1, storeid);
-
-            // close store - to test notifications in db
-            ecom.CloseStore(founderId.Id, storeid.Id);
-            
-
-
-
-
-            //api.Register("Admin", "Admin");
-            //LinkedList<String> admins = new LinkedList<String>();
-            //admins.AddLast("e035ddf3301245119e39a6f2a81143da");
-            //dbutil.DAO_SystemAdmins.Create(new DTO_SystemAdmins(admins));
-            //var filter = Builders<BsonDocument>.Filter.Empty;
-            //var update = Builders<BsonDocument>.Update.Set("Name", "store1NewName");
-            //dbutil.UpdateSystemAdmins(filter,update);
-
-            return;
         }
 
     }

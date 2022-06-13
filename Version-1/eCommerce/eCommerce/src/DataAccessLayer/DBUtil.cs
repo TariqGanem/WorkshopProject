@@ -1252,6 +1252,8 @@ namespace eCommerce.src.DataAccessLayer
 
             DAO_Store.Create(new DTO_Store(s.Id, s.Name, s.Founder.GetId(), owners, managers, inventory, Get_DTO_History(s.History),
                                             s.Rate, s.NumberOfRates, s.Active, s.PolicyManager.MainDiscount.getDTO(), s.PolicyManager.MainPolicy.getDTO(), s.OfferManager.GetDTO()));
+            this.DAO_DiscountAddition.Create(s.PolicyManager.MainDiscount.getDTO());
+            this.DAO_BuyNow.Create(s.PolicyManager.MainPolicy.getDTO());
             Stores.TryAdd(s.Id, s);
         }
 
@@ -1285,14 +1287,11 @@ namespace eCommerce.src.DataAccessLayer
 
             s.History = ToObject(dto.History);
             s.OfferManager = new OfferManager(Load_StoreOfferManager(dto));
-
-            return s;
-
             // loading staff
-            //var filterstaff = Builders<BsonDocument>.Filter.Eq("StoreId",s.Id);
+            //var filterstaff = Builders<BsonDocument>.Filter.Eq("StoreId", s.Id);
             //s.Managers = LoadAllManagersForStore(filterstaff);
             //s.Owners = loadAllStoreOwnerForStore(filterstaff);
-
+            return s;
         }
 
         public void UpdateStore(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update , MongoDB.Driver.IClientSessionHandle session = null)
@@ -2655,7 +2654,7 @@ namespace eCommerce.src.DataAccessLayer
                 db.GetCollection<BsonDocument>("Products").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("Stores").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("Users").DeleteMany(emptyFilter);
-                db.GetCollection<BsonDocument>("StoreStaffs").DeleteMany(emptyFilter);
+                db.GetCollection<BsonDocument>("StoreStaff").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("SystemAdmins").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("DiscountPolicies").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("PurchasePolicies").DeleteMany(emptyFilter);

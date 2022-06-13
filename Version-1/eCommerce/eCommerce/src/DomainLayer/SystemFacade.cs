@@ -593,7 +593,7 @@ namespace eCommerce.src.DomainLayer
         {
             if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
             {
-                if (storeFacade.Stores.TryGetValue(userid, out Store.Store store))
+                if (storeFacade.Stores.TryGetValue(storeid, out Store.Store store))
                 {
                     if (user.Active)
                     {
@@ -614,12 +614,13 @@ namespace eCommerce.src.DomainLayer
         {
             if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
             {
-                if (storeFacade.Stores.TryGetValue(userid, out Store.Store store))
+                if (storeFacade.Stores.TryGetValue(storeid, out Store.Store store))
                 {
                     if (user.Active)
                     {
-                        store.AddRatingToProduct(productid,rate);
+                        store.addRatingToProduct(productid,rate);
                         return true;
+
                     }
                     else
                         throw new Exception($"user {userid} is not logged in to give rating");
