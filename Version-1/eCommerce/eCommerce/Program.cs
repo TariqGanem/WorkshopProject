@@ -4,6 +4,7 @@ using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
 using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ServiceLayer;
+using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -176,54 +177,51 @@ namespace eCommerce
             // Scenario 1 Described by Email from the course's staff [RUNS] - track through data base
             String adminId = "e035ddf3301245119e39a6f2a81143da";
             eCommerceSystem ecom = new eCommerceSystem();
-            RealAdapter api = new RealAdapter(); // everything gets initialized and loaded from db
-
             // register users u1,u2,u3,u4,u5,u6
-            
-            api.Register("u1", "pass");
-            api.Register("u2", "pass");
-            api.Register("u3", "pass");
-            api.Register("u4", "pass");
-            api.Register("u5", "pass");
-            api.Register("u6", "pass");
+
+            RegisteredUserSO u1 = ecom.Register("u1", "pass").Value;
+            RegisteredUserSO u2 = ecom.Register("u2", "pass").Value;
+            RegisteredUserSO u3 = ecom.Register("u3", "pass").Value;
+            RegisteredUserSO u4 = ecom.Register("u4", "pass").Value;
+            RegisteredUserSO u5 = ecom.Register("u5", "pass").Value;
+            RegisteredUserSO u6 = ecom.Register("u6", "pass").Value;
 
             // make u1 admin
-            String id = api.system.systemFacade.userFacade.getRegUserIdByUsername("u1");
-            api.AddSystemAdmin(adminId, id);
+            ecom.AddSystemAdmin(adminId, u1.Id);
 
             // u1,2,3,4,5,6 login
-            api.Login("u1", "pass");
-            String founderId = api.Login("u2", "pass").Value;
-            String managerid = api.Login("u3", "pass").Value;
-            String storeowner1 = api.Login("u4", "pass").Value;
-            String storeowner2 = api.Login("u5", "pass").Value;
-            api.Login("u6", "pass");
+            ecom.Login("u1", "pass");
+            RegisteredUserSO founderId = ecom.Login("u2", "pass").Value;
+            RegisteredUserSO managerid = ecom.Login("u3", "pass").Value;
+            RegisteredUserSO storeowner1 = ecom.Login("u4", "pass").Value;
+            RegisteredUserSO storeowner2 = ecom.Login("u5", "pass").Value;
+            ecom.Login("u6", "pass");
 
             // u2 open store s1
-            String storeid = api.OpenNewStore("s1", founderId).Value;
+            StoreService storeid = ecom.OpenNewStore("s1", founderId.Id).Value;
 
             // u2 add item “Bamba” to store s1 with cost 30 and quantity 20
-            String pro = api.AddProductToStore(founderId, storeid, "Bamba", 30, 20, "food").Value;
+            String pro = ecom.AddProductToStore(founderId.Id, storeid.Id, "Bamba", 30, 20, "food").Value;
 
             // u2 appoints u3 to a store manager with permission to manage inventory.
-            api.AddStoreManager(managerid, founderId, storeid);
+            ecom.AddStoreManager(managerid.Id, founderId.Id, storeid.Id);
             LinkedList<int> per = new LinkedList<int>();
             per.AddLast(0);
             per.AddLast(1);
             per.AddLast(2);
-            api.SetPermissions(storeid, managerid, founderId, per);
+            ecom.SetPermissions(storeid.Id, managerid.Id, founderId.Id, per);
 
             // u2 appoint u4, u5 to store s1 owner
-            api.AddStoreOwner(storeowner1, founderId, storeid);
-            api.AddStoreOwner(storeowner2, founderId, storeid);
+            ecom.AddStoreOwner(storeowner1.Id, founderId.Id, storeid.Id);
+            ecom.AddStoreOwner(storeowner2.Id, founderId.Id, storeid.Id);
 
             // u5 logs off
-            api.Logout(storeowner2);
+            ecom.Logout(storeowner2.Id);
 
             //api.AddProductToCart(founderId, pro, 1, storeid);
 
             // close store - to test notifications in db
-            api.CloseStore(founderId, storeid);
+            ecom.CloseStore(founderId.Id, storeid.Id);
             
 
 

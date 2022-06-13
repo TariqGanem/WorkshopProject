@@ -140,7 +140,7 @@ namespace eCommerce.src.ServiceLayer
             return UserController.Logout(userid);
         }
 
-        public Result OpenNewStore(string storename,string userid)
+        public Result<StoreService> OpenNewStore(string storename,string userid)
         {
             return RegisteredUserController.OpenNewStore(storename, userid);
         }

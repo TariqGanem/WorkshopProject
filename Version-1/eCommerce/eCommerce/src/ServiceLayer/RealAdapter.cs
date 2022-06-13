@@ -235,7 +235,7 @@ namespace eCommerce.src.ServiceLayer
 
         public Result<string> Login() // added while writing acceptance testing
         {
-            Result<GuestUserSO> res = system.Login();
+            Result<GuestUserSO> res = system.GuestLogin();
             if (!res.ErrorOccured)
                 return new Result<string>(res.Value.Id, null);
             else

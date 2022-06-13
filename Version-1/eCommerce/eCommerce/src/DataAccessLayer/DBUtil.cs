@@ -20,7 +20,8 @@ using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountConditio
 using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountComposition;
 using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountTargets;
 using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies;
-using eCommerce.src.ServiceLayer.ResultService; 
+using eCommerce.src.ServiceLayer.ResultService;
+using eCommerce.src.DomainLayer.Stores.Policies;
 
 namespace eCommerce.src.DataAccessLayer
 {
@@ -951,6 +952,8 @@ namespace eCommerce.src.DataAccessLayer
 
             ru = new RegisteredUser(dto._id, dto.UserName, dto._password, dto.Active, ToObject(dto.History), ToObject(dto.PendingNotification));
             ru.ShoppingCart = ToObject(dto.ShoppingCart, ru);
+            ru.AcceptedOffers = ToObject(dto.AcceptedOffers, ru);
+            ru.PendingOffers = ToObject(dto.PendingOffers, ru);
             RegisteredUsers.TryAdd(ru.Id, ru);
             return ru;
         }
@@ -1248,7 +1251,7 @@ namespace eCommerce.src.DataAccessLayer
             foreach (var product in s.InventoryManager.Products) { inventory.AddLast(product.Key); }
 
             DAO_Store.Create(new DTO_Store(s.Id, s.Name, s.Founder.GetId(), owners, managers, inventory, Get_DTO_History(s.History),
-                                            s.Rate, s.NumberOfRates, s.Active));
+                                            s.Rate, s.NumberOfRates, s.Active, s.PolicyManager.MainDiscount.getDTO(), s.PolicyManager.MainPolicy.getDTO(), s.OfferManager.GetDTO()));
             Stores.TryAdd(s.Id, s);
         }
 
@@ -1270,20 +1273,26 @@ namespace eCommerce.src.DataAccessLayer
             }
 
             s = new Store(dto._id, dto.Name, new InventoryManager(products), ToObject(dto.History), dto.Rate, dto.NumberOfRates, notificationManager, dto.Active);
+            s.NotificationPublisher.Store = s;
 
             Stores.TryAdd(s.Id, s);
-
+            DiscountAddition MainDiscount = LoadDiscountAddition(Builders<BsonDocument>.Filter.Eq("_id", dto.MainDiscount._id));
+            BuyNow MainPolicy = LoadBuyNowPolicy(Builders<BsonDocument>.Filter.Eq("_id", dto.MainPolicy._id));
+            if (MainPolicy is null) { MainPolicy = new BuyNow(); }
+            s.PolicyManager = new PolicyManager(MainDiscount, MainPolicy);
             StoreOwner founder = getOwnershipTree(s, dto.Founder);
-
             s.Founder = founder;
 
+            s.History = ToObject(dto.History);
+            s.OfferManager = new OfferManager(Load_StoreOfferManager(dto));
+
+            return s;
 
             // loading staff
             //var filterstaff = Builders<BsonDocument>.Filter.Eq("StoreId",s.Id);
             //s.Managers = LoadAllManagersForStore(filterstaff);
             //s.Owners = loadAllStoreOwnerForStore(filterstaff);
-            
-            return s;
+
         }
 
         public void UpdateStore(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update , MongoDB.Driver.IClientSessionHandle session = null)
@@ -1305,6 +1314,20 @@ namespace eCommerce.src.DataAccessLayer
             var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
             DTO_Store dto = DAO_Store.Load(filter);
             store.History = ToObject(dto.History);
+        }
+
+        public List<Offer> Load_StoreOfferManager(DTO_Store store)
+        {
+            List<Offer> offers = new List<Offer>();
+            if (store.OfferManager != null)
+            {
+                foreach (DTO_Offer offer in store.OfferManager)
+                {
+                    offers.Add(new Offer(offer.UserID, offer.ProductID, offer.Amount, offer.Price, offer.StoreID, offer._id, offer.CounterOffer, offer.acceptedOwners));
+                }
+            }
+
+            return offers;
         }
 
         // purchase policy

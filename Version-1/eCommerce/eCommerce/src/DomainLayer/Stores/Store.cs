@@ -15,6 +15,7 @@ using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies;
 using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountConditions;
 using eCommerce.src.ServiceLayer.ResultService;
 using eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies;
+using eCommerce.src.DataAccessLayer.DataTransferObjects;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -496,9 +497,21 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 inventoryManagerProducts_dto.AddLast(p.Key);
             }
-            return new DTO_Store(Id, Name, Founder.User.Id, owners_dto, managers_dto,
-                       inventoryManagerProducts_dto, History.getDTO(), Rate, NumberOfRates, this.Active);
 
+            return new DTO_Store(Id, Name, Founder.User.Id, owners_dto, managers_dto,
+                inventoryManagerProducts_dto, History.getDTO(), Rate, NumberOfRates, Active,
+                PolicyManager.MainDiscount.getDTO(), PolicyManager.MainPolicy.getDTO(), Get_DTO_Offers());
+        }
+
+        public List<DTO_Offer> Get_DTO_Offers()
+        {
+            List<DTO_Offer> dto_offers = new List<DTO_Offer>();
+            foreach (Offer offer in OfferManager.PendingOffers)
+            {
+                dto_offers.Add(new DTO_Offer(offer.Id, offer.UserID, offer.ProductID, offer.StoreID, offer.Amount, offer.Price, offer.CounterOffer, offer.acceptedOwners));
+            }
+
+            return dto_offers;
         }
 
         public IDiscountPolicy AddDiscountPolicy(Dictionary<string, object> info)
