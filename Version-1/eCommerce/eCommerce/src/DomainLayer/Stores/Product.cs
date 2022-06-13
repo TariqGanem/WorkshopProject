@@ -5,6 +5,9 @@ using System.Collections.Concurrent;
 using eCommerce.src.ServiceLayer.ResultService;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 using eCommerce.src.ServiceLayer.Objects;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using eCommerce.src.DataAccessLayer;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -50,7 +53,7 @@ namespace eCommerce.src.DomainLayer.Store
 
         public void AddRating(Double rate)
         {
-            if (rate < 1 || rate > 5)
+            if (rate < 0 || rate > 5)
             {
                 throw new Exception($"Product { Name } could not be rated. Please use number between 1 to 5");
             }
@@ -58,6 +61,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 NumberOfRates += 1;
                 Rate = (Rate + rate) / (Double)NumberOfRates;
+                // db
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", this.Id);
+                var update_offer = Builders<BsonDocument>.Update.Set("Rate", Rate).Set("NumberOfRates", NumberOfRates);
+                DBUtil.getInstance().UpdateProduct(filter, update_offer);
             }
         }
 

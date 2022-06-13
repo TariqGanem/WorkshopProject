@@ -29,7 +29,7 @@ namespace eCommerce.src.ServiceLayer
 
         public IDataController dataController { get; set; }
 
-        public eCommerceSystem(String config_path = @"..\eCommerce\Config.json" , string configData = "")
+        public eCommerceSystem(String config_path = @"..\..\..\src\Config.json" , string configData = "")
         {
             Config config;
             if (!(configData.Equals(String.Empty)))
@@ -134,7 +134,6 @@ namespace eCommerce.src.ServiceLayer
             return RegisteredUserController.Login(email, password);
         }
 
-                // guest user login?
         public Result Logout(string userid)
         {
             return UserController.Logout(userid);
@@ -229,8 +228,20 @@ namespace eCommerce.src.ServiceLayer
         {
             return StoreStaffController.getUserOffers(userId);
         }
-            
-                // get income?
+
+        public Result<bool> AddStoreRating(String userid , String storeid , double rate)
+        {
+            return RegisteredUserController.AddStoreRating(userid,storeid,rate);
+        }
+
+        public Result<bool> AddProductRatingInStore(String userid, String storeid,String productid, double rate)
+        {
+            return RegisteredUserController.AddProductRatingInStore(userid, storeid,productid, rate);
+        }
+
+
+
+        // get income?
 
         // system admin func
         public Result<UserHistorySO> GetUserPurchaseHistory(string sysAdminID, string userID)

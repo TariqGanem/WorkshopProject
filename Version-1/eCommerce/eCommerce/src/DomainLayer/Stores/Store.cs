@@ -88,7 +88,7 @@ namespace eCommerce.src.DomainLayer.Store
 
         public void AddRating(Double rate)
         {
-            if (rate < 1 || rate > 5)
+            if (rate < 0 || rate > 5)
             {
                 throw new Exception($"Store {Name} could not be rated. Please use number between 1 to 5");
             }
@@ -96,6 +96,10 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 NumberOfRates += 1;
                 Rate = (Rate * (NumberOfRates - 1) + rate) / NumberOfRates;
+                // db
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
+                var update_offer = Builders<BsonDocument>.Update.Set("Rate", Rate).Set("NumberOfRates", NumberOfRates);
+                DBUtil.getInstance().UpdateStore(filter, update_offer);
             }
         }
 
@@ -612,6 +616,16 @@ namespace eCommerce.src.DomainLayer.Store
         public IPurchasePolicy RemovePurchasePolicy(string id)
         {
             return PolicyManager.RemovePurchasePolicy(id);
+        }
+
+        public void addRatingToProduct(string productid, double rate)
+        {
+            if (this.InventoryManager.Products.TryGetValue(productid, out Product pro))
+            {
+                pro.AddRating(rate);
+            }
+            else
+                throw new Exception($"product {productid} does not exist in this store");
         }
     }
 }

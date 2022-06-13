@@ -70,12 +70,14 @@ namespace eCommerce.src.DomainLayer
         bool RemoveDiscountPolicy(string storeId, string id);
         bool RemoveDiscountCondition(string storeId, string id);
         bool EditDiscountPolicy(string storeId, Dictionary<string, object> info, string id);
+        bool AddStoreRating(string userid, string storeid, double rate);
         bool EditDiscountCondition(string storeId, Dictionary<string, object> info, string id);
         IDictionary<string, object> GetDiscountPolicyData(string storeId);
         IDictionary<string, object> GetPurchasePolicyData(string storeId);
         bool AddPurchasePolicy(string storeId, Dictionary<string, object> info);
         bool AddPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
         bool RemovePurchasePolicy(string storeId, string id);
+        bool AddProductRatingInStore(string userid, string storeid, string productid, double rate);
         bool EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
         #endregion
     }
@@ -585,7 +587,48 @@ namespace eCommerce.src.DomainLayer
         public bool EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
         {
             return storeFacade.EditPurchasePolicy(storeId,info, id);
+        }
 
+        public bool AddStoreRating(string userid, string storeid, double rate)
+        {
+            if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
+            {
+                if (storeFacade.Stores.TryGetValue(userid, out Store.Store store))
+                {
+                    if (user.Active)
+                    {
+                        store.AddRating(rate);
+                        return true;
+                    }
+                    else
+                        throw new Exception($"user {userid} is not logged in to give rating");
+                }
+                else
+                    throw new Exception($"store {storeid} does not exist");
+            }
+            else
+                throw new Exception($"user {userid} does not exist");
+        }
+
+        public bool AddProductRatingInStore(string userid, string storeid, string productid, double rate)
+        {
+            if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
+            {
+                if (storeFacade.Stores.TryGetValue(userid, out Store.Store store))
+                {
+                    if (user.Active)
+                    {
+                        store.AddRatingToProduct(productid,rate);
+                        return true;
+                    }
+                    else
+                        throw new Exception($"user {userid} is not logged in to give rating");
+                }
+                else
+                    throw new Exception($"store {storeid} does not exist");
+            }
+            else
+                throw new Exception($"user {userid} does not exist");
         }
 
 

@@ -15,6 +15,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<StoreService> OpenNewStore(String storeName, String userId);
         Result CloseStore(string userId, string storeId);
         Result<StoreService> ReOpenStore(string storeid, string userid);
+        Result<bool> AddStoreRating(string userid, string storeid, double rate);
+        Result<bool> AddProductRatingInStore(string userid, string storeid, string productid, double rate);
     }
 
     public class RegisteredUserController : UserController, IRegisteredUserController
@@ -103,6 +105,33 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<StoreService>(e.ToString());
             }
         }
+
+        public Result<bool> AddStoreRating(string userid, string storeid, double rate)
+        {
+            try
+            {
+                bool res = this.SystemFacade.AddStoreRating(userid,storeid,rate);
+                return new Result<bool>(res);
+            }
+            catch (Exception e)
+            {
+                return new Result<bool>(e.ToString());
+            }
+        }
+
+        public Result<bool> AddProductRatingInStore(string userid, string storeid, string productid, double rate)
+        {
+            try
+            {
+                bool res = this.SystemFacade.AddProductRatingInStore(userid, storeid,productid, rate);
+                return new Result<bool>(res);
+            }
+            catch (Exception e)
+            {
+                return new Result<bool>(e.ToString());
+            }
+        }
+
 
         #endregion
     }
