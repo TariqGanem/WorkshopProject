@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DomainLayer;
+using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ExternalSystems;
 using eCommerce.src.ServiceLayer;
@@ -25,6 +26,8 @@ namespace eCommerce.src.ServiceLayer
         public IStoreStaffController StoreStaffController { get; set; }
         public SystemFacade systemFacade { get; set; }
         public NotificationsService notificationsService { get; set; }
+
+        public IDataController dataController { get; set; }
 
         public eCommerceSystem(String config_path = @"..\eCommerce\Config.json" , string configData = "")
         {
@@ -56,6 +59,7 @@ namespace eCommerce.src.ServiceLayer
             RegisteredUserController = new RegisteredUserController(systemFacade);
             SystemAdminController = new SystemAdminController(systemFacade);
             StoreStaffController = new StoreStaffController(systemFacade);
+            dataController = new DataController(systemFacade);
         }
 
         // Guest User Functionality
@@ -258,14 +262,100 @@ namespace eCommerce.src.ServiceLayer
             }
             return res;
         }
-                // get income ?
-        
-        // display data
-        // notifications
-        // policies
-                
+        // get income ?
 
-            // fix not noti design maybe
+        // display data
+
+        public List<StoreService> GetAllStoresToDisplay()
+        {
+            return dataController.GetAllStoresToDisplay();
+        }
+
+        public List<ProductService> GetAllProductByStoreIDToDisplay(string storeID)
+        {
+            return dataController.GetAllProductByStoreIDToDisplay(storeID);
+        }
+
+        public Boolean[] GetPermission(string userID, string storeID)
+        {
+            return dataController.GetPermission(userID, storeID);
+        }
+        // notifications
+
+        /*
+         public List<Notification> GetPendingMessagesByUserID(string userId)
+        {
+            return this.notificationsService.GetPendingMessagesByUserID(userId);
+        }
+        */
+
+        // policies
+
+        public Result<bool> AddDiscountPolicy(string storeId, Dictionary<string, object> info)
+        {
+            return StoreStaffController.AddDiscountPolicy(storeId, info);
+        }
+
+        public Result<bool> AddDiscountPolicy(string storeId, Dictionary<string, object> info, String id)
+        {
+            return StoreStaffController.AddDiscountPolicy(storeId, info, id);
+        }
+
+        public Result<bool> AddDiscountCondition(string storeId, Dictionary<string, object> info, String id)
+        {
+            return StoreStaffController.AddDiscountCondition(storeId, info, id);
+        }
+
+        public Result<bool> RemoveDiscountPolicy(string storeId, String id)
+        {
+            return StoreStaffController.RemoveDiscountPolicy(storeId, id);
+        }
+
+        public Result<bool> RemoveDiscountCondition(string storeId, String id)
+        {
+            return StoreStaffController.RemoveDiscountCondition(storeId, id);
+        }
+
+        public Result<bool> EditDiscountPolicy(string storeId, Dictionary<string, object> info, String id)
+        {
+            return StoreStaffController.EditDiscountPolicy(storeId, info, id);
+        }
+
+        public Result<bool> EditDiscountCondition(string storeId, Dictionary<string, object> info, String id)
+        {
+            return StoreStaffController.EditDiscountCondition(storeId, info, id);
+        }
+
+        public Result<IDictionary<string, object>> GetDiscountPolicyData(string storeId)
+        {
+            return StoreStaffController.GetDiscountPolicyData(storeId);
+        }
+
+        public Result<IDictionary<string, object>> GetPurchasePolicyData(string storeId)
+        {
+            return StoreStaffController.GetPurchasePolicyData(storeId);
+        }
+
+        public Result<bool> AddPurchasePolicy(string storeId, Dictionary<string, object> info)
+        {
+            return StoreStaffController.AddPurchasePolicy(storeId, info);
+        }
+
+        public Result<bool> AddPurchasePolicy(string storeId, Dictionary<string, object> info, String id)
+        {
+            return StoreStaffController.AddPurchasePolicy(storeId, info, id);
+        }
+
+        public Result<bool> RemovePurchasePolicy(string storeId, String id)
+        {
+            return StoreStaffController.RemovePurchasePolicy(storeId, id);
+        }
+
+        public Result<bool> EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            return StoreStaffController.EditPurchasePolicy(storeId, info, id);
+        }
+        // fix not noti design maybe
 
 
 

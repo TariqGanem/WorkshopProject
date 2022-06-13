@@ -7,7 +7,11 @@ using System.Text.Json;
 using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
+using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies;
+using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountConditions;
+using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountComposition;
 using eCommerce.src.DomainLayer.Stores.Policies.Offer;
+using eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.DomainLayer.User.Roles;
 using eCommerce.src.ServiceLayer.ResultService;
@@ -468,6 +472,217 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 Stores.TryAdd(store.Id, store);
             }
+        }
+
+        public bool AddDiscountPolicy(string storeId, Dictionary<string, object> info)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                IDiscountPolicy res = store.AddDiscountPolicy(info);
+                // DB
+                dbutil.Create(res);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainDiscount", store.PolicyManager.MainDiscount.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainDiscount);
+                return true;
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        private void UpdatePolicyRoot(DiscountAddition discountRoot)
+        {
+            dbutil.DAO_DiscountAddition.Delete(Builders<BsonDocument>.Filter.Eq("_id", discountRoot.Id));
+            dbutil.Create(discountRoot);
+        }
+
+        private void UpdatePolicyRoot(BuyNow purchaseRoot)
+        {
+            dbutil.DAO_BuyNow.Delete(Builders<BsonDocument>.Filter.Eq("_id", purchaseRoot.Id));
+            dbutil.Create(purchaseRoot);
+            dbutil.Create(purchaseRoot.Policy);
+        }
+
+        public bool AddDiscountPolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                IDiscountPolicy res = store.AddDiscountPolicy(info, id);
+                // DB
+                dbutil.Create(res);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainDiscount", store.PolicyManager.MainDiscount.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainDiscount);
+
+                return true;
+               
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool RemoveDiscountPolicy(string storeId, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                //mapper.Load_StorePolicyManager(store);
+                IDiscountPolicy res = store.RemoveDiscountPolicy(id);
+                // Update in DB
+                dbutil.Delete(res);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainDiscount", store.PolicyManager.MainDiscount.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainDiscount);
+
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool EditDiscountCondition(string storeId, Dictionary<string, object> info, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                bool res = store.EditDiscountCondition(info, id);
+                // Update in DB
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainDiscount", store.PolicyManager.MainDiscount.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainDiscount);
+                return res;
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool AddPurchasePolicy(string storeId, Dictionary<string, object> info)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                IPurchasePolicy res = store.AddPurchasePolicy(info);
+                // Update in DB
+                dbutil.Create(res);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainPolicy", store.PolicyManager.MainPolicy.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainPolicy);
+
+                return true;
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                bool res = store.EditPurchasePolicy(info, id);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainPolicy", store.PolicyManager.MainPolicy.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainPolicy);
+                return res;
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool RemovePurchasePolicy(string storeId, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                IPurchasePolicy res = store.RemovePurchasePolicy(id);
+
+                // Update in DB
+                dbutil.Delete(res);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainPolicy", store.PolicyManager.MainPolicy.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainPolicy);
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool AddPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                IPurchasePolicy res = store.AddPurchasePolicy(info, id);
+                // Update in DB
+                dbutil.Create(res);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainPolicy", store.PolicyManager.MainPolicy.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainPolicy);
+                return true;
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public IDictionary<string, object> GetPurchasePolicyData(string storeId)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                return store.GetPurchasePolicyData();
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public IDictionary<string, object> GetDiscountPolicyData(string storeId)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                return store.GetPoliciesData();
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool EditDiscountPolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                bool res = store.EditDiscountPolicy(info, id);
+                    // Update in DB
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainDiscount", store.PolicyManager.MainDiscount.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainDiscount);
+                return res;
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool RemoveDiscountCondition(string storeId, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                IDiscountCondition res = store.RemoveDiscountCondition(id);
+                // Update in DB
+                dbutil.Delete(res);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainDiscount", store.PolicyManager.MainDiscount.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainDiscount);
+
+                
+            }
+            throw new Exception("Store does not exists\n");
+        }
+
+        public bool AddDiscountCondition(string storeId, Dictionary<string, object> info, string id)
+        {
+            if (Stores.TryGetValue(storeId, out Store store))
+            {
+                //mapper.Load_StorePolicyManager(store);
+                IDiscountCondition res = store.AddDiscountCondition(info, id);
+                // Update in DB
+                dbutil.Create(res);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
+                var update = Builders<BsonDocument>.Update.Set("MainDiscount", store.PolicyManager.MainDiscount.getDTO());
+                dbutil.UpdateStore(filter, update);
+                UpdatePolicyRoot(store.PolicyManager.MainDiscount);
+
+                return true;
+
+            }
+            throw new Exception("Store does not exists\n");
         }
     }
 }

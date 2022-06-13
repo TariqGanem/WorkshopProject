@@ -19,8 +19,11 @@ namespace eCommerce.src.DomainLayer
         void CloseStore(string userID, string storeID);
         #region Inventory Management
         String AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
+        List<StoreService> GetAllStoresToDisplay();
         void RemoveProductFromStore(String userID, String storeID, String productID);
         void EditProductDetails(String userID, String storeID, String productID, IDictionary<String, Object> details);
+        List<ProductService> GetAllProductByStoreIDToDisplay(string storeID);
+        bool[] GetPermission(string userID, string storeID);
         List<ProductService> SearchProduct(IDictionary<String, Object> productDetails);
         List<StoreService> SearchStore(IDictionary<String, Object> details);
         #endregion
@@ -61,6 +64,19 @@ namespace eCommerce.src.DomainLayer
         List<Dictionary<string, object>> getStoreOffers(string storeID);
         List<Dictionary<string, object>> getUserOffers(string userId);
         void resetSystem();
+        bool AddDiscountPolicy(string storeId, Dictionary<string, object> info);
+        bool AddDiscountPolicy(string storeId, Dictionary<string, object> info, string id);
+        bool AddDiscountCondition(string storeId, Dictionary<string, object> info, string id);
+        bool RemoveDiscountPolicy(string storeId, string id);
+        bool RemoveDiscountCondition(string storeId, string id);
+        bool EditDiscountPolicy(string storeId, Dictionary<string, object> info, string id);
+        bool EditDiscountCondition(string storeId, Dictionary<string, object> info, string id);
+        IDictionary<string, object> GetDiscountPolicyData(string storeId);
+        IDictionary<string, object> GetPurchasePolicyData(string storeId);
+        bool AddPurchasePolicy(string storeId, Dictionary<string, object> info);
+        bool AddPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
+        bool RemovePurchasePolicy(string storeId, string id);
+        bool EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
         #endregion
     }
 
@@ -466,6 +482,117 @@ namespace eCommerce.src.DomainLayer
             userFacade.resetSystem();
             storeFacade.resetSystem();
         }
+
+        public List<StoreService> GetAllStoresToDisplay()
+        {
+            List<Store.Store> stores = new List<Store.Store>(storeFacade.Stores.Values);
+            List<StoreService> storesService = new List<StoreService>();
+            foreach (Store.Store store in stores)
+            {
+                StoreService storeService = store.getSO();
+                storeService.Founder = null;
+                storeService.Owners = null;
+                storeService.Managers = null;
+                storeService.History = null;
+
+                storesService.Add(storeService);
+            }
+            return storesService;
+        }
+
+        public List<ProductService> GetAllProductByStoreIDToDisplay(string storeID)
+        {
+            Store.Store store = storeFacade.Stores[storeID];
+            List<Product> products = new List<Product>(store.InventoryManager.Products.Values);
+            List<ProductService> productsService = new List<ProductService>();
+            foreach (Product product in products)
+            {
+                ProductService productService = product.getSO();
+                productsService.Add(productService);
+            }
+            return productsService;
+        }
+
+        public bool[] GetPermission(string userID, string storeID)
+        {
+            Store.Store store = storeFacade.Stores[storeID];
+            return store.GetPermission(userID);
+        }
+
+        public bool AddDiscountPolicy(string storeId, Dictionary<string, object> info)
+        {
+            return storeFacade.AddDiscountPolicy(storeId, info);
+        }
+
+        public bool AddDiscountPolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            return storeFacade.AddDiscountPolicy(storeId, info, id);
+
+        }
+
+        public bool AddDiscountCondition(string storeId, Dictionary<string, object> info, string id)
+        {
+            return storeFacade.AddDiscountCondition(storeId, info, id);
+        }
+        public bool RemoveDiscountPolicy(string storeId, string id)
+        {
+            return storeFacade.RemoveDiscountPolicy(storeId, id);
+        }
+        public bool RemoveDiscountCondition(string storeId, string id)
+        {
+            return storeFacade.RemoveDiscountCondition(storeId, id);
+        }
+
+        public bool EditDiscountPolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            return storeFacade.EditDiscountPolicy(storeId,info, id);
+
+        }
+
+        public bool EditDiscountCondition(string storeId, Dictionary<string, object> info, string id)
+        {
+            return storeFacade.EditDiscountCondition(storeId, info, id);
+
+        }
+
+        public IDictionary<string, object> GetDiscountPolicyData(string storeId)
+        {
+            return storeFacade.GetDiscountPolicyData(storeId);
+
+        }
+
+        public IDictionary<string, object> GetPurchasePolicyData(string storeId)
+        {
+            return storeFacade.GetPurchasePolicyData(storeId);
+        }
+
+        public bool AddPurchasePolicy(string storeId, Dictionary<string, object> info)
+        {
+            return storeFacade.AddPurchasePolicy(storeId,info);
+        }
+
+        public bool AddPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            return storeFacade.AddPurchasePolicy(storeId, info,id);
+
+        }
+
+        public bool RemovePurchasePolicy(string storeId, string id)
+        {
+            return storeFacade.RemovePurchasePolicy(storeId,id);
+        }
+
+        public bool EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            return storeFacade.EditPurchasePolicy(storeId,info, id);
+
+        }
+
+
+
+
+
+
 
 
 

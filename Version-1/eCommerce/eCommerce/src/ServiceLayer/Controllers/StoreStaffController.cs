@@ -25,6 +25,19 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<bool> SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer);
         Result<List<Dictionary<string, object>>> getStoreOffers(string storeID);
         Result<List<Dictionary<string, object>>> getUserOffers(string userId);
+        Result<bool> AddDiscountPolicy(string storeId, Dictionary<string, object> info);
+        Result<bool> AddDiscountPolicy(string storeId, Dictionary<string, object> info, string id);
+        Result<bool> AddDiscountCondition(string storeId, Dictionary<string, object> info, string id);
+        Result<bool> RemoveDiscountPolicy(string storeId, string id);
+        Result<bool> RemoveDiscountCondition(string storeId, string id);
+        Result<bool> EditDiscountPolicy(string storeId, Dictionary<string, object> info, string id);
+        Result<bool> EditDiscountCondition(string storeId, Dictionary<string, object> info, string id);
+        Result<IDictionary<string, object>> GetDiscountPolicyData(string storeId);
+        Result<IDictionary<string, object>> GetPurchasePolicyData(string storeId);
+        Result<bool> AddPurchasePolicy(string storeId, Dictionary<string, object> info);
+        Result<bool> AddPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
+        Result<bool> RemovePurchasePolicy(string storeId, string id);
+        Result<bool> EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
     }
 
     public class StoreStaffController : IStoreStaffController
@@ -260,6 +273,182 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<List<Dictionary<string, object>>>(ex.ToString());
             }
         }
+
+        public Result<bool> AddDiscountPolicy(string storeId, Dictionary<string, object> info)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.AddDiscountPolicy(storeId,info));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> AddDiscountPolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.AddDiscountPolicy(storeId, info,id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> AddDiscountCondition(string storeId, Dictionary<string, object> info, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.AddDiscountCondition(storeId, info, id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> RemoveDiscountPolicy(string storeId, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.RemoveDiscountPolicy(storeId, id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> RemoveDiscountCondition(string storeId, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.RemoveDiscountCondition(storeId, id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> EditDiscountPolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.EditDiscountPolicy(storeId,info, id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> EditDiscountCondition(string storeId, Dictionary<string, object> info, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.EditDiscountCondition(storeId, info, id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<IDictionary<string, object>> GetDiscountPolicyData(string storeId)
+        {
+            try
+            {
+                return new Result<IDictionary<string, object>>(SystemFacade.GetDiscountPolicyData(storeId));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<IDictionary<string, object>>(ex.ToString());
+            }
+        }
+
+        public Result<IDictionary<string, object>> GetPurchasePolicyData(string storeId)
+        {
+            try
+            {
+                return new Result<IDictionary<string, object>>(SystemFacade.GetPurchasePolicyData(storeId));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<IDictionary<string, object>>(ex.ToString());
+            }
+        }
+
+        public Result<bool> AddPurchasePolicy(string storeId, Dictionary<string, object> info)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.AddPurchasePolicy(storeId, info));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> AddPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.AddPurchasePolicy(storeId, info,id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> RemovePurchasePolicy(string storeId, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.RemovePurchasePolicy(storeId, id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<bool> EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.EditPurchasePolicy(storeId, info,id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+
+
+
+
+
+
 
 
 

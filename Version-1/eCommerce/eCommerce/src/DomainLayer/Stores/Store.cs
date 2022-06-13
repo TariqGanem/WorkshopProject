@@ -11,6 +11,10 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DomainLayer.Stores.Policies.Offer;
+using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies;
+using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountConditions;
+using eCommerce.src.ServiceLayer.ResultService;
+using eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -495,6 +499,106 @@ namespace eCommerce.src.DomainLayer.Store
             return new DTO_Store(Id, Name, Founder.User.Id, owners_dto, managers_dto,
                        inventoryManagerProducts_dto, History.getDTO(), Rate, NumberOfRates, this.Active);
 
+        }
+
+        public IDiscountPolicy AddDiscountPolicy(Dictionary<string, object> info)
+        {
+            return this.PolicyManager.AddDiscountPolicy(info);
+        }
+
+        public IDiscountPolicy AddDiscountPolicy(Dictionary<string, object> info, string id)
+        {
+            return PolicyManager.AddDiscountPolicy(info, id);
+        }
+
+        public bool[] GetPermission(string userID)
+        {
+            return getUserPermissionByID(userID);
+        }
+
+        private Boolean[] getUserPermissionByID(string userID)
+        {
+            Boolean[] per = new Boolean[13];
+            foreach (var user in Owners)
+            {
+                if (user.Key == userID)
+                {
+                    StoreOwner owner = user.Value;
+                    for (int i = 0; i < per.Length; i++)
+                    {
+                        per[i] = true;
+                    }
+                    return per;
+                }
+            }
+            foreach (var user in Managers)
+            {
+                if (user.Key == userID)
+                {
+                    StoreManager manager = user.Value;
+                    return (Boolean[])manager.Permission.functionsBitMask;
+                }
+            }
+            for (int i = 0; i < per.Length; i++)
+            {
+                per[i] = false;
+            }
+            return per;
+        }
+
+        public IDiscountCondition AddDiscountCondition(Dictionary<string, object> info, string id)
+        {
+            return PolicyManager.AddDiscountCondition(info, id);
+        }
+
+        public IDiscountPolicy RemoveDiscountPolicy(string id)
+        {
+            return PolicyManager.RemoveDiscountPolicy(id);
+        }
+
+        public IDiscountCondition RemoveDiscountCondition(string id)
+        {
+            return PolicyManager.RemoveDiscountCondition(id);
+        }
+
+        public bool EditDiscountPolicy(Dictionary<string, object> info, string id)
+        {
+            return PolicyManager.EditDiscountPolicy(info, id);
+        }
+
+        public bool EditDiscountCondition(Dictionary<string, object> info, string id)
+        {
+            return PolicyManager.EditDiscountCondition(info, id);
+        }
+
+        public IDictionary<string, object> GetPoliciesData()
+        {
+            return PolicyManager.GetDiscountPolicyData();
+        }
+
+        public IDictionary<string, object> GetPurchasePolicyData()
+        {
+            return PolicyManager.GetPurchasePolicyData();
+        }
+
+        public IPurchasePolicy AddPurchasePolicy(Dictionary<string, object> info)
+        {
+            return PolicyManager.AddPurchasePolicy(info);
+        }
+
+        public IPurchasePolicy AddPurchasePolicy(Dictionary<string, object> info, string id)
+        {
+            return PolicyManager.AddPurchasePolicy(info, id);
+        }
+
+        public bool EditPurchasePolicy(Dictionary<string, object> info, string id)
+        {
+            return PolicyManager.EditPurchasePolicy(info, id);
+        }
+
+        public IPurchasePolicy RemovePurchasePolicy(string id)
+        {
+            return PolicyManager.RemovePurchasePolicy(id);
         }
     }
 }
