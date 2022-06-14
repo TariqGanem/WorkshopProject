@@ -240,7 +240,7 @@ namespace eCommerce.src.DomainLayer.User
                 ShoppingCart ShoppingCart = registerd_user.Purchase(paymentDetails, deliveryDetails, session);
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", registerd_user.Id);
                 ShoppingCart sc = registerd_user.ShoppingCart;
-                var update_shoppingcart = Builders<BsonDocument>.Update.Set("ShoppingCart", sc.getDTO());
+                var update_shoppingcart = Builders<BsonDocument>.Update.Set("ShoppingCart", sc.getDTO()).Set("History",registerd_user.History.getDTO());
                 dbutil.UpdateRegisteredUser(filter, update_shoppingcart, session: session);
                 return ShoppingCart;
             }

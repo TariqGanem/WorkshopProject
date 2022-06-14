@@ -21,14 +21,45 @@ namespace eCommerce
         {
             //DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority", "TestScenario1").clearDB();
             //return;
-            ContScenario2();
+            ContScenaro1_2();
         }
 
-        public static void ContScenario2()
+        public static void ContScenaro1_2()
         {
             eCommerceSystem ecom = new eCommerceSystem();
-            String productid = ecom.AddProductToStore("a3b4aa6ed3394415ac2d6a1ed82202f7", "a17bfb5971ad46aab5a137b0be167e40", "Bamba", 30, 20, "food").Value;
-            ecom.AddProductRatingInStore("a3b4aa6ed3394415ac2d6a1ed82202f7", "a17bfb5971ad46aab5a137b0be167e40", productid, 4);
+            Result res = ecom.AddProductToCart("a730e8d505034f98ac1300ff876b9aff", "111a1479714b4ccda6391f74902326d6", 1, "34551bf3d1964171a2ffd13a6220434a");
+            if (res.ErrorOccured)
+            {
+                Console.WriteLine("\n1.!!!!!\n");
+                Console.WriteLine(res.ErrorMessage);
+            }
+            IDictionary<String, Object>  paymentDetails = new Dictionary<String, Object>
+                    {
+                     { "card_number", "2222333344445555" },
+                     { "month", "4" },
+                     { "year", "2021" },
+                     { "holder", "Israel Israelovice" },
+                     { "ccv", "262" },
+                     { "id", "20444444" }
+                    };
+            IDictionary<String, Object> deliveryDetails = new Dictionary<String, Object>
+                    {
+                     { "name", "Israel Israelovice" },
+                     { "address", "Rager Blvd 12" },
+                     { "city", "Beer Sheva" },
+                     { "country", "Israel" },
+                     { "zip", "8458527" }
+                    };
+            Result<ShoppingCartSO> shp = ecom.Purchase("a730e8d505034f98ac1300ff876b9aff", paymentDetails, deliveryDetails);
+            if (shp.ErrorOccured)
+                Console.Out.WriteLine(shp.ErrorMessage);
+            return;
+        }
+        public static void ContScenario1_1()
+        {
+            eCommerceSystem ecom = new eCommerceSystem();
+            String productid = ecom.AddProductToStore("a730e8d505034f98ac1300ff876b9aff", "34551bf3d1964171a2ffd13a6220434a", "Bamba", 30, 20, "food").Value;
+            ecom.AddProductRatingInStore("a730e8d505034f98ac1300ff876b9aff", "34551bf3d1964171a2ffd13a6220434a", productid, 4);
             return;
 
         }

@@ -166,7 +166,7 @@ namespace eCommerce.src.DomainLayer.Store
             foreach (var product in product_quantity)
             {
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", product.Key.Id);
-                var update_product = Builders<BsonDocument>.Update.Set("Quantity", product.Key.Quantity);
+                var update_product = Builders<BsonDocument>.Update.Set("Quantity", product.Key.Quantity-product.Value);
                 DBUtil.getInstance().UpdateProduct(filter, update_product, session);
             }
         }

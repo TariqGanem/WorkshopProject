@@ -39,7 +39,10 @@ namespace eCommerce.src.DomainLayer.User
         {
             if (product.Quantity >= quantity && quantity > 0)
             {
-                return Products.TryAdd(product, quantity);
+                bool res = Products.TryAdd(product, quantity);
+                if (res)
+                    TotalBagPrice = product.Price * quantity;
+                return res;
             }
             throw new Exception($"Asked quantity ({quantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).");
         }

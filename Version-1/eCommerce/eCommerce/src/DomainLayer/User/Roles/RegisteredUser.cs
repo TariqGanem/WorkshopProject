@@ -131,7 +131,7 @@ namespace eCommerce.src.DomainLayer.User
             return user;
         }
 
-        public new ShoppingCart Purchase(IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails, MongoDB.Driver.IClientSessionHandle session = null)
+        public ShoppingCart Purchase(IDictionary<string, object> paymentDetails, IDictionary<string, object> deliveryDetails, MongoDB.Driver.IClientSessionHandle session = null)
         {
             if (ShoppingCart.ShoppingBags.IsEmpty)
             {
@@ -144,15 +144,11 @@ namespace eCommerce.src.DomainLayer.User
                 History.AddPurchasedShoppingCart(ShoppingCart, session);
                 this.ShoppingCart = new ShoppingCart();          // create new shopping cart for user
 
-                Result<bool> removeAccatedOffersResult = removeAcceptedOffers(session);
+                bool removeAccatedOffersResult = removeAcceptedOffers(session);
             }
             return result;
         }
 
-        public Result<bool> removeAcceptedOffers(IClientSessionHandle session)
-        {
-            throw new NotImplementedException();
-        }
 
         public override bool AcceptOffer(string offerID)
         {

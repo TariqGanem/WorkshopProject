@@ -90,7 +90,7 @@ namespace eCommerce.src.ServiceLayer
 
         public Result AddProductToCart(string userID, string ProductID, int ProductQuantity, string StoreID)
         {
-            return GuestController.AddProductToCart(userID, ProductID, ProductQuantity, StoreID);
+            return UserController.AddProductToCart(userID, ProductID, ProductQuantity, StoreID);
         }
 
         public Result<ShoppingCartSO> GetUserShoppingCart(string userID)
@@ -128,7 +128,7 @@ namespace eCommerce.src.ServiceLayer
             return StoreStaffController.AnswerCounterOffer(userID, offerID, accepted);
         }
 
-        // reg user functionality
+        // reg user functionality // search product + search store + sendoffer to store
         public Result<RegisteredUserSO> Login(string email, string password)
         {
             return RegisteredUserController.Login(email, password);
@@ -153,9 +153,7 @@ namespace eCommerce.src.ServiceLayer
         {
             return RegisteredUserController.ReOpenStore(storeid, userid);
         }
-
-        // add product\store rating 
-
+        
         // store func
 
         public Result<String> AddProductToStore(string userID, string storeID, string productName, double price, int initialQuantity, string category, LinkedList<string> keywords = null)
