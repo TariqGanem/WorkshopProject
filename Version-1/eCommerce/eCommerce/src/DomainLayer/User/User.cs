@@ -33,18 +33,39 @@ namespace eCommerce.src.DomainLayer.User
 
         public void AddProductToCart(Product product, int productQuantity, Store.Store store)
         {
-            ShoppingBag sb;
             try
             {
-                ShoppingBag getSB = ShoppingCart.GetShoppingBag(store.Id);
-                getSB.AddProtuctToShoppingBag(product, productQuantity);
+                Monitor.Enter(product);
+                try
+                {
+                    ShoppingBag sb;
+                    Boolean res;
+                    try
+                    {
+                        sb = ShoppingCart.GetShoppingBag(store.Id);
+                    }
+                    catch (Exception ex)
+                    {
+                        sb = new ShoppingBag(this.Id, store);
+                        res = sb.AddProtuctToShoppingBag(product, productQuantity, AcceptedOffers);
+                        ShoppingCart.AddShoppingBagToCart(sb);
+                        ShoppingCart.GetTotalShoppingCartPrice(AcceptedOffers);
+                        return;
+                    }
+                    res = sb.AddProtuctToShoppingBag(product, productQuantity, AcceptedOffers);
+                    ShoppingCart.GetTotalShoppingCartPrice(AcceptedOffers);
+                    return;
+                }
+                finally
+                {
+                    Monitor.Exit(product);
+                }
             }
-            catch (Exception)
+            catch (SynchronizationLockException SyncEx)
             {
-                //else create shopping bag for storeID
-                sb = new ShoppingBag(this.Id, store);
-                sb.AddProtuctToShoppingBag(product, productQuantity);
-                ShoppingCart.AddShoppingBagToCart(sb);
+                Console.WriteLine("A SynchronizationLockException occurred. Message:");
+                Console.WriteLine(SyncEx.Message);
+                throw new Exception(SyncEx.Message);
             }
         }
 

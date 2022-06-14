@@ -47,6 +47,27 @@ namespace eCommerce.src.DomainLayer.User
             throw new Exception($"Asked quantity ({quantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).");
         }
 
+        public bool AddProtuctToShoppingBag(Product product, int productQuantity, List<Offer> acceptedOffers)
+        {
+            if (product.Quantity >= productQuantity && productQuantity > 0)
+            {
+                if (Products.TryGetValue(product, out int curquan))
+                {
+                    Products[product] = productQuantity + curquan;
+                    this.TotalBagPrice = GetTotalPrice(acceptedOffers);
+                    return true;
+                }
+                else
+                {
+                    Products.TryAdd(product, productQuantity);
+                    this.TotalBagPrice = GetTotalPrice(acceptedOffers);
+                    return true;
+                }
+            }
+            //else failed
+            throw new Exception($"Asked quantity ({productQuantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).\n");
+        }
+
         // This quantity will be the updated quantity of the product in the bag .
         // If negative or zero then the product will be removed
         public Boolean UpdateShoppingBag(Product product, int quantity)

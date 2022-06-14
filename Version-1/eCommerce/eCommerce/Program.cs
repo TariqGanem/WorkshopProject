@@ -21,9 +21,19 @@ namespace eCommerce
         {
             //DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority", "TestScenario1").clearDB();
             //return;
-            ContScenaro1_2();
+            Scenario1_checkAddtocart();
         }
-
+        public static void Scenario1_checkAddtocart()
+        {
+            eCommerceSystem ecom = new eCommerceSystem();
+            Result res = ecom.AddProductToCart("a730e8d505034f98ac1300ff876b9aff", "111a1479714b4ccda6391f74902326d6", 1, "34551bf3d1964171a2ffd13a6220434a");
+            if (res.ErrorOccured)
+            {
+                Console.WriteLine("\n1.!!!!!\n");
+                Console.WriteLine(res.ErrorMessage);
+            }
+            return;
+        }
         public static void ContScenaro1_2()
         {
             eCommerceSystem ecom = new eCommerceSystem();
