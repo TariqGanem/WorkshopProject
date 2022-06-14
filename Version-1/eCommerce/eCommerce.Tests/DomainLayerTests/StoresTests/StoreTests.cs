@@ -28,38 +28,11 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
         }
 
         [Theory()]
-        [Trait("Category","UnitTesting")]
-        [InlineData(2.2)]
-        [InlineData(0.9)]
-        [InlineData(5)]
-        [InlineData(1)]
-        public void AddRatingTests(double rating)
-        {
-            if (rating < 1 | rating > 5 )
-            {
-                try
-                {
-                    this.store.AddRating(rating);
-                }
-                catch (Exception e)
-                {
-                    Assert.Equal("Store Candy could not be rated. Please use number between 1 to 5", e.Message);
-                }
-            }
-            else
-            {
-                store.AddRating(rating);
-                Assert.Equal(store.Rate, rating);
-            }
-        }
-
-        [Theory()]
         [Trait("Category", "UnitTesting")]
         [InlineData(2.2)]
-        [InlineData(0.9)]
         [InlineData(5)]
         [InlineData(1)]
-        public void AddRatingsTests(double rating)
+        public void AddRatingsTestshappy(double rating)
         {
             if (rating < 1 | rating > 5)
             {
@@ -80,5 +53,27 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
             }
         }
 
+        [Trait("Category", "UnitTesting")]
+        [InlineData(0.9)]
+        public void AddRatingsTestssad(double rating)
+        {
+            if (rating < 1 | rating > 5)
+            {
+                try
+                {
+                    this.store.AddRating(rating);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("Store Candy could not be rated. Please use number between 1 to 5", e.Message);
+                }
+            }
+            else
+            {
+                addRatingsFurtherTesting();
+                store.AddRating(rating);
+                Assert.Equal(store.Rate, (2 + 3 + 4 + 3.4 + rating) / 5);
+            }
+        }
     }
 }

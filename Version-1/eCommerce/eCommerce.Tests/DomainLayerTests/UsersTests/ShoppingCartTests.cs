@@ -35,7 +35,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         }
 
         [Fact]
-        public void GetShoppingBag()
+        public void GetShoppingBaghappy()
         {
             bag1 = new ShoppingBag("1", s1);
             bag1.Products[new Product("a", 2, "b", 4)] = 3;
@@ -54,6 +54,23 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             Assert.AreEqual(new_bag1.UserId, bag1.UserId);
             Assert.AreEqual(new_bag1.Products, bag1.Products);
             Assert.AreEqual(new_bag1.TotalBagPrice,bag1.TotalBagPrice);
+        }
+
+        [Fact]
+        public void GetShoppingBagsad()
+        {
+            bag1 = new ShoppingBag("1", s1);
+            bag1.Products[new Product("a", 2, "b", 4)] = 3;
+            bag1.Products[new Product("aa", 3, "bb", 2)] = 1;
+
+            bag2 = new ShoppingBag("2", s2);
+            bag2.Products[new Product("aaa", 2, "bbb", 2)] = 1;
+            bag2.Products[new Product("aaaa", 3, "bbbb", 5)] = 4;
+
+            cart.ShoppingBags.TryAdd(s1.Id, bag1);
+            cart.ShoppingBags.TryAdd(s2.Id, bag2);
+
+            ShoppingBag new_bag1 = cart.GetShoppingBag(s1.Id);
 
             try
             {
@@ -66,7 +83,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         }
 
         [Fact]
-        public void AddShoppingBagToCart()
+        public void AddShoppingBagToCarthappy()
         {
             bag1 = new ShoppingBag("1", s1);
             bag1.Products[new Product("a", 2, "b", 4)] = 3;
@@ -89,7 +106,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
         }
 
         [Fact]
-        public void GetTotalShoppingCartPrice()
+        public void GetTotalShoppingCartPricehappy()
         {
             bag1 = new ShoppingBag("1", s1);
             bag1.Products[new Product("a", 2, "b", 4)] = 3;

@@ -9,6 +9,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
 {
     public interface IStoreStaffController
     {
+        Result<List<ProductService>> GetAllProducts(string storeId);
+        Result<List<StoreService>> GetAllStores();
         Result AddStoreOwner(String addedOwnerID, String currentlyOwnerID, String storeID);
         Result AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID);
         Result RemoveStoreManager(String removedManagerID, String currentlyOwnerID, String storeID);
@@ -187,6 +189,16 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 logger.LogError(error.Message);
                 return new Result<List<ProductService>>(error.Message);
             }
+        }
+
+        public Result<List<StoreService>> GetAllStores()
+        {
+            return new Result<List<StoreService>>(SystemFacade.GetAllStores());
+        }
+
+        public Result<List<ProductService>> GetAllProducts(string storeId)
+        {
+            return new Result<List<ProductService>>(SystemFacade.GetAllProducts(storeId));
         }
     }
 }

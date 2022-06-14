@@ -31,10 +31,8 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
         [Theory()]
         [Trait("Category", "UnitTesting")]
         [InlineData(2.8 , 2.8)]
-        [InlineData(0.8,0)]
         [InlineData(4,4)]
-        [InlineData(5.1, 5.1)]
-        public void addRating(double rate , double expected)
+        public void addRatinghappy(double rate , double expected)
         {
             if (rate < 1 | rate > 5)
             {
@@ -52,7 +50,30 @@ namespace eCommerceTests.DomainLayerTests.StoresTests
                 this.Product.AddRating(rate);
                 Assert.Equal(this.Product.Rate, expected);
             }
-            
+        }
+
+        [Theory()]
+        [Trait("Category", "UnitTesting")]
+        [InlineData(0.8, 0)]
+        [InlineData(5.1, 5.1)]
+        public void addRatingsad(double rate, double expected)
+        {
+            if (rate < 1 | rate > 5)
+            {
+                try
+                {
+                    this.Product.AddRating(rate);
+                }
+                catch (Exception e)
+                {
+                    Assert.Equal("Product RTX3080 could not be rated. Please use number between 1 to 5", e.Message);
+                }
+            }
+            else
+            {
+                this.Product.AddRating(rate);
+                Assert.Equal(this.Product.Rate, expected);
+            }
         }
     }
 }
