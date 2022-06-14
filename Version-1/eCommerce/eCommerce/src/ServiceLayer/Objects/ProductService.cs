@@ -21,5 +21,17 @@ namespace eCommerce.src.ServiceLayer.Objects
             Quantity = quantity;
             Category = category;
         }
+
+        // del me l8r
+        public string[] ToStringArray()
+        {
+            string[] output = new string[5];
+            output[0] = Id;
+            output[1] = Name;
+            output[2] = Price.ToString();
+            output[3] = Quantity.ToString();
+            output[4] = Category;
+            return output;
+        }
     }
 }
