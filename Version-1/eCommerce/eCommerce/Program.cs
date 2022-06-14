@@ -26,10 +26,11 @@ namespace eCommerce
         public static void Scenario1_checkAddtocart()
         {
             eCommerceSystem ecom = new eCommerceSystem();
-            Result res = ecom.AddProductToCart("a730e8d505034f98ac1300ff876b9aff", "111a1479714b4ccda6391f74902326d6", 1, "34551bf3d1964171a2ffd13a6220434a");
+            Result res = ecom.AddProductToCart("8fbbf3df965146a584abd4d45cf6f628", "d329edb3df6540ef8a6dd20c33b92625", 1, "3f28395f92104aeab4039f248b92b22d");            
+            res = ecom.AddProductToCart("8fbbf3df965146a584abd4d45cf6f628", "d329edb3df6540ef8a6dd20c33b92625", 1, "3f28395f92104aeab4039f248b92b22d");
             if (res.ErrorOccured)
             {
-                Console.WriteLine("\n1.!!!!!\n");
+                //Console.WriteLine("\n1.!!!!!\n");
                 Console.WriteLine(res.ErrorMessage);
             }
             return;
@@ -37,7 +38,7 @@ namespace eCommerce
         public static void ContScenaro1_2()
         {
             eCommerceSystem ecom = new eCommerceSystem();
-            Result res = ecom.AddProductToCart("a730e8d505034f98ac1300ff876b9aff", "111a1479714b4ccda6391f74902326d6", 1, "34551bf3d1964171a2ffd13a6220434a");
+            Result res = ecom.AddProductToCart("8fbbf3df965146a584abd4d45cf6f628", "d329edb3df6540ef8a6dd20c33b92625", 5, "3f28395f92104aeab4039f248b92b22d");
             if (res.ErrorOccured)
             {
                 Console.WriteLine("\n1.!!!!!\n");
@@ -60,7 +61,7 @@ namespace eCommerce
                      { "country", "Israel" },
                      { "zip", "8458527" }
                     };
-            Result<ShoppingCartSO> shp = ecom.Purchase("a730e8d505034f98ac1300ff876b9aff", paymentDetails, deliveryDetails);
+            Result<ShoppingCartSO> shp = ecom.Purchase("8fbbf3df965146a584abd4d45cf6f628", paymentDetails, deliveryDetails);
             if (shp.ErrorOccured)
                 Console.Out.WriteLine(shp.ErrorMessage);
             return;
@@ -68,8 +69,8 @@ namespace eCommerce
         public static void ContScenario1_1()
         {
             eCommerceSystem ecom = new eCommerceSystem();
-            String productid = ecom.AddProductToStore("a730e8d505034f98ac1300ff876b9aff", "34551bf3d1964171a2ffd13a6220434a", "Bamba", 30, 20, "food").Value;
-            ecom.AddProductRatingInStore("a730e8d505034f98ac1300ff876b9aff", "34551bf3d1964171a2ffd13a6220434a", productid, 4);
+            String productid = ecom.AddProductToStore("8fbbf3df965146a584abd4d45cf6f628", "3f28395f92104aeab4039f248b92b22d", "Bamba", 30, 20, "food").Value;
+            ecom.AddProductRatingInStore("8fbbf3df965146a584abd4d45cf6f628", "3f28395f92104aeab4039f248b92b22d", productid, 4);
             return;
 
         }
