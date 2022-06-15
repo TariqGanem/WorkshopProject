@@ -25,6 +25,21 @@ namespace eCommerce.src.ServiceLayer.Objects
             }
             this.TotalPrice = shoppingCart.TotalCartPrice;
         }
+
+        public String[][] toArray()
+        {
+            String[][] strmat = new string[shoppingBags.Count+1][];
+            int i = 0;
+            foreach(KeyValuePair<string,ShoppingBagSO> shb in shoppingBags)
+            {
+                strmat[i] = shb.Value.toArray();
+                i++;
+            }
+            strmat[strmat.Length - 1] = new String[3];
+            strmat[strmat.Length - 1][0] = TotalPrice.ToString();
+            return strmat;
+
+        }
         #endregion
     }
 }

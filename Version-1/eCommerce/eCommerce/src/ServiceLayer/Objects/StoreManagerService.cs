@@ -20,5 +20,10 @@ namespace eCommerce.src.ServiceLayer.Objects
             OwnerId = ownerID;
         }
 
+        public Boolean[] getPermissions()
+        {
+            return Permissions.toArray();
+        }
+
     }
 }

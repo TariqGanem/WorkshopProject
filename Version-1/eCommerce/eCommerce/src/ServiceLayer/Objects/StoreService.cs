@@ -27,5 +27,16 @@ namespace eCommerce.src.ServiceLayer.Objects
             Rate = rating;
             NumberOfRates = numberOfRates;
         }
+
+        public string[] ToStringArray()
+        {
+            string[] output = new string[5];
+            output[0] = Id;
+            output[1] = Name;
+            output[2] = Founder;
+            output[3] = Rate.ToString();
+            output[4] = NumberOfRates.ToString();
+            return output;
+        }
     }
 }

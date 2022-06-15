@@ -18,6 +18,7 @@ namespace Client.Code
         public string GuestLogin()
         {
             string param = "";
+
             return system.SendApi("Login", param);
         }
 

@@ -19,6 +19,9 @@ namespace eCommerce.src.ServiceLayer.Objects
             this.Id = id;
             this.Cart = cart;
         }
+
+        public abstract String[] toArray();
+
         #endregion
     }
 
@@ -27,6 +30,16 @@ namespace eCommerce.src.ServiceLayer.Objects
         #region constructos
         public GuestUserSO(string id, ShoppingCartSO cart) : base(id, cart) { }
         public GuestUserSO(GuestUser guest) : base(guest.Id, new ShoppingCartSO(guest.ShoppingCart)) { }
+
+        public override string[] toArray()
+        {
+            String[] str = new string[2];
+            str[0] = Id;
+            str[1] = Cart.Id;
+            return str;
+        }
+
+
         #endregion
     }
 
@@ -41,6 +54,15 @@ namespace eCommerce.src.ServiceLayer.Objects
         {
             this.UserName = user.UserName;
             this.Active = user.Active;
+        }
+
+        public override string[] toArray()
+        {
+            String[] str = new string[3];
+            str[0] = Id;
+            str[1] = Cart.Id;
+            str[2] = UserName;
+            return str;
         }
         #endregion
     }

@@ -15,7 +15,7 @@ namespace Client.Code
         public DataSet search(string keyword)
         {
             string param = string.Format("keyword={0}", keyword);
-            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("search", param).ToString());
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("SearchProduct", param).ToString());
             DataTable t1 = new DataTable("products");
             t1.Columns.Add("Id");
             t1.Columns.Add("Name");

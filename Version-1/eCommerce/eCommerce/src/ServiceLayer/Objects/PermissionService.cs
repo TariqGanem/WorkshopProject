@@ -16,5 +16,10 @@ namespace eCommerce.src.ServiceLayer.Objects
             this.isOwner = isOwner;
             this.functionsBitMask = functionsBitMask;
         }
+
+        public Boolean[] toArray()
+        {
+            return functionsBitMask;
+        }
     }
 }

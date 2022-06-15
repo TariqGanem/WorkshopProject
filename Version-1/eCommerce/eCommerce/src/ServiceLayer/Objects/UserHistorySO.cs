@@ -20,5 +20,15 @@ namespace eCommerce.src.ServiceLayer.Objects
                 ShoppingBags.AddLast(new ShoppingBagSO(bag));
             }
         }
+
+        public String[][] toArray()
+        {
+            List<String[]> str = new List<string[]>();
+            foreach(ShoppingBagSO shb in ShoppingBags)
+            {
+                str.Add(shb.toArray());
+            }
+            return str.ToArray();
+        }
     }
 }

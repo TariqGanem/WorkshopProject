@@ -33,13 +33,13 @@ namespace Client
             else if (Session["username"] == null)
             {
                 UserHandler h = new UserHandler();
-                Session["username"] = h.GuestLogin().ToString();
-                Labelname.Text = "Hello " + Session["username"].ToString();
+                Session["username"] = h.GuestLogin();
+                Labelname.Text = "Hello " + Session["username"];
                 Labelname.Visible = true;
             }
             else
             {
-                Labelname.Text = "Hello " + Session["username"].ToString();
+                Labelname.Text = "Hello " + Session["username"];
                 Labelname.Visible = true;
             }
         }
