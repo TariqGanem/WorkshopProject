@@ -8,13 +8,13 @@ using System.Web.Http.Cors;
 using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
-using ServerApi.src;
-using Logger = ServerApi.src.Logger;
+using Server.src;
+using Logger = Server.src.Logger;
 
 namespace Server.src
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    internal class FacadeController : ApiController
+    public class FacadeController : ApiController
     {
         eCommerceSystem system = new eCommerceSystem();
 

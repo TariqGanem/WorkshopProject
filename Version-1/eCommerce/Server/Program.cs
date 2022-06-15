@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Fleck;
 using Microsoft.Owin.Hosting;
-using ServerApi.src;
+using Server.src;
 using System.Data.Entity.Validation;
 
 namespace Server
@@ -95,8 +95,9 @@ namespace Server
             {
                 try
                 {
+                    FacadeController fc = new FacadeController();
                     string domainAddress = "https://localhost:44300/";
-                    using (WebApp.Start(url: domainAddress))
+                    using (WebApp.Start<Startup>(url: domainAddress))
                     {
                         Console.WriteLine("Service Hosted " + domainAddress);
                         //infinite waiting period
@@ -106,6 +107,7 @@ namespace Server
                 }
                 catch (DbEntityValidationException e)
                 {
+                    Console.WriteLine("?");
                     foreach (var eve in e.EntityValidationErrors)
                     {
                         Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
@@ -119,7 +121,9 @@ namespace Server
                     throw;
                 }
             });
+            thread2.Start();
             t1.Start();
+            thread2.Join();
             t1.Join();
             Console.ReadLine();
         }

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerApi.src
+namespace Server.src
 {
     internal class Logger
     {
-        private static string path = Path.GetFullPath(@"..\..\..\ServerApi\");
+        private static string path = Path.GetFullPath(@"..\..\..\Server\");
         private static object _myLock = new object();
         private static Logger logger = null;
 

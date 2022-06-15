@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-[assembly: Microsoft.Owin.OwinStartup(typeof(ServerApi.src.Startup))]
+[assembly: Microsoft.Owin.OwinStartup(typeof(Server.Startup))]
 
 
-namespace ServerApi.src
+namespace Server
 {
-    internal class Startup
+    public class Startup
     {
         public void Configuration(IAppBuilder appBuilder)
         {

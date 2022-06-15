@@ -63,7 +63,7 @@ namespace Client
             else
             {
                 string msg = new UserHandler().Login(txtusername.Text, txtpassword.Text);
-                if (!msg.Equals(""))
+                if (msg.Substring(0,6) != "Error:")
                 {
                     ButtonLogOut.Visible = true;
                     Login_table.Visible = false;
@@ -84,7 +84,7 @@ namespace Client
                 else
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage",
-                        "alert('failed login')", true);
+                        $"alert('{msg}')", true);
                 }
             }
         }
