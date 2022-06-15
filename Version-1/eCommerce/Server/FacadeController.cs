@@ -1,28 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
-using Server.src;
 using Logger = Server.src.Logger;
 
-namespace Server.src
+namespace Server
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class FacadeController : ApiController
     {
-        eCommerceSystem system = new eCommerceSystem();
+        eCommerceSystem facade = new eCommerceSystem();
 
         // guest user
         [HttpGet]
         public string Login()
         {
-            Result<GuestUserSO> output = system.GuestLogin();
+            Result<GuestUserSO> output = facade.GuestLogin();
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -36,7 +32,7 @@ namespace Server.src
         [HttpGet]
         public string Login(string username, string password)
         {
-            Result< RegisteredUserSO> output = system.Login(username, password);
+            Result< RegisteredUserSO> output = facade.Login(username, password);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -49,7 +45,7 @@ namespace Server.src
         [HttpGet]
         public bool Logout(string username)
         {
-            Result output = system.Logout(username);
+            Result output = facade.Logout(username);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -62,7 +58,7 @@ namespace Server.src
         [HttpGet]
         public String Register(string username, string password)
         {
-            Result<RegisteredUserSO> output = system.Register(username, password);
+            Result<RegisteredUserSO> output = facade.Register(username, password);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -92,7 +88,7 @@ namespace Server.src
                      { "country", "Israel" },
                      { "zip", "8458527" }
                     };
-            Result output = system.Purchase(userName, paymentDetails, deliveryDetails);
+            Result output = facade.Purchase(userName, paymentDetails, deliveryDetails);
             if (!output.ErrorOccured)
                 Logger.GetInstance().Event(userName + "has purchased succesfully ");
             else
@@ -103,7 +99,7 @@ namespace Server.src
         [HttpGet]
         public bool UpdateCart(string userId, string storeId, string productId, int newAmount)
         {
-            Result output = system.UpdateShoppingCart(userId, storeId, productId, newAmount);
+            Result output = facade.UpdateShoppingCart(userId, storeId, productId, newAmount);
             if (output.ErrorOccured)
                 Logger.GetInstance().Event("cart has updated succesfully ");
             else
@@ -115,7 +111,7 @@ namespace Server.src
         [HttpGet]
         public bool AddProductToCart(string userId, string productId, int quantity, string storeId)
         {
-            bool output = !system.AddProductToCart(userId, productId, quantity, storeId).ErrorOccured;
+            bool output = !facade.AddProductToCart(userId, productId, quantity, storeId).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(userId + " has has added product :" + productId + "form store: " + storeId + " to his Cart");
             else
@@ -126,7 +122,7 @@ namespace Server.src
         [HttpGet]
         public bool RemoveProductFromCart(string userId, string storeId, string productId)
         {
-            bool output = !system.UpdateShoppingCart(userId, storeId, productId, 0).ErrorOccured;
+            bool output = !facade.UpdateShoppingCart(userId, storeId, productId, 0).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(userId + " has has added product :" + productId + "form store: " + storeId + " to his cart");
             else
@@ -137,7 +133,7 @@ namespace Server.src
         [HttpGet]
         public bool AddProductToStore(string userId, string storeId, string productName, int price, int quantity, string category)
         {
-            bool output = !system.AddProductToStore(userId, storeId, productName, price, quantity, category).ErrorOccured;
+            bool output = !facade.AddProductToStore(userId, storeId, productName, price, quantity, category).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(" user: " + userId + " product: " + productName + " has been added to the shop : " + storeId);
             else
@@ -148,7 +144,7 @@ namespace Server.src
         [HttpGet]
         public bool RemoveProductFromStore(String userID, String storeID, String productID)
         {
-            bool output = !system.RemoveProductFromStore(userID, storeID, productID).ErrorOccured;
+            bool output = !facade.RemoveProductFromStore(userID, storeID, productID).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(" user: " + userID + " product: " + productID + " has been removed from the shop : " + storeID);
             else
@@ -159,7 +155,7 @@ namespace Server.src
         [HttpGet]
         public String OpenShop(string storeName, string userId)
         {
-            Result<StoreService> output = system.OpenNewStore(storeName, userId);
+            Result<StoreService> output = facade.OpenNewStore(storeName, userId);
             if(output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -172,7 +168,7 @@ namespace Server.src
         [HttpGet]
         public bool CloseShop(string storeId, string userId)
         {
-            Result output = system.CloseStore(storeId, userId);
+            Result output = facade.CloseStore(storeId, userId);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -185,7 +181,7 @@ namespace Server.src
         [HttpGet]
         public bool makeNewOwner(string newOwnerId, string currentOwnerId, string storeId)
         {
-            bool output = !system.AddStoreOwner(newOwnerId, currentOwnerId, storeId).ErrorOccured;
+            bool output = !facade.AddStoreOwner(newOwnerId, currentOwnerId, storeId).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(currentOwnerId + " has make new owner for " + storeId);
             else
@@ -196,8 +192,8 @@ namespace Server.src
         [HttpGet]
         public bool AddStoreManager(string storeId, string currentOwnerId, string newManagerId, LinkedList<int> permissions)
         {
-            bool output = !system.AddStoreManager(newManagerId, currentOwnerId, storeId).ErrorOccured;
-            output = output && !system.SetPermissions(storeId, newManagerId, currentOwnerId, permissions).ErrorOccured;
+            bool output = !facade.AddStoreManager(newManagerId, currentOwnerId, storeId).ErrorOccured;
+            output = output && !facade.SetPermissions(storeId, newManagerId, currentOwnerId, permissions).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(currentOwnerId + " has make new manager " + newManagerId + " for " + storeId);
             else
@@ -208,7 +204,7 @@ namespace Server.src
         [HttpGet]
         public bool removeManager(string currentOwnerId, string storeId, string ManagerToRemove)
         {
-            bool output = !system.RemoveStoreManager(ManagerToRemove, currentOwnerId, storeId).ErrorOccured;
+            bool output = !facade.RemoveStoreManager(ManagerToRemove, currentOwnerId, storeId).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(currentOwnerId + " has has removed manager" + ManagerToRemove + "form store: " + storeId);
             else
@@ -218,7 +214,7 @@ namespace Server.src
 
         public bool removeOwner(string currentOwnerId, string storeId, string OwnerToRemove)
         {
-            bool output = !system.RemoveStoreOwner(OwnerToRemove, currentOwnerId, storeId).ErrorOccured;
+            bool output = !facade.RemoveStoreOwner(OwnerToRemove, currentOwnerId, storeId).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(currentOwnerId + " has has removed manager" + OwnerToRemove + "form store: " + storeId);
             else
@@ -232,7 +228,7 @@ namespace Server.src
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters["KeyWords"] = keyword;
-            Result<List<ProductService>> results = system.SearchProduct(parameters);
+            Result<List<ProductService>> results = facade.SearchProduct(parameters);
             if (results.ErrorOccured)
             {
                 return new string[0][];
@@ -251,7 +247,7 @@ namespace Server.src
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters["Name"] = name;
-            Result<List<StoreService>> results = system.SearchStore(parameters);
+            Result<List<StoreService>> results = facade.SearchStore(parameters);
             if (results.ErrorOccured)
             {
                 return new string[0][];
@@ -268,7 +264,7 @@ namespace Server.src
         [HttpGet]
         public string[][] getUserShoppingCart(string userid)
         {
-            Result<ShoppingCartSO> output = system.GetUserShoppingCart(userid);
+            Result<ShoppingCartSO> output = facade.GetUserShoppingCart(userid);
             if(output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -280,7 +276,7 @@ namespace Server.src
         [HttpGet]
         public string[][] getUserPurchaseHistory(string userid)
         {
-            Result<UserHistorySO> output = system.GetUserPurchaseHistory(userid);
+            Result<UserHistorySO> output = facade.GetUserPurchaseHistory(userid);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -292,7 +288,7 @@ namespace Server.src
         [HttpGet]
         public bool reOpenStore(string storeid, string userid)
         {
-            Result<StoreService> output = system.ReOpenStore(storeid,userid);
+            Result<StoreService> output = facade.ReOpenStore(storeid,userid);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -305,7 +301,7 @@ namespace Server.src
         [HttpGet]
         public bool editProductDetail(string userID, string storeID, string productID, IDictionary<string, object> details)
         {
-            Result output = system.EditProductDetails(userID, storeID, productID, details);
+            Result output = facade.EditProductDetails(userID, storeID, productID, details);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -318,7 +314,7 @@ namespace Server.src
         [HttpGet]
         public bool SetPermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
         {
-            Result output = system.SetPermissions(storeID, managerID, ownerID, permissions);
+            Result output = facade.SetPermissions(storeID, managerID, ownerID, permissions);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -331,7 +327,7 @@ namespace Server.src
         [HttpGet]
         public bool RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
         {
-            Result output = system.RemovePermissions(storeID, managerID, ownerID, permissions);
+            Result output = facade.RemovePermissions(storeID, managerID, ownerID, permissions);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -344,7 +340,7 @@ namespace Server.src
         [HttpGet]
         public String[] GetStoreStaff(string ownerID, string storeID)
         {
-            Result<Dictionary<IStaffService, PermissionService>> output = system.GetStoreStaff(ownerID, storeID);
+            Result<Dictionary<IStaffService, PermissionService>> output = facade.GetStoreStaff(ownerID, storeID);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -364,7 +360,7 @@ namespace Server.src
         [HttpGet]
         public bool AddStoreRating(String userid, String storeid, double rate)
         {
-            Result<bool> output = system.AddStoreRating(userid, storeid, rate);
+            Result<bool> output = facade.AddStoreRating(userid, storeid, rate);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -377,7 +373,7 @@ namespace Server.src
         [HttpGet]
         public bool addProductRating(String userid, String storeid, String productid, double rate)
         {
-            Result<bool> output = system.AddProductRatingInStore(userid, storeid, productid, rate);
+            Result<bool> output = facade.AddProductRatingInStore(userid, storeid, productid, rate);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -390,7 +386,7 @@ namespace Server.src
         [HttpGet]
         public string[][] getAllStores()
         {
-            List<StoreService> output = system.GetAllStoresToDisplay();
+            List<StoreService> output = facade.GetAllStoresToDisplay();
             String[][] ret = new string[output.Count][];
             int i = 0;
             foreach (StoreService item in output)
@@ -404,7 +400,7 @@ namespace Server.src
         [HttpGet]
         public String[][] GetAllProductByStoreIDToDisplay(string storeID)
         {
-            List<ProductService> output = system.GetAllProductByStoreIDToDisplay(storeID);
+            List<ProductService> output = facade.GetAllProductByStoreIDToDisplay(storeID);
             String[][] ret = new string[output.Count][];
             int i = 0;
             foreach (ProductService item in output)
@@ -418,14 +414,14 @@ namespace Server.src
         [HttpGet]
         public Boolean[] getPermissions(string userID, string storeID)
         {
-            Boolean[] output = system.GetPermission(userID,storeID);
+            Boolean[] output = facade.GetPermission(userID,storeID);
             return output;
         }
 
         [HttpGet]
         public String getTotalShoppingCartPrice(string userid)
         {
-            Result<double> output = system.GetTotalShoppingCartPrice(userid);
+            Result<double> output = facade.GetTotalShoppingCartPrice(userid);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);

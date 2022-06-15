@@ -96,7 +96,7 @@ namespace Server
                 try
                 {
                     FacadeController fc = new FacadeController();
-                    string domainAddress = "https://localhost:44300/";
+                    string domainAddress = "https://127.0.0.1:5000/";
                     using (WebApp.Start<Startup>(url: domainAddress))
                     {
                         Console.WriteLine("Service Hosted " + domainAddress);

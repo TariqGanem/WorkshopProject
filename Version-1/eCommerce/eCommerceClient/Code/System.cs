@@ -9,7 +9,7 @@ namespace Client.Code
 {
     public class system
     {
-        private const string server_domain = "https://localhost:44300/api";
+        private const string server_domain = "https://127.0.0.1:5000/api";
 
         public static string SendApi(string method_name, string Parameters)
         {
