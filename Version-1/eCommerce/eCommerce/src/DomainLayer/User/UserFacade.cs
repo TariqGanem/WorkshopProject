@@ -90,7 +90,7 @@ namespace eCommerce.src.DomainLayer.User
             if (GuestUsers.TryGetValue(userId, out GuestUser guestUser))
             {
                 guestUser.Logout();
-                GuestUsers.Remove(userId, out GuestUser dump);
+                GuestUsers.TryRemove(userId, out GuestUser dump);
             }
             else if (RegisteredUsers.TryGetValue(userId, out RegisteredUser registeredUser))
             {
@@ -474,9 +474,9 @@ namespace eCommerce.src.DomainLayer.User
             DTO_RegisteredUser user_dto = defaultUser.getDTO();
             var filter_gu = Builders<BsonDocument>.Filter.Eq("_id", "-777");
             var update_gu = Builders<BsonDocument>.Update.Set("ShoppingCart", user_dto.ShoppingCart)
-                                                         .Set("Email", user_dto.UserName)
-                                                         .Set("Password", user_dto._password)
-                                                         .Set("LoggedIn", user_dto.Active)
+                                                         .Set("UserName", user_dto.UserName)
+                                                         .Set("_password", user_dto._password)
+                                                         .Set("Active", user_dto.Active)
                                                          .Set("History", user_dto.History)
                                                          .Set("PendingNotification", user_dto.PendingNotification);
             dbutil.UpdateRegisteredUser(filter_gu, update_gu, true);

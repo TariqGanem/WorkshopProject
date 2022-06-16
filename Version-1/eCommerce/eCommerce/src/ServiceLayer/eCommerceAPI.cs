@@ -29,7 +29,7 @@ namespace eCommerce.src.ServiceLayer
 
         public IDataController dataController { get; set; }
 
-        public eCommerceSystem(String config_path = @"..\..\..\src\Config.json" , string configData = "")
+        public eCommerceSystem(String config_path = @"..\..\src\Config.json" , string configData = "")
         {
             Config config;
             if (!(configData.Equals(String.Empty)))

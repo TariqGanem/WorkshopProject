@@ -28,7 +28,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             cart.AddShoppingBagToCart(new ShoppingBag("2", mashbir));
             cart.AddShoppingBagToCart(new ShoppingBag("3", shofersal));
 
-            history.AddPurchasedShoppingCart(cart);
+            //history.AddPurchasedShoppingCart(cart);
             Assert.That(history.ShoppingBags.Count, Is.EqualTo(3));
             Assert.IsTrue(history.ShoppingBags.Contains(cart.ShoppingBags[mashbir.Id]));
             Assert.IsTrue(history.ShoppingBags.Contains(cart.ShoppingBags[shofersal.Id]));
@@ -42,7 +42,7 @@ namespace eCommerce.Tests.DomainLayerTests.UsersTests
             cart.AddShoppingBagToCart(new ShoppingBag("3", shofersal));
 
             ShoppingBag shoppingBag = new ShoppingBag("4",new Store("shofersal", new RegisteredUser("ahmed", "ahmed")));
-            history.AddPurchasedShoppingBag(shoppingBag);
+            //history.AddPurchasedShoppingBag(shoppingBag);
             Assert.That(history.ShoppingBags.Count, Is.EqualTo(2));
             Assert.IsTrue(history.ShoppingBags.Contains(shoppingBag));
         }

@@ -23,7 +23,7 @@ namespace ServerApi
                 try
                 {
                     List<ObserverUser> observerUsers = new List<ObserverUser>();
-                    var server = new WebSocketServer("ws://0.0.0.0:8080");
+                    var server = new WebSocketServer("ws://0.0.0.0:8181");
                     server.Start(socket =>
                     {
                         socket.OnOpen = () =>
@@ -99,7 +99,7 @@ namespace ServerApi
                 try
                 {
                     facadeController facade = new facadeController();
-                    string domainAddress = "http://127.0.0.1:44300/";
+                    string domainAddress = "http://localhost:44300/";
                     using (WebApp.Start<Startup>(url: domainAddress))
                     {
                         Console.WriteLine("Service Hosted " + domainAddress);

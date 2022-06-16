@@ -2,7 +2,7 @@
 using eCommerceIntegrationTests.Utils;
 using System;
 using System.Collections.Generic;
- using Xunit;
+using Xunit;
 // Req II.5
 namespace eCommerceAcceptanceTests.StoreTests.StoreOwnerOps
 {

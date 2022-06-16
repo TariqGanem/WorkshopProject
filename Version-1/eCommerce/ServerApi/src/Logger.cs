@@ -9,7 +9,7 @@ namespace ServerApi.src
 {
     internal class Logger
     {
-        private static string path = Path.GetFullPath(@"..\..\..\Server\");
+        private static string path = Path.GetFullPath(@"..\..\..\ServerApi\");
         private static object _myLock = new object();
         private static Logger logger = null;
 

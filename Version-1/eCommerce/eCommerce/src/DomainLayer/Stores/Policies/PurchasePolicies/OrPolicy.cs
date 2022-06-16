@@ -70,7 +70,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
 
         public IPurchasePolicy RemovePolicy(string id)
         {
-            IPurchasePolicy policy = Policies.Find(policy => policy.Id.Equals(id));
+            IPurchasePolicy policy = Policies.Find(policylocal => policylocal.Id.Equals(id));
             if (policy != null)
             {
                 Policies.Remove(policy);

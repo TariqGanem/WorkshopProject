@@ -12,6 +12,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace eCommerce
 {
@@ -22,6 +23,8 @@ namespace eCommerce
             //DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority", "TestScenario1").clearDB();
             //return;
             Scenario1_checkAddtocart();
+            Console.WriteLine("done");
+            Thread.Sleep(10000);
         }
         public static void Scenario1_checkAddtocart()
         {

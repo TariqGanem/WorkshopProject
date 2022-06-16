@@ -36,7 +36,7 @@ namespace eCommerce.src.DomainLayer.Store
         Dictionary<IStaff, Permission> GetStoreStaff(string ownerID, string storeID);
         History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin);
         void CloseStore(RegisteredUser founder, string storeID);
-        public List<Store> SearchStore(IDictionary<string, object> details);
+        List<Store> SearchStore(IDictionary<string, object> details);
 
     }
     public class StoreFacade : IStoresFacade
