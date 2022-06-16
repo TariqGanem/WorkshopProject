@@ -99,7 +99,7 @@ namespace ServerApi
                 try
                 {
                     facadeController facade = new facadeController();
-                    string domainAddress = "http://localhost:44300/";
+                    string domainAddress = "https://localhost:44300/";
                     using (WebApp.Start<Startup>(url: domainAddress))
                     {
                         Console.WriteLine("Service Hosted " + domainAddress);

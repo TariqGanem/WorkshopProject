@@ -50,7 +50,6 @@ namespace eCommerce.src.DomainLayer.User
             {
                 throw new Exception("Wrong password!");
             }
-            DisplayPendingNotifications();
             Active = true;
         }
 
@@ -62,14 +61,7 @@ namespace eCommerce.src.DomainLayer.User
         }
         public bool Update(Notification notification)
         {
-            if (Active)
-            {
-                NotificationsDistributer.notifyNotificationServer(notification);
-                Logger.GetInstance().LogInfo("User is LoggedIn , therefor displaying the notification\n");
-                return true;
-            }
             PendingNotification.AddLast(notification);
-            Logger.GetInstance().LogInfo("User not logged in , therefore the notification is added to pending list\n");
             var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
             var update_notification = Builders<BsonDocument>.Update.Set("PendingNotification", getPendingNotificationsDTO());
             DBUtil.getInstance().UpdateRegisteredUser(filter, update_notification);
@@ -86,32 +78,14 @@ namespace eCommerce.src.DomainLayer.User
             return notifications_dto;
         }
 
-
-        private void DisplayPendingNotifications()
+        private LinkedList<Notification> getNotifications()
         {
-            foreach (Notification notification in PendingNotification)
-            {
-                if (!notification.isOpened)
-                {
-                    NotificationsDistributer.notifyNotificationServer(notification);
-                }
-            }
-
-            RemoveOpenedNotifications();
-        }
-
-        private void RemoveOpenedNotifications()
-        {
-            foreach (Notification notification in PendingNotification)
-            {
-                if (notification.isOpened)
-                {
-                    PendingNotification.Remove(notification);
-                }
-            }
+            LinkedList<Notification> notifications = new LinkedList<Notification>(this.PendingNotification);
+            this.PendingNotification.Clear();
             var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
             var update_notification = Builders<BsonDocument>.Update.Set("PendingNotification", getPendingNotificationsDTO());
             DBUtil.getInstance().UpdateRegisteredUser(filter, update_notification);
+            return notifications;
         }
 
         public DTO_RegisteredUser getDTO()
