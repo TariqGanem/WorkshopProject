@@ -154,7 +154,7 @@ namespace eCommerce.src.ServiceLayer
             return RegisteredUserController.ReOpenStore(storeid, userid);
         }
 
-        public Result<Notification> getUserNotifications(string userid)
+        public Result<LinkedList<Notification>> getUserNotifications(string userid)
         {
             return RegisteredUserController.getUserNotifications(userid);
 

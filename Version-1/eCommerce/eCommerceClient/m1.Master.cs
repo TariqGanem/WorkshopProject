@@ -63,7 +63,9 @@ namespace Client
             else
             {
                 string msg = new UserHandler().Login(txtusername.Text, txtpassword.Text);
-                if (msg.Substring(0,6) != "Error:")
+                Console.WriteLine(msg);
+                Console.WriteLine(msg.Substring(0,6));
+                if (!msg.Substring(1,6).Equals("Error:"))
                 {
                     ButtonLogOut.Visible = true;
                     Login_table.Visible = false;
@@ -83,8 +85,8 @@ namespace Client
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage",
-                        $"alert('{msg}')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                        "alert(" + msg + ")", true);
                 }
             }
         }

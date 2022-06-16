@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
@@ -107,6 +108,25 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
 
             return !output.ErrorOccured;
+        }
+
+        [HttpGet]
+        public String[] getNotifications(string userid)
+        {
+            Result<LinkedList<Notification>> output = facade.getUserNotifications(userid);
+            if(output.ErrorOccured)
+            {
+                Logger.GetInstance().Event(output.ErrorMessage);
+                return new string[0];
+            }
+            String[] res = new String[output.Value.Count];
+            int index = 0;
+            foreach(Notification notification in output.Value)
+            {
+                res[index] = notification.ToString();
+                index++;
+            }
+            return res;
         }
 
         [HttpGet]
@@ -428,14 +448,66 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return "Error:" + output.ErrorMessage;
             }
-            Logger.GetInstance().Event("Permissions removed");
+            Logger.GetInstance().Event("Total shopping cart price fetched");
             return output.Value.ToString();
+        }
+        
+        // system admin func
+        [HttpGet]
+        public String[][] GetUserPurchaseHistory(string admin , string userid)
+        {
+            Result<UserHistorySO> output = facade.GetUserPurchaseHistory(admin,userid);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return new string[0][];
+            }
+            Logger.GetInstance().Event("User purchase history fetched");
+            return output.Value.toArray();
+        }
+
+        [HttpGet]
+        public string AddSystemAdmin(string admin, string email)
+        {
+            Result<RegisteredUserSO> output = facade.AddSystemAdmin(admin,email);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event("system admin added");
+            return output.Value.UserName;
+        }
+
+        [HttpGet]
+        public string RemoveSystemAdmin(string admin, string email)
+        {
+            Result<RegisteredUserSO> output = facade.RemoveSystemAdmin(admin,email);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event("system admin removed");
+            return output.Value.UserName;
+        }
+        
+        [HttpGet]
+        public bool ResetSystem(string admin)
+        {
+            Result<bool> output = facade.ResetSystem(admin);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("system admin removed");
+            return output.Value;
         }
 
 
         // offers ?
-        // system admin func ?
-        // discount func ?
+        // policy func ? to the end
 
 
 
