@@ -1,5 +1,6 @@
 ﻿using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
+using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.Store;
 using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 using eCommerce.src.DomainLayer.User.Roles;
@@ -484,6 +485,11 @@ namespace eCommerce.src.DomainLayer.User
             var filter_admin = Builders<BsonDocument>.Filter.Eq("_id", "");
             var update_admin = Builders<BsonDocument>.Update.Set("SystemAdmins", getDTO_admins().SystemAdmins);
             dbutil.UpdateSystemAdmins(filter_admin, update_admin, true);
+        }
+
+        public LinkedList<Notification> getUserNotifications(RegisteredUser user)
+        {
+            return user.getNotifications();
         }
         #endregion
     }

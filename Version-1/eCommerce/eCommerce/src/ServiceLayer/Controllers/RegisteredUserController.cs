@@ -1,4 +1,5 @@
 ﻿using eCommerce.src.DomainLayer;
+using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
@@ -17,6 +18,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<StoreService> ReOpenStore(string storeid, string userid);
         Result<bool> AddStoreRating(string userid, string storeid, double rate);
         Result<bool> AddProductRatingInStore(string userid, string storeid, string productid, double rate);
+        Result<LinkedList<Notification>> getUserNotifications(string userid);
     }
 
     public class RegisteredUserController : UserController, IRegisteredUserController
@@ -40,7 +42,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<RegisteredUserSO>(e.Message);
             }
         }
-        public Result<UserHistorySO> GetUserPurchaseHistory(String userId)
+        public new Result<UserHistorySO> GetUserPurchaseHistory(String userId)
         {
             try
             {
@@ -131,6 +133,20 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<bool>(e.ToString());
             }
         }
+
+         public Result<LinkedList<Notification>> getUserNotifications(string userid)
+        {
+            try
+            {
+                LinkedList<Notification> res = this.SystemFacade.getUserNotifications(userid);
+                return new Result<LinkedList<Notification>>(res);
+            }
+            catch (Exception e)
+            {
+                return new Result<LinkedList<Notification>>(e.ToString());
+            }
+        }
+
 
 
         #endregion

@@ -10,6 +10,7 @@ using System.Threading;
 using eCommerce.src.DataAccessLayer;
 using eCommerce.src.ServiceLayer.ResultService;
 using eCommerce.src.DomainLayer.Stores.Policies.Offer;
+using eCommerce.src.DomainLayer.Notifications;
 
 namespace eCommerce.src.DomainLayer
 {
@@ -79,6 +80,7 @@ namespace eCommerce.src.DomainLayer
         bool RemovePurchasePolicy(string storeId, string id);
         bool AddProductRatingInStore(string userid, string storeid, string productid, double rate);
         bool EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
+        LinkedList<Notification> getUserNotifications(string userid);
         #endregion
     }
 
@@ -632,6 +634,21 @@ namespace eCommerce.src.DomainLayer
                 throw new Exception($"user {userid} does not exist");
         }
 
+        public LinkedList<Notification> getUserNotifications(string userid)
+        {
+            if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
+            {
+                if (user.Active)
+                {
+                    return userFacade.getUserNotifications(user);
+                }
+                else
+                    throw new Exception("user is not active cant dispaly notifications");
+            }
+            else
+                throw new Exception($"user {userid} does not exits");
+
+        }
 
 
 

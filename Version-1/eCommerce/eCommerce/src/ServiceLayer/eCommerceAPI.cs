@@ -153,7 +153,13 @@ namespace eCommerce.src.ServiceLayer
         {
             return RegisteredUserController.ReOpenStore(storeid, userid);
         }
-        
+
+        public Result<Notification> getUserNotifications(string userid)
+        {
+            return RegisteredUserController.getUserNotifications(userid);
+
+        }
+
         // store func
 
         public Result<String> AddProductToStore(string userID, string storeID, string productName, double price, int initialQuantity, string category, LinkedList<string> keywords = null)

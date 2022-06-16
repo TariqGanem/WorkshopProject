@@ -78,7 +78,7 @@ namespace eCommerce.src.DomainLayer.User
             return notifications_dto;
         }
 
-        private LinkedList<Notification> getNotifications()
+        public LinkedList<Notification> getNotifications()
         {
             LinkedList<Notification> notifications = new LinkedList<Notification>(this.PendingNotification);
             this.PendingNotification.Clear();
