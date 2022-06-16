@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcurrencyTests", "Concurr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceAcceptanceTests", "eCommerceAcceptanceTests\eCommerceAcceptanceTests.csproj", "{A9596A2C-E2F1-4B15-86E1-2C7B1FA8855C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{C2E2C1ED-08F3-46A3-8DDB-F20E30F494C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerApi", "Server\ServerApi.csproj", "{C2E2C1ED-08F3-46A3-8DDB-F20E30F494C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerceClient", "eCommerceClient\eCommerceClient.csproj", "{FF73BD30-6F41-4AFF-9BB2-B859928D5491}"
 EndProject

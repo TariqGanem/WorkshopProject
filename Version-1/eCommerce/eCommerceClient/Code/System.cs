@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Security;
 using System.Web;
 
 namespace Client.Code
 {
     public class system
     {
-        private const string server_domain = "https://127.0.0.1:5000/api";
+        private const string server_domain = "http://127.0.0.1:44300/api";
 
         public static string SendApi(string method_name, string Parameters)
         {
@@ -19,8 +20,11 @@ namespace Client.Code
             string URI = string.Format("{0}/{1}/{2}?{3}", server_domain, service, method_name, Parameters);
             try
             {
+                //System.Net.ServicePointManager.ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => { return true; };
+                //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(URI);
                 request.Method = "GET";
+                request.KeepAlive = true;
                 String test = String.Empty;
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {

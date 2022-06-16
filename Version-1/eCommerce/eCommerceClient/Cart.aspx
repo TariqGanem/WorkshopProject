@@ -17,7 +17,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:DataList ID="Data_cart" OnItemCommand="DataListCart_ItemCommand1" runat="server" Width="100%" Height="335px" OnSelectedIndexChanged="Data_cart_SelectedIndexChanged1">
+    <asp:DataList ID="Data_cart" OnItemCommand="DataListCart_ItemCommand1" runat="server" Width="100%" Height="335px"> // OnSelectedIndexChanged="Data_cart_SelectedIndexChanged1">
                                             <ItemTemplate>
                                                 <table align="center" style="width: 100%; border-bottom: 1px solid #CCC">
                                                     <tr>

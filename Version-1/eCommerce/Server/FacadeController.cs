@@ -5,18 +5,19 @@ using System.Web.Http.Cors;
 using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
-using Logger = Server.src.Logger;
+using Logger = ServerApi.src.Logger;
 
-namespace Server
+namespace ServerApi
 {
+    //[RoutePrefix("api/facade")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class FacadeController : ApiController
+    public class facadeController : ApiController
     {
-        eCommerceSystem facade = new eCommerceSystem();
+        private eCommerceSystem facade = new eCommerceSystem();
 
         // guest user
         [HttpGet]
-        public string Login()
+        public string GuestLogin()
         {
             Result<GuestUserSO> output = facade.GuestLogin();
             if (output.ErrorOccured)
@@ -32,7 +33,7 @@ namespace Server
         [HttpGet]
         public string Login(string username, string password)
         {
-            Result< RegisteredUserSO> output = facade.Login(username, password);
+            Result<RegisteredUserSO> output = facade.Login(username, password);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);

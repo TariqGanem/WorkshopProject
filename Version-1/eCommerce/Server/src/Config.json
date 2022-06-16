@@ -1,6 +1,6 @@
 {
   "dbenv": "TestScenario3",
-  "email": "Admin@terminal3.com",
+  "email": "Admin@Workshop.com",
   "password": "Admin123",
   "mongoDB_url": "mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority",
   "externalSystem_url": "https://cs-bgu-wsep.herokuapp.com/"

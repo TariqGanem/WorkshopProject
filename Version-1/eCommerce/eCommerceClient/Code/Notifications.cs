@@ -12,6 +12,7 @@ namespace Client.Code
         
         public Notifications() { }
 
+        /*
         public static void SendMessage(string userName, string msg)
         {
             using (var ws = new WebSocket(url))
@@ -23,5 +24,6 @@ namespace Client.Code
                 ws.Close();
             }
         }
+        */
     }
 }

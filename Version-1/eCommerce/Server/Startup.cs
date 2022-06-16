@@ -7,17 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-[assembly: Microsoft.Owin.OwinStartup(typeof(Server.Startup))]
-
-
-namespace Server
+[assembly: Microsoft.Owin.OwinStartup(typeof(ServerApi.Startup))]
+namespace ServerApi
 {
     public class Startup
     {
-        public void Configuration(IAppBuilder appBuilder)
+        public static void Configuration(IAppBuilder appBuilder)
         {
             HttpConfiguration CONFIG = new HttpConfiguration();
             CONFIG.EnableCors();
+            CONFIG.MapHttpAttributeRoutes();
 
             CONFIG.Routes.MapHttpRoute(
                 name: "createUserApi",

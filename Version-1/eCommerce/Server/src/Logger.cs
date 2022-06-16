@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Server.src
+namespace ServerApi.src
 {
     internal class Logger
     {
