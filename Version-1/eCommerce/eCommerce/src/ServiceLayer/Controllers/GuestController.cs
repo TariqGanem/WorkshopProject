@@ -15,6 +15,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<Double> GetTotalShoppingCartPrice(String userId);
         Result Logout(String userId);  
         Result<UserHistorySO> GetUserPurchaseHistory(String userId);
+        Result<bool> isAdminUser(string userid);
     }
     public class UserController : IUserController
     {
@@ -137,6 +138,21 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result(e.Message);
             }
         }
+
+        public Result<bool> isAdminUser(string userid)
+        {
+            try
+            {
+                ValidateId(userid);
+                return new Result<bool>(SystemFacade.IsSystemAdmin(userid));
+            }
+            catch (Exception e)
+            {
+                logger.LogError("UserController --> " + e.Message);
+                return new Result<bool>(e.Message);
+            }
+        }
+
         #region Protected Validation Methods
         protected void ValidateCredentials(String userName, String password)
         {

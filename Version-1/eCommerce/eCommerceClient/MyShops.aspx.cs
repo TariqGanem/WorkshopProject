@@ -22,6 +22,7 @@ namespace Client
         }
         protected void Data_shop_Command(object source, DataListCommandEventArgs e)
         {
+            /*
             if (e.CommandName == "editshop")
             {
                 string[] cargs = e.CommandArgument.ToString().Split(',');
@@ -50,7 +51,8 @@ namespace Client
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('youre not an owner !!!!!!!!!!!!!')", true);
                 }
-            }
+            }*/
+            
         }
     }
 }

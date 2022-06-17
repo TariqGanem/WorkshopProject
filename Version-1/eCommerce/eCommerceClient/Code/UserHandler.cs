@@ -11,10 +11,6 @@ namespace Client.Code
     public class UserHandler
     {
         public UserHandler() { }
-
-
-        //==========================================================
-        //login and registering issues
         public string GuestLogin()
         {
             string param = "";
@@ -39,46 +35,355 @@ namespace Client.Code
             return (system.SendApi("Register", param));
         }
 
-        //==========================================================
-        public bool MakeNewManger(string storeId, string currentOwnerId, string newManagerId)
+        public bool Purchase(string username, string creditcard)
         {
-            string param = string.Format("storeId={0}&currentOwnerId={1}&newManagerId={2}", storeId, currentOwnerId, newManagerId);
-            return Boolean.Parse(system.SendApi("AddStoreManager", param));
+            string param = string.Format("userName={0}&creditCard={1}", username, creditcard);
+            return bool.Parse(system.SendApi("Purchase", param));
         }
 
-        public bool MakeNewOwner(string newOwnerId, string currentOwnerId, string storeId)
+        public bool UpdateCart(string userId, string storeId, string productId, int newAmount)
         {
-            string param = string.Format("newOwnerId={0}&currentOwnerId={1}&storeId={2}", newOwnerId, currentOwnerId, storeId);
-            return Boolean.Parse(system.SendApi("makeNewOwner", param));
+            string param = string.Format("userId={0}&storeId={1}&productId={2}&newAmount={3}", userId, storeId,productId,newAmount);
+            return bool.Parse(system.SendApi("UpdateCart", param));
         }
 
-        public bool removeOwner(string apointerid, string storeName, string apointeeid)
+        public DataSet getNotifications(string userid)
         {
-            string param = string.Format("apointerid={0}&storeName={1}&apointeeid={2}", apointerid, storeName, apointeeid);
-            return Boolean.Parse(system.SendApi("removeOwner", param));
+            string param = string.Format("userid={0}", userid);
+            string str = system.SendApi("getNotifications", param);
+            str = str.Remove(0, 1);
+            str = str.Remove(str.Length - 1, 1);
+            string[] notis = str.Split(',');
+            DataTable t1 = new DataTable("Notifications");
+            t1.Columns.Add("id");
+            t1.Columns.Add("msg");
+            for (int i = 0; i < notis.Length ; i++)
+            {
+                try
+                {
+                    t1.Rows.Add(i, notis[i]);
+                }
+                catch
+                { }
+            }
+            DataSet set = new DataSet("Notification");
+            set.Tables.Add(t1);
+            return set;
+        }
 
+        public bool AddProductToCart(string userId, string productId, int quantity, string storeId)
+        {
+            string param = string.Format("userId={0}&productId={1}&quantity={2}&storeId={3}", userId, productId,quantity,storeId);
+            return bool.Parse(system.SendApi("AddProductToCart", param));
+        }
+
+        public bool RemoveProductFromCart(string userId, string storeId, string productId)
+        {
+            string param = string.Format("userId={0}&storeId={1}&productId={2}", userId, storeId,productId);
+            return bool.Parse(system.SendApi("RemoveProductFromCart", param));
+        }
+
+        public bool AddProductToStore(string userId, string storeId, string productName, int price, int quantity,
+            string category)
+        {
+            string param = string.Format("userId={0}&storeId={1}&productName={2}&price={3}&quantity={4}&category={5}", userId, storeId,productName,price,quantity,category);
+            return bool.Parse(system.SendApi("AddProductToStore", param));
+        }
+
+        public bool RemoveProductFromStore(String userID, String storeID, String productID)
+        {
+            string param = string.Format("userID={0}&storeID={1}&productID={2}", userID, storeID,productID);
+            return bool.Parse(system.SendApi("RemoveProductFromStore", param));
+        }
+
+        public String OpenShop(string storeName, string userId)
+        {
+            string param = string.Format("storeName={0}&userId={1}", storeName, userId);
+            return system.SendApi("OpenShop", param);
+        }
+
+        public bool CloseShop(string storeId, string userId)
+        {
+            string param = string.Format("storeId={0}&userId={1}", storeId, userId);
+            return bool.Parse(system.SendApi("CloseShop", param));
+        }
+
+        public bool makeNewOwner(string newOwnerId, string currentOwnerId, string storeId)
+        {
+            string param = string.Format("newOwnerId={0}&currentOwnerId={1}&currentOwnerId={2}", newOwnerId, currentOwnerId,storeId);
+            return bool.Parse(system.SendApi("makeNewOwner", param));
+        }
+
+        public bool AddStoreManager(string storeId, string currentOwnerId, string newManagerId,
+            LinkedList<int> permissions) // check permissions
+        {
+            string param = string.Format("storeId={0}&currentOwnerId={1}&newManagerId={2}&permissions={3}", storeId, currentOwnerId,newManagerId,permissions);
+            return bool.Parse(system.SendApi("AddStoreManager", param));
         }
 
         public bool removeManager(string currentOwnerId, string storeId, string ManagerToRemove)
         {
-            string param = string.Format("currentOwnerId={0}&storeId={1}&ManagerToRemove={2}", currentOwnerId, storeId, ManagerToRemove);
-            return Boolean.Parse(system.SendApi("removeManager", param));
-
+            string param = string.Format("currentOwnerId={0}&storeId={1}&ManagerToRemove={2}", currentOwnerId, storeId,ManagerToRemove);
+            return bool.Parse(system.SendApi("removeManager", param));
         }
 
-        public bool IsOwner(string storeId, string userId)
+        public bool removeOwner(string currentOwnerId, string storeId, string OwnerToRemove)
         {
-            string param = string.Format("storeId={0}&userId={1}", storeId, userId);
-            return bool.Parse(system.SendApi("IsOwner", param));
+            string param = string.Format("currentOwnerId={0}&storeId={1}&OwnerToRemove={2}", currentOwnerId, storeId,OwnerToRemove);
+            return bool.Parse(system.SendApi("removeOwner", param));
         }
 
-        //===========================================================
-        public double GetTotalCart(string userName)
+        public DataSet SearchProduct(string keyword)
         {
-            string param = string.Format("userName={0}", userName);
-            return double.Parse(system.SendApi("GetTotalCart", param));
+            string param = string.Format("keyword={0}", keyword);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("SearchProduct", param).ToString());
+            DataTable t1 = new DataTable("products");
+            t1.Columns.Add("productId");
+            t1.Columns.Add("Name");
+            t1.Columns.Add("price");
+            t1.Columns.Add("catagory");
+            t1.Columns.Add("quantity");
+
+            for (int i = 0; i < jarray.Count; i++) {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
+            }
+            DataSet d1 = new DataSet("products");
+            d1.Tables.Add(t1);
+            return d1;
         }
 
+        public DataSet SearchStore(string name)
+        {
+            string param = string.Format("name={0}", name);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("SearchStore", param).ToString());
+            DataTable t1 = new DataTable("Stores");
+            t1.Columns.Add("storeId");
+            t1.Columns.Add("StoreName");
+            t1.Columns.Add("StoreFounder");
+            t1.Columns.Add("Rate");
+            t1.Columns.Add("NumbeOfRates");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3],jarray[i][4]);
+            }
+
+            DataSet d1 = new DataSet("Stores");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
+        public DataSet getUserShoppingCart(string userid)
+        {
+            string param = string.Format("userid={0}", userid);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getUserShoppingCart", param).ToString());
+            DataTable t1 = new DataTable("ShoppingCart");
+            t1.Columns.Add("bagid");
+            t1.Columns.Add("Products[Name/Price/Quantity$]");
+            t1.Columns.Add("TotalBagPrice");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2]);
+            }
+
+            DataSet d1 = new DataSet("Stores");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+        
+        public DataSet getUserPurchaseHistory(string userid)
+        {
+            string param = string.Format("userid={0}", userid);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getUserPurchaseHistory", param).ToString());
+            DataTable t1 = new DataTable("ShoppingCart");
+            t1.Columns.Add("bagid");
+            t1.Columns.Add("Products[Name/Price/Quantity$]");
+            t1.Columns.Add("TotalBagPrice");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2]);
+            }
+
+            DataSet d1 = new DataSet("Stores");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
+        public bool reOpenStore(string storeid, string userid)
+        {
+            string param = string.Format("storeid={0}&userid={1}", storeid, userid);
+            return bool.Parse(system.SendApi("reOpenStore", param));
+        }
+
+        public bool editProductDetail(string userID, string storeID, string productID,
+            IDictionary<string, object> details)
+        {
+            string param = string.Format("userID={0}&storeID={1}&productID={2}&details={3}", userID, storeID,productID,details);
+            return bool.Parse(system.SendApi("editProductDetail", param));
+        }
+
+        public bool SetPermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
+        {
+            string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&permissions={3}", storeID, managerID,ownerID,permissions);
+            return bool.Parse(system.SendApi("SetPermissions", param));
+        }
+
+        public bool RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
+        {
+            string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&permissions={3}", storeID, managerID,ownerID,permissions);
+            return bool.Parse(system.SendApi("RemovePermissions", param));
+        }
+
+        public DataSet GetStoreStaff(string ownerID, string storeID)
+        {
+            string param = string.Format("ownerID={0}&storeID={1}",ownerID,storeID);
+            String str = system.SendApi("GetStoreStaff", param);
+            str = str.Remove(0, 1);
+            str = str.Remove(str.Length - 1, 1);
+            string[] notis = str.Split(',');
+            DataTable t1 = new DataTable("Notifications");
+            t1.Columns.Add("id");
+            t1.Columns.Add("msg");
+            for (int i = 0; i < notis.Length ; i++)
+            {
+                try
+                {
+                    t1.Rows.Add(i, notis[i]);
+                }
+                catch
+                { }
+            }
+            DataSet set = new DataSet("Notification");
+            set.Tables.Add(t1);
+            return set;
+        }
+
+        public bool AddStoreRating(String userid, String storeid, double rate)
+        {
+            string param = string.Format("userid={0}&storeid={1}&rate={2}", userid, storeid,rate);
+            return bool.Parse(system.SendApi("AddStoreRating", param));
+        }
+
+        public bool addProductRating(String userid, String storeid, String productid, double rate)
+        {
+            string param = string.Format("userid={0}&storeid={1}&productid={2}&rate={3}", userid, storeid,productid,rate);
+            return bool.Parse(system.SendApi("addProductRating", param));
+        }
+
+        public DataSet getAllStores()
+        {
+            string param = "";
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getAllStores", param).ToString());
+            DataTable t1 = new DataTable("Stores");
+            t1.Columns.Add("storeId");
+            t1.Columns.Add("StoreName");
+            t1.Columns.Add("StoreFounder");
+            t1.Columns.Add("Rate");
+            t1.Columns.Add("NumbeOfRates");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3] , jarray[i][4]);
+            }
+
+            DataSet d1 = new DataSet("Stores");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
+        public DataSet GetAllProductByStoreIDToDisplay(string storeID)
+        {
+            string param = "";
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("GetAllProductByStoreIDToDisplay", param).ToString());
+            DataTable t1 = new DataTable("Products");
+            t1.Columns.Add("productId");
+            t1.Columns.Add("Name");
+            t1.Columns.Add("price");
+            t1.Columns.Add("catagory");
+            t1.Columns.Add("quantity");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3] , jarray[i][4]);
+            }
+
+            DataSet d1 = new DataSet("Products");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+        
+        // get permissions ?
+
+        public String getTotalShoppingCartPrice(string userid)
+        {
+            string param = string.Format("userid={0}", userid);
+            return system.SendApi("getTotalShoppingCartPrice", param);
+        }
+
+        public DataSet GetUserPurchaseHistory(string admin, string userid)
+        {
+            string param = string.Format("admin={0}&userid={1}", admin , userid);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("GetUserPurchaseHistory", param).ToString());
+            DataTable t1 = new DataTable("ShoppingCart");
+            t1.Columns.Add("bagid");
+            t1.Columns.Add("Products[Name/Price/Quantity$]");
+            t1.Columns.Add("TotalBagPrice");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2]);
+            }
+
+            DataSet d1 = new DataSet("Stores");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
+        public string AddSystemAdmin(string admin, string email)
+        {
+            string param = string.Format("admin={0}&email={1}", admin , email);
+            return system.SendApi("AddSystemAdmin", param);
+        }
+
+        public string RemoveSystemAdmin(string admin, string email)
+        {
+            string param = string.Format("admin={0}&email={1}", admin , email);
+            return system.SendApi("RemoveSystemAdmin", param);
+        }
+
+        public bool ResetSystem(string admin)
+        {
+            string param = string.Format("admin={0}", admin);
+            return bool.Parse(system.SendApi("ResetSystem", param));
+        }
+
+        public bool isAdminUser(string userid)
+        {
+            string param = string.Format("userid={0}", userid);
+            return bool.Parse(system.SendApi("isAdminUser", param));
+        }
+        
+        // offers + policy funcs XD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         public DataSet GetAllNotifications(string userId)
         {
             string param = string.Format("userId={0}", userId);
@@ -102,5 +407,6 @@ namespace Client.Code
             set.Tables.Add(t1);
             return set;
         }
+        */
     }
 }

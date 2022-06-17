@@ -13,6 +13,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using eCommerce.src.DomainLayer.Notifications;
 
 namespace eCommerce
 {
@@ -22,9 +23,15 @@ namespace eCommerce
         {
             //DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority", "TestScenario1").clearDB();
             //return;
-            Scenario1_checkAddtocart();
-            Console.WriteLine("done");
-            Thread.Sleep(10000);
+            eCommerceSystem ecom = new eCommerceSystem();
+            ecom.systemFacade.userFacade.RegisteredUsers.TryGetValue("a7ae753ed12045659260781aaaf9ab8c", out RegisteredUser reg2);
+            Notification noti = new Notification("test", "testmsg",false);
+            Notification noti2 = new Notification("test", "testmsg2",false);
+            reg2.PendingNotification.AddLast(noti);
+            reg2.PendingNotification.AddLast(noti2);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", reg2.Id);
+            var update_notification = Builders<BsonDocument>.Update.Set("PendingNotification", reg2.getPendingNotificationsDTO());
+            DBUtil.getInstance().UpdateRegisteredUser(filter, update_notification); 
         }
         public static void Scenario1_checkAddtocart()
         {

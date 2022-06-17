@@ -277,6 +277,11 @@ namespace eCommerce.src.ServiceLayer
             }
             return res;
         }
+
+        public Result<bool> isAdminUser(string userid)
+        {
+            return UserController.isAdminUser(userid);
+        }
         // get income ?
 
         // display data

@@ -186,8 +186,9 @@ namespace Client
 
         }
 
+        
         protected void Buttonaddmanager_Click(object sender, EventArgs e)
-        {
+        {/*
             UserHandler u = new UserHandler();
             if (u.MakeNewManger(Session["userId"].ToString(), Session["editshop"].ToString(), DropDownList3.SelectedItem.Text.ToString()))
             {
@@ -203,10 +204,12 @@ namespace Client
                 Labelerror2.Text = "Something gone wrong!!!";
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
+            */
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            /*
             UserHandler u = new UserHandler();
             if (u.MakeNewOwner(DropDownList3.SelectedItem.Text.ToString(), Session["userId"].ToString(), Session["editshop"].ToString()))
             {
@@ -222,12 +225,13 @@ namespace Client
                 Labelerror3.Text = "Something gone wrong!!!";
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
-
+            */
 
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            /*
             UserHandler u = new UserHandler();
             if (u.removeManager(Session["userId"].ToString(), Session["editshop"].ToString(), DropDownList4.SelectedItem.Text.ToString()))
             {
@@ -242,11 +246,12 @@ namespace Client
                 Labelerror4.Text = "Something gone wrong!!!";
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
-
+        */
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+            /*
             UserHandler u = new UserHandler();
             if (u.removeOwner(Session["userId"].ToString(), Session["editshop"].ToString(), DropDownList5.SelectedItem.Text.ToString()))
             {
@@ -261,6 +266,7 @@ namespace Client
                 Labelerror5.Text = "Something gone wrong!!!";
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
+            */
         }
     }
 }

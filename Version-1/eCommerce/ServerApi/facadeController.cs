@@ -71,7 +71,7 @@ namespace ServerApi
         }
 
         [HttpGet]
-        public bool Purchase(string userName, string creditCard)
+        public bool Purchase(string userName, string creditCard) // for fixing in gui 
         {
             IDictionary<String, Object> paymentDetails = new Dictionary<String, Object>
                     {
@@ -496,6 +496,18 @@ namespace ServerApi
         public bool ResetSystem(string admin)
         {
             Result<bool> output = facade.ResetSystem(admin);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("system admin removed");
+            return output.Value;
+        }
+
+        public bool isAdminUser(string userid)
+        {
+            Result<bool> output = facade.isAdminUser(userid);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);

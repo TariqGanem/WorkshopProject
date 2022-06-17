@@ -13,8 +13,7 @@ namespace Client
         protected void Page_Load(object sender, EventArgs e)
         {
             UserHandler a = new UserHandler();
-
-            Data_cart.DataSource = a.GetAllNotifications(Session["userId"].ToString());
+            Data_cart.DataSource = a.getNotifications(Session["userId"].ToString());
             Data_cart.DataBind();
         }
     }

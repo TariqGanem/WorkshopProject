@@ -63,10 +63,11 @@ namespace Client
             else
             {
                 string msg = new UserHandler().Login(txtusername.Text, txtpassword.Text);
-                Console.WriteLine(msg);
-                Console.WriteLine(msg.Substring(0,6));
+                //Console.WriteLine(msg);
+                //Console.WriteLine(msg.Substring(0,6));
                 if (!msg.Substring(1,6).Equals("Error:"))
-                {
+                { 
+                    msg = msg.Substring(1,32);
                     ButtonLogOut.Visible = true;
                     Login_table.Visible = false;
                     OpenShop.Visible = true;

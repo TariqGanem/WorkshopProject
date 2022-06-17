@@ -19,3 +19,34 @@
 6/17/2022 1:06:37 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
 6/17/2022 1:07:10 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
 6/17/2022 1:08:08 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 1:56:40 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 1:57:33 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 1:57:36 AM: eranhas LoggedIn   .
+6/17/2022 1:57:41 AM: System.Exception: user "a7ae753ed12045659260781aaaf9ab8c" does not exits
+   at eCommerce.src.DomainLayer.SystemFacade.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 649
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 141  .
+6/17/2022 1:58:01 AM: System.Exception: user "a7ae753ed12045659260781aaaf9ab8c" does not exits
+   at eCommerce.src.DomainLayer.SystemFacade.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 649
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 141  .
+6/17/2022 1:58:02 AM: System.Exception: user "a7ae753ed12045659260781aaaf9ab8c" does not exits
+   at eCommerce.src.DomainLayer.SystemFacade.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 649
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 141  .
+6/17/2022 2:01:57 AM: System.Exception: user "a7ae753ed12045659260781aaaf9ab8c" does not exits
+   at eCommerce.src.DomainLayer.SystemFacade.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 649
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 141  .
+6/17/2022 2:01:57 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 2:03:40 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 2:04:04 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 2:04:06 AM: eranhas LoggedIn   .
+6/17/2022 2:04:08 AM: System.Exception: user "a7ae753ed12045659260781aaaf9ab8c" does not exits
+   at eCommerce.src.DomainLayer.SystemFacade.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 649
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUserNotifications(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 141  .
+6/17/2022 2:07:07 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 2:07:09 AM: eranhas LoggedIn   .
+6/17/2022 2:09:12 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 2:09:14 AM: eranhas LoggedIn   .
+6/17/2022 2:11:26 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 2:11:28 AM: eranhas LoggedIn   .
+6/17/2022 2:12:26 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 2:17:36 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/17/2022 2:17:39 AM: eranhas LoggedIn   .

@@ -1,5 +1,5 @@
 {
-  "dbenv": "TestScenario4",
+  "dbenv": "TestNotifications",
   "email": "Admin@Workshop.com",
   "password": "Admin123",
   "mongoDB_url": "mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority",

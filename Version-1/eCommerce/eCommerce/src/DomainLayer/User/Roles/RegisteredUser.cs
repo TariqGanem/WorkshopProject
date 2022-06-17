@@ -80,7 +80,11 @@ namespace eCommerce.src.DomainLayer.User
 
         public LinkedList<Notification> getNotifications()
         {
-            LinkedList<Notification> notifications = new LinkedList<Notification>(this.PendingNotification);
+            LinkedList<Notification> notifications = new LinkedList<Notification>();
+            foreach (Notification noti in this.PendingNotification)
+            {
+                notifications.AddLast(noti);
+            }
             this.PendingNotification.Clear();
             var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
             var update_notification = Builders<BsonDocument>.Update.Set("PendingNotification", getPendingNotificationsDTO());

@@ -21,7 +21,7 @@ namespace Client
                 Data_cart.DataSource = a.GetUserBaskets(Session["userId"].ToString());
                 Data_cart.DataBind();
 
-                Label3.Text = u.GetTotalCart(Session["userId"].ToString()).ToString();
+                //Label3.Text = u.GetTotalCart(Session["userId"].ToString()).ToString();
 
             }
             else {
