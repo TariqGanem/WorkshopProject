@@ -38,6 +38,7 @@ namespace Client
                 table3.Visible = false;
                 table4.Visible = false;
                 table5.Visible = false;
+                DataListproducts.Visible = false;
 
             }
 
@@ -267,6 +268,11 @@ namespace Client
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
             */
+        }
+
+        protected void DataListproducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

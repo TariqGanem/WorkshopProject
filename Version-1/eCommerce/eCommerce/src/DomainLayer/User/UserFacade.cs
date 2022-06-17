@@ -491,6 +491,16 @@ namespace eCommerce.src.DomainLayer.User
         {
             return user.getNotifications();
         }
+
+        public string getUserIdByUsername(string username)
+        {
+            foreach(KeyValuePair<string,RegisteredUser> p in this.RegisteredUsers)
+            {
+                if (p.Value.UserName.Equals(username))
+                    return p.Key;
+            }
+            throw new Exception("username is not found in the system");
+        }
         #endregion
     }
 }

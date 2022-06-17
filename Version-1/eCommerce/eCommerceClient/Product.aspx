@@ -27,23 +27,7 @@
             vertical-align: middle;
             text-align: center;
         }
-        .auto-style25 {
-            width: 184px;
-            height: 27px;
-            margin-left: 0;
-        }
-        .auto-style26 {
-            width: 137px;
-            height: 27px;
-        }
-        .auto-style27 {
-            width: 812px;
-            height: 27px;
-        }
-        .auto-style28 {
-            height: 27px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table class="auto-style5">
@@ -76,10 +60,9 @@
         </tr>
         <tr>
             <td class="auto-style14">
-                            <asp:Label ID="LabelstoreId" runat="server" Text="storeId : "></asp:Label>
-                        </td>
+                            quantity</td>
             <td class="auto-style15">
-                            <asp:Label ID="LabelstoreId0" runat="server"></asp:Label>
+                            <asp:Label ID="LabelQuantity" runat="server"></asp:Label>
                         </td>
             <td class="auto-style13">&nbsp;</td>
             <td>&nbsp;</td>

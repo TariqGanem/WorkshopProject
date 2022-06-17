@@ -15,12 +15,39 @@ namespace Client
     {
 
         /// <summary>
-        /// Data_shop control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList Data_shop;
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// Data_shopIown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList Data_shopIown;
+
+        /// <summary>
+        /// LabelUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelUsername;
+
+        /// <summary>
+        /// Data_shopImanage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList Data_shopImanage;
     }
 }

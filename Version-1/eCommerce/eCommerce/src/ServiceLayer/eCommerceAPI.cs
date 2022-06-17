@@ -396,6 +396,19 @@ namespace eCommerce.src.ServiceLayer
             return RegisteredUserController.GetStoresIOwn(userid);
         }
 
+        public List<ProductService> GetAllProducts()
+        {
+            return dataController.GetAllProducts();
+        }
 
+        public Result<string> getStoreIdByProductId(string productId)
+        {
+            return UserController.getStoreIdByProductId(productId);
+        }
+
+        public Result<string> getUserIdByUsername(string username)
+        {
+            return UserController.getStoreIdByProductId(username);
+        }
     }
 }

@@ -684,6 +684,19 @@ namespace eCommerce.src.DomainLayer.Store
             return output;
         }
 
+        public string getStoreIdByProductId(string productId)
+        {
+            foreach (Store store in Stores.Values)
+            {
+                foreach (Product pro in store.InventoryManager.Products.Values)
+                {
+                    if (pro.Id.Equals(productId))
+                        return store.Id;
+                }
+            }
+            throw new Exception("product was not found in any store");
+        }
+
         public List<StoreService> GetStoresIOwn(string userid)
         {
             List<StoreService> output = new List<StoreService>();

@@ -12,11 +12,12 @@ namespace Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             LabelproductName0.Text = Session["Name"].ToString();
-            LabelstoreId0.Text = Session["storeId"].ToString();
-            Labelbarcode0.Text = Session["Id"].ToString();
-            Labelcategories0.Text = Session["Catagory"].ToString();
-            Labelprice0.Text = Session["Price"].ToString();
+            LabelQuantity.Text = Session["quantity"].ToString();
+            Labelbarcode0.Text = Session["productId"].ToString();
+            Labelcategories0.Text = Session["category"].ToString();
+            Labelprice0.Text = Session["price"].ToString();
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -35,8 +36,10 @@ namespace Client
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            ShopHandler sh = new ShopHandler();
-            sh.AddProductToBasket(Session["userId"].ToString(), Session["Id"].ToString(), int.Parse(Label1.Text.ToString()), Session["storeId"].ToString());
+            UserHandler sh = new UserHandler();
+            String storeid = sh.getStoreIdByProductId(Session["productId"].ToString());
+            storeid = UserHandler.getID(storeid);
+            sh.AddProductToCart(Session["userId"].ToString(), Session["productId"].ToString(),int.Parse(Label1.Text.ToString()), storeid);
             Response.Redirect("~/Home.aspx");
 
         }

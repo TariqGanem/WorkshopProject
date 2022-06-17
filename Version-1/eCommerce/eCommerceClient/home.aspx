@@ -24,7 +24,7 @@
                                     </tr>
                                     <tr>
                                         <td style="text-align: center;">
-                                                    <span style="font-weight: 700; font-size: 14px;">Id: <%#Eval("Id") %> </span></td>
+                                                    <span style="font-weight: 700; font-size: 14px;">Id: <%#Eval("productId") %> </span></td>
                                     </tr>
                                     <tr>
                                         <td style="height: 10px;"></td>
@@ -35,15 +35,15 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span style="font-size: 16px;">storeId: <%#Eval("storeId") %> </span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span style="font-size: 16px;">Price: <%#Eval("Price") %></span></td>
+                                            <span style="font-size: 16px;">Price: <%#Eval("price") %></span></td>
                                     </tr>
                                      <tr>
                                         <td>
-                                            <span style="font-size: 16px;">Catagory: <%#Eval("Catagory") %></span></td>
+                                            <span style="font-size: 16px;">Catagory: <%#Eval("catagory") %></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-size: 16px;">Quantity: <%#Eval("quantity") %></span></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
@@ -51,7 +51,7 @@
 
                                     <tr>
                                         <td class="auto-style13">
-                                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#Eval("Id")+","+ Eval("Name")+","+Eval("storeId")+","+Eval("Price")+","+Eval("Catagory")%>' CommandName="add_to_cart"><img src="img/select-button-png-th.png" style="width: auto; height: auto;" /></asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#Eval("productId")+","+ Eval("Name")+","+Eval("price")+","+Eval("catagory")+","+Eval("quantity")%>' CommandName="add_to_cart"><img src="img/select-button-png-th.png" style="width: auto; height: auto;" /></asp:LinkButton>
                                         </td>
                                         <tr>
                                             <td style="height: 10px;"></td>

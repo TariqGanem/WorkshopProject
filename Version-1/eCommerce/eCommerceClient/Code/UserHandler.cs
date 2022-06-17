@@ -446,6 +446,25 @@ namespace Client.Code
             d1.Tables.Add(t1);
             return d1;
         }
+
+        public String getStoreIdByProductId(string productId)
+        {
+            string param = string.Format("productId={0}", productId);
+            string str = system.SendApi("getStoreIdByProductId", param);
+            return str;
+        }
+
+        public string getUserIdByUsername(string username)
+        {
+            string param = string.Format("username={0}", username);
+            string str = system.SendApi("getUserIdByUsername", param);
+            return str;
+        }
+
+        public static string getID(string id)
+        {
+            return id.Substring(1, 32);
+        }
         // offers + policy funcs XD
 
 

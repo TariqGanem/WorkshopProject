@@ -86,6 +86,8 @@ namespace eCommerce.src.DomainLayer
         string getProductId(string storeid, string productname);
         List<StoreService> GetStoresIManage(string userid);
         List<StoreService> GetStoresIOwn(string userid);
+        string getStoreIdByProductId(string productId);
+        string getUserIdByUsername(string username);
         #endregion
     }
 
@@ -693,7 +695,15 @@ namespace eCommerce.src.DomainLayer
             return storeFacade.GetAllProducts();
         }
 
+        public string getStoreIdByProductId(string productId)
+        {
+            return storeFacade.getStoreIdByProductId(productId);
+        }
 
+        public string getUserIdByUsername(string username)
+        {
+
+        }
 
 
 

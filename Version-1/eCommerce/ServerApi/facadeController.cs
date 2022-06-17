@@ -541,7 +541,7 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return "Error:" + output.ErrorMessage;
             }
-            Logger.GetInstance().Event($"{productname} is not in store {storeid}");
+            Logger.GetInstance().Event($"store fetched");
             return output.Value;
         }
 
@@ -584,6 +584,33 @@ namespace ServerApi
             }
             return output.ToArray();
         }
+
+        [HttpGet]
+        public String getStoreIdByProductId(string productId)
+        {
+            Result<String> output = facade.getStoreIdByProductId(productId);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error:" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event($"store fetched");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public string getUserIdByUsername(string username)
+        {
+            Result<String> output = facade.getUserIdByUsername(username);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error:" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event($"userid fetched");
+            return output.Value;
+        }
+
         // offers ?
         // policy func ? to the end
 

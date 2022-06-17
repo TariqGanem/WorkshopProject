@@ -14,45 +14,55 @@ namespace Client
         {
             if (!IsPostBack)
             {
-            ShopHandler a = new ShopHandler();
+                UserHandler a = new UserHandler();
 
-            Data_shop.DataSource = a.GetUserStores(Session["username"].ToString());
-            Data_shop.DataBind();
+                Data_shopIown.DataSource = a.getStoresIOwn(Session["userId"].ToString());
+                Data_shopIown.DataBind();
+                Data_shopImanage.DataSource = a.getStoresIManage(Session["userId"].ToString());
+                Data_shopImanage.DataBind();
             }
         }
-        protected void Data_shop_Command(object source, DataListCommandEventArgs e)
+        protected void Data_shopIown_Command(object source, DataListCommandEventArgs e)
         {
-            /*
+            
             if (e.CommandName == "editshop")
             {
                 string[] cargs = e.CommandArgument.ToString().Split(',');
-                Session["editshop"] = cargs[1];
-                UserHandler uh = new UserHandler();
-                if (uh.IsOwner(Session["editshop"].ToString(), Session["userId"].ToString()))
-                {
-                    Response.Redirect("~/EditShop.aspx");
-                }
-                else
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('youre not an owner !!!!!!!!!!!!!')", true);
-                }
+                Session["storeId"] = cargs[1];
+                Response.Redirect("~/EditShop.aspx");
             }
             if (e.CommandName == "Close")
             {
-                Session["editshop"] = e.CommandArgument;
-                ShopHandler sh = new ShopHandler();
-                UserHandler uh = new UserHandler();
-                if (uh.IsOwner(Session["editshop"].ToString(), Session["userId"].ToString()))
+                Session["storeId"] = e.CommandArgument;
+                UserHandler sh = new UserHandler();
+                bool res  = sh.CloseShop(Session["storeId"].ToString(), Session["userId"].ToString());
+                Response.Redirect("~/MyShops.aspx");
+                if(!res)
                 {
-                    sh.CloseStore(Session["editshop"].ToString(), Session["userId"].ToString());
-                    Response.Redirect("~/MyShops.aspx");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('you dont have permission')", true);
                 }
-                else
+            }
+            if (e.CommandName == "reopen")
+            {
+                Session["storeId"] = e.CommandArgument;
+                UserHandler sh = new UserHandler();
+                bool res = sh.reOpenStore(Session["storeId"].ToString(), Session["userId"].ToString());
+                Response.Redirect("~/MyShops.aspx");
+                if (!res)
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('youre not an owner !!!!!!!!!!!!!')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('you dont have permission')", true);
                 }
-            }*/
-            
+            }
+        }
+
+        protected void Data_shopImanage_Command(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "editshop")
+            {
+                string[] cargs = e.CommandArgument.ToString().Split(',');
+                Session["storeId"] = cargs[1];
+                Response.Redirect("~/EditShop.aspx");
+            }
         }
     }
 }

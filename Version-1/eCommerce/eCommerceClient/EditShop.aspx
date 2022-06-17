@@ -72,11 +72,16 @@ margin-bottom: 16px;
             <td class="auto-style15">
                 <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack ="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                       <asp:ListItem Enabled="true" Text="Select" Value="-1"></asp:ListItem>
-                                                <asp:ListItem Text="Add New Item" Value="1"></asp:ListItem>
-                                                <asp:ListItem Text="Add New Manager" Value="2"></asp:ListItem>
-                                                <asp:ListItem Text="Add New Owner" Value="3"></asp:ListItem>
-                                                <asp:ListItem Text="Fire Manager" Value="4"></asp:ListItem>
-                                                <asp:ListItem Text="Fire Owner" Value="5"></asp:ListItem>
+                                                <asp:ListItem Text="Edit Product" Value="1"></asp:ListItem>
+                                                <asp:ListItem Text="Add New Item" Value="2"></asp:ListItem>
+                                                <asp:ListItem Text="Add New Manager" Value="3"></asp:ListItem>
+                                                <asp:ListItem Text="Add New Owner" Value="4"></asp:ListItem>
+                                                <asp:ListItem Text="Fire Manager" Value="5"></asp:ListItem>
+                                                <asp:ListItem Text="Fire Owner" Value="6"></asp:ListItem>
+                                                <asp:ListItem Text="Add PurchasePolicy" Value="7"></asp:ListItem>
+                                                <asp:ListItem Text="Remove PurchasePolicy" Value="8"></asp:ListItem>
+                                                <asp:ListItem Text="Add Discount" Value="9"></asp:ListItem>
+                                                <asp:ListItem Text="Remove Discount" Value="10"></asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td>&nbsp;</td>
@@ -293,5 +298,70 @@ margin-bottom: 16px;
             <td class="auto-style16">&nbsp;</td>
         </tr>
     </table>
+    <asp:DataList ID="DataListproducts" runat="server" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" OnSelectedIndexChanged="DataListproducts_SelectedIndexChanged">
+        <FooterStyle BackColor="White" ForeColor="#333333" />
+        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <SelectedItemStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+        <ItemStyle BackColor="White" ForeColor="#333333" />
+        <ItemTemplate>
+                       
+                                <table align="left" style="width: 250px; background-color: #f5f5f5; border: 1px solid #CCC;">
+
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">
+                                                    <span style="font-weight: 700; font-size: 14px;">Id: <%#Eval("productId") %> </span></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-weight: 700; font-size: 20px;">Name: <%#Eval("Name") %> </span></td>
+                                        <td class="auto-style8">
+                                            <asp:TextBox ID="txtBoxEditName" CssClass="txt" placeholder="Enter New Name" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
+                                        <td style="auto-style8" class="auto-style19">
+                                            <asp:Button ID="btnEditName" runat="server" Text="edit" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnEditName_OnClick"  />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-size: 16px;">Price: <%#Eval("price") %></span></td>
+                                       <td class="auto-style8">
+                                            <asp:TextBox ID="TextBoxEditPrice" CssClass="txt" placeholder="Enter New Price" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
+                                        <td style="auto-style8" class="auto-style19">
+                                            <asp:Button ID="btnEditPrice" runat="server" Text="edit" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnEditPrice_OnClick"  />
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>
+                                            <span style="font-size: 16px;">Catagory: <%#Eval("catagory") %></span></td>
+                                         <td class="auto-style8">
+                                            <asp:TextBox ID="TextBoxEditCategory" CssClass="txt" placeholder="Enter New Category" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
+                                        <td style="auto-style8" class="auto-style19">
+                                            <asp:Button ID="btnEditCategory" runat="server" Text="edit" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnEditCategory_OnClick"  />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-size: 16px;">Quantity: <%#Eval("quantity") %></span></td>
+                                            <td class="auto-style8">
+                                            <asp:TextBox ID="TextBoxEditQuantity" CssClass="txt" placeholder="Enter New Category" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
+                                        <td style="auto-style8" class="auto-style19">
+                                            <asp:Button ID="btnEditQuantity" runat="server" Text="edit" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnEditCategory_OnClick"  />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                    </tr>
+                                </table>
+                        
+                        </ItemTemplate>
+    </asp:DataList>
 
     </asp:Content>
