@@ -280,6 +280,16 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
+        public bool StoreExist(string storeName)
+        {
+            foreach(Store store in Stores.Values)
+            {
+                if (store.Name.Equals(storeName))
+                    return true;
+            }
+            return false;
+        }
+
         public Dictionary<IStaff, Permission> GetStoreStaff(string userID, string storeID)
         {
             if (Stores.TryGetValue(storeID, out Store store))

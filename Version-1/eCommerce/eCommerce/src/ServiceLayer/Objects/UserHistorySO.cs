@@ -35,6 +35,7 @@ namespace eCommerce.src.ServiceLayer.Objects
                     str[3] = prs.Value.ToString();
                 }
             }
+            return list.ToArray();
         }
     }
 }

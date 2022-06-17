@@ -267,6 +267,8 @@ namespace eCommerce.src.DomainLayer
         {
             if (userFacade.RegisteredUsers.TryGetValue(userID, out RegisteredUser founder)  && founder.Active)  // Check if userID is a registered user
             {
+                if (storeFacade.StoreExist(storeName))
+                    throw new Exception("Store Name Already Exists In the system");
                 Store.Store s = storeFacade.OpenNewStore(founder, storeName);
                 return new StoreService(s.Id, s.Name, s.Founder.GetId(), new LinkedList<string>(s.Owners.Keys), new LinkedList<string>(s.Managers.Keys), new UserHistorySO(s.History), s.Rate, s.NumberOfRates);
             }

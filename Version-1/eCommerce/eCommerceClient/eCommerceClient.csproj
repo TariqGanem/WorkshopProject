@@ -139,7 +139,6 @@
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Notifications.cs" />
-    <Compile Include="Code\ShopHandler.cs" />
     <Compile Include="Code\System.cs" />
     <Compile Include="Code\UserHandler.cs" />
     <Compile Include="EditShop.aspx.cs">
