@@ -378,13 +378,74 @@ namespace Client.Code
 
         public String getProductId(string storeid , string productname)
         {
-            string param = string.Format("userid={0}&productname={1}", storeid , productname);
+            string param = string.Format("storeid={0}&productname={1}", storeid , productname);
             string str = system.SendApi("getProductId", param);
             str = str.Remove(0, 1);
             str = str.Remove(str.Length - 1, 1);
             return str;
         }
-        
+
+        public DataSet getStoresIManage(string userid)
+        {
+            string param = string.Format("userid={0}", userid);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getStoresIManage", param).ToString());
+            DataTable t1 = new DataTable("Stores");
+            t1.Columns.Add("storeId");
+            t1.Columns.Add("StoreName");
+            t1.Columns.Add("StoreFounder");
+            t1.Columns.Add("Rate");
+            t1.Columns.Add("NumbeOfRates");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
+            }
+
+            DataSet d1 = new DataSet("StoresIManage");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
+        public DataSet getStoresIOwn(string userid)
+        {
+            string param = string.Format("userid={0}", userid);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getStoresIOwn", param).ToString());
+            DataTable t1 = new DataTable("Stores");
+            t1.Columns.Add("storeId");
+            t1.Columns.Add("StoreName");
+            t1.Columns.Add("StoreFounder");
+            t1.Columns.Add("Rate");
+            t1.Columns.Add("NumbeOfRates");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
+            }
+
+            DataSet d1 = new DataSet("StoresIOwn");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
+        public DataSet getAllProductsInSystem()
+        {
+            string param = "";
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getAllProductsInSystem", param).ToString());
+            DataTable t1 = new DataTable("ProductsInSystem");
+            t1.Columns.Add("productId");
+            t1.Columns.Add("Name");
+            t1.Columns.Add("price");
+            t1.Columns.Add("catagory");
+            t1.Columns.Add("quantity");
+
+            for (int i = 0; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
+            }
+            DataSet d1 = new DataSet("ProductsInSystem");
+            d1.Tables.Add(t1);
+            return d1;
+        }
         // offers + policy funcs XD
 
 

@@ -383,10 +383,18 @@ namespace eCommerce.src.ServiceLayer
 
         public Result<string> getProductId(string storeid, string productname)
         {
-            return UserController.getProductId(storeid,productname)
+            return UserController.getProductId(storeid, productname);
         }
-        // fix not noti design maybe
 
+        public List<StoreService> GetStoresIManage(string userid)
+        {
+            return RegisteredUserController.GetStoresIManage(userid);
+        }
+
+        public List<StoreService> GetStoresIOwn(string userid)
+        {
+            return RegisteredUserController.GetStoresIOwn(userid);
+        }
 
 
     }

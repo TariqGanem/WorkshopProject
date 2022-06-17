@@ -14,6 +14,7 @@ using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 using eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies;
 using eCommerce.src.DomainLayer.User;
 using eCommerce.src.DomainLayer.User.Roles;
+using eCommerce.src.ServiceLayer.Objects;
 using eCommerce.src.ServiceLayer.ResultService;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -657,6 +658,41 @@ namespace eCommerce.src.DomainLayer.Store
                 return res;
             }
             throw new Exception("Store does not exists\n");
+        }
+
+        public List<StoreService> GetStoresIManage(string user)
+        {
+            List<StoreService> output = new List<StoreService> ();
+            foreach(Store store in this.Stores.Values)
+            {
+                if (store.Managers.ContainsKey(user))
+                    output.Add(store.getSO());
+            }
+            return output;
+        }
+
+        public List<ProductService> GetAllProducts()
+        {
+            List<ProductService> output = new List<ProductService>();
+            foreach(Store store in Stores.Values)
+            {
+                foreach(Product pro in store.InventoryManager.Products.Values)
+                {
+                    output.Add(pro.getSO());
+                }
+            }
+            return output;
+        }
+
+        public List<StoreService> GetStoresIOwn(string userid)
+        {
+            List<StoreService> output = new List<StoreService>();
+            foreach (Store store in this.Stores.Values)
+            {
+                if (store.Owners.ContainsKey(userid))
+                    output.Add(store.getSO());
+            }
+            return output;
         }
 
         public bool RemoveDiscountCondition(string storeId, string id)

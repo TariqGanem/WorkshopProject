@@ -26,6 +26,7 @@ namespace eCommerce.src.DomainLayer
         List<ProductService> GetAllProductByStoreIDToDisplay(string storeID);
         bool[] GetPermission(string userID, string storeID);
         List<ProductService> SearchProduct(IDictionary<String, Object> productDetails);
+        List<ProductService> GetAllProducts();
         List<StoreService> SearchStore(IDictionary<String, Object> details);
         #endregion
 
@@ -83,6 +84,8 @@ namespace eCommerce.src.DomainLayer
         LinkedList<Notification> getUserNotifications(string userid);
         bool isRegisteredUser(string userid);
         string getProductId(string storeid, string productname);
+        List<StoreService> GetStoresIManage(string userid);
+        List<StoreService> GetStoresIOwn(string userid);
         #endregion
     }
 
@@ -673,6 +676,23 @@ namespace eCommerce.src.DomainLayer
             else
                 throw new Exception($"store {storeid} does not exist");
         }
+
+        public List<StoreService> GetStoresIManage(string userid)
+        {
+            return storeFacade.GetStoresIManage(userid);
+        }
+
+        public List<StoreService> GetStoresIOwn(string userid)
+        {
+            return storeFacade.GetStoresIOwn(userid);
+
+        }
+
+        public List<ProductService> GetAllProducts()
+        {
+            return storeFacade.GetAllProducts();
+        }
+
 
 
 

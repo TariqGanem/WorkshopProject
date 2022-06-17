@@ -249,7 +249,7 @@ namespace ServerApi
         public string[][] SearchProduct(string keyword)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters["KeyWords"] = keyword;
+            parameters["Name"] = keyword;
             Result<List<ProductService>> results = facade.SearchProduct(parameters);
             if (results.ErrorOccured)
             {
@@ -545,7 +545,45 @@ namespace ServerApi
             return output.Value;
         }
 
+        [HttpGet]
+        public String[][] getStoresIManage(string userid)
+        {
+            List<StoreService> output = facade.GetStoresIManage(userid);
+            String[][] ret = new string[output.Count][];
+            int i = 0;
+            foreach (StoreService item in output)
+            {
+                ret[i] = item.ToStringArray();
+                i++;
+            }
+            return ret;
+        }
 
+        [HttpGet]
+        public String[][] getStoresIOwn(string userid)
+        {
+            List<StoreService> output = facade.GetStoresIOwn(userid);
+            String[][] ret = new string[output.Count][];
+            int i = 0;
+            foreach (StoreService item in output)
+            {
+                ret[i] = item.ToStringArray();
+                i++;
+            }
+            return ret;
+        }
+
+        [HttpGet]
+        public String[][] getAllProductsInSystem()
+        {
+            List<ProductService> products = facade.GetAllProducts();
+            List<string[]> output = new List<string[]>();
+            foreach (ProductService product in products)
+            {
+                output.Add(product.ToStringArray());
+            }
+            return output.ToArray();
+        }
         // offers ?
         // policy func ? to the end
 

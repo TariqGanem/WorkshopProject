@@ -19,6 +19,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<bool> AddStoreRating(string userid, string storeid, double rate);
         Result<bool> AddProductRatingInStore(string userid, string storeid, string productid, double rate);
         Result<LinkedList<Notification>> getUserNotifications(string userid);
+        List<StoreService> GetStoresIManage(string userid);
+        List<StoreService> GetStoresIOwn(string userid);
     }
 
     public class RegisteredUserController : UserController, IRegisteredUserController
@@ -146,6 +148,17 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<LinkedList<Notification>>(e.ToString());
             }
         }
+
+        public List<StoreService> GetStoresIManage(string userid)
+        {
+            return SystemFacade.GetStoresIManage(userid);
+        }
+        public List<StoreService> GetStoresIOwn(string userid)
+        {
+            return SystemFacade.GetStoresIOwn(userid);
+
+        }
+
 
 
 

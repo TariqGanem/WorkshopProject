@@ -11,7 +11,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         List<StoreService> GetAllStoresToDisplay();
         List<ProductService> GetAllProductByStoreIDToDisplay(string storeID);
         Boolean[] GetPermission(string userID, string storeID);
-
+        List<ProductService> GetAllProducts();
     }
 
     public class DataController : IDataController
@@ -25,7 +25,6 @@ namespace eCommerce.src.ServiceLayer.Controllers
             this.systemfacade = storesAndManagementInterface;
         }
 
-        #region Methods
         public List<StoreService> GetAllStoresToDisplay()
         {
             return systemfacade.GetAllStoresToDisplay();
@@ -40,7 +39,12 @@ namespace eCommerce.src.ServiceLayer.Controllers
             return systemfacade.GetPermission(userID, storeID);
         }
 
+        public List<ProductService> GetAllProducts()
+        {
 
-        #endregion
+        }
+
+
+       
     }
 }
