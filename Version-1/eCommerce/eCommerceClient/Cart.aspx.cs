@@ -12,17 +12,14 @@ namespace Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            LabelError.Visible = false;
             if (!Page.IsPostBack)
             {
-                Labelerrorcreditcard.Visible = false;
-                ShopHandler a = new ShopHandler();
                 UserHandler u = new UserHandler();
 
-                Data_cart.DataSource = a.GetUserBaskets(Session["userId"].ToString());
+                Data_cart.DataSource = u.getUserShoppingCart(Session["userId"].ToString());
                 Data_cart.DataBind();
-
-                //Label3.Text = u.GetTotalCart(Session["userId"].ToString()).ToString();
-
+                LabelActualPrice.Text = u.getTotalShoppingCartPrice(Session["userId"].ToString());
             }
             else {
 
@@ -36,20 +33,14 @@ namespace Client
             if (e.CommandName == "Delete_command")
             {
                 string[] cargs = e.CommandArgument.ToString().Split(',');
-                Session["productName"] = cargs[0];
-                Session["productId"] = cargs[1];
-                Session["price"] = cargs[2];
-                Session["storeId"] = cargs[3];
-                Session["Amount"] = cargs[4];
-
-                ShopHandler s = new ShopHandler();
-                bool b = s.remove_item_from_cart(Session["userId"].ToString(), Session["storeId"].ToString(), Session["productId"].ToString());
+                UserHandler s = new UserHandler();
+                string productid = s.getProductId(cargs[1].ToString(), cargs[0].ToString());
+                bool b = s.RemoveProductFromCart(Session["userId"].ToString(), cargs[1].ToString(), productid);
                 if (b)
                 {
-                    ShopHandler c = new ShopHandler();
-                    Data_cart.DataSource = c.GetUserBaskets(Session["userId"].ToString());
+                    UserHandler c = new UserHandler();
+                    Data_cart.DataSource = c.getUserShoppingCart(Session["userId"].ToString());
                     Data_cart.DataBind();
-                    
                     Response.Redirect("~/Cart.aspx");
                 }
             }
@@ -57,17 +48,13 @@ namespace Client
             if (e.CommandName == "up_command")
             {
                 string[] cargs = e.CommandArgument.ToString().Split(',');
-                Session["productName"] = cargs[0];
-                Session["productId"] = cargs[1];
-                Session["storeId"] = cargs[2];
-                Session["Amount"] = cargs[3];
 
-                ShopHandler s = new ShopHandler();
-                bool a = s.UpdateCart(Session["userId"].ToString(), Session["storeId"].ToString(), Session["productId"].ToString(), int.Parse(Session["Amount"].ToString()) + 1);
+                UserHandler s = new UserHandler();
+                string productid = s.getProductId(cargs[1].ToString(), cargs[0].ToString());
+
+                bool a = s.UpdateCart(Session["userId"].ToString(), cargs[1].ToString(), productid, int.Parse(cargs[2].ToString()) + 1);
                 if (a)
                 {
-                    //Data_cart.DataSource = s.GetUserBaskets(Session["userId"].ToString());
-                    //Data_cart.DataBind();
                     Label b = e.Item.FindControl("Label1") as Label;
                     b.Text = String.Format("{0}", int.Parse(b.Text) + 1);
                 }
@@ -76,12 +63,10 @@ namespace Client
             if (e.CommandName == "down_command")
             {
                 string[] cargs = e.CommandArgument.ToString().Split(',');
-                Session["productName"] = cargs[0];
-                Session["productId"] = cargs[1];
-                Session["storeId"] = cargs[2];
-                Session["Amount"] = cargs[3];
-                ShopHandler s = new ShopHandler();
-                bool a = s.UpdateCart(Session["userId"].ToString(), Session["storeId"].ToString(), Session["productId"].ToString(), int.Parse(Session["Amount"].ToString()) - 1);
+                UserHandler s = new UserHandler();
+                string productid = s.getProductId(cargs[1].ToString(), cargs[0].ToString());
+
+                bool a = s.UpdateCart(Session["userId"].ToString(), cargs[1].ToString(), productid, int.Parse(cargs[2].ToString()) - 1);
                 if (a){
                     //Data_cart.DataSource = s.GetUserBaskets(Session["userId"].ToString());
                     //Data_cart.DataBind();
@@ -94,20 +79,32 @@ namespace Client
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            ShopHandler s = new ShopHandler();
-            if (TextBoxCreditcard.Text.Length == 0)
+            UserHandler s = new UserHandler();
+            if (TextBoxCreditcard.Text.Length == 0 | TextBoxAdress.Text.Length == 0 | TextBoxCity.Text.Length == 0 | TextBoxCountry.Text.Length == 0 |
+                TextBoxCVV.Text.Length == 0 | TextBoxHolder.Text.Length == 0 | TextBoxId.Text.Length == 0 | TextBoxMonth.Text.Length == 0 | TextBoxName.Text.Length == 0 |
+                TextBoxYear.Text.Length == 0 | TextBoxZip.Text.Length == 0)
             {
-                Labelerrorcreditcard.Visible = true;
-                Labelerrorcreditcard.Text = "enter your creditcard!!!";
+                LabelError.Visible = true;
             }
             else
             {
-                bool buy = s.Purchase(Session["userId"].ToString(), TextBoxCreditcard.Text.ToString());
+                bool buy = s.Purchase(Session["userId"].ToString(), TextBoxCreditcard.Text.ToString() , TextBoxMonth.Text.ToString(),TextBoxYear.Text.ToString(),TextBoxHolder.Text.ToString(),
+                    TextBoxCVV.Text.ToString() , TextBoxId.Text.ToString() , TextBoxName.Text.ToString(), TextBoxAdress.Text.ToString(), TextBoxCity.Text.ToString() , 
+                    TextBoxCountry.Text.ToString() , TextBoxZip.Text.ToString());
                 if (buy)
                 {
                     Response.Redirect("~/PurchaseDone.aspx");
                 }
+                else
+                {
+                    LabelError.Visible = true;
+                }
             }
+
+        }
+
+        protected void Data_cart_SelectedIndexChanged1(object sender, EventArgs e)
+        {
 
         }
     }

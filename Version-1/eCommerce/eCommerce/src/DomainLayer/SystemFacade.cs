@@ -81,6 +81,8 @@ namespace eCommerce.src.DomainLayer
         bool AddProductRatingInStore(string userid, string storeid, string productid, double rate);
         bool EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
         LinkedList<Notification> getUserNotifications(string userid);
+        bool isRegisteredUser(string userid);
+        string getProductId(string storeid, string productname);
         #endregion
     }
 
@@ -650,6 +652,25 @@ namespace eCommerce.src.DomainLayer
 
         }
 
+        public bool isRegisteredUser(string userid)
+        {
+            if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
+            {
+                return true;
+            }
+            throw new Exception($"{userid} is not a registered user");
+
+        }
+
+        public string getProductId(string storeid, string productname)
+        {
+            if (storeFacade.Stores.TryGetValue(storeid, out Store.Store store))
+            {
+                return store.getProductId(productname);
+            }
+            else
+                throw new Exception($"store {storeid} does not exist");
+        }
 
 
 

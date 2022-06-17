@@ -35,9 +35,11 @@ namespace Client.Code
             return (system.SendApi("Register", param));
         }
 
-        public bool Purchase(string username, string creditcard)
+        public bool Purchase(string userName, string card_number, string month, string year,
+            string holder, string ccv, string id, string name, string address, string city, string country, string zip)
         {
-            string param = string.Format("userName={0}&creditCard={1}", username, creditcard);
+            string param = string.Format("userName={0}&card_number={1}&month={2}&year={3}&holder={4}" +
+                "&ccv={5}&id={6}&name={7}&address={8}&city={9}&country={10}&zip={11}", userName, card_number,month,year,holder,ccv,id,name,address,city,country,zip);
             return bool.Parse(system.SendApi("Purchase", param));
         }
 
@@ -178,16 +180,17 @@ namespace Client.Code
             string param = string.Format("userid={0}", userid);
             JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getUserShoppingCart", param).ToString());
             DataTable t1 = new DataTable("ShoppingCart");
-            t1.Columns.Add("bagid");
-            t1.Columns.Add("Products[Name/Price/Quantity$]");
-            t1.Columns.Add("TotalBagPrice");
+            t1.Columns.Add("storeid");
+            t1.Columns.Add("Name");
+            t1.Columns.Add("Price");
+            t1.Columns.Add("Quantity");
 
             for (int i = 0; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2]);
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2] , jarray[i][3]);
             }
 
-            DataSet d1 = new DataSet("Stores");
+            DataSet d1 = new DataSet("shoppingcart");
             d1.Tables.Add(t1);
             return d1;
         }
@@ -197,16 +200,16 @@ namespace Client.Code
             string param = string.Format("userid={0}", userid);
             JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getUserPurchaseHistory", param).ToString());
             DataTable t1 = new DataTable("ShoppingCart");
-            t1.Columns.Add("bagid");
-            t1.Columns.Add("Products[Name/Price/Quantity$]");
-            t1.Columns.Add("TotalBagPrice");
-
+            t1.Columns.Add("storeid");
+            t1.Columns.Add("Name");
+            t1.Columns.Add("Price");
+            t1.Columns.Add("Quantity");
             for (int i = 0; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2]);
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3]);
             }
 
-            DataSet d1 = new DataSet("Stores");
+            DataSet d1 = new DataSet("shoppinghistory");
             d1.Tables.Add(t1);
             return d1;
         }
@@ -327,16 +330,18 @@ namespace Client.Code
             string param = string.Format("admin={0}&userid={1}", admin , userid);
             JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("GetUserPurchaseHistory", param).ToString());
             DataTable t1 = new DataTable("ShoppingCart");
-            t1.Columns.Add("bagid");
-            t1.Columns.Add("Products[Name/Price/Quantity$]");
-            t1.Columns.Add("TotalBagPrice");
+            t1.Columns.Add("storeid");
+            t1.Columns.Add("Name");
+            t1.Columns.Add("Price");
+            t1.Columns.Add("Quantity");
+
 
             for (int i = 0; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2]);
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }
 
-            DataSet d1 = new DataSet("Stores");
+            DataSet d1 = new DataSet("purchasehistory");
             d1.Tables.Add(t1);
             return d1;
         }
@@ -363,6 +368,21 @@ namespace Client.Code
         {
             string param = string.Format("userid={0}", userid);
             return bool.Parse(system.SendApi("isAdminUser", param));
+        }
+
+        public bool isRegisteredUser(string userid)
+        {
+            string param = string.Format("userid={0}", userid);
+            return bool.Parse(system.SendApi("isRegisteredUser", param));
+        }
+
+        public String getProductId(string storeid , string productname)
+        {
+            string param = string.Format("userid={0}&productname={1}", storeid , productname);
+            string str = system.SendApi("getProductId", param);
+            str = str.Remove(0, 1);
+            str = str.Remove(str.Length - 1, 1);
+            return str;
         }
         
         // offers + policy funcs XD

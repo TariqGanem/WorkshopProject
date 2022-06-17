@@ -375,6 +375,16 @@ namespace eCommerce.src.ServiceLayer
         {
             return StoreStaffController.EditPurchasePolicy(storeId, info, id);
         }
+
+        public Result<bool> isRegisteredUser(string userid)
+        {
+            return UserController.isRegisteredUser(userid);
+        }
+
+        public Result<string> getProductId(string storeid, string productname)
+        {
+            return UserController.getProductId(storeid,productname)
+        }
         // fix not noti design maybe
 
 

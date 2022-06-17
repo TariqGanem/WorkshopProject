@@ -9,25 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/facadeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/facadeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/src/Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/src/Config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/Config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/Roles/RegisteredUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/Roles/RegisteredUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/GuestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/GuestController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Objects/ShoppingCartSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Objects/ShoppingCartSO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/eCommerceAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/eCommerceAPI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Notifications.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Notifications.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/m1.Master.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/m1.Master.cs" afterDir="false" />
-    </list>
+    <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655416295961</updated>
-      <workItem from="1655416336008" duration="8759000" />
+      <workItem from="1655416336008" duration="8826000" />
     </task>
     <servers />
   </component>

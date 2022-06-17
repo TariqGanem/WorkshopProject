@@ -5,6 +5,10 @@
             width: 686px;
             height: 394px;
         }
+    .auto-style21 {
+        width: 344px;
+        height: 394px;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -18,7 +22,7 @@
         </tr>
         <tr>
             <td>
-            <img  src="img/done.gif" alt="gif image" class="auto-style19" /></td>
+            <img  src="img/done.gif" alt="gif image" class="auto-style21" /></td>
             <td>&nbsp;</td>
         </tr>
     </table>

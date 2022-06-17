@@ -9,12 +9,17 @@
              color: white;
         }
 
+        .auto-style22 {
+            width: 123px;
+            direction: ltr;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table class="auto-style5">
         <tr>
-            <td class="auto-style10">
+            <td class="auto-style22">
                 <asp:Label ID="shopNameLabel" runat="server" Text="shopName :"></asp:Label>
             </td>
             <td>
@@ -23,27 +28,12 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style10">
-                <asp:Label ID="policyLabel" runat="server" Text="policy :"></asp:Label>
+            <td>
+                <asp:Button ID="ButtonSend" class ="style_send"   runat="server" Text="Open" Height="33px" OnClick="ButtonSend_Click" Width="84px" />
             </td>
             <td>
-                <asp:TextBox ID="TextBoxpolicy" runat="server"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style10">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style10">
+                <class="auto-style22">
                 <asp:Label ID="Labelerror" runat="server" Text="error"></asp:Label>
-            </td>
-            <td>
-                <asp:Button ID="ButtonSend" class ="style_send"   runat="server" Text="Send" Height="33px" OnClick="ButtonSend_Click" Width="84px" />
             </td>
             <td>&nbsp;</td>
         </tr>

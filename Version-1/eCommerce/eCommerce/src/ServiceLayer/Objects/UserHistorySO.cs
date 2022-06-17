@@ -23,12 +23,18 @@ namespace eCommerce.src.ServiceLayer.Objects
 
         public String[][] toArray()
         {
-            List<String[]> str = new List<string[]>();
-            foreach(ShoppingBagSO shb in ShoppingBags)
+            List<String[]> list = new List<string[]>();
+            foreach(ShoppingBagSO bag in ShoppingBags)
             {
-                str.Add(shb.toArray());
+                foreach(KeyValuePair<ProductService,int> prs in bag.Products)
+                {
+                    String[] str = new string[4];
+                    str[0] = bag.StoreId;
+                    str[1] = prs.Key.Name;
+                    str[2] = prs.Key.Price.ToString();
+                    str[3] = prs.Value.ToString();
+                }
             }
-            return str.ToArray();
         }
     }
 }

@@ -16,6 +16,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result Logout(String userId);  
         Result<UserHistorySO> GetUserPurchaseHistory(String userId);
         Result<bool> isAdminUser(string userid);
+        Result<bool> isRegisteredUser(string userid);
+        Result<string> getProductId(string storeid, string productname);
     }
     public class UserController : IUserController
     {
@@ -152,6 +154,35 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<bool>(e.Message);
             }
         }
+
+        public Result<bool> isRegisteredUser(string userid)
+        {
+            try
+            {
+                ValidateId(userid);
+                return new Result<bool>(SystemFacade.isRegisteredUser(userid));
+            }
+            catch (Exception e)
+            {
+                logger.LogError("UserController --> " + e.Message);
+                return new Result<bool>(e.Message);
+            }
+        }
+
+        public Result<string> getProductId(string storeid, string productname)
+        {
+            try
+            {
+                ValidateId(storeid);
+                return new Result<String>(SystemFacade.getProductId(storeid,productname));
+            }
+            catch (Exception e)
+            {
+                logger.LogError("UserController --> " + e.Message);
+                return new Result<String>(e.Message);
+            }
+        }
+
 
         #region Protected Validation Methods
         protected void ValidateCredentials(String userName, String password)

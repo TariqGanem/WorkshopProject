@@ -71,24 +71,25 @@ namespace ServerApi
         }
 
         [HttpGet]
-        public bool Purchase(string userName, string creditCard) // for fixing in gui 
+        public bool Purchase(string userName, string card_number , string month , string year ,
+            string holder , string ccv , string id , string name , string address , string city , string country , string zip) // for fixing in gui 
         {
             IDictionary<String, Object> paymentDetails = new Dictionary<String, Object>
                     {
-                     { "card_number", "2222333344445555" },
-                     { "month", "4" },
-                     { "year", "2021" },
-                     { "holder", "Israel Israelovice" },
-                     { "ccv", "262" },
-                     { "id", "20444444" }
+                     { "card_number", card_number },
+                     { "month", month },
+                     { "year", year },
+                     { "holder", holder },
+                     { "ccv", ccv },
+                     { "id", id }
                     };
             IDictionary<String, Object> deliveryDetails = new Dictionary<String, Object>
                     {
-                     { "name", "Israel Israelovice" },
-                     { "address", "Rager Blvd 12" },
-                     { "city", "Beer Sheva" },
-                     { "country", "Israel" },
-                     { "zip", "8458527" }
+                     { "name", name },
+                     { "address", address },
+                     { "city", city },
+                     { "country", country },
+                     { "zip", zip }
                     };
             Result output = facade.Purchase(userName, paymentDetails, deliveryDetails);
             if (!output.ErrorOccured)
@@ -117,7 +118,7 @@ namespace ServerApi
             if(output.ErrorOccured)
             {
                 Logger.GetInstance().Event(output.ErrorMessage);
-                return new string[0];
+                return new string[] {$"Error:{output.ErrorMessage}"};
             }
             String[] res = new String[output.Value.Count];
             int index = 0;
@@ -252,7 +253,7 @@ namespace ServerApi
             Result<List<ProductService>> results = facade.SearchProduct(parameters);
             if (results.ErrorOccured)
             {
-                return new string[0][];
+                return new string[][] { new string[] { $"Error:{results.ErrorMessage}" } };
             }
             List<ProductService> products = results.Value;
             List<string[]> output = new List<string[]>();
@@ -271,7 +272,7 @@ namespace ServerApi
             Result<List<StoreService>> results = facade.SearchStore(parameters);
             if (results.ErrorOccured)
             {
-                return new string[0][];
+                return new string[][] { new string[] { $"Error:{results.ErrorMessage}" } };
             }
             List<StoreService> products = results.Value;
             List<string[]> output = new List<string[]>();
@@ -289,7 +290,7 @@ namespace ServerApi
             if(output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
-                return new string[0][];
+                return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
             }
             return output.Value.toArray();
         }
@@ -301,7 +302,7 @@ namespace ServerApi
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
-                return new string[0][];
+                return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
             }
             return output.Value.toArray();
         }
@@ -365,7 +366,7 @@ namespace ServerApi
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
-                return new string[0];
+                return new string[] {$"Error:{output.ErrorMessage}"};
             }
             Logger.GetInstance().Event("Store Closed");
             String[] strmat = new string[output.Value.Count];
@@ -460,7 +461,7 @@ namespace ServerApi
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
-                return new string[0][];
+                return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
             }
             Logger.GetInstance().Event("User purchase history fetched");
             return output.Value.toArray();
@@ -501,10 +502,10 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return false;
             }
-            Logger.GetInstance().Event("system admin removed");
+            Logger.GetInstance().Event("system resetted");
             return output.Value;
         }
-
+        [HttpGet]
         public bool isAdminUser(string userid)
         {
             Result<bool> output = facade.isAdminUser(userid);
@@ -513,7 +514,34 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return false;
             }
-            Logger.GetInstance().Event("system admin removed");
+            Logger.GetInstance().Event($"{userid} is admin");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool isRegisteredUser(string userid)
+        {
+            Result<bool> output = facade.isRegisteredUser(userid);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event($"{userid} is reg user");
+            return output.Value;
+        }
+
+
+        [HttpGet]
+        public String getProductId(string storeid, string productname)
+        {
+            Result<String> output = facade.getProductId(storeid,productname);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error:" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event($"{productname} is not in store {storeid}");
             return output.Value;
         }
 

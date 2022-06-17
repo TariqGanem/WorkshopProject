@@ -28,15 +28,19 @@ namespace eCommerce.src.ServiceLayer.Objects
 
         public String[][] toArray()
         {
-            String[][] strmat = new string[shoppingBags.Count][];
-            int i = 0;
-            foreach(KeyValuePair<string,ShoppingBagSO> shb in shoppingBags)
+            List<String[]> list = new List<string[]>();
+            foreach (ShoppingBagSO bag in shoppingBags.Values)
             {
-                strmat[i] = shb.Value.toArray();
-                i++;
+                foreach (KeyValuePair<ProductService, int> prs in bag.Products)
+                {
+                    String[] str = new string[4];
+                    str[0] = bag.StoreId;
+                    str[1] = prs.Key.Name;
+                    str[2] = prs.Key.Price.ToString();
+                    str[3] = prs.Value.ToString();
+                }
             }
-            strmat[strmat.Length - 1] = new String[3];
-            return strmat;
+            return list.ToArray();
 
         }
         #endregion

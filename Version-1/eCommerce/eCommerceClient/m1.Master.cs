@@ -15,6 +15,12 @@ namespace Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserHistoryBtn.Visible = false;
+            ShoppingHistory.Visible = false;
+            ResetSystem.Visible = false;
+            txtAdmin.Visible = false;
+            btnRemoveAdmin.Visible = false;
+            btnAddAdmin.Visible = false;
             LabelPasword.Visible = false;
             LabelUsername.Visible = false;
             Labelname.Visible = true;
@@ -22,19 +28,35 @@ namespace Client
             MyShops.Visible = false;
             Notifications.Visible = false;
 
-            if (Session["isLogin"] != null)
+            if (Session["isLogin"] != null && new UserHandler().isAdminUser(Session["userId"].ToString()))
+            {
+
+                OpenShop.Visible = true;
+                Login_table.Visible = false;
+                ButtonLogOut.Visible = true;
+                MyShops.Visible = true;
+                Notifications.Visible = true;
+                btnAddAdmin.Visible = true;
+                btnRemoveAdmin.Visible = true;
+                txtAdmin.Visible = true;
+                ResetSystem.Visible = true;
+                UserHistoryBtn.Visible = true;
+                ShoppingHistory.Visible = true;
+            }
+            else if(Session["isLogin"] != null)
             {
                 OpenShop.Visible = true;
                 Login_table.Visible = false;
                 ButtonLogOut.Visible = true;
                 MyShops.Visible = true;
                 Notifications.Visible = true;
+                ShoppingHistory.Visible = true;
             }
             else if (Session["username"] == null)
             {
                 UserHandler h = new UserHandler();
-                Session["username"] = h.GuestLogin();
-                Labelname.Text = "Hello " + Session["username"];
+                Session["guestid"] = h.GuestLogin();
+                Labelname.Text = "Hello Dear Guest";
                 Labelname.Visible = true;
             }
             else
@@ -79,9 +101,13 @@ namespace Client
                     Labelname.Text = "Hello " + txtusername.Text;
                     Session["userId"] = msg;
                     Session["admin"] = null;
-                    if (txtusername.Text.ToString().Equals("admin"))
+                    if (new UserHandler().isAdminUser(Session["userId"].ToString()))
                     {
+
                         Session["admin"] = "admin";
+                        btnAddAdmin.Visible = true;
+                        btnRemoveAdmin.Visible = true;
+                        txtAdmin.Visible = true;
                     }
                 }
                 else
@@ -92,9 +118,80 @@ namespace Client
             }
         }
 
+        protected void btnRemoveAdmin_OnClick(object sender, EventArgs e)
+        {
+            if ((txtAdmin.Text.Trim().Length == 0))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                        "alert('You didn't input an admin username')", true);
+                return;
+            }
+            String ret = new UserHandler().RemoveSystemAdmin(Session["userId"].ToString(),txtAdmin.Text);
+            if(!ret.Substring(1,6).Equals("Error:"))
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert(" + ret + ")", true);
+            else
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                    "alert('Admin Removed Successfully')", true);
+
+        }
+
+        protected void btnAddAdmin_OnClick(object sender, EventArgs e)
+        {
+            if ((txtAdmin.Text.Trim().Length == 0))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                        "alert('You didn't input an admin username')", true);
+                return;
+            }
+            String ret = new UserHandler().AddSystemAdmin(Session["userId"].ToString(), txtAdmin.Text);
+            if (!ret.Substring(1, 6).Equals("Error:"))
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert(" + ret + ")", true);
+            else
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                    "alert('Admin Added Successfully')", true);
+
+        }
+
+        protected void ResetSystem_OnClick(object sender, EventArgs e)
+        {
+            bool res = new UserHandler().ResetSystem(Session["userId"].ToString());
+            if(!res)
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('System could not be RESSETTED')", true);
+            else
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('System RESSETTED')", true);
+        }
+
+        protected void ShoppingHistory_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ShoppingHistory.aspx");
+        }
+
+        protected void UserHistoryBtn_OnClick(object sender, EventArgs e)
+        {
+            if (txtAdmin.Text.Trim().Length == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('You didn't input an admin username')", true);
+                return;
+            }
+            if (new UserHandler().isRegisteredUser(txtAdmin.Text))
+            {
+                Session["useradminhistoryid"] = txtAdmin.Text;
+                Response.Redirect("~/ShoppingHistoryAdmin.aspx");
+            }
+            else
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('user is not registered')", true);
+
+        }
+
         protected void ButtonLogOut_Click(object sender, EventArgs e)
         {
-            new UserHandler().Logout(Session["username"].ToString());
+            new UserHandler().Logout(Session["userId"].ToString());
             Session.Clear();
             Session.Abandon();
             Response.Redirect("~/Home.aspx");
@@ -105,7 +202,7 @@ namespace Client
             Response.Redirect("~/Home.aspx");
         }
 
-        protected void Allshops_Click(object sender, EventArgs e)
+        protected void Allshops_Click(object sender, EventArgs e) // remove
         {
             Response.Redirect("~/Shops.aspx");
         }
@@ -115,7 +212,7 @@ namespace Client
             Response.Redirect("~/Open_shop.aspx");
         }
 
-        protected void Allshops_Click1(object sender, EventArgs e)
+        protected void Allshops_Click1(object sender, EventArgs e) // remove
         {
             Response.Redirect("~/Shops.aspx");
         }
@@ -130,12 +227,12 @@ namespace Client
             Response.Redirect("~/Cart.aspx");
         }
 
-        protected void MyShops_Click(object sender, EventArgs e)
+        protected void MyShops_Click(object sender, EventArgs e) // remove
         {
             Response.Redirect("~/MyShops.aspx");
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e) // search button
         {
             if (TextBox2.Text.Trim().Length != 0)
                 Response.Redirect("~/Home.aspx?keyword=" + TextBox2.Text.ToString());

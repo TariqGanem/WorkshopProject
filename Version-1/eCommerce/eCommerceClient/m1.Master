@@ -150,6 +150,15 @@
         .auto-style18 {
             width: 149px;
         }
+        .auto-style19 {
+            width: 147px;
+        }
+        .auto-style20 {
+            width: 551px;
+        }
+        .auto-style21 {
+            width: 159px;
+        }
         </style>
 <body style="height: 107px">
     <form id="form1" runat="server">
@@ -174,9 +183,7 @@
                             <td class="auto-style18">
                                 <asp:Button ID="Notifications" CssClass="auto-style7" Width="120px" runat="server" Text="Notifications" OnClick="Notifications_Click" />
                             </td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td><asp:Button ID="ShoppingHistory" CssClass="auto-style7" Width="123px" runat="server" Text="ShoppingHistory" OnClick="ShoppingHistory_Click" /></td>
                             <td class="auto-style12">
                                 <asp:ImageButton ID="ImageButtoncart" src="img/shopping_cart_black_72x72.png" runat="server" CssClass="auto-style11" Height="46px" OnClick="ImageButtoncart_Click" />
                             </td>
@@ -189,6 +196,25 @@
                         </tr>
                     </table>
                 </td>
+            </tr>
+                <table class="auto-style5">
+                    <tr>
+                        <td class="auto-style8">
+                            <asp:TextBox ID="txtAdmin" CssClass="txt" placeholder="Enter Admin UserName" runat="server" Style="text-align: center" Width="150px"></asp:TextBox></td>
+                        <td style="auto-style8" class="auto-style19">
+                            <asp:Button ID="btnAddAdmin" runat="server" Text="AddAdmin" CssClass="auto_class8" Height="44px" Width="143px" OnClick="btnAddAdmin_OnClick"  />
+                        </td>
+                        <td style="auto-style8" class="auto-style21">
+                            <asp:Button ID="btnRemoveAdmin" runat="server" Text="RemoveAdmin" CssClass="auto_class8" Height="44px" Width="143px" OnClick="btnRemoveAdmin_OnClick"  />
+                        </td>
+                        <td style="auto-style8" class="auto-style20">
+                            <asp:Button ID="UserHistoryBtn" runat="server" Text="UserHistory" CssClass="auto_class8" Height="44px" Width="143px" OnClick="UserHistoryBtn_OnClick"  />
+                        </td>
+                         <td style="auto-style8">
+                            <asp:Button ID="ResetSystem" runat="server" Text="Reset System<Caution>" CssClass="auto_class8" Height="44px" Width="191px" OnClick="ResetSystem_OnClick"  />
+                        </td>
+                    </tr>
+                </table>
             </tr>
         </table>
         <div>
@@ -209,7 +235,8 @@
                                             <td class="auto-style4">
                                                 <asp:TextBox ID="txtpassword" TextMode="Password" CssClass="txt" placeholder="Enter Password" Style="text-align: center" runat="server" Width="150px"></asp:TextBox></td>
                                             <td class="auto-style17">
-                                                <asp:Button ID="btnlogin" runat="server" Text="Login" CssClass="loginstayl" Height="41px" Width="143px" OnClick="btnlogin_Click"  /></td>
+                                                <asp:Button ID="btnlogin" runat="server" Text="Login" CssClass="loginstayl" Height="41px" Width="143px" OnClick="btnlogin_Click"  />
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td colspan="3" style="text-align: left; text-decoration: underline;" class="auto-style10"><a href="../Register.aspx" style="text-decoration: underline; color: #2093ad"><span>click here to register</span></a></td>

@@ -39,19 +39,6 @@ namespace eCommerce.src.ServiceLayer.Objects
             this.Products = products;
             this.TotalPrice = totalBagPrice;
         }
-
-        public String[] toArray()
-        {
-            String[] arr = new string[3];
-            arr[0] = StoreId;
-            arr[1] = "";
-            foreach(KeyValuePair<ProductService,int> p in this.Products)
-            {
-                arr[1] += p.Key.Name + "/" + p.Key.Price + "/" + p.Value + "$";
-            }
-            arr[2] = TotalPrice.ToString();
-            return arr;
-        }
         #endregion
     }
 }

@@ -627,5 +627,15 @@ namespace eCommerce.src.DomainLayer.Store
             else
                 throw new Exception($"product {productid} does not exist in this store");
         }
+
+        public string getProductId(string productname)
+        {
+            foreach(Product product in this.InventoryManager.Products.Values)
+            {
+                if(product.Name.Equals(productname))
+                    return product.Id;
+            }
+            throw new Exception($"product : {productname} does not exit in the store");
+        }
     }
 }
