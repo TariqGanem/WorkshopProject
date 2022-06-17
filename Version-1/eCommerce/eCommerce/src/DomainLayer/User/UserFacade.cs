@@ -501,6 +501,15 @@ namespace eCommerce.src.DomainLayer.User
             }
             throw new Exception("username is not found in the system");
         }
+
+        public string getUsernameFromId(string userid)
+        {
+            if(this.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
+            {
+                return user.UserName;
+            }
+            throw new Exception($"user {userid} does not exist in the system");
+        }
         #endregion
     }
 }

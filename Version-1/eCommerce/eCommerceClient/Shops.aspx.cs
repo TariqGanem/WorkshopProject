@@ -12,14 +12,37 @@ namespace Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ShopHandler a = new ShopHandler();
+            UserHandler a = new UserHandler();
             DataListproducts.DataSource = a.getAllStores();
             DataListproducts.DataBind();
         }
 
-        protected void DataListproducts_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DataListproducts_ItemCommand(object sender, DataListCommandEventArgs e)
         {
-
+            UserHandler a = new UserHandler();
+            if (e.CommandName.Equals("RateStore"))
+            {
+                TextBox nametxtbox = (TextBox)(e.Item.FindControl("TextBoxRate"));
+                if (nametxtbox.Text.Trim().Length == 0)
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelRateError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Rate Field is Empty";
+                    return;
+                }
+                else if (a.AddStoreRating(Session["userId"].ToString(), e.CommandArgument.ToString(), int.Parse(nametxtbox.Text.ToString())))
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelRateError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Rate Updated";
+                }
+                else
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelRateError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Something went wrong -> Check Permission";
+                }
+            }
         }
     }
 }

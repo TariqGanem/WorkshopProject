@@ -212,10 +212,9 @@ namespace ServerApi
         }
 
         [HttpGet]
-        public bool AddStoreManager(string storeId, string currentOwnerId, string newManagerId, LinkedList<int> permissions)
+        public bool AddStoreManager(string storeId, string currentOwnerId, string newManagerId)
         {
             bool output = !facade.AddStoreManager(newManagerId, currentOwnerId, storeId).ErrorOccured;
-            output = output && !facade.SetPermissions(storeId, newManagerId, currentOwnerId, permissions).ErrorOccured;
             if (output)
                 Logger.GetInstance().Event(currentOwnerId + " has make new manager " + newManagerId + " for " + storeId);
             else
@@ -321,9 +320,12 @@ namespace ServerApi
         }
 
         [HttpGet]
-        public bool editProductDetail(string userID, string storeID, string productID, IDictionary<string, object> details)
+        public bool editProductDetail(string userID, string storeID, string productID,
+            string param, string editto)
         {
-            Result output = facade.EditProductDetails(userID, storeID, productID, details);
+            IDictionary<string,object> data = new Dictionary<string, object>();
+            data.Add(param, editto);
+            Result output = facade.EditProductDetails(userID, storeID, productID, data);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -334,9 +336,15 @@ namespace ServerApi
         }
 
         [HttpGet]
-        public bool SetPermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
+        public bool SetPermissions(string storeID, string managerID, string ownerID, String Permissions)
         {
-            Result output = facade.SetPermissions(storeID, managerID, ownerID, permissions);
+            String[] perms = Permissions.Split(',');
+            LinkedList<int> toset = new LinkedList<int>();
+            foreach (String perm in perms)
+            {
+                toset.AddLast(int.Parse(perm));
+            }
+            Result output = facade.SetPermissions(storeID, managerID, ownerID, toset);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -347,9 +355,11 @@ namespace ServerApi
         }
 
         [HttpGet]
-        public bool RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
+        public bool RemovePermissions(string storeID, string managerID, string ownerID, String permissions)
         {
-            Result output = facade.RemovePermissions(storeID, managerID, ownerID, permissions);
+            String[] perms = permissions.Split(',');
+            LinkedList<int> toset = new LinkedList<int>();
+            Result output = facade.RemovePermissions(storeID, managerID, ownerID, toset);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -368,7 +378,7 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return new string[] {$"Error:{output.ErrorMessage}"};
             }
-            Logger.GetInstance().Event("Store Closed");
+            Logger.GetInstance().Event("Store staff fetched");
             String[] strmat = new string[output.Value.Count];
             int i = 0;
             foreach(KeyValuePair<IStaffService, PermissionService> kvp in output.Value)
@@ -610,6 +620,33 @@ namespace ServerApi
             Logger.GetInstance().Event($"userid fetched");
             return output.Value;
         }
+
+        [HttpGet]
+        public string getUsernameFromId(string userid)
+        {
+            Result<String> output = facade.getUsernameFromId(userid);
+            if(output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error:" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event($"username fetched");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool isStoreOwner(string userid, string storeid)
+        {
+            Result<bool> output = facade.isStoreOwner(userid, storeid);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("is the user store owner checked");
+            return output.Value;
+        }
+
 
         // offers ?
         // policy func ? to the end

@@ -408,7 +408,14 @@ namespace eCommerce.src.ServiceLayer
 
         public Result<string> getUserIdByUsername(string username)
         {
-            return UserController.getStoreIdByProductId(username);
+            return UserController.getUserIdByUsername(username);
         }
+
+        public Result<string> getUsernameFromId(string userid)
+        {
+            return RegisteredUserController.getUserIdByUsername(userid);
+
+        }
+
     }
 }

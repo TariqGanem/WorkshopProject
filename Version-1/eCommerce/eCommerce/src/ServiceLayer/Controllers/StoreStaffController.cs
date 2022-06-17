@@ -38,6 +38,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<bool> AddPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
         Result<bool> RemovePurchasePolicy(string storeId, string id);
         Result<bool> EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
+        Result<bool> isStoreOwner(string userid, string storeid);
     }
 
     public class StoreStaffController : IStoreStaffController
@@ -442,6 +443,18 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<bool>(ex.ToString());
             }
         }
+
+        public Result<bool> isStoreOwner(string userid, string storeid)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.isStoreOwner(userid, storeid));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
 
 
 

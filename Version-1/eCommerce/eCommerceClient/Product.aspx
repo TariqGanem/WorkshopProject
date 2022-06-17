@@ -89,6 +89,14 @@
                 &nbsp;</td>
         </tr>
         <tr>
+             <td class="auto-style8">
+                <asp:TextBox ID="TextBoxRate" CssClass="txt" placeholder="Rate Store" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
+            <td style="auto-style8" class="auto-style19">
+                <asp:Button ID="btnRateProduct" runat="server" Text="Rate" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnRateStore_OnClick"   />
+            </td>     
+             <td><asp:Label ID="LabelErrorRateProduct" runat="server" Text="Error:"></asp:Label></td>
+        </tr>
+        <tr>
             <td class="auto-style14">
                             &nbsp;</td>
             <td class="auto-style15">&nbsp;</td>

@@ -21,6 +21,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<LinkedList<Notification>> getUserNotifications(string userid);
         List<StoreService> GetStoresIManage(string userid);
         List<StoreService> GetStoresIOwn(string userid);
+        Result<string> getUsernameFromId(string userid);
     }
 
     public class RegisteredUserController : UserController, IRegisteredUserController
@@ -157,6 +158,19 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             return SystemFacade.GetStoresIOwn(userid);
 
+        }
+        public Result<string> getUsernameFromId(string userid)
+        {
+            try
+            {
+                ValidateId(userid);
+                string res = this.SystemFacade.getUsernameFromId(userid);
+                return new Result<string>(res);
+            }
+            catch (Exception e)
+            {
+                return new Result<string>(e.ToString());
+            }
         }
 
 

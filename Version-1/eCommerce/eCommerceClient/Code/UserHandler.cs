@@ -63,7 +63,7 @@ namespace Client.Code
             {
                 try
                 {
-                    t1.Rows.Add(i, notis[i]);
+                    t1.Rows.Add(i, notis[i].Replace("\n","\r\n"); // test
                 }
                 catch
                 { }
@@ -116,10 +116,9 @@ namespace Client.Code
             return bool.Parse(system.SendApi("makeNewOwner", param));
         }
 
-        public bool AddStoreManager(string storeId, string currentOwnerId, string newManagerId,
-            LinkedList<int> permissions) // check permissions
+        public bool AddStoreManager(string storeId, string currentOwnerId, string newManagerId)
         {
-            string param = string.Format("storeId={0}&currentOwnerId={1}&newManagerId={2}&permissions={3}", storeId, currentOwnerId,newManagerId,permissions);
+            string param = string.Format("storeId={0}&currentOwnerId={1}&newManagerId={2}", storeId, currentOwnerId,newManagerId);
             return bool.Parse(system.SendApi("AddStoreManager", param));
         }
 
@@ -133,6 +132,12 @@ namespace Client.Code
         {
             string param = string.Format("currentOwnerId={0}&storeId={1}&OwnerToRemove={2}", currentOwnerId, storeId,OwnerToRemove);
             return bool.Parse(system.SendApi("removeOwner", param));
+        }
+
+        public bool isStoreOwner(string userid,string storeid)
+        {
+            string param = string.Format("userid={0}&storeid={1}", userid, storeid);
+            return bool.Parse(system.SendApi("isStoreOwner", param));
         }
 
         public DataSet SearchProduct(string keyword)
@@ -221,19 +226,19 @@ namespace Client.Code
         }
 
         public bool editProductDetail(string userID, string storeID, string productID,
-            IDictionary<string, object> details)
+            string param , string editto)
         {
-            string param = string.Format("userID={0}&storeID={1}&productID={2}&details={3}", userID, storeID,productID,details);
-            return bool.Parse(system.SendApi("editProductDetail", param));
+            string par = string.Format("userID={0}&storeID={1}&productID={2}&param={3}&editto={4}", userID, storeID,productID, param,editto);
+            return bool.Parse(system.SendApi("editProductDetail", par));
         }
 
-        public bool SetPermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
+        public bool SetPermissions(string storeID, string managerID, string ownerID, String Permissions) // check permissions format before server req
         {
-            string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&permissions={3}", storeID, managerID,ownerID,permissions);
+            string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&Permissions={3}", storeID, managerID,ownerID, Permissions);
             return bool.Parse(system.SendApi("SetPermissions", param));
         }
 
-        public bool RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
+        public bool RemovePermissions(string storeID, string managerID, string ownerID, String permissions) // check permissions format before server req
         {
             string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&permissions={3}", storeID, managerID,ownerID,permissions);
             return bool.Parse(system.SendApi("RemovePermissions", param));
@@ -246,19 +251,21 @@ namespace Client.Code
             str = str.Remove(0, 1);
             str = str.Remove(str.Length - 1, 1);
             string[] notis = str.Split(',');
-            DataTable t1 = new DataTable("Notifications");
+            DataTable t1 = new DataTable("StoreStaff");
             t1.Columns.Add("id");
-            t1.Columns.Add("msg");
+            t1.Columns.Add("Username");
             for (int i = 0; i < notis.Length ; i++)
             {
                 try
                 {
-                    t1.Rows.Add(i, notis[i]);
+                    notis[i] = notis[i].TrimEnd();
+                    notis[i].TrimStart();
+                    t1.Rows.Add(notis[i], this.getUsernameFromId(notis[i]));
                 }
                 catch
                 { }
             }
-            DataSet set = new DataSet("Notification");
+            DataSet set = new DataSet("StoreStaff");
             set.Tables.Add(t1);
             return set;
         }
@@ -458,6 +465,13 @@ namespace Client.Code
         {
             string param = string.Format("username={0}", username);
             string str = system.SendApi("getUserIdByUsername", param);
+            return str;
+        }
+
+        public string getUsernameFromId(string userid)
+        {
+            string param = string.Format("userid={0}", userid);
+            string str = system.SendApi("getUsernameFromId", param);
             return str;
         }
 

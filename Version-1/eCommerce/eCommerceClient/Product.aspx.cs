@@ -12,7 +12,7 @@ namespace Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LabelErrorRateProduct.Visible = false;
             LabelproductName0.Text = Session["Name"].ToString();
             LabelQuantity.Text = Session["quantity"].ToString();
             Labelbarcode0.Text = Session["productId"].ToString();
@@ -42,6 +42,31 @@ namespace Client
             sh.AddProductToCart(Session["userId"].ToString(), Session["productId"].ToString(),int.Parse(Label1.Text.ToString()), storeid);
             Response.Redirect("~/Home.aspx");
 
+        }
+
+        protected void btnRateStore_OnClick(object sender, EventArgs e)
+        {
+            UserHandler sh = new UserHandler();
+            String storeid = sh.getStoreIdByProductId(Session["productId"].ToString());
+            storeid = UserHandler.getID(storeid);
+            if (TextBoxRate.Text.Trim().Length == 0)
+            {
+                LabelErrorRateProduct.Visible = true;
+                LabelErrorRateProduct.Text = "Rate Field is Empty";
+                return;
+            }
+            if (sh.addProductRating(Session["userId"].ToString(),storeid,Session["productId"].ToString(), int.Parse(TextBoxRate.Text.ToString())))
+            {
+                LabelErrorRateProduct.Visible = true;
+                LabelErrorRateProduct.Text = "Product Rate Updated";
+                return;
+            }
+            else
+            {
+                LabelErrorRateProduct.Visible = true;
+                LabelErrorRateProduct.Text = "Something went wrong - check if rate is between 0-5";
+                return;
+            }
         }
     }
 }

@@ -697,6 +697,17 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception("product was not found in any store");
         }
 
+        public bool isStoreOwner(string userid, string storeid)
+        {
+            if(Stores.TryGetValue(storeid, out Store store))
+            {
+                if (store.Owners.ContainsKey(userid))
+                    return true;
+                throw new Exception("user is not a store owner");
+            }
+            throw new Exception("store does not exist");
+        }
+
         public List<StoreService> GetStoresIOwn(string userid)
         {
             List<StoreService> output = new List<StoreService>();

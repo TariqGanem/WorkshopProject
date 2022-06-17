@@ -150,13 +150,13 @@ namespace Client
         protected global::System.Web.UI.WebControls.Label Labelmanagername;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// TextBoxAddManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAddManager;
 
         /// <summary>
         /// Buttonaddmanager control.
@@ -195,13 +195,13 @@ namespace Client
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// DropDownList3 control.
+        /// TextBoxAddOwner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAddOwner;
 
         /// <summary>
         /// Button1 control.
@@ -231,13 +231,13 @@ namespace Client
         protected global::System.Web.UI.HtmlControls.HtmlTable table4;
 
         /// <summary>
-        /// DropDownList4 control.
+        /// TextBoxManagerToRemove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxManagerToRemove;
 
         /// <summary>
         /// Button2 control.
@@ -267,13 +267,13 @@ namespace Client
         protected global::System.Web.UI.HtmlControls.HtmlTable table5;
 
         /// <summary>
-        /// DropDownList5 control.
+        /// TextBoxOwnerToRemove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxOwnerToRemove;
 
         /// <summary>
         /// Button3 control.
