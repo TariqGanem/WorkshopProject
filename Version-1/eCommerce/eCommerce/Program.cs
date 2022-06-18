@@ -21,6 +21,11 @@ namespace eCommerce
     {
         static void Main(string[] args)
         {
+            return;
+        }
+        /*
+        static void Main(string[] args)
+        {
             //DBUtil.getInstance("mongodb+srv://Workshop:Workshop@workshopproject.frdmk.mongodb.net/?retryWrites=true&w=majority", "TestScenario1").clearDB();
             //return;
             eCommerceSystem ecom = new eCommerceSystem();
@@ -302,7 +307,7 @@ namespace eCommerce
             */
 
 
-        }
+        //}
 
     }
 }

@@ -35,9 +35,9 @@ namespace eCommerce.src.DomainLayer.User
     public class UserFacade : IUserFacade
     {
         #region parameters
-        public ConcurrentDictionary<String, RegisteredUser> SystemAdmins { get; }
-        public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; }
-        public ConcurrentDictionary<String, GuestUser> GuestUsers { get; }
+        public ConcurrentDictionary<String, RegisteredUser> SystemAdmins { get; set; }
+        public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers { get; set; }
+        public ConcurrentDictionary<String, GuestUser> GuestUsers { get; set; }
         public DBUtil dbutil = DBUtil.getInstance();
         private RegisteredUser defaultUser;
         private readonly object my_lock = new object();
@@ -66,6 +66,9 @@ namespace eCommerce.src.DomainLayer.User
         {
             GuestUser guest = new GuestUser();
             GuestUsers.TryAdd(guest.Id, guest);
+            Console.Out.WriteLine("keys\n");
+            foreach (string str in GuestUsers.Keys)
+                Console.Out.WriteLine(str + "\n");
             return guest;
         }
 
@@ -196,6 +199,9 @@ namespace eCommerce.src.DomainLayer.User
 
         public ShoppingCart GetUserShoppingCart(string userId)
         {
+            Console.Out.WriteLine("keys\n");
+            foreach(string str in GuestUsers.Keys)
+                Console.Out.WriteLine(str+"\n");
             if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
             {
                 return guest_user.ShoppingCart;
@@ -250,7 +256,7 @@ namespace eCommerce.src.DomainLayer.User
 
         public RegisteredUser AddSystemAdmin(string userName)
         {
-            RegisteredUser admin = GetUserById(userName);
+            RegisteredUser admin = GetUserByUserName(userName);
             //registered user has been found
             this.SystemAdmins.TryAdd(admin.Id, admin);
             var filter = Builders<BsonDocument>.Filter.Eq("_id", ""); 

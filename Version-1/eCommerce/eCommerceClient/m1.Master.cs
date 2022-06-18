@@ -52,16 +52,16 @@ namespace Client
                 Notifications.Visible = true;
                 ShoppingHistory.Visible = true;
             }
-            else if (Session["username"] == null)
+            else if (Session["userId"] == null)
             {
                 UserHandler h = new UserHandler();
-                Session["guestid"] = h.GuestLogin();
+                Session["userId"] = h.GuestLogin().Substring(1,32);
                 Labelname.Text = "Hello Dear Guest";
                 Labelname.Visible = true;
             }
             else
             {
-                Labelname.Text = "Hello " + Session["username"];
+                Labelname.Text = "Hello Dear Guest,";
                 Labelname.Visible = true;
             }
         }
@@ -205,7 +205,7 @@ namespace Client
             Response.Redirect("~/Home.aspx");
         }
 
-        protected void Allshops_Click(object sender, EventArgs e) // remove
+        protected void Allshops_Click(object sender, EventArgs e) 
         {
             Response.Redirect("~/Shops.aspx");
         }
@@ -215,7 +215,7 @@ namespace Client
             Response.Redirect("~/Open_shop.aspx");
         }
 
-        protected void Allshops_Click1(object sender, EventArgs e) // remove
+        protected void Allshops_Click1(object sender, EventArgs e) 
         {
             Response.Redirect("~/Shops.aspx");
         }
@@ -230,7 +230,7 @@ namespace Client
             Response.Redirect("~/Cart.aspx");
         }
 
-        protected void MyShops_Click(object sender, EventArgs e) // remove
+        protected void MyShops_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/MyShops.aspx");
         }

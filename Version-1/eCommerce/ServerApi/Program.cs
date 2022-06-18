@@ -98,7 +98,7 @@ namespace ServerApi
             {
                 try
                 {
-                    facadeController facade = new facadeController();
+                    facadeController facade = facadeController.getInstance();
                     string domainAddress = "https://localhost:44300/";
                     using (WebApp.Start<Startup>(url: domainAddress))
                     {

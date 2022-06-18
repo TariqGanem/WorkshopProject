@@ -150,8 +150,9 @@ namespace Client.Code
             t1.Columns.Add("price");
             t1.Columns.Add("catagory");
             t1.Columns.Add("quantity");
-
-            for (int i = 0; i < jarray.Count; i++) {
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("products");
+            for (int i = 1; i < jarray.Count; i++) {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }
             DataSet d1 = new DataSet("products");
@@ -169,8 +170,9 @@ namespace Client.Code
             t1.Columns.Add("StoreFounder");
             t1.Columns.Add("Rate");
             t1.Columns.Add("NumbeOfRates");
-
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("stores");
+            for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3],jarray[i][4]);
             }
@@ -189,8 +191,13 @@ namespace Client.Code
             t1.Columns.Add("Name");
             t1.Columns.Add("Price");
             t1.Columns.Add("Quantity");
-
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+            {
+                DataSet d2 = new DataSet("shoppingcart");
+                d2.Tables.Add(t1);
+                return d2;
+            }
+            for (int i= 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2] , jarray[i][3]);
             }
@@ -209,7 +216,9 @@ namespace Client.Code
             t1.Columns.Add("Name");
             t1.Columns.Add("Price");
             t1.Columns.Add("Quantity");
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("shoppinghistory");
+            for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3]);
             }
@@ -248,6 +257,8 @@ namespace Client.Code
         {
             string param = string.Format("ownerID={0}&storeID={1}",ownerID,storeID);
             String str = system.SendApi("GetStoreStaff", param);
+            if (str.Substring(0, 6).Equals("Error:"))
+                return new DataSet("storestaff");
             str = str.Remove(0, 1);
             str = str.Remove(str.Length - 1, 1);
             string[] notis = str.Split(',');
@@ -292,12 +303,10 @@ namespace Client.Code
             t1.Columns.Add("StoreFounder");
             t1.Columns.Add("Rate");
             t1.Columns.Add("NumbeOfRates");
-
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("stores");
+            for (int i = 1; i < jarray.Count; i++)
             {
-                Console.Out.WriteLine(jarray[i][0]);
-                Console.Out.WriteLine(jarray[i][2]);
-
                 t1.Rows.Add(jarray[i][0], jarray[i][1],getUsernameFromId(jarray[i][2].ToString()), jarray[i][3] , jarray[i][4]);
             }
 
@@ -308,7 +317,7 @@ namespace Client.Code
 
         public DataSet GetAllProductByStoreIDToDisplay(string storeID)
         {
-            string param = "";
+            string param = string.Format("storeID={0}", storeID);
             JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("GetAllProductByStoreIDToDisplay", param).ToString());
             DataTable t1 = new DataTable("Products");
             t1.Columns.Add("productId");
@@ -316,8 +325,9 @@ namespace Client.Code
             t1.Columns.Add("price");
             t1.Columns.Add("catagory");
             t1.Columns.Add("quantity");
-
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("products");
+            for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3] , jarray[i][4]);
             }
@@ -345,8 +355,9 @@ namespace Client.Code
             t1.Columns.Add("Price");
             t1.Columns.Add("Quantity");
 
-
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("products");
+            for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }
@@ -405,8 +416,9 @@ namespace Client.Code
             t1.Columns.Add("StoreFounder");
             t1.Columns.Add("Rate");
             t1.Columns.Add("NumbeOfRates");
-
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("products");
+            for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }
@@ -426,8 +438,9 @@ namespace Client.Code
             t1.Columns.Add("StoreFounder");
             t1.Columns.Add("Rate");
             t1.Columns.Add("NumbeOfRates");
-
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("products");
+            for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }
@@ -447,8 +460,9 @@ namespace Client.Code
             t1.Columns.Add("price");
             t1.Columns.Add("catagory");
             t1.Columns.Add("quantity");
-
-            for (int i = 0; i < jarray.Count; i++)
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+                return new DataSet("products");
+            for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }

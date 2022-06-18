@@ -39,3 +39,67 @@ Parameter name: UserId is null or empty!
 6/18/2022 3:48:36 AM: Admin@Workshop.com  . 
 6/18/2022 3:49:34 AM: Admin@Workshop.com  . 
 6/18/2022 3:49:48 AM: Admin@Workshop.com  . 
+6/18/2022 4:17:01 AM: Username 8a5e98428fe145fe9bce5090d8163aea doesn't exist!  . 
+6/18/2022 4:17:24 AM: Username 8a5e98428fe145fe9bce5090d8163aea doesn't exist!  . 
+6/18/2022 4:17:58 AM: user:8a5e98428fe145fe9bce5090d8163aea is not system admin!  . 
+6/18/2022 4:18:37 AM: Username 8a5e98428fe145fe9bce5090d8163aea doesn't exist!  . 
+6/18/2022 4:20:48 AM: eran is not a registered user  . 
+6/18/2022 5:08:42 AM: "3e82d23b7b5041fb9295e48a0558102d" could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:08:47 AM: There is no such user with ID:"c3692787271348c9ab490ff3180d1324"!  . 
+6/18/2022 5:12:09 AM: "59c9e02aab344831a0607ca216abc15a" could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:12:14 AM: There is no such user with ID:"90dc2617af324b78b607f1e67b5e7651"!  . 
+6/18/2022 5:15:43 AM: There is no such user with ID:"12e5957b17804f2294065f58fa5a093b"!  . 
+6/18/2022 5:15:44 AM: There is no user with ID:"12e5957b17804f2294065f58fa5a093b"
+  . 
+6/18/2022 5:18:35 AM: "a4c4328112734a6c9bb3684ce9c024e3" could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:18:39 AM: There is no such user with ID:"3990919af74242148e068bb8e9390135"!  . 
+6/18/2022 5:18:39 AM: There is no user with ID:"3990919af74242148e068bb8e9390135"
+  . 
+6/18/2022 5:19:16 AM: There is no such user with ID:"4d77e956c0c8430daf4c810bc1bba7df"!  . 
+6/18/2022 5:19:17 AM: There is no user with ID:"4d77e956c0c8430daf4c810bc1bba7df"
+  . 
+6/18/2022 5:20:10 AM: "0da3ea0e4c3d40feb1db24f5c5d33670" could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:20:13 AM: There is no such user with ID:"487126db23144024af8126f3e2e02e68"!  . 
+6/18/2022 5:20:14 AM: There is no user with ID:"487126db23144024af8126f3e2e02e68"
+  . 
+6/18/2022 5:25:16 AM: "1506408fc21846b4b40d4d4d49b6ebf2" could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:29:56 AM: "56f167454a284b15b051fca9c179aef4" could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:30:01 AM: There is no such user with ID:"56f167454a284b15b051fca9c179aef4"!  . 
+6/18/2022 5:30:02 AM: There is no user with ID:"56f167454a284b15b051fca9c179aef4"
+  . 
+6/18/2022 5:36:26 AM: 4813460f336e4e40a6ad1e4972e907e9 could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:38:10 AM: There is no such user with ID:ba0bc0894d234616808b6c38565e7ca5!  . 
+6/18/2022 5:38:11 AM: There is no user with ID:ba0bc0894d234616808b6c38565e7ca5
+  . 
+6/18/2022 5:39:26 AM: There is no such user with ID:ba0bc0894d234616808b6c38565e7ca5!  . 
+6/18/2022 5:39:27 AM: There is no user with ID:ba0bc0894d234616808b6c38565e7ca5
+  . 
+6/18/2022 5:39:33 AM: There is no such user with ID:ba0bc0894d234616808b6c38565e7ca5!  . 
+6/18/2022 5:39:33 AM: There is no user with ID:ba0bc0894d234616808b6c38565e7ca5
+  . 
+6/18/2022 5:41:06 AM: ed60cd14c7fc45479f78929714a378e4 could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:46:23 AM: There is no such user with ID:c8b8e85b5a3649b39a85be6542dddaf3!  . 
+6/18/2022 5:46:24 AM: There is no user with ID:c8b8e85b5a3649b39a85be6542dddaf3
+  . 
+6/18/2022 5:47:30 AM: There is no such user with ID:2b502799faf84567b96afbda6a62fe31!  . 
+6/18/2022 5:47:30 AM: There is no user with ID:2b502799faf84567b96afbda6a62fe31
+  . 
+6/18/2022 5:52:36 AM: a1665eeeb8954c5d870c6c1eee9d8bb3 could not add product :1d18d4a1004c4666aa7a34c7bd83be72form store: 6326ffcdf505467fac7b2486710f4459 to his Cart  . 
+6/18/2022 5:52:49 AM: There is no such user with ID:a1665eeeb8954c5d870c6c1eee9d8bb3!  . 
+6/18/2022 5:52:50 AM: There is no user with ID:a1665eeeb8954c5d870c6c1eee9d8bb3
+  . 
+6/18/2022 5:55:56 AM: There is no such user with ID:ffc13c4ceeeb4c6398e8fd37cd90824c!  . 
+6/18/2022 5:55:57 AM: There is no user with ID:ffc13c4ceeeb4c6398e8fd37cd90824c
+  . 
+6/18/2022 6:01:00 AM: There is no such user with ID:2c79a47ded914017829a266a046552a0!  . 
+6/18/2022 6:01:00 AM: There is no user with ID:2c79a47ded914017829a266a046552a0
+  . 
+6/18/2022 6:09:43 AM: There is no such user with ID:6159183094444a8784ac13d155a036a5!  . 
+6/18/2022 6:09:43 AM: There is no user with ID:6159183094444a8784ac13d155a036a5
+  . 
+6/18/2022 6:11:34 AM: There is no such user with ID:b59dea8937c64a9c9b9d421dbd1faf85!  . 
+6/18/2022 6:11:35 AM: There is no user with ID:b59dea8937c64a9c9b9d421dbd1faf85
+  . 
+6/18/2022 6:24:50 AM: There is no such user with ID:1350121747db48bcbaf5af4f00a29f3c!  . 
+6/18/2022 6:24:52 AM: There is no user with ID:1350121747db48bcbaf5af4f00a29f3c
+  . 

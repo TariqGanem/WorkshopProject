@@ -11,7 +11,7 @@ namespace eCommerce.src.ServiceLayer
 {
     public class RealAdapter : ISystemInterface
     {
-        public eCommerceSystem system = new eCommerceSystem();
+        public eCommerceSystem system = eCommerceSystem.getInstance();
 
         public Result<bool> AddProductToCart(string userId, string productId, int quantity, string storeId)
         {

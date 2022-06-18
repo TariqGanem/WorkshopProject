@@ -14,7 +14,22 @@ namespace ServerApi
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class facadeController : ApiController
     {
-        private eCommerceSystem facade = new eCommerceSystem();
+        private static facadeController Instance = null;
+        public eCommerceSystem facade;
+
+        private facadeController()
+        {
+           facade = eCommerceSystem.getInstance();
+        }
+
+        public static facadeController getInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new facadeController();
+            }
+            return Instance;
+        }
 
         // guest user
         [HttpGet]
@@ -26,7 +41,7 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return "Error:" + output.ErrorMessage;
             }
-            Console.WriteLine($"sfds: {output}");
+            Console.WriteLine($"sfds: {output.Value.Id}");
             Logger.GetInstance().Event("Guest has connected with pid : " + output);
             return output.Value.Id;
         }
@@ -256,6 +271,7 @@ namespace ServerApi
             }
             List<ProductService> products = results.Value;
             List<string[]> output = new List<string[]>();
+            output.Add(new string[] { "Succes" });
             foreach (ProductService product in products)
             {
                 output.Add(product.ToStringArray());
@@ -275,6 +291,7 @@ namespace ServerApi
             }
             List<StoreService> products = results.Value;
             List<string[]> output = new List<string[]>();
+            output.Add(new string[] { "Succes" });
             foreach (StoreService product in products)
             {
                 output.Add(product.ToStringArray());
@@ -291,7 +308,14 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
             }
-            return output.Value.toArray();
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            string[][] temp = output.Value.toArray();
+            foreach(string[] mat in temp)
+            {
+                toret.Add(mat);
+            }
+            return toret.ToArray();
         }
 
         [HttpGet]
@@ -303,7 +327,14 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
             }
-            return output.Value.toArray();
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            string[][] temp = output.Value.toArray();
+            foreach (string[] mat in temp)
+            {
+                toret.Add(mat);
+            }
+            return toret.ToArray();
         }
 
         [HttpGet]
@@ -379,8 +410,9 @@ namespace ServerApi
                 return new string[] {$"Error:{output.ErrorMessage}"};
             }
             Logger.GetInstance().Event("Store staff fetched");
-            String[] strmat = new string[output.Value.Count];
-            int i = 0;
+            String[] strmat = new string[output.Value.Count+1];
+            strmat[0] = "Succes";
+            int i = 1;
             foreach(KeyValuePair<IStaffService, PermissionService> kvp in output.Value)
             {
                 strmat[i] = kvp.Key.Id;
@@ -419,8 +451,9 @@ namespace ServerApi
         public string[][] getAllStores()
         {
             List<StoreService> output = facade.GetAllStoresToDisplay();
-            String[][] ret = new string[output.Count][];
-            int i = 0;
+            String[][] ret = new string[output.Count+1][];
+            ret[0] = new string[] { "Succes" };
+            int i = 1;
             foreach (StoreService item in output)
             {
                 ret[i] = item.ToStringArray();
@@ -433,8 +466,9 @@ namespace ServerApi
         public String[][] GetAllProductByStoreIDToDisplay(string storeID)
         {
             List<ProductService> output = facade.GetAllProductByStoreIDToDisplay(storeID);
-            String[][] ret = new string[output.Count][];
-            int i = 0;
+            String[][] ret = new string[output.Count+1][];
+            ret[0] = new string[] { "Succes" };
+            int i = 1;
             foreach (ProductService item in output)
             {
                 ret[i] = item.ToStringArray();
@@ -473,8 +507,14 @@ namespace ServerApi
                 Logger.GetInstance().Error(output.ErrorMessage);
                 return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
             }
-            Logger.GetInstance().Event("User purchase history fetched");
-            return output.Value.toArray();
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            string[][] temp = output.Value.toArray();
+            foreach (string[] mat in temp)
+            {
+                toret.Add(mat);
+            }
+            return toret.ToArray();
         }
 
         [HttpGet]
@@ -487,7 +527,7 @@ namespace ServerApi
                 return "Error" + output.ErrorMessage;
             }
             Logger.GetInstance().Event("system admin added");
-            return output.Value.UserName;
+            return output.Value.Id;
         }
 
         [HttpGet]
@@ -500,7 +540,7 @@ namespace ServerApi
                 return "Error" + output.ErrorMessage;
             }
             Logger.GetInstance().Event("system admin removed");
-            return output.Value.UserName;
+            return output.Value.Id;
         }
         
         [HttpGet]
@@ -559,8 +599,9 @@ namespace ServerApi
         public String[][] getStoresIManage(string userid)
         {
             List<StoreService> output = facade.GetStoresIManage(userid);
-            String[][] ret = new string[output.Count][];
-            int i = 0;
+            String[][] ret = new string[output.Count+1][];
+            ret[0] = new string[] {"Succes"};
+            int i = 1;
             foreach (StoreService item in output)
             {
                 ret[i] = item.ToStringArray();
@@ -573,8 +614,9 @@ namespace ServerApi
         public String[][] getStoresIOwn(string userid)
         {
             List<StoreService> output = facade.GetStoresIOwn(userid);
-            String[][] ret = new string[output.Count][];
-            int i = 0;
+            String[][] ret = new string[output.Count+1][];
+            ret[0] = new string[] { "Succes" };
+            int i = 1;
             foreach (StoreService item in output)
             {
                 ret[i] = item.ToStringArray();
@@ -588,6 +630,7 @@ namespace ServerApi
         {
             List<ProductService> products = facade.GetAllProducts();
             List<string[]> output = new List<string[]>();
+            output.Add(new string[] { "Succes" });
             foreach (ProductService product in products)
             {
                 output.Add(product.ToStringArray());

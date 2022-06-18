@@ -19,6 +19,7 @@ namespace eCommerce.src.ServiceLayer
     public interface IeCommerceAPI : IUserController, IGuestController, IRegisteredUserController, ISystemAdminController, IStoreStaffController { }
     public class eCommerceSystem 
     {
+        private static eCommerceSystem Instance = null;
         public IUserController UserController { get; set; }
         public IGuestController GuestController { get; set; }
         public IRegisteredUserController RegisteredUserController { get; set; }
@@ -29,7 +30,7 @@ namespace eCommerce.src.ServiceLayer
 
         public IDataController dataController { get; set; }
 
-        public eCommerceSystem(String config_path = @"..\..\src\Config.json" , string configData = "")
+        private eCommerceSystem(String config_path = @"..\..\src\Config.json" , string configData = "")
         {
             Config config;
             if (!(configData.Equals(String.Empty)))
@@ -60,6 +61,13 @@ namespace eCommerce.src.ServiceLayer
             SystemAdminController = new SystemAdminController(systemFacade);
             StoreStaffController = new StoreStaffController(systemFacade);
             dataController = new DataController(systemFacade);
+        }
+
+        public static eCommerceSystem getInstance()
+        {
+            if(Instance == null)
+                Instance = new eCommerceSystem();
+            return Instance;
         }
 
         // Guest User Functionality

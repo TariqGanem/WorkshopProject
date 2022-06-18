@@ -56,6 +56,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception e)
             {
+                Console.Out.WriteLine("UserController --> " + e.Message);
                 logger.LogError("UserController --> " + e.Message);
                 return new Result<GuestUserSO>(e.Message);
             }
@@ -88,6 +89,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception e)
             {
+                Console.Out.WriteLine("UserController --> " + e.Message);
                 logger.LogError("UserController --> " + e.Message);
                 return new Result<ShoppingCartSO>(e.Message);
             }
