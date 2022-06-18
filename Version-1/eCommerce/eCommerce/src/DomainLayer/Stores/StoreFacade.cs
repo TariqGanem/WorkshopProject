@@ -215,13 +215,13 @@ namespace eCommerce.src.DomainLayer.Store
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
+                store.RemoveStoreManager(removedManagerID, currentlyOwnerID);
                 if (store.Owners.TryGetValue(currentlyOwnerID, out StoreOwner owner))
                 {
                     var filterowner = Builders<BsonDocument>.Filter.Eq("UserId", owner.User.Id) & Builders<BsonDocument>.Filter.Eq("StoreId", store.Id);
                     var updateowner = Builders<BsonDocument>.Update.Set("StoreManagers", owner.getDTO().StoreManagers);
                     dbutil.UpdateStoreOwner(filterowner, updateowner);
                 }
-                store.RemoveStoreManager(removedManagerID, currentlyOwnerID);
                 // db
                 var filter_manager = Builders<BsonDocument>.Filter.Eq("UserId", removedManagerID) & Builders<BsonDocument>.Filter.Eq("StoreId", store.Id);
                 dbutil.DeleteStoreManager(filter_manager);
@@ -240,14 +240,14 @@ namespace eCommerce.src.DomainLayer.Store
         {
             if (Stores.TryGetValue(storeID, out Store store))     // Check if storeID exists
             {
+                store.RemoveStoreOwner(removedOwnerID, currentlyOwnerID);
                 if (store.Owners.TryGetValue(currentlyOwnerID, out StoreOwner owner))
                 {
                     var filterowner = Builders<BsonDocument>.Filter.Eq("UserId", owner.User.Id) & Builders<BsonDocument>.Filter.Eq("StoreId", store.Id);
                     var updateowner = Builders<BsonDocument>.Update.Set("StoreOwners", owner.getDTO().StoreOwners);
                     dbutil.UpdateStoreOwner(filterowner, updateowner);
                 }
-                store.RemoveStoreOwner(removedOwnerID, currentlyOwnerID);
-                var filter_owner = Builders<BsonDocument>.Filter.Eq("Userid", removedOwnerID) & Builders<BsonDocument>.Filter.Eq("Storeid", store.Id);
+                var filter_owner = Builders<BsonDocument>.Filter.Eq("UserId", removedOwnerID) & Builders<BsonDocument>.Filter.Eq("StoreId", store.Id);
                 dbutil.DeleteStoreOwner(filter_owner);
                 // Update Store in DB
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
@@ -295,7 +295,7 @@ namespace eCommerce.src.DomainLayer.Store
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                if (store.Active || store.Owners.TryGetValue(userID, out _))
+                if (store.Active && store.Owners.TryGetValue(userID, out _))
                 {
                     return store.GetStoreStaff(userID);
                 }
@@ -407,7 +407,8 @@ namespace eCommerce.src.DomainLayer.Store
 
         public Store ReOpenStore(RegisteredUser owner, string storeid)
         {
-            Stores.TryGetValue(storeid, out Store store);
+            if (!Stores.TryGetValue(storeid, out Store store))
+                throw new Exception("store does not exist");
             if (!store.Active)
             {
                 if (store.Owners.ContainsKey(owner.Id))
@@ -417,7 +418,7 @@ namespace eCommerce.src.DomainLayer.Store
 
                     // Update Store in DB
                     var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
-                    var update = Builders<BsonDocument>.Update.Set("isClosed", false);
+                    var update = Builders<BsonDocument>.Update.Set("Active", true);
                     dbutil.UpdateStore(filter, update);
                     Logger.GetInstance().LogInfo($"The store {store.Name} is reopened\n");
                     return store;

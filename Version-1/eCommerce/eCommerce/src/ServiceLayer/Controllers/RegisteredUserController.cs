@@ -14,7 +14,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<RegisteredUserSO> Login(String userName, String password);
         Result<UserHistorySO> GetUserPurchaseHistory(String userId);
         Result<StoreService> OpenNewStore(String storeName, String userId);
-        Result CloseStore(string userId, string storeId);
+        Result CloseStore(string storeid, string userid);
         Result<StoreService> ReOpenStore(string storeid, string userid);
         Result<bool> AddStoreRating(string userid, string storeid, double rate);
         Result<bool> AddProductRatingInStore(string userid, string storeid, string productid, double rate);
@@ -79,18 +79,19 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
         }
 
-        public Result CloseStore(string userId, string storeId)
+        public Result CloseStore(string storeId, string userId)
         {
             try
             {
                 ValidateId(userId);
                 ValidateId(storeId);
-                SystemFacade.CloseStore(userId, storeId);
+                SystemFacade.CloseStore(storeId, userId);
                 logger.LogInfo($"RegisteredUserController --> User with id: {userId}, closed a store with id: {storeId} successfully.");
                 return new Result();
             }
             catch (Exception e)
             {
+                Console.Out.WriteLine("RegUser ----->" + e.Message);
                 logger.LogError(e.Message);
                 return new Result(e.Message);
             }
@@ -107,6 +108,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch(Exception e)
             {
+                Console.Out.WriteLine("RegUser ----->" + e.Message);
                 return new Result<StoreService>(e.ToString());
             }
         }

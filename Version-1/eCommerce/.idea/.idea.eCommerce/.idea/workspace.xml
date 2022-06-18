@@ -13,36 +13,25 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/src/Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/src/Config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerApi/facadeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/facadeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Notifications/NotificationPublisher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Notifications/NotificationPublisher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Store.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Store.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/SystemFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/SystemFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/UserFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/UserFacade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/DataController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/DataController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/GuestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/GuestController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/RegisteredUserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/RegisteredUserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/eCommerceAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/eCommerceAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Objects/ShoppingCartSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Objects/ShoppingCartSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerceClient/Cart.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Cart.aspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Shops.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Shops.aspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Shops.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Shops.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Shops.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Shops.aspx.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/m1.Master" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/m1.Master" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/m1.Master.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/m1.Master.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +62,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.eCommerceClient">
+  <component name="RunManager" selected=".NET Project.ServerApi">
     <configuration name="ServerApi" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -141,6 +130,7 @@
       <workItem from="1655416336008" duration="8826000" />
       <workItem from="1655507860733" duration="1725000" />
       <workItem from="1655511004067" duration="3090000" />
+      <workItem from="1655531069330" duration="94000" />
     </task>
     <servers />
   </component>

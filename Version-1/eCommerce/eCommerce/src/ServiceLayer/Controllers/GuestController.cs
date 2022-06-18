@@ -84,6 +84,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateId(userId);
                 ShoppingCartSO shoppingCart = SystemFacade.GetUserShoppingCart(userId);
+
                 logger.LogInfo($"UserController --> User with id: {userId}, successfully getting his shopping cart.");
                 return new Result<ShoppingCartSO>(shoppingCart);
             }

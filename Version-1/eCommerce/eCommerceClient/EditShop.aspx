@@ -457,7 +457,7 @@ margin-bottom: 16px;
                                                                     <td style="text-align: left;"><span style="font-size: 14px; font-weight: 700;">ID :<%#Eval("id")%></span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="text-align: left;"><span style="font-size: 14px;">MSG : <%#Eval("Username") %></span></td>
+                                                                    <td style="text-align: left;"><span style="font-size: 14px;">Name/Email : <%#Eval("Username") %></span></td>
                                                                 </tr>
                                                             </table>
                                                         </td>

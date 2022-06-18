@@ -36,7 +36,7 @@ namespace eCommerce.src.DomainLayer.Store
         {
             String msg = $"Event : Store Closed\nStore Id : {Store.Id}\n";
             notify(msg, true);
-            logger.LogInfo($"All staff members are notified that store {Store.Id} is closed\n");
+            //logger.LogInfo($"All staff members are notified that store {Store.Id} is closed\n");
             return true;
 
         }
@@ -45,7 +45,7 @@ namespace eCommerce.src.DomainLayer.Store
         {
             String msg = $"Event : Store Opened\nStore Id : {Store.Id}\n";
             notify(msg, true);
-            logger.LogInfo($"All staff members are notified that store {Store.Id} is opened\n");
+            //logger.LogInfo($"All staff members are notified that store {Store.Id} is opened\n");
             return true;
         }
 
@@ -55,7 +55,7 @@ namespace eCommerce.src.DomainLayer.Store
             Notification notification = new Notification(ownerID, msg, true);
             removedOwner.Update(notification);      
             notify(msg, true);
-            logger.LogInfo($"All staff members are notified that owner ({ownerID}) subscriptoin as store owner ({Store.Id}) has been removed\n");
+            //logger.LogInfo($"All staff members are notified that owner ({ownerID}) subscriptoin as store owner ({Store.Id}) has been removed\n");
             return true;
         }
 
@@ -88,7 +88,7 @@ namespace eCommerce.src.DomainLayer.Store
                 msg = $"Event : A counter offer was recieved\nProduct Id : {productID}\nStore Id : {storeID}\nAmount : {amount}\nNew price : {counterOffer}\n";
 
             notifyOwners(msg, false);
-            Logger.GetInstance().LogInfo($"All store owners are notified that an offer was recieved from the user : { userID}\n");
+            //Logger.GetInstance().LogInfo($"All store owners are notified that an offer was recieved from the user : { userID}\n");
         }
 
         private void notifyOwners(string msg, bool v)

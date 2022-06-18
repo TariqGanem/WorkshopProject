@@ -23,10 +23,10 @@
                                                             <asp:Button ID="btnedit" CommandArgument='<%#Eval("StoreName")+","+Eval("storeId")%>' CommandName="editshop" runat="server" Text="editshop" Width="101px" Height="40px" />
                                                         </td>
                                                         <td style="text-align: right;">
-                                                            <asp:Button ID="ButtonClose" CommandArgument='<%#Eval("StoreName")%>' CommandName="Close" runat="server" Text="Close Store" Width="101px" Height="40px" />
+                                                            <asp:Button ID="ButtonClose" CommandArgument='<%#Eval("storeId")%>' CommandName="Close" runat="server" Text="Close Store" Width="101px" Height="40px" />
                                                         </td>
                                                         <td style="text-align: right;">
-                                                            <asp:Button ID="Button1" CommandArgument='<%#Eval("StoreName")+","+Eval("storeId")%>' CommandName="reopen" runat="server" Text="ReOpenShop" Width="101px" Height="40px" />
+                                                            <asp:Button ID="Button1" CommandArgument='<%#Eval("storeId")%>' CommandName="reopen" runat="server" Text="ReOpenShop" Width="101px" Height="40px" />
                                                         </td>
                                                     </tr>
                                                 </table>

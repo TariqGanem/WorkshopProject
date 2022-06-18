@@ -16,7 +16,7 @@ namespace Client
             // edit permissions + add/remove policies + storestaff
             if (!Page.IsPostBack)
             {
-                Label1.Text = "Select what you want to edit"+ Session["storeId"].ToString();
+                Label1.Text = "Select what you want to edit";
                 table1.Visible = false;
                 table2.Visible = false;
                 table3.Visible = false;

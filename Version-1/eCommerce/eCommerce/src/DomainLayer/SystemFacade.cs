@@ -17,7 +17,7 @@ namespace eCommerce.src.DomainLayer
     public interface ISystemFacade
     {
         StoreService OpenNewStore(String storeName, String userID);
-        void CloseStore(string userID, string storeID);
+        void CloseStore(string storeID, string userID);
         #region Inventory Management
         String AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null);
         List<StoreService> GetAllStoresToDisplay();
@@ -285,7 +285,7 @@ namespace eCommerce.src.DomainLayer
             }
         }
 
-        public void CloseStore(string userID, string storeID)
+        public void CloseStore(string storeID, string userID)
         {
             if (userFacade.RegisteredUsers.TryGetValue(userID, out RegisteredUser founder))  // Check if userID is a registered user
             {

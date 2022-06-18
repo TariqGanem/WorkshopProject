@@ -38,6 +38,7 @@ namespace eCommerce.src.ServiceLayer.Objects
                     str[1] = prs.Key.Name;
                     str[2] = prs.Key.Price.ToString();
                     str[3] = prs.Value.ToString();
+                    list.Add(str);
                 }
             }
             return list.ToArray();

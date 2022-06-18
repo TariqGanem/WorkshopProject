@@ -268,6 +268,7 @@ namespace eCommerce.src.DomainLayer.Store
                 if (manager.AppointedBy.Equals(owner))
                 {
                     Managers.TryRemove(removedManagerID, out _);
+                    owner.StoreManagers.Remove(manager);
                 }
                 else
                 {
@@ -287,7 +288,9 @@ namespace eCommerce.src.DomainLayer.Store
                 if (ownerToRemove.AppointedBy != null && ownerToRemove.AppointedBy.Equals(ownerBoss))
                 {
                     Owners.TryRemove(removedOwnerID, out StoreOwner removedOwner);
+                    ownerBoss.StoreOwners.Remove(ownerToRemove);
                     RemoveAllStaffAppointedByOwner(removedOwner);
+                    return;
                 }
                 //else failed
                 throw new Exception($"Failed to remove user (Id: {removedOwnerID}) as store owner: Unauthorized owner (Id: {currentlyOwnerID})");
@@ -324,7 +327,7 @@ namespace eCommerce.src.DomainLayer.Store
             Permission ownerPermission = new Permission();
             ownerPermission.SetAllMethodesPermitted();
 
-            if (CheckStoreManagerAndPermissions(userID, Methods.GetStoreStaff) || CheckIfStoreOwner(userID))
+            if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.GetStoreStaff))
             {
                 foreach (var owner in Owners)
                 {

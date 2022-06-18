@@ -204,6 +204,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception error)
             {
+                Console.Out.WriteLine("StoreStaf ---> " + error.Message);
                 logger.LogError("StoreStaffController --> " + error.Message);
                 return new Result<UserHistorySO>(error.Message);
             }

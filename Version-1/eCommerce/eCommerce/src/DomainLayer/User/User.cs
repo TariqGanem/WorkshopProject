@@ -131,6 +131,8 @@ namespace eCommerce.src.DomainLayer.User
         {
             ShoppingBag bag = ShoppingCart.GetShoppingBag(storeID);
             bag.UpdateShoppingBag(product, quantity);
+            ShoppingCart.GetTotalShoppingCartPrice(this.AcceptedOffers);
+            
         }
 
         public Offer findPendingOffer(string id)

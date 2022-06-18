@@ -47,7 +47,7 @@
                                                                          <td class="auto-style13">
                                                                             <asp:Label ID="Labelprice1" runat="server" Width="90px" Text="Qty :"></asp:Label>
                                                                         <asp:ImageButton ID="ImageButton1" ImageUrl="img/-.PNG" runat="server" CssClass="auto-style16" Height="30px" Width="30px" CommandArgument='<%#Eval("Name")+","+Eval("storeid")+","+Eval("Quantity")   %>' CommandName="down_command" />
-                                                                            <asp:Label ID="Label1"  runat="server" CssClass="td" Height="30px" Text="" Width="54px"><%#Eval("Quantity") %></asp:Label>
+                                                                            <asp:Label ID="Label1"  runat="server" CssClass="td" Height="30px" Text=<%#Eval("Quantity")%> Width="54px"></asp:Label>
                                                                         <asp:ImageButton ID="ImageButton2" ImageUrl="img/plus.PNG" runat="server" CssClass="auto-style16" Height="30px" Width="30px"  CommandArgument='<%#Eval("Name")+","+Eval("storeid")+","+Eval("Quantity")     %>' CommandName="up_command" />
                                                                             
                                                                         &nbsp;</td>

@@ -822,8 +822,9 @@ namespace eCommerce.src.DataAccessLayer
 
         private Store getStoreById(String Id)
         {
-            Stores.TryGetValue(Id, out Store store);
-            return store;
+            var f = Builders<BsonDocument>.Filter.Eq("_id", Id);
+            Store s = LoadStore(f);
+            return s;
         }
 
         // load all DTOS
@@ -1288,9 +1289,9 @@ namespace eCommerce.src.DataAccessLayer
             s.History = ToObject(dto.History);
             s.OfferManager = new OfferManager(Load_StoreOfferManager(dto));
             // loading staff
-            var filterstaff = Builders<BsonDocument>.Filter.Eq("StoreId", s.Id);
-            s.Managers = LoadAllManagersForStore(filterstaff);
-            s.Owners = loadAllStoreOwnerForStore(filterstaff);
+            //var filterstaff = Builders<BsonDocument>.Filter.Eq("StoreId", s.Id);
+            //s.Managers = LoadAllManagersForStore(filterstaff);
+            //s.Owners = loadAllStoreOwnerForStore(filterstaff);
             return s;
         }
 

@@ -66,9 +66,6 @@ namespace eCommerce.src.DomainLayer.User
         {
             GuestUser guest = new GuestUser();
             GuestUsers.TryAdd(guest.Id, guest);
-            Console.Out.WriteLine("keys\n");
-            foreach (string str in GuestUsers.Keys)
-                Console.Out.WriteLine(str + "\n");
             return guest;
         }
 
@@ -199,9 +196,6 @@ namespace eCommerce.src.DomainLayer.User
 
         public ShoppingCart GetUserShoppingCart(string userId)
         {
-            Console.Out.WriteLine("keys\n");
-            foreach(string str in GuestUsers.Keys)
-                Console.Out.WriteLine(str+"\n");
             if (GuestUsers.TryGetValue(userId, out GuestUser guest_user))
             {
                 return guest_user.ShoppingCart;

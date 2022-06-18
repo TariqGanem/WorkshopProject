@@ -103,3 +103,47 @@ Parameter name: UserId is null or empty!
 6/18/2022 6:24:50 AM: There is no such user with ID:1350121747db48bcbaf5af4f00a29f3c!  . 
 6/18/2022 6:24:52 AM: There is no user with ID:1350121747db48bcbaf5af4f00a29f3c
   . 
+6/18/2022 6:49:21 AM:   . 
+6/18/2022 6:57:43 AM:   . 
+6/18/2022 7:01:40 AM:   . 
+6/18/2022 7:01:45 AM:   . 
+6/18/2022 7:01:49 AM:   . 
+6/18/2022 7:01:50 AM:   . 
+6/18/2022 7:02:42 AM: Username eran doesn't exist!  . 
+6/18/2022 7:04:03 AM: Object of type 'System.String' cannot be converted to type 'System.Double'.  . 
+6/18/2022 7:04:34 AM: Object of type 'System.String' cannot be converted to type 'System.Int32'.  . 
+6/18/2022 7:04:41 AM: Object of type 'System.String' cannot be converted to type 'System.Double'.  . 
+6/18/2022 7:05:18 AM: username is not found in the system  . 
+6/18/2022 7:05:35 AM: username is not found in the system  . 
+6/18/2022 7:05:40 AM: username is not found in the system  . 
+6/18/2022 7:05:45 AM: username is not found in the system  . 
+6/18/2022 7:06:03 AM: username is not found in the system  . 
+6/18/2022 7:18:59 AM: System.Exception: user "Succes" does not exist in the system
+   at eCommerce.src.DomainLayer.User.UserFacade.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\User\UserFacade.cs:line 511
+   at eCommerce.src.DomainLayer.SystemFacade.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 712
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 167  . 
+6/18/2022 7:18:59 AM: System.Exception: user "-7777777777777777777777777777777" does not exist in the system
+   at eCommerce.src.DomainLayer.User.UserFacade.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\User\UserFacade.cs:line 511
+   at eCommerce.src.DomainLayer.SystemFacade.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 712
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 167  . 
+6/18/2022 7:21:57 AM: System.Exception: user "-7777777777777777777777777777777" does not exist in the system
+   at eCommerce.src.DomainLayer.User.UserFacade.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\User\UserFacade.cs:line 511
+   at eCommerce.src.DomainLayer.SystemFacade.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 712
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 167  . 
+6/18/2022 7:25:41 AM: Failed to close store with id -7777777777777777777777777777777: store1 is not a registered user  . 
+6/18/2022 7:26:05 AM: Failed to close store with id -7777777777777777777777777777777: store1 is not a registered user  . 
+6/18/2022 7:29:34 AM: Failed to close store with id -7777777777777777777777777777777: store1 is not a registered user  . 
+6/18/2022 7:35:22 AM: Failed to close store with id -7777777777777777777777777777777: 6326ffcdf505467fac7b2486710f4459 is not a registered user  . 
+6/18/2022 7:35:30 AM: System.Exception: Store is not closed or does not exists, therefore can not reopen it
+
+   at eCommerce.src.DomainLayer.Store.StoreFacade.ReOpenStore(RegisteredUser owner, String storeid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 429
+   at eCommerce.src.DomainLayer.SystemFacade.ReOpenStore(String storeid, String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 435
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.ReOpenStore(String storeid, String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 106  . 
+6/18/2022 7:46:48 AM: -7777777777777777777777777777777 could not removed manager for 6326ffcdf505467fac7b2486710f4459  . 
+6/18/2022 8:06:59 AM: -7777777777777777777777777777777 could not removed manager for 6326ffcdf505467fac7b2486710f4459  . 
+6/18/2022 8:07:08 AM: -7777777777777777777777777777777 could not removed manager for 6326ffcdf505467fac7b2486710f4459  . 
+6/18/2022 8:11:42 AM: -7777777777777777777777777777777 could not removed manager for 6326ffcdf505467fac7b2486710f4459  . 
+6/18/2022 8:22:07 AM: Index was outside the bounds of the array.  . 
+6/18/2022 8:25:32 AM: Index was outside the bounds of the array.  . 
+6/18/2022 8:25:42 AM: Index was outside the bounds of the array.  . 
+6/18/2022 8:25:59 AM: Index was outside the bounds of the array.  . 

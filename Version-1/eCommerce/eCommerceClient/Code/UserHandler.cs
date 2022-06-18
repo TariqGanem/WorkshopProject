@@ -112,7 +112,7 @@ namespace Client.Code
 
         public bool makeNewOwner(string newOwnerId, string currentOwnerId, string storeId)
         {
-            string param = string.Format("newOwnerId={0}&currentOwnerId={1}&currentOwnerId={2}", newOwnerId, currentOwnerId,storeId);
+            string param = string.Format("newOwnerId={0}&currentOwnerId={1}&storeId={2}", newOwnerId, currentOwnerId,storeId);
             return bool.Parse(system.SendApi("makeNewOwner", param));
         }
 
@@ -265,13 +265,13 @@ namespace Client.Code
             DataTable t1 = new DataTable("StoreStaff");
             t1.Columns.Add("id");
             t1.Columns.Add("Username");
-            for (int i = 0; i < notis.Length ; i++)
+            for (int i = 1; i < notis.Length ; i++)
             {
                 try
                 {
                     notis[i] = notis[i].TrimEnd();
                     notis[i].TrimStart();
-                    t1.Rows.Add(notis[i], this.getUsernameFromId(notis[i]));
+                    t1.Rows.Add(notis[i], this.getUsernameFromId(notis[i].Substring(1,32)));
                 }
                 catch
                 { }

@@ -248,6 +248,7 @@ namespace ServerApi
             return output;
         }
 
+        [HttpGet]
         public bool removeOwner(string currentOwnerId, string storeId, string OwnerToRemove)
         {
             bool output = !facade.RemoveStoreOwner(OwnerToRemove, currentOwnerId, storeId).ErrorOccured;
