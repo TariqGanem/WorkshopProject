@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:DataList ID="DataListproducts" runat="server" OnItemCommand="DataListproducts_ItemCommand" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" OnSelectedIndexChanged="DataListproducts_SelectedIndexChanged">
+    <asp:DataList ID="DataListShops" runat="server" OnItemCommand="DataListproducts_ItemCommand" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal">
         <FooterStyle BackColor="White" ForeColor="#333333" />
         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         <SelectedItemStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
@@ -33,8 +33,8 @@
                 <tr>
                      <td class="auto-style8">
                         <asp:TextBox ID="TextBoxRate" CssClass="txt" placeholder="Rate Store" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
-                    <td style="auto-style8" class="auto-style19">
-                        <asp:Button ID="btnRateStore" runat="server" CommandArgument='<%#Eval("storeId")%>' Text="Rate" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnRateStore_OnClick" CommandName="RateStore"  />
+                    <td  class="auto-style19">
+                        <asp:Button ID="btnRateStore" runat="server" CommandArgument='<%#Eval("storeId")%>' Text="Rate" CssClass="auto_class8" Height="30px" Width="50px" CommandName="RateStore"  />
                     </td>                
                 </tr>
                 <tr>

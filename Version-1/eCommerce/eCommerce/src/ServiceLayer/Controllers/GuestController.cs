@@ -176,7 +176,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 ValidateId(storeid);
-                return new Result<String>(SystemFacade.getProductId(storeid,productname));
+                return new Result<String>(SystemFacade.getProductId(storeid,productname),null);
             }
             catch (Exception e)
             {
@@ -190,7 +190,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 ValidateId(productId);
-                return new Result<String>(SystemFacade.getStoreIdByProductId(productId));
+                return new Result<String>(SystemFacade.getStoreIdByProductId(productId),null);
             }
             catch (Exception e)
             {
@@ -203,7 +203,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             try
             {
-                return new Result<String>(SystemFacade.getUserIdByUsername(username));
+                return new Result<String>(SystemFacade.getUserIdByUsername(username),null);
             }
             catch (Exception e)
             {

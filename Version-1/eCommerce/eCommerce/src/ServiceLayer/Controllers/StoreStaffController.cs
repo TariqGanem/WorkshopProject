@@ -455,15 +455,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 logger.LogError(ex.ToString());
                 return new Result<bool>(ex.ToString());
             }
-
-
-
-
-
-
-
-
-
+        }
 
     }
 }

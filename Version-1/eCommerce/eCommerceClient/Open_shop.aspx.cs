@@ -26,13 +26,16 @@ namespace Client
             }
             UserHandler s = new UserHandler();
             string userId = Session["userId"].ToString();
-            string open = s.OpenShop(userId, TextBoxShopname.Text);
+            string open = s.OpenShop(TextBoxShopname.Text.ToString(), userId );
             if (open.Substring(1,6).Equals("Error:")) {
                 Labelerror.Text = open;
                 Labelerror.Visible = true;
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('failed to open store!!!')", true);
             }
-            Response.Redirect("~/Home.aspx");
+            Labelerror.Text = "Store Opened";
+            Labelerror.Visible = true;
+            return;
+            //Response.Redirect("~/Home.aspx");
         }
     }
 }

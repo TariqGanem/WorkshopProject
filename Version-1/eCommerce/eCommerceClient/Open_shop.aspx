@@ -32,7 +32,6 @@
                 <asp:Button ID="ButtonSend" class ="style_send"   runat="server" Text="Open" Height="33px" OnClick="ButtonSend_Click" Width="84px" />
             </td>
             <td>
-                <class="auto-style22">
                 <asp:Label ID="Labelerror" runat="server" Text="error"></asp:Label>
             </td>
             <td>&nbsp;</td>

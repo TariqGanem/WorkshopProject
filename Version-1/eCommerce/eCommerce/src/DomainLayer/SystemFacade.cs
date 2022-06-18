@@ -505,7 +505,7 @@ namespace eCommerce.src.DomainLayer
             foreach (Store.Store store in stores)
             {
                 StoreService storeService = store.getSO();
-                storeService.Founder = null;
+                storeService.Founder = store.Founder.GetId();
                 storeService.Owners = null;
                 storeService.Managers = null;
                 storeService.History = null;

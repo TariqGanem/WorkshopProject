@@ -41,7 +41,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
 
         public List<ProductService> GetAllProducts()
         {
-
+            return systemfacade.GetAllProducts();
         }
 
 

@@ -165,7 +165,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 ValidateId(userid);
                 string res = this.SystemFacade.getUsernameFromId(userid);
-                return new Result<string>(res);
+                return new Result<string>(res,null);
             }
             catch (Exception e)
             {

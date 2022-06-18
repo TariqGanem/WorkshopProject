@@ -50,3 +50,119 @@
 6/17/2022 2:12:26 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
 6/17/2022 2:17:36 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
 6/17/2022 2:17:39 AM: eranhas LoggedIn   .
+6/18/2022 2:05:23 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:06:27 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:06:27 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:06:50 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:07:02 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 2:10:35 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:10:49 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:10:49 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 2:13:09 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:14:15 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:14:34 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:14:49 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 2:14:49 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 2:14:49 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 2:15:05 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:16:38 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:16:53 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:16:54 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:16:54 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:17:05 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:17:06 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:19:21 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:19:31 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:19:32 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:19:32 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:26:08 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:26:21 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:26:21 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:26:21 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:26:33 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:26:34 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:28:27 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:28:42 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:28:53 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:28:53 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:28:54 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:05 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:09 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:14 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:22 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:22 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:28 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:29 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:35 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:36 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:40 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:41 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:44 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:44 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:47 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:29:48 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:30:11 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:30:11 AM: -7777777777777777777777777777777has LoggedOut   .
+6/18/2022 3:30:12 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:33:15 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:33:24 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:33:24 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:33:24 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:33:28 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:33:28 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:33:36 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:33:37 AM: Store Opened  .
+6/18/2022 3:33:40 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:33:40 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:33:55 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:37:21 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:37:32 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:37:33 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:37:33 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:37:36 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:37:37 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:41:40 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:41:53 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:41:54 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:42:04 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:42:05 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:42:05 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:44:46 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:44:47 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:48:07 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:48:27 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:48:28 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:48:28 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:48:35 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:48:36 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:49:34 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:49:35 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:49:47 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:49:48 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:57:48 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:57:59 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 3:58:00 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 3:58:00 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:58:02 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:58:03 AM: username fetched  .
+6/18/2022 3:58:04 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:58:10 AM: username fetched  .
+6/18/2022 3:58:11 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:58:12 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 3:58:18 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:00:05 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 4:00:15 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/18/2022 4:00:15 AM: Admin@Workshop.comhas LoggedIn   .
+6/18/2022 4:00:15 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:00:18 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:00:19 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:00:21 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:00:21 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:00:32 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:00:56 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:01:08 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:01:10 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:01:11 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:01:25 AM: -7777777777777777777777777777777 is admin  .
+6/18/2022 4:01:26 AM: -7777777777777777777777777777777has LoggedOut   .
+6/18/2022 4:01:26 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .

@@ -15,12 +15,26 @@ namespace Client
     {
 
         /// <summary>
-        /// DataListShoppingBags control.
+        /// DataListHistoryShoppingBags control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListShoppingBags;
+        protected global::System.Web.UI.WebControls.DataList DataListHistoryShoppingBags;
+
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Client.m1 Master
+        {
+            get
+            {
+                return ((Client.m1)(base.Master));
+            }
+        }
     }
 }

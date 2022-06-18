@@ -49,5 +49,19 @@ namespace Client
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList Data_shopImanage;
+
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Client.m1 Master
+        {
+            get
+            {
+                return ((Client.m1)(base.Master));
+            }
+        }
     }
 }

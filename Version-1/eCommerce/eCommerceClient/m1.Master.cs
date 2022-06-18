@@ -96,18 +96,21 @@ namespace Client
                     Notifications.Visible = true;
                     MyShops.Visible = true;
                     Labelname.Visible = true;
+                    ShoppingHistory.Visible = true;
                     Session["isLogin"] = "true";
                     Session["username"] = txtusername.Text;
                     Labelname.Text = "Hello " + txtusername.Text;
                     Session["userId"] = msg;
                     Session["admin"] = null;
+                    Console.Out.WriteLine(Session["userId"].ToString());
                     if (new UserHandler().isAdminUser(Session["userId"].ToString()))
                     {
-
-                        Session["admin"] = "admin";
+                        Session["admin"] = msg;
                         btnAddAdmin.Visible = true;
                         btnRemoveAdmin.Visible = true;
                         txtAdmin.Visible = true;
+                        ResetSystem.Visible = true;
+                        UserHistoryBtn.Visible = true;
                     }
                 }
                 else

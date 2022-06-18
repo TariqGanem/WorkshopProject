@@ -63,7 +63,7 @@ namespace Client.Code
             {
                 try
                 {
-                    t1.Rows.Add(i, notis[i].Replace("\n","\r\n"); // test
+                    t1.Rows.Add(i, notis[i].Replace("\n","\r\n")); // test
                 }
                 catch
                 { }
@@ -295,7 +295,10 @@ namespace Client.Code
 
             for (int i = 0; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3] , jarray[i][4]);
+                Console.Out.WriteLine(jarray[i][0]);
+                Console.Out.WriteLine(jarray[i][2]);
+
+                t1.Rows.Add(jarray[i][0], jarray[i][1],getUsernameFromId(jarray[i][2].ToString()), jarray[i][3] , jarray[i][4]);
             }
 
             DataSet d1 = new DataSet("Stores");

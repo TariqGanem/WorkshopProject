@@ -201,21 +201,20 @@
                     <tr>
                         <td class="auto-style8">
                             <asp:TextBox ID="txtAdmin" CssClass="txt" placeholder="Enter Admin UserName" runat="server" Style="text-align: center" Width="150px"></asp:TextBox></td>
-                        <td style="auto-style8" class="auto-style19">
+                        <td class="auto-style19">
                             <asp:Button ID="btnAddAdmin" runat="server" Text="AddAdmin" CssClass="auto_class8" Height="44px" Width="143px" OnClick="btnAddAdmin_OnClick"  />
                         </td>
-                        <td style="auto-style8" class="auto-style21">
+                        <td class="auto-style21">
                             <asp:Button ID="btnRemoveAdmin" runat="server" Text="RemoveAdmin" CssClass="auto_class8" Height="44px" Width="143px" OnClick="btnRemoveAdmin_OnClick"  />
                         </td>
-                        <td style="auto-style8" class="auto-style20">
+                        <td class="auto-style20">
                             <asp:Button ID="UserHistoryBtn" runat="server" Text="UserHistory" CssClass="auto_class8" Height="44px" Width="143px" OnClick="UserHistoryBtn_OnClick"  />
                         </td>
-                         <td style="auto-style8">
+                         <td class="auto-style8">
                             <asp:Button ID="ResetSystem" runat="server" Text="Reset System<Caution>" CssClass="auto_class8" Height="44px" Width="191px" OnClick="ResetSystem_OnClick"  />
                         </td>
                     </tr>
                 </table>
-            </tr>
         </table>
         <div>
          <table runat="server" id="Login_table" class="auto-style3">

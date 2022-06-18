@@ -51,7 +51,7 @@ namespace eCommerce.src.DomainLayer.User
             RegisteredUsers = new ConcurrentDictionary<string, RegisteredUser>();
             GuestUsers = new ConcurrentDictionary<string, GuestUser>();
             defaultUser = new RegisteredUser(adminemail, adminpassword);
-            defaultUser.Id = "-777";
+            defaultUser.Id = "-7777777777777777777777777777777";
             LoadAllRegisterUsers();
             LoadSystemAdmins();
             if (SystemAdmins.IsEmpty)
@@ -473,7 +473,7 @@ namespace eCommerce.src.DomainLayer.User
             dbutil = DBUtil.getInstance();
             // Update DB
             DTO_RegisteredUser user_dto = defaultUser.getDTO();
-            var filter_gu = Builders<BsonDocument>.Filter.Eq("_id", "-777");
+            var filter_gu = Builders<BsonDocument>.Filter.Eq("_id", "-7777777777777777777777777777777");
             var update_gu = Builders<BsonDocument>.Update.Set("ShoppingCart", user_dto.ShoppingCart)
                                                          .Set("UserName", user_dto.UserName)
                                                          .Set("_password", user_dto._password)

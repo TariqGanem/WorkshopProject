@@ -9,11 +9,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="" />
+    <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerApi/src/Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/src/Config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/SystemFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/SystemFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/UserFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/UserFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/DataController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/DataController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/GuestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/GuestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/RegisteredUserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/RegisteredUserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/eCommerceAPI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/eCommerceAPI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Cart.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Cart.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Open_shop.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/ShoppingHistoryAdmin.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Shops.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Shops.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Shops.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Shops.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Shops.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Shops.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/m1.Master" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/m1.Master" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/m1.Master.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/m1.Master.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -24,18 +61,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.eCommerceClient">
     <configuration name="ServerApi" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -102,6 +139,8 @@
       <option name="presentableId" value="Default" />
       <updated>1655416295961</updated>
       <workItem from="1655416336008" duration="8826000" />
+      <workItem from="1655507860733" duration="1725000" />
+      <workItem from="1655511004067" duration="3090000" />
     </task>
     <servers />
   </component>

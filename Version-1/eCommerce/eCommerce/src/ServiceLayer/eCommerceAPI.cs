@@ -413,9 +413,13 @@ namespace eCommerce.src.ServiceLayer
 
         public Result<string> getUsernameFromId(string userid)
         {
-            return RegisteredUserController.getUserIdByUsername(userid);
+            return RegisteredUserController.getUsernameFromId(userid);
 
         }
 
+        public Result<bool> isStoreOwner(string userid, string storeid)
+        {
+            return StoreStaffController.isStoreOwner(userid, storeid);
+        }
     }
 }

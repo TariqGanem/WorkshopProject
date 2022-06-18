@@ -13,8 +13,8 @@ namespace Client
         protected void Page_Load(object sender, EventArgs e)
         {
             UserHandler a = new UserHandler();
-            DataListShoppingBags.DataSource = a.getUserPurchaseHistory(Session["userId"].ToString());
-            DataListShoppingBags.DataBind();
+            DataListsShoppingHistory.DataSource = a.getUserPurchaseHistory(Session["userId"].ToString());
+            DataListsShoppingHistory.DataBind();
         }
     }
 }

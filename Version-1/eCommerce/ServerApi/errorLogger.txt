@@ -23,3 +23,19 @@
 6/17/2022 1:56:45 AM: Username eran doesn't exist!  . 
 6/17/2022 2:01:57 AM: Cannot logout, user doesn't exist!  . 
 6/17/2022 2:12:26 AM: Cannot logout, user doesn't exist!  . 
+6/18/2022 2:14:34 AM: Username eranAdmin@Workshop.com doesn't exist!  . 
+6/18/2022 2:15:07 AM: There is no such user with ID:-7777777777777777777777777777777!  . 
+6/18/2022 3:17:06 AM: Cannot logout, user doesn't exist!  . 
+6/18/2022 3:26:34 AM: Cannot logout, user doesn't exist!  . 
+6/18/2022 3:28:42 AM: Username eranAdmin@Workshop.com doesn't exist!  . 
+6/18/2022 3:29:05 AM: Username eran doesn't exist!  . 
+6/18/2022 3:29:10 AM: Username eran doesn't exist!  . 
+6/18/2022 3:29:15 AM: eran is not a registered user  . 
+6/18/2022 3:29:36 AM: Failed to open store -7777777777777777777777777777777: store1 is not a registered user  . 
+6/18/2022 3:37:37 AM: System.ArgumentNullException: Value cannot be null.
+Parameter name: UserId is null or empty!
+   at eCommerce.src.ServiceLayer.Controllers.UserController.ValidateId(String userId) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\GuestController.cs:line 238
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.getUsernameFromId(String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 166  . 
+6/18/2022 3:48:36 AM: Admin@Workshop.com  . 
+6/18/2022 3:49:34 AM: Admin@Workshop.com  . 
+6/18/2022 3:49:48 AM: Admin@Workshop.com  . 

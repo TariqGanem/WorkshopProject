@@ -13,8 +13,8 @@ namespace Client
         protected void Page_Load(object sender, EventArgs e)
         {
             UserHandler a = new UserHandler();
-            DataListproducts.DataSource = a.getAllStores();
-            DataListproducts.DataBind();
+            DataListShops.DataSource = a.getAllStores();
+            DataListShops.DataBind();
         }
 
         protected void DataListproducts_ItemCommand(object sender, DataListCommandEventArgs e)

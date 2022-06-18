@@ -35,7 +35,7 @@
             
            <asp:Label ID="LabelUsername" runat="server" CssClass="red1" Text="   Stores I Manage"></asp:Label>
 
-    <asp:DataList ID="Data_shopImanage" OnItemCommand="Data_shopImanage_Command" runat="server" Width="100%" OnSelectedIndexChanged="Data_shopImanage_SelectedIndexChanged">
+    <asp:DataList ID="Data_shopImanage" OnItemCommand="Data_shopImanage_Command" runat="server" Width="100%">
                                             <ItemTemplate>
                                                 <table align="center" style="width: 100%; border-bottom: 1px solid #CCC">
                                                     <tr>

@@ -312,7 +312,6 @@ margin-bottom: 16px;
               <asp:TextBox ID="TextBoxUsernameAddPerm" CssClass="txt" placeholder="Enter Username" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
             <td class="auto-style16">
                 <asp:TextBox ID="TextBoxPermissionsToSet" CssClass="txt" placeholder="Enter Permissions" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
-            </td>
             <td class="auto-style16">&nbsp;</td>
         </tr>
         <tr>
@@ -352,7 +351,6 @@ margin-bottom: 16px;
               <asp:TextBox ID="TextBoxRemoveUsernamePerm" CssClass="txt" placeholder="Enter Username" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
             <td class="auto-style16">
                 <asp:TextBox ID="TextBoxPermToRem" CssClass="txt" placeholder="Enter Permissions" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
-            </td>
             <td class="auto-style16">&nbsp;</td>
         </tr>
         <tr>
@@ -378,7 +376,7 @@ margin-bottom: 16px;
             <td class="auto-style16">&nbsp;</td>
         </tr>
     </table>
-    <asp:DataList ID="DataListproducts" runat="server" OnItemCommand="DataListproducts_ItemCommand" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" OnSelectedIndexChanged="DataListproducts_SelectedIndexChanged" Height="588px">
+    <asp:DataList ID="DataListproducts" runat="server" OnItemCommand="DataListproducts_ItemCommand" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" Height="588px">
         <FooterStyle BackColor="White" ForeColor="#333333" />
         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         <SelectedItemStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
@@ -403,8 +401,8 @@ margin-bottom: 16px;
                                             <span style="font-weight: 700; font-size: 20px;">Name: <%#Eval("Name") %> </span></td>
                                         <td class="auto-style8">
                                             <asp:TextBox ID="txtBoxEditName" CssClass="txt" placeholder="Enter New Name" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
-                                        <td style="auto-style8" class="auto-style19">
-                                            <asp:Button ID="btnEditName" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnEditName_OnClick" CommandName="editNameProduct"  />
+                                        <td class="auto-style19">
+                                            <asp:Button ID="btnEditName" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" CommandName="editNameProduct"  />
                                         </td>
                                     </tr>
                                     <tr>
@@ -412,8 +410,8 @@ margin-bottom: 16px;
                                             <span style="font-size: 16px;">Price: <%#Eval("price") %></span></td>
                                        <td class="auto-style8">
                                             <asp:TextBox ID="TextBoxEditPrice" CssClass="txt" placeholder="Enter New Price" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
-                                        <td style="auto-style8" class="auto-style19">
-                                            <asp:Button ID="btnEditPrice" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnEditPrice_OnClick" CommandName="editPriceProduct"  />
+                                        <td class="auto-style19">
+                                            <asp:Button ID="btnEditPrice" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" CommandName="editPriceProduct"  />
                                         </td>
                                     </tr>
                                      <tr>
@@ -421,8 +419,8 @@ margin-bottom: 16px;
                                             <span style="font-size: 16px;">Catagory: <%#Eval("catagory") %></span></td>
                                          <td class="auto-style8">
                                             <asp:TextBox ID="TextBoxEditCategory" CssClass="txt" placeholder="Enter New Category" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
-                                        <td style="auto-style8" class="auto-style19">
-                                            <asp:Button ID="btnEditCategory" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnEditCategory_OnClick" CommandName="editCategoryProduct"  />
+                                        <td class="auto-style19">
+                                            <asp:Button ID="btnEditCategory" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px"  CommandName="editCategoryProduct"  />
                                         </td>
                                     </tr>
                                     <tr>
@@ -430,8 +428,8 @@ margin-bottom: 16px;
                                             <span style="font-size: 16px;">Quantity: <%#Eval("quantity") %></span></td>
                                             <td class="auto-style8">
                                             <asp:TextBox ID="TextBoxEditQuantity" CssClass="txt" placeholder="Enter New Category" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
-                                        <td style="auto-style8" class="auto-style19">
-                                            <asp:Button ID="btnEditQuantity" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnEditCategory_OnClick" CommandName="editQuantityProduct"  />
+                                        <td class="auto-style19">
+                                            <asp:Button ID="btnEditQuantity" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" CommandName="editQuantityProduct"  />
                                         </td>
                                     </tr>
                                     <tr>
