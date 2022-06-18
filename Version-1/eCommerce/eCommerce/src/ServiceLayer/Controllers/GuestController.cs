@@ -38,6 +38,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 logger.LogError("UserController --> " + e.Message);
                 return new Result<UserHistorySO>(e.Message);
             }

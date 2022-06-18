@@ -13,7 +13,7 @@ namespace eCommerce.src.DomainLayer.User
     {
         public String Id { get; }
         public String UserId { get; }
-        public Store.Store Store { get; }
+        public Store.Store Store { get; set; }
         public ConcurrentDictionary<Product, int> Products { get; }     // <Product, Quantity>
         public Double TotalBagPrice { get; set; }
 

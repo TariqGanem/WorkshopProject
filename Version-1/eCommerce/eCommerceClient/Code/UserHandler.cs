@@ -359,7 +359,7 @@ namespace Client.Code
                 return new DataSet("products");
             for (int i = 1; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3]);
             }
 
             DataSet d1 = new DataSet("purchasehistory");

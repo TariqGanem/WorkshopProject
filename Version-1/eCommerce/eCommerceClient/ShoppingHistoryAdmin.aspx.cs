@@ -16,7 +16,6 @@ namespace Client
             UserHandler a = new UserHandler();
             DataListHistoryShoppingBags.DataSource = a.GetUserPurchaseHistory(Session["userId"].ToString() , Session["useradminhistoryid"].ToString());
             DataListHistoryShoppingBags.DataBind();
-            Session["useradminhistoryid"] = null;
         }
     }
 }

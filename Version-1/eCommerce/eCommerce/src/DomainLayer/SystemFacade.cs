@@ -101,8 +101,8 @@ namespace eCommerce.src.DomainLayer
 
         public SystemFacade(string admin_email , string admin_pass)
         {
-            userFacade = new UserFacade(admin_email , admin_pass);
             storeFacade = new StoreFacade();
+            userFacade = new UserFacade(admin_email , admin_pass);
         }
 
         #region UserFacadeMethods

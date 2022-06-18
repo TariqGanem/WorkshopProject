@@ -822,8 +822,7 @@ namespace eCommerce.src.DataAccessLayer
 
         private Store getStoreById(String Id)
         {
-            var f = Builders<BsonDocument>.Filter.Eq("_id", Id);
-            Store s = LoadStore(f);
+            Stores.TryGetValue(Id, out Store s);
             return s;
         }
 
@@ -950,7 +949,7 @@ namespace eCommerce.src.DataAccessLayer
             {
                 return ru;
             }
-
+            DTO_History temp = dto.History;
             ru = new RegisteredUser(dto._id, dto.UserName, dto._password, dto.Active, ToObject(dto.History), ToObject(dto.PendingNotification));
             ru.ShoppingCart = ToObject(dto.ShoppingCart, ru);
             ru.AcceptedOffers = ToObject(dto.AcceptedOffers, ru);
@@ -1286,7 +1285,11 @@ namespace eCommerce.src.DataAccessLayer
             StoreOwner founder = getOwnershipTree(s, dto.Founder);
             s.Founder = founder;
 
-            s.History = ToObject(dto.History);
+            //s.History = ToObject(dto.History);
+            foreach (ShoppingBag shb in s.History.ShoppingBags)
+            {
+                shb.Store = s;
+            }
             s.OfferManager = new OfferManager(Load_StoreOfferManager(dto));
             // loading staff
             //var filterstaff = Builders<BsonDocument>.Filter.Eq("StoreId", s.Id);

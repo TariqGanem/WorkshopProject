@@ -147,3 +147,4 @@ Parameter name: UserId is null or empty!
 6/18/2022 8:25:32 AM: Index was outside the bounds of the array.  . 
 6/18/2022 8:25:42 AM: Index was outside the bounds of the array.  . 
 6/18/2022 8:25:59 AM: Index was outside the bounds of the array.  . 
+6/18/2022 12:07:53 PM:  user: 2c3df266e4b646af9d571f80ca525508 product: bamba has not been added to the shop : 6326ffcdf505467fac7b2486710f4459  . 
