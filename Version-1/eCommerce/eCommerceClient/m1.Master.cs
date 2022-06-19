@@ -114,6 +114,7 @@ namespace Client
                         txtAdmin.Visible = true;
                         ResetSystem.Visible = true;
                         UserHistoryBtn.Visible = true;
+                        StoreHistory.Visible = true;
                     }
                 }
                 else

@@ -191,3 +191,15 @@ Parameter name: UserId is null or empty!
 6/19/2022 8:12:04 AM: Wrong password!  . 
 6/19/2022 8:12:12 AM: Store 26d05a3699e54af4957618973b963a72 is already closed ! 
   . 
+6/19/2022 8:43:14 AM: 39200f7a98d3431ebee9322f900aa63d could not removed manager for f243604eb82d4309976fbc5af44428a8  . 
+6/19/2022 8:43:30 AM: 39200f7a98d3431ebee9322f900aa63d could not removed manager for f243604eb82d4309976fbc5af44428a8  . 
+6/19/2022 8:44:52 AM: The store closed or the given user Id -7777777777777777777777777777777 is not an owner  . 
+6/19/2022 8:44:54 AM: System.Exception: user is not a store owner
+   at eCommerce.src.DomainLayer.Store.StoreFacade.isStoreOwner(String userid, String storeid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 722
+   at eCommerce.src.DomainLayer.SystemFacade.isStoreOwner(String userid, String storeid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 720
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.isStoreOwner(String userid, String storeid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 452  . 
+6/19/2022 8:45:17 AM: -7777777777777777777777777777777 does not have permissions to edit products' information in store1  . 
+6/19/2022 8:45:38 AM:  user: -7777777777777777777777777777777 product: Doritus has not been added to the shop : f243604eb82d4309976fbc5af44428a8  . 
+6/19/2022 8:45:44 AM:  user: -7777777777777777777777777777777 product: 2e75035aafa74f08abbed1a5df8be30f has not been removed from the shop : f243604eb82d4309976fbc5af44428a8  . 
+6/19/2022 8:46:11 AM: Staff ID not found in store.  . 
+6/19/2022 8:47:44 AM:  user: -7777777777777777777777777777777 product: Doritus has not been added to the shop : f243604eb82d4309976fbc5af44428a8  . 
