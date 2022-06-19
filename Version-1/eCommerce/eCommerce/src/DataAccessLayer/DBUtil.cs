@@ -937,7 +937,7 @@ namespace eCommerce.src.DataAccessLayer
         // reg user
         public void Create(RegisteredUser ru)
         {
-            DAO_RegisteredUser.Create(new DTO_RegisteredUser(ru.Id, Get_DTO_ShoppingCart(ru), ru.UserName, ru._password, ru.Active, Get_DTO_History(ru.History), Get_DTO_Notifications(ru.PendingNotification), Get_DTO_Offers(ru.PendingOffers), Get_DTO_Offers(ru.AcceptedOffers)));
+            DAO_RegisteredUser.Create(new DTO_RegisteredUser(ru.Id, Get_DTO_ShoppingCart(ru), ru.UserName, Cryptography.encrypt(ru._password), ru.Active, Get_DTO_History(ru.History), Get_DTO_Notifications(ru.PendingNotification), Get_DTO_Offers(ru.PendingOffers), Get_DTO_Offers(ru.AcceptedOffers)));
             RegisteredUsers.TryAdd(ru.Id, ru);
         }
 
@@ -949,8 +949,9 @@ namespace eCommerce.src.DataAccessLayer
             {
                 return ru;
             }
+            string pass = Cryptography.Decrypt(dto._password);
             DTO_History temp = dto.History;
-            ru = new RegisteredUser(dto._id, dto.UserName, dto._password, dto.Active, ToObject(dto.History), ToObject(dto.PendingNotification));
+            ru = new RegisteredUser(dto._id, dto.UserName, pass, dto.Active, ToObject(dto.History), ToObject(dto.PendingNotification));
             ru.ShoppingCart = ToObject(dto.ShoppingCart, ru);
             ru.AcceptedOffers = ToObject(dto.AcceptedOffers, ru);
             ru.PendingOffers = ToObject(dto.PendingOffers, ru);

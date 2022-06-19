@@ -1674,3 +1674,26 @@
 6/19/2022 8:12:24 AM: -7777777777777777777777777777777 is admin  .
 6/19/2022 8:12:24 AM: -7777777777777777777777777777777has LoggedOut   .
 6/19/2022 8:12:24 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/19/2022 8:39:52 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/19/2022 8:40:01 AM: Admin@Workshop.comhas LoggedIn   .
+6/19/2022 8:40:01 AM: -7777777777777777777777777777777 is admin  .
+6/19/2022 8:40:04 AM: -7777777777777777777777777777777 is admin  .
+6/19/2022 8:40:04 AM: -7777777777777777777777777777777has LoggedOut   .
+6/19/2022 8:40:04 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/19/2022 8:40:16 AM: eranhas Register succesfully   .
+6/19/2022 8:40:23 AM: eranhas LoggedIn   .
+6/19/2022 8:40:23 AM: 39200f7a98d3431ebee9322f900aa63d is admin  .
+6/19/2022 8:40:25 AM: 39200f7a98d3431ebee9322f900aa63d is admin  .
+6/19/2022 8:40:25 AM: 39200f7a98d3431ebee9322f900aa63dhas LoggedOut   .
+6/19/2022 8:40:25 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/19/2022 8:40:53 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/19/2022 8:40:57 AM: eranhas LoggedIn   .
+6/19/2022 8:40:57 AM: 39200f7a98d3431ebee9322f900aa63d is admin  .
+6/19/2022 8:41:00 AM: 39200f7a98d3431ebee9322f900aa63d is admin  .
+6/19/2022 8:41:00 AM: 39200f7a98d3431ebee9322f900aa63dhas LoggedOut   .
+6/19/2022 8:41:00 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/19/2022 8:41:08 AM: Admin@Workshop.comhas LoggedIn   .
+6/19/2022 8:41:08 AM: -7777777777777777777777777777777 is admin  .
+6/19/2022 8:41:12 AM: -7777777777777777777777777777777 is admin  .
+6/19/2022 8:41:12 AM: -7777777777777777777777777777777has LoggedOut   .
+6/19/2022 8:41:12 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .

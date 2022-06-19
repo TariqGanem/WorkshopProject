@@ -476,7 +476,7 @@ namespace eCommerce.src.DomainLayer.User
             var filter_gu = Builders<BsonDocument>.Filter.Eq("_id", "-7777777777777777777777777777777");
             var update_gu = Builders<BsonDocument>.Update.Set("ShoppingCart", user_dto.ShoppingCart)
                                                          .Set("UserName", user_dto.UserName)
-                                                         .Set("_password", user_dto._password)
+                                                         .Set("_password", Cryptography.encrypt(user_dto._password))
                                                          .Set("Active", user_dto.Active)
                                                          .Set("History", user_dto.History)
                                                          .Set("PendingNotification", user_dto.PendingNotification);

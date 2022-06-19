@@ -155,6 +155,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\Config.cs" />
+    <Compile Include="src\DataAccessLayer\Cryptography.cs" />
     <Compile Include="src\DataAccessLayer\DAO.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\DTO_Product.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\DTO_PurchasedProduct.cs" />
