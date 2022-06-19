@@ -129,6 +129,25 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 return new Result<bool>($"user:{sysAdminID} is not system admin\n");
             }
         }
+
+        public Result BanUser(string userid , string adminid)
+        {
+            try
+            {
+                ValidateId(adminid);
+                ValidateId(userid);
+                SystemFacade.BanUser(userid,adminid);
+                logger.LogInfo($"SystemAdminController --> User has been banned from the system");
+                return new Result();
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("SystemAdminController ----->" + e.Message);
+                logger.LogError(e.Message);
+                return new Result(e.Message);
+
+            }
+        }
         #endregion
 
     }

@@ -28,6 +28,8 @@ namespace Client
             MyShops.Visible = false;
             Notifications.Visible = false;
             StoreHistory.Visible = false;
+            ButtonCloseStore.Visible = false;
+            ButtonBanUser.Visible = false;
 
 
             if (Session["isLogin"] != null && new UserHandler().isAdminUser(Session["userId"].ToString()))
@@ -45,6 +47,8 @@ namespace Client
                 UserHistoryBtn.Visible = true;
                 ShoppingHistory.Visible = true;
                 StoreHistory.Visible=true;
+                ButtonCloseStore.Visible = true;
+                ButtonBanUser.Visible = true;
             }
             else if(Session["isLogin"] != null)
             {
@@ -115,6 +119,8 @@ namespace Client
                         ResetSystem.Visible = true;
                         UserHistoryBtn.Visible = true;
                         StoreHistory.Visible = true;
+                        ButtonCloseStore.Visible = true;
+                        ButtonBanUser.Visible = true;
                     }
                 }
                 else
@@ -220,6 +226,58 @@ namespace Client
                 "alert('store does not exist')", true);
         }
 
+        protected void ButtonCloseStore_OnClick(object sender, EventArgs e)
+        {
+            if (txtAdmin.Text.Trim().Length == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('You didn't input an admin username')", true);
+                return;
+            }
+            UserHandler u = new UserHandler();
+            string storeid = u.getStoreIdByStoreName( txtAdmin.Text);
+            if (storeid.Substring(1, 6).Equals("Error:"))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('store does not exist')", true);
+                return;
+            }
+            string res = u.CloseStoreAdmin(storeid.Substring(1,32));
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+            "alert(" + res + " )", true);
+        }
+
+        protected void ButtonBanUser_OnClick(object sender, EventArgs e)
+        {
+            if (txtAdmin.Text.Trim().Length == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('You didn't input an admin username')", true);
+                return;
+            }
+            UserHandler u = new UserHandler();
+            string userid = u.getUserIdByUsername(txtAdmin.Text);
+            if(userid.Substring(1,6).Equals("Error:"))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('user does not exist')", true);
+                return;
+            }
+            string res = u.BanUser(userid.Substring(1,32), Session["userId"].ToString());
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+            "alert(" + res + " )", true);
+            /*
+            if (res.Substring(1,6).Equals("Error:"))
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert(" + res + " )", true);
+                return;
+            }
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+            "alert(" + res + " )", true);
+            */
+        }
+
         protected void ButtonLogOut_Click(object sender, EventArgs e)
         {
             new UserHandler().Logout(Session["userId"].ToString());
@@ -227,6 +285,8 @@ namespace Client
             Session.Abandon();
             Response.Redirect("~/Home.aspx");
         }
+
+
 
         protected void HomeButton_Click(object sender, EventArgs e)
         {

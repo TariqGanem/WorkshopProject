@@ -156,6 +156,10 @@ namespace eCommerce.src.ServiceLayer
         {
             return RegisteredUserController.CloseStore(storeid, userid);
         }
+        public Result CloseStoreAdmin(string storeid)
+        {
+            return RegisteredUserController.CloseStoreAdmin(storeid);
+        }
 
         public Result<StoreService> ReOpenStore(string storeid,string userid)
         {
@@ -433,6 +437,11 @@ namespace eCommerce.src.ServiceLayer
         public Result<string> getStoreIdByStoreName(string storename)
         {
             return UserController.getStoreIdByStoreName(storename);
+        }
+
+        public Result BanRegUser(string userid , string adminid)
+        {
+            return SystemAdminController.BanUser(userid,adminid);
         }
     }
 }

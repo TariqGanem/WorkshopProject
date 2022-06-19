@@ -311,6 +311,8 @@ namespace eCommerce.src.DomainLayer.Store
             }
         }
 
+        
+
         public History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin)
         {
             if (Stores.TryGetValue(storeID, out Store store))
@@ -354,6 +356,16 @@ namespace eCommerce.src.DomainLayer.Store
             currStore.Active = false;
             currStore.NotificationPublisher.notifyStoreClosed();
             var filter = Builders<BsonDocument>.Filter.Eq("_id", storeID);
+            var update = Builders<BsonDocument>.Update.Set("Active", false);
+            dbutil.UpdateStore(filter, update);
+        }
+
+        public void CloseStoreAdmin(string storeid)
+        {
+            Store currStore = GetStore(storeid);
+            currStore.Active = false;
+            currStore.NotificationPublisher.notifyStoreClosed();
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", storeid);
             var update = Builders<BsonDocument>.Update.Set("Active", false);
             dbutil.UpdateStore(filter, update);
         }

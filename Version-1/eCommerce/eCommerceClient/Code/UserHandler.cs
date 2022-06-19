@@ -564,6 +564,19 @@ namespace Client.Code
             return d1;
         }
 
+        public string BanUser(string userid, string adminid)
+        {
+            string param = string.Format("userid={0}&adminid={1}", userid,adminid);
+            string str = system.SendApi("BanUser", param);
+            return str;
+        }
+
+        public string CloseStoreAdmin(string storeid)
+        {
+            string param = string.Format("storeid={0}", storeid);
+            string str = system.SendApi("CloseStoreAdmin", param);
+            return str;
+        }
         // offers + policy funcs XD
 
 

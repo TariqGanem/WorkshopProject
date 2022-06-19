@@ -215,6 +215,12 @@
                             <td class="auto-style20">
                             <asp:Button ID="StoreHistory" runat="server" Text="StoreHistory" CssClass="auto_class8" Height="44px" Width="143px" OnClick="StoryHistoryBtn_OnClick"  />
                         </td>
+                         <td class="auto-style21">
+                            <asp:Button ID="ButtonCloseStore" runat="server" Text="CloseStore" CssClass="auto_class8" Height="44px" Width="143px" OnClick="ButtonCloseStore_OnClick"  />
+                        </td>
+                        <td class="auto-style21">
+                            <asp:Button ID="ButtonBanUser" runat="server" Text="BanUser" CssClass="auto_class8" Height="44px" Width="143px" OnClick="ButtonBanUser_OnClick"  />
+                        </td>
                          <td class="auto-style8">
                             <asp:Button ID="ResetSystem" runat="server" Text="Reset System<Caution>" CssClass="auto_class8" Height="44px" Width="191px" OnClick="ResetSystem_OnClick"  />
                         </td>

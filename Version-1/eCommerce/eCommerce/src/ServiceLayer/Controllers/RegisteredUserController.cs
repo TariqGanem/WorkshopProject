@@ -22,6 +22,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         List<StoreService> GetStoresIManage(string userid);
         List<StoreService> GetStoresIOwn(string userid);
         Result<string> getUsernameFromId(string userid);
+        Result CloseStoreAdmin(string storeid);
     }
 
     public class RegisteredUserController : UserController, IRegisteredUserController
@@ -87,6 +88,23 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateId(storeId);
                 SystemFacade.CloseStore(storeId, userId);
                 logger.LogInfo($"RegisteredUserController --> User with id: {userId}, closed a store with id: {storeId} successfully.");
+                return new Result();
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("RegUser ----->" + e.Message);
+                logger.LogError(e.Message);
+                return new Result(e.Message);
+            }
+        }
+
+        public Result CloseStoreAdmin(string storeid)
+        {
+            try
+            {
+                ValidateId(storeid);
+                SystemFacade.CloseStoreAdmin(storeid);
+                logger.LogInfo($"RegisteredUserController --> Admin closed store {storeid} successfully.");
                 return new Result();
             }
             catch (Exception e)

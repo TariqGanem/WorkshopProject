@@ -11,6 +11,8 @@ using eCommerce.src.DataAccessLayer;
 using eCommerce.src.ServiceLayer.ResultService;
 using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 using eCommerce.src.DomainLayer.Notifications;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace eCommerce.src.DomainLayer
 {
@@ -72,6 +74,7 @@ namespace eCommerce.src.DomainLayer
         bool RemoveDiscountPolicy(string storeId, string id);
         bool RemoveDiscountCondition(string storeId, string id);
         bool EditDiscountPolicy(string storeId, Dictionary<string, object> info, string id);
+        void CloseStoreAdmin(string storeid);
         bool AddStoreRating(string userid, string storeid, double rate);
         bool EditDiscountCondition(string storeId, Dictionary<string, object> info, string id);
         IDictionary<string, object> GetDiscountPolicyData(string storeId);
@@ -86,6 +89,7 @@ namespace eCommerce.src.DomainLayer
         string getProductId(string storeid, string productname);
         List<StoreService> GetStoresIManage(string userid);
         List<StoreService> GetStoresIOwn(string userid);
+        void BanUser(string userid, string adminid);
         string getStoreIdByProductId(string productId);
         string getUserIdByUsername(string username);
         string getUsernameFromId(string userid);
@@ -296,6 +300,10 @@ namespace eCommerce.src.DomainLayer
             {
                 throw new Exception($"Failed to close store with id {storeID}: {userID} is not a registered user");
             }
+        }
+        public void CloseStoreAdmin(string storeid)
+        {
+            storeFacade.CloseStoreAdmin(storeid);
         }
 
         public String AddProductToStore(String userID, String storeID, String productName, double price, int initialQuantity, String category, LinkedList<String> keywords = null)
@@ -723,6 +731,39 @@ namespace eCommerce.src.DomainLayer
         public string getStoreIdByStoreName(string storename)
         {
             return storeFacade.getStoreIdByStoreName(storename);
+        }
+
+        public void BanUser(string userid, string adminid)
+        {
+            if (userFacade.isSystemAdmin(adminid) && adminid != userid)
+            {
+                if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
+                {
+                    if (!user.Active)
+                    {
+                        //remove if owner somewhere // remove if manager somewhere
+                        foreach (Store.Store store in storeFacade.Stores.Values)
+                        {
+                            if (store.Owners.TryGetValue(userid, out _) & store.Owners.Count > 1 & store.Founder.GetId() != userid)
+                            {
+                                storeFacade.RemoveStoreOwner(userid, store.Founder.GetId(), store.Id);
+                            }
+                            if (store.Managers.TryGetValue(userid, out _))
+                            {
+                                storeFacade.RemoveStoreManager(userid, store.Founder.GetId(), store.Id);
+                            }
+                        }
+                        // remove from reg users and delete from db
+                        userFacade.RegisteredUsers.TryRemove(userid, out _);
+                        var filter = Builders<BsonDocument>.Filter.Eq("_id", userid);
+                        DBUtil.getInstance().DeleteRegisteredUser(filter);
+                        return;
+                    }
+                    throw new Exception("User is currently logged into the system , try some other time");
+                }
+                throw new Exception("user does not exist in the system");
+            }
+            throw new Exception("user is not admin or the admin trying to remove himself");
         }
 
 

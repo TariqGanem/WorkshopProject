@@ -732,6 +732,32 @@ namespace ServerApi
             return output.Value;
         }
 
+        [HttpGet]
+        public string BadUser(string userid , string adminid)
+        {
+            Result output = facade.BanRegUser(userid,adminid);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error:" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event("store id fetched");
+            return "Success : User Banned";
+        }
+
+        [HttpGet]
+        public string CloseStoreAdmin(string storeid)
+        {
+            Result output = facade.CloseStoreAdmin(storeid);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error:" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event("store id fetched");
+            return "Success : Store Was Closed By Admin";
+        }
+
 
 
 

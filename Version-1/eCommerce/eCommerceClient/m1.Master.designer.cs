@@ -159,6 +159,24 @@ namespace Client
         protected global::System.Web.UI.WebControls.Button StoreHistory;
 
         /// <summary>
+        /// ButtonCloseStore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCloseStore;
+
+        /// <summary>
+        /// ButtonBanUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonBanUser;
+
+        /// <summary>
         /// ResetSystem control.
         /// </summary>
         /// <remarks>
