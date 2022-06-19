@@ -10,7 +10,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:DataList ID="DataListproducts" runat="server" OnItemCommand="DataListproducts_ItemCommand1" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" OnSelectedIndexChanged="DataListproducts_SelectedIndexChanged">
+    <asp:DataList ID="DataListproducts" runat="server" OnItemCommand="DataListproducts_ItemCommand1" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal">
         <FooterStyle BackColor="White" ForeColor="#333333" />
         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
         <SelectedItemStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
@@ -39,11 +39,11 @@
                                     </tr>
                                      <tr>
                                         <td>
-                                            <span style="font-size: 16px;">Catagory: <%#Eval("catagory") %></span></td>
+                                            <span style="font-size: 16px;">Quantity: <%#Eval("quantity") %></span></td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span style="font-size: 16px;">Quantity: <%#Eval("quantity") %></span></td>
+                                            <span style="font-size: 16px;">Category: <%#Eval("category") %></span></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
@@ -51,7 +51,7 @@
 
                                     <tr>
                                         <td class="auto-style13">
-                                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#Eval("productId")+","+ Eval("Name")+","+Eval("price")+","+Eval("catagory")+","+Eval("quantity")%>' CommandName="add_to_cart"><img src="img/select-button-png-th.png" style="width: auto; height: auto;" /></asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#Eval("productId")+","+ Eval("Name")+","+Eval("price")+","+Eval("category")+","+Eval("quantity")%>' CommandName="add_to_cart"><img src="img/select-button-png-th.png" style="width: auto; height: auto;" /></asp:LinkButton>
                                         </td>
                                         <tr>
                                             <td style="height: 10px;"></td>

@@ -678,9 +678,12 @@ namespace eCommerce.src.DomainLayer.Store
             List<ProductService> output = new List<ProductService>();
             foreach(Store store in Stores.Values)
             {
-                foreach(Product pro in store.InventoryManager.Products.Values)
+                if (store.Active)
                 {
-                    output.Add(pro.getSO());
+                    foreach (Product pro in store.InventoryManager.Products.Values)
+                    {
+                        output.Add(pro.getSO());
+                    }
                 }
             }
             return output;

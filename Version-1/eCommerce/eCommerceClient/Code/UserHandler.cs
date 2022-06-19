@@ -148,10 +148,14 @@ namespace Client.Code
             t1.Columns.Add("productId");
             t1.Columns.Add("Name");
             t1.Columns.Add("price");
-            t1.Columns.Add("catagory");
             t1.Columns.Add("quantity");
+            t1.Columns.Add("category");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("products");
+            {
+                DataSet d2 = new DataSet("products");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++) {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }
@@ -323,8 +327,8 @@ namespace Client.Code
             t1.Columns.Add("productId");
             t1.Columns.Add("Name");
             t1.Columns.Add("price");
-            t1.Columns.Add("catagory");
             t1.Columns.Add("quantity");
+            t1.Columns.Add("category");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
                 return new DataSet("products");
             for (int i = 1; i < jarray.Count; i++)
@@ -458,8 +462,8 @@ namespace Client.Code
             t1.Columns.Add("productId");
             t1.Columns.Add("Name");
             t1.Columns.Add("price");
-            t1.Columns.Add("catagory");
             t1.Columns.Add("quantity");
+            t1.Columns.Add("category");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
                 return new DataSet("products");
             for (int i = 1; i < jarray.Count; i++)

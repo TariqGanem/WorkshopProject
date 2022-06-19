@@ -355,8 +355,17 @@ namespace ServerApi
         public bool editProductDetail(string userID, string storeID, string productID,
             string param, string editto)
         {
-            IDictionary<string,object> data = new Dictionary<string, object>();
-            data.Add(param, editto);
+            int val = 0;
+            IDictionary<string, object> data = new Dictionary<string, object>();
+            if (param.Equals("Price") | param.Equals("Quantity"))
+            {
+                if (!int.TryParse(editto, out _))
+                    return false;
+                val = Convert.ToInt32(editto);
+                data.Add(param, val);
+            }
+            else
+                data.Add(param, editto);
             Result output = facade.EditProductDetails(userID, storeID, productID, data);
             if (output.ErrorOccured)
             {

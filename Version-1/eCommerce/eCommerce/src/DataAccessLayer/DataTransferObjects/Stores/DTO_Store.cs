@@ -32,6 +32,7 @@ namespace eCommerce.src.DataAccessLayer.DataTransferObjects.Stores
         public DTO_DiscountAddition MainDiscount { get; set; } // List of IDiscountPolicy ids 
         [BsonElement]
         public DTO_BuyNow MainPolicy { get; set; }
+        [BsonElement]
         public List<DTO_Offer> OfferManager { get; set; }
 
         public DTO_Store(String id, String name, String founder, LinkedList<String> owners, LinkedList<String> managers, LinkedList<String> inventoryManager, DTO_History history,

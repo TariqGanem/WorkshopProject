@@ -12,9 +12,12 @@ namespace Client
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UserHandler a = new UserHandler();
-            DataListShops.DataSource = a.getAllStores();
-            DataListShops.DataBind();
+            if (!Page.IsPostBack)
+            {
+                UserHandler a = new UserHandler();
+                DataListShops.DataSource = a.getAllStores();
+                DataListShops.DataBind();
+            }
         }
 
         protected void DataListproducts_ItemCommand(object sender, DataListCommandEventArgs e)

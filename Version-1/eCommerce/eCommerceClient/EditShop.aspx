@@ -74,17 +74,14 @@ margin-bottom: 16px;
                       <asp:ListItem Enabled="true" Text="Select" Value="-1"></asp:ListItem>
                                                 <asp:ListItem Text="Edit Product" Value="1"></asp:ListItem>
                                                 <asp:ListItem Text="Add New Item" Value="2"></asp:ListItem>
-                                                <asp:ListItem Text="Add New Manager" Value="3"></asp:ListItem>
-                                                <asp:ListItem Text="Add New Owner" Value="4"></asp:ListItem>
-                                                <asp:ListItem Text="Fire Manager" Value="5"></asp:ListItem>
-                                                <asp:ListItem Text="Fire Owner" Value="6"></asp:ListItem>
-                                                <asp:ListItem Text="Add PurchasePolicy" Value="7"></asp:ListItem>
-                                                <asp:ListItem Text="Remove PurchasePolicy" Value="8"></asp:ListItem>
-                                                <asp:ListItem Text="Add Discount" Value="9"></asp:ListItem>
-                                                <asp:ListItem Text="Remove Discount" Value="10"></asp:ListItem>
-                                                <asp:ListItem Text="Add Permissions" Value="11"></asp:ListItem>
-                                                <asp:ListItem Text="Remove Permissions" Value="12"></asp:ListItem>
-                                                 <asp:ListItem Text="Store Staff" Value="13"></asp:ListItem>
+                                                <asp:ListItem Text="Remove Item" Value="3"></asp:ListItem>
+                                                <asp:ListItem Text="Add New Manager" Value="4"></asp:ListItem>
+                                                <asp:ListItem Text="Add New Owner" Value="5"></asp:ListItem>
+                                                <asp:ListItem Text="Fire Manager" Value="6"></asp:ListItem>
+                                                <asp:ListItem Text="Fire Owner" Value="7"></asp:ListItem>
+                                                <asp:ListItem Text="Add Permissions" Value="8"></asp:ListItem>
+                                                <asp:ListItem Text="Remove Permissions" Value="9"></asp:ListItem>
+                                                 <asp:ListItem Text="Store Staff" Value="10"></asp:ListItem>
 
 
 
@@ -416,20 +413,20 @@ margin-bottom: 16px;
                                     </tr>
                                      <tr>
                                         <td>
-                                            <span style="font-size: 16px;">Catagory: <%#Eval("catagory") %></span></td>
+                                            <span style="font-size: 16px;">quantity: <%#Eval("quantity") %></span></td>
                                          <td class="auto-style8">
-                                            <asp:TextBox ID="TextBoxEditCategory" CssClass="txt" placeholder="Enter New Category" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
+                                            <asp:TextBox ID="TextBoxEditQuantity" CssClass="txt" placeholder="Enter New quantity" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
                                         <td class="auto-style19">
-                                            <asp:Button ID="btnEditCategory" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px"  CommandName="editCategoryProduct"  />
+                                            <asp:Button ID="btnEditQuantity" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px"  CommandName="editQuantityProduct"  />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span style="font-size: 16px;">Quantity: <%#Eval("quantity") %></span></td>
+                                            <span style="font-size: 16px;">category: <%#Eval("category") %></span></td>
                                             <td class="auto-style8">
-                                            <asp:TextBox ID="TextBoxEditQuantity" CssClass="txt" placeholder="Enter New Category" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
+                                            <asp:TextBox ID="TextBoxEditCategory" CssClass="txt" placeholder="Enter New Category" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
                                         <td class="auto-style19">
-                                            <asp:Button ID="btnEditQuantity" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" CommandName="editQuantityProduct"  />
+                                            <asp:Button ID="btnEditCategory" runat="server" CommandArgument='<%#Eval("productId")%>' Text="edit" CssClass="auto_class8" Height="30px" Width="50px" CommandName="editCategoryProduct"  />
                                         </td>
                                     </tr>
                                     <tr>
@@ -467,5 +464,58 @@ margin-bottom: 16px;
                                                 </table>
                                             </ItemTemplate>
                                         </asp:DataList>
+
+    <asp:DataList ID="DataListRemoveProduct" runat="server" OnItemCommand="DataListRemoveProduct_ItemCommand1" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" OnSelectedIndexChanged="DataListRemoveProduct_SelectedIndexChanged">
+        <FooterStyle BackColor="White" ForeColor="#333333" />
+        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <SelectedItemStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+        <ItemStyle BackColor="White" ForeColor="#333333" />
+        <ItemTemplate>
+                       
+                                <table align="left" style="width: 250px; background-color: #f5f5f5; border: 1px solid #CCC;">
+
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">
+                                                    <span style="font-weight: 700; font-size: 14px;">Id: <%#Eval("productId") %> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-weight: 700; font-size: 20px;">Name: <%#Eval("Name") %> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-size: 16px;">Price: <%#Eval("price") %></span></td>
+                                    </tr>
+                                     <tr>
+                                        <td>
+                                            <span style="font-size: 16px;">Quantity: <%#Eval("quantity") %></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-size: 16px;">Category: <%#Eval("category") %></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="auto-style13">
+                                            <asp:LinkButton ID="RemoveBtn" runat="server" CommandArgument='<%#Eval("productId")%>' CommandName="Remove_Product"><img src="img/select-button-png-th.png" style="width: auto; height: auto;" /></asp:LinkButton>
+                                        </td>
+                                        <tr>
+                                            <td style="height: 10px;"></td>
+                                        </tr>
+                                    <tr>
+                                    </tr>
+                                </table>
+                        
+                        </ItemTemplate>
+    </asp:DataList>
 
     </asp:Content>

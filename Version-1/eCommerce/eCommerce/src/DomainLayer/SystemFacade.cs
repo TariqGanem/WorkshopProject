@@ -504,13 +504,15 @@ namespace eCommerce.src.DomainLayer
             List<StoreService> storesService = new List<StoreService>();
             foreach (Store.Store store in stores)
             {
-                StoreService storeService = store.getSO();
-                storeService.Founder = store.Founder.GetId();
-                storeService.Owners = null;
-                storeService.Managers = null;
-                storeService.History = null;
-
-                storesService.Add(storeService);
+                if (store.Active == true)
+                {
+                    StoreService storeService = store.getSO();
+                    storeService.Founder = store.Founder.GetId();
+                    storeService.Owners = null;
+                    storeService.Managers = null;
+                    storeService.History = null;
+                    storesService.Add(storeService);
+                }
             }
             return storesService;
         }

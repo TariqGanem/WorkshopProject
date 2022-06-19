@@ -24,8 +24,9 @@ namespace Client
                 table5.Visible = false;
                 table6.Visible = false;
                 table7.Visible = false;
-
+                DataListRemoveProduct.Visible = false;
                 DataListproducts.Visible = false;
+                StoreStaff.Visible = false;
             }
         }
 
@@ -42,6 +43,7 @@ namespace Client
                 table6.Visible = false;
                 table7.Visible = false;
                 DataListproducts.Visible = false;
+                DataListRemoveProduct.Visible = false;
                 StoreStaff.Visible = false;
 
             }
@@ -57,6 +59,8 @@ namespace Client
                 table7.Visible = false;
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+
 
 
 
@@ -72,6 +76,8 @@ namespace Client
                 table7.Visible = false;
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+
 
 
             }
@@ -87,6 +93,8 @@ namespace Client
                 table7.Visible = false;
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+
 
 
             }
@@ -102,6 +110,8 @@ namespace Client
                 table7.Visible = false;
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+
 
 
 
@@ -118,6 +128,8 @@ namespace Client
                 table7.Visible = false;
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+
 
 
             }
@@ -132,6 +144,8 @@ namespace Client
                 table7.Visible = false;
                 DataListproducts.Visible = true;
                 StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+
 
 
                 UserHandler a = new UserHandler();
@@ -149,6 +163,8 @@ namespace Client
                 table7.Visible = false;
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+
 
             }
             if (DropDownList1.SelectedItem.Text == "Remove Permissions")
@@ -162,6 +178,8 @@ namespace Client
                 table7.Visible = true;
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+
 
             }
             if (DropDownList1.SelectedItem.Text == "Store Staff")
@@ -178,6 +196,8 @@ namespace Client
                     table7.Visible = false;
                     DataListproducts.Visible = false;
                     StoreStaff.Visible = true;
+                    DataListRemoveProduct.Visible = false;
+
 
                     StoreStaff.DataSource = a.GetStoreStaff(Session["userId"].ToString(),Session["storeId"].ToString());
                     StoreStaff.DataBind();
@@ -185,6 +205,23 @@ namespace Client
                 else
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
                         "alert('you don't have permission to view the store staff list')", true);
+            }
+            if (DropDownList1.SelectedItem.Text == "Remove Item")
+            {
+                table1.Visible = false;
+                table2.Visible = false;
+                table3.Visible = false;
+                table4.Visible = false;
+                table5.Visible = false;
+                table6.Visible = false;
+                table7.Visible = false;
+                DataListproducts.Visible = false;
+                StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = true;
+
+                UserHandler a = new UserHandler();
+                DataListRemoveProduct.DataSource = a.GetAllProductByStoreIDToDisplay(Session["storeId"].ToString());
+                DataListRemoveProduct.DataBind();
             }
 
         }
@@ -558,6 +595,21 @@ namespace Client
                 LabelErrorRemovePerm.Text = "Something Went Wrong - check permissions";
                 return;
             }
+
+        }
+
+        protected void DataListRemoveProduct_ItemCommand1(object sender, DataListCommandEventArgs e)
+        {
+            if(e.CommandName.Equals("Remove_Product"))
+            {
+                string productid = e.CommandArgument.ToString();
+                new UserHandler().RemoveProductFromStore(Session["userId"].ToString(), Session["storeId"].ToString(), productid);
+                Response.Redirect("~/EditShop.aspx");
+            }
+        }
+
+        protected void DataListRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

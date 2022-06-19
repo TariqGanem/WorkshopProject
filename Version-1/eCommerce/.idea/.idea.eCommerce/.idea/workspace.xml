@@ -10,16 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/SystemFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/SystemFacade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/ShoppingBag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/User/ShoppingBag.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Code/System.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Code/System.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/eCommerceClient.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/eCommerceClient.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/home.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/home.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/home.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/home.aspx.designer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +119,7 @@
       <workItem from="1655511004067" duration="3090000" />
       <workItem from="1655531069330" duration="94000" />
       <workItem from="1655540132829" duration="2081000" />
+      <workItem from="1655606211935" duration="204000" />
     </task>
     <servers />
   </component>
