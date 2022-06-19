@@ -20,6 +20,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<string> getProductId(string storeid, string productname);
         Result<string> getStoreIdByProductId(string productId);
         Result<string> getUserIdByUsername(string username);
+        Result<string> getStoreIdByStoreName(string storename);
     }
     public class UserController : IUserController
     {
@@ -208,6 +209,19 @@ namespace eCommerce.src.ServiceLayer.Controllers
             try
             {
                 return new Result<String>(SystemFacade.getUserIdByUsername(username),null);
+            }
+            catch (Exception e)
+            {
+                logger.LogError("UserController --> " + e.Message);
+                return new Result<String>(e.Message);
+            }
+        }
+
+        public Result<string> getStoreIdByStoreName(string storename)
+        {
+            try
+            {
+                return new Result<String>(SystemFacade.getStoreIdByStoreName(storename), null);
             }
             catch (Exception e)
             {

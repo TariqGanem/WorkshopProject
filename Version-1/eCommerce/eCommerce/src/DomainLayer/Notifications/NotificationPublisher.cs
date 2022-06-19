@@ -26,7 +26,7 @@ namespace eCommerce.src.DomainLayer.Store
 
         public bool notifyStorePurchase(Product product, int quantity)
         {
-            String msg = $"Event : Product Purchased\nStore Id : {Store.Id}\nProduct Name : {product.Name}\nProduct Quantity : {quantity}\n";
+            String msg = $"Event : Product Purchased     Store Id : {Store.Id}     Product Name : {product.Name}     Product Quantity : {quantity}";
             notify(msg, true);
             logger.LogInfo("All staff members are notified with product purchase\n");
             return true;
@@ -34,7 +34,7 @@ namespace eCommerce.src.DomainLayer.Store
 
         public bool notifyStoreClosed()
         {
-            String msg = $"Event : Store Closed\nStore Id : {Store.Id}\n";
+            String msg = $"Event : Store Closed     Store Id : {Store.Id}";
             notify(msg, true);
             //logger.LogInfo($"All staff members are notified that store {Store.Id} is closed\n");
             return true;
@@ -43,15 +43,15 @@ namespace eCommerce.src.DomainLayer.Store
 
         public bool notifyStoreOpened()
         {
-            String msg = $"Event : Store Opened\nStore Id : {Store.Id}\n";
+            String msg = $"Event : Store Opened     Store Id : {Store.Id}     ";
             notify(msg, true);
             //logger.LogInfo($"All staff members are notified that store {Store.Id} is opened\n");
             return true;
         }
 
-        public bool notifyOwnerSubscriptionRemoved(string ownerID, StoreOwner removedOwner)
+        public bool notifyOwnerSubscriptionRemoved(string ownerID, StoreOwner removedOwner) // ?
         {
-            String msg = $"Event : Owner Subscription Removed\nStore Id : {Store.Id}\nOwner Id : {ownerID}";
+            String msg = $"Event : Owner Subscription Removed     Store Id : {Store.Id}     Owner Id : {ownerID}";
             Notification notification = new Notification(ownerID, msg, true);
             removedOwner.Update(notification);      
             notify(msg, true);
@@ -81,11 +81,11 @@ namespace eCommerce.src.DomainLayer.Store
         {
             String msg = "";
             if (v)
-                msg = $"Event : An offer has been accepted\nProduct Id : {productID}\nStore Id : {storeID}\nAmount : {amount}\nPrice : {price}\n";
+                msg = $"Event : An offer has been accepted     Product Id : {productID}     Store Id : {storeID}     Amount : {amount}     Price : {price}";
             else if (counterOffer == -1)
-                msg = $"Event : An offer has been declined\nProduct Id : {productID}\nStore Id : {storeID}\nAmount : {amount}\nPrice : {price}\n";
+                msg = $"Event : An offer has been declined     Product Id : {productID}     Store Id : {storeID}     Amount : {amount}     Price : {price}";
             else
-                msg = $"Event : A counter offer was recieved\nProduct Id : {productID}\nStore Id : {storeID}\nAmount : {amount}\nNew price : {counterOffer}\n";
+                msg = $"Event : A counter offer was recieved     Product Id : {productID}     Store Id : {storeID}     Amount : {amount}     New price : {counterOffer}";
 
             notifyOwners(msg, false);
             //Logger.GetInstance().LogInfo($"All store owners are notified that an offer was recieved from the user : { userID}\n");

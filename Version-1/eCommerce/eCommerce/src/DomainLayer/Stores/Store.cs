@@ -169,6 +169,11 @@ namespace eCommerce.src.DomainLayer.Store
                 var update_product = Builders<BsonDocument>.Update.Set("Quantity", product.Key.Quantity-product.Value);
                 DBUtil.getInstance().UpdateProduct(filter, update_product, session);
             }
+            foreach(KeyValuePair<Product,int> pros in product_quantity)
+            {
+                if(this.InventoryManager.Products.TryGetValue(pros.Key.Id,out Product product))
+                    product.Quantity = product.Quantity-pros.Value;
+            }
         }
 
 
@@ -417,7 +422,7 @@ namespace eCommerce.src.DomainLayer.Store
 
         private void RemoveAllStaffAppointedByOwner(StoreOwner owner)
         {
-            //NotificationManager.notifyOwnerSubscriptionRemoved(owner.GetId(), owner);
+            this.NotificationPublisher.notifyOwnerSubscriptionRemoved(owner.GetId(), owner);
             if (Owners.Count != 0)
             {
                 foreach (var staff_owner in Owners)

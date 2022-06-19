@@ -27,6 +27,8 @@ namespace Client
             OpenShop.Visible = false;
             MyShops.Visible = false;
             Notifications.Visible = false;
+            StoreHistory.Visible = false;
+
 
             if (Session["isLogin"] != null && new UserHandler().isAdminUser(Session["userId"].ToString()))
             {
@@ -42,6 +44,7 @@ namespace Client
                 ResetSystem.Visible = true;
                 UserHistoryBtn.Visible = true;
                 ShoppingHistory.Visible = true;
+                StoreHistory.Visible=true;
             }
             else if(Session["isLogin"] != null)
             {
@@ -61,7 +64,7 @@ namespace Client
             }
             else
             {
-                Labelname.Text = "Hello Dear Guest,";
+                Labelname.Text = "Hello Dear Guest";
                 Labelname.Visible = true;
             }
         }
@@ -160,12 +163,15 @@ namespace Client
         protected void ResetSystem_OnClick(object sender, EventArgs e)
         {
             bool res = new UserHandler().ResetSystem(Session["userId"].ToString());
-            if(!res)
+            if (!res)
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
                 "alert('System could not be RESSETTED')", true);
             else
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
-                "alert('System RESSETTED')", true);
+            {
+                Session.Clear();
+                Session.Abandon();
+                Response.Redirect("~/Home.aspx");
+            }
         }
 
         protected void ShoppingHistory_Click(object sender, EventArgs e)
@@ -181,15 +187,36 @@ namespace Client
                 "alert('You didn't input an admin username')", true);
                 return;
             }
-            if (new UserHandler().isRegisteredUser(txtAdmin.Text))
+            UserHandler u = new UserHandler();
+            string userid = u.getUserIdByUsername(txtAdmin.Text);
+            if (userid.Substring(1, 6) != "Error:")
             {
-                Session["useradminhistoryid"] = txtAdmin.Text;
+                Session["useradminhistoryid"] = userid.Substring(1,32);
                 Response.Redirect("~/ShoppingHistoryAdmin.aspx");
             }
             else
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
                 "alert('user is not registered')", true);
+        }
 
+        protected void StoryHistoryBtn_OnClick(object sender, EventArgs e)
+        {
+            if (txtAdmin.Text.Trim().Length == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('You didn't input an admin username')", true);
+                return;
+            }
+            UserHandler u = new UserHandler();
+            string storeid = u.getStoreIdByStoreName(txtAdmin.Text);
+            if(!storeid.Substring(1,6).Equals("Error:"))
+            {
+                Session["storeIdAdmin"] = storeid.Substring(1,32);
+                Response.Redirect("~/StoreShoppingHistoryAdmin.aspx");
+            }
+            else
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('store does not exist')", true);
         }
 
         protected void ButtonLogOut_Click(object sender, EventArgs e)
@@ -245,5 +272,7 @@ namespace Client
         {
             Response.Redirect("~/Notifications.aspx");
         }
+
+
     }
 }

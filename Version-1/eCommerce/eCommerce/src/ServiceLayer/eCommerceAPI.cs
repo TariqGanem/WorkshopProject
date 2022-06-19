@@ -404,7 +404,7 @@ namespace eCommerce.src.ServiceLayer
             return RegisteredUserController.GetStoresIOwn(userid);
         }
 
-        public List<ProductService> GetAllProducts()
+        public List<ProductService> GetAllProducts() // that are not in closed stores and quantity is above 0
         {
             return dataController.GetAllProducts();
         }
@@ -428,6 +428,11 @@ namespace eCommerce.src.ServiceLayer
         public Result<bool> isStoreOwner(string userid, string storeid)
         {
             return StoreStaffController.isStoreOwner(userid, storeid);
+        }
+
+        public Result<string> getStoreIdByStoreName(string storename)
+        {
+            return UserController.getStoreIdByStoreName(storename);
         }
     }
 }

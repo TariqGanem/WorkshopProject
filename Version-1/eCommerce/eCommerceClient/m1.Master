@@ -159,6 +159,9 @@
         .auto-style21 {
             width: 159px;
         }
+        .auto-style22 {
+            width: 178px;
+        }
         </style>
 <body style="height: 107px">
     <form id="form1" runat="server">
@@ -207,8 +210,10 @@
                         <td class="auto-style21">
                             <asp:Button ID="btnRemoveAdmin" runat="server" Text="RemoveAdmin" CssClass="auto_class8" Height="44px" Width="143px" OnClick="btnRemoveAdmin_OnClick"  />
                         </td>
-                        <td class="auto-style20">
+                        <td class="auto-style22">
                             <asp:Button ID="UserHistoryBtn" runat="server" Text="UserHistory" CssClass="auto_class8" Height="44px" Width="143px" OnClick="UserHistoryBtn_OnClick"  />
+                            <td class="auto-style20">
+                            <asp:Button ID="StoreHistory" runat="server" Text="StoreHistory" CssClass="auto_class8" Height="44px" Width="143px" OnClick="StoryHistoryBtn_OnClick"  />
                         </td>
                          <td class="auto-style8">
                             <asp:Button ID="ResetSystem" runat="server" Text="Reset System<Caution>" CssClass="auto_class8" Height="44px" Width="191px" OnClick="ResetSystem_OnClick"  />

@@ -90,6 +90,7 @@ namespace eCommerce.src.DomainLayer
         string getUserIdByUsername(string username);
         string getUsernameFromId(string userid);
         bool isStoreOwner(string userid, string storeid);
+        string getStoreIdByStoreName(string storename);
         #endregion
     }
 
@@ -717,6 +718,11 @@ namespace eCommerce.src.DomainLayer
         public bool isStoreOwner(string userid, string storeid)
         {
             return storeFacade.isStoreOwner(userid, storeid);
+        }
+
+        public string getStoreIdByStoreName(string storename)
+        {
+            return storeFacade.getStoreIdByStoreName(storename);
         }
 
 

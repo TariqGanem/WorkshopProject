@@ -16,7 +16,7 @@ namespace Client
             // edit permissions + add/remove policies + storestaff
             if (!Page.IsPostBack)
             {
-                Label1.Text = "Select what you want to edit";
+                Label1.Text = "Select what you want to view/edit";
                 table1.Visible = false;
                 table2.Visible = false;
                 table3.Visible = false;
@@ -27,6 +27,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
+                DataListsShoppingHistory.Visible = false;
             }
         }
 
@@ -45,6 +46,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 StoreStaff.Visible = false;
+                DataListsShoppingHistory.Visible = false;
 
             }
 
@@ -60,9 +62,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
-
-
-
+                DataListsShoppingHistory.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Add New Manager")
@@ -77,6 +77,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
 
 
 
@@ -94,6 +95,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
 
 
 
@@ -111,6 +113,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
 
 
 
@@ -129,6 +132,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
 
 
 
@@ -145,6 +149,7 @@ namespace Client
                 DataListproducts.Visible = true;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
 
 
 
@@ -164,6 +169,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
 
 
             }
@@ -179,6 +185,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
 
 
             }
@@ -197,6 +204,7 @@ namespace Client
                     DataListproducts.Visible = false;
                     StoreStaff.Visible = true;
                     DataListRemoveProduct.Visible = false;
+                    DataListsShoppingHistory.Visible = false;
 
 
                     StoreStaff.DataSource = a.GetStoreStaff(Session["userId"].ToString(),Session["storeId"].ToString());
@@ -218,10 +226,29 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = true;
+                DataListsShoppingHistory.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListRemoveProduct.DataSource = a.GetAllProductByStoreIDToDisplay(Session["storeId"].ToString());
                 DataListRemoveProduct.DataBind();
+            }
+            if (DropDownList1.SelectedItem.Text == "Store History")
+            {
+                table1.Visible = false;
+                table2.Visible = false;
+                table3.Visible = false;
+                table4.Visible = false;
+                table5.Visible = false;
+                table6.Visible = false;
+                table7.Visible = false;
+                DataListproducts.Visible = false;
+                StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = true;
+
+                UserHandler a = new UserHandler();
+                DataListsShoppingHistory.DataSource = a.GetStorePurchaseHistory(Session["userId"].ToString(),Session["storeId"].ToString());
+                DataListsShoppingHistory.DataBind();
             }
 
         }

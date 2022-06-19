@@ -14,7 +14,7 @@
                                                                     <td style="text-align: left;"><span style="font-size: 14px; font-weight: 700;">ID :<%#Eval("id")%></span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="text-align: left;"><span style="font-size: 14px;">MSG : <%#Eval("msg") %></span></td>
+                                                                    <td style="text-align: left; width:250px"><span style="font-size: 14px;">MSG : <%#Eval("msg")%></span></td>
                                                                 </tr>
                                                             </table>
                                                         </td>

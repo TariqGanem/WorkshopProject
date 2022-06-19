@@ -125,6 +125,7 @@
     <Content Include="Product.aspx" />
     <Content Include="PurchaseDone.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="StoreShoppingHistoryAdmin.aspx" />
     <Content Include="ShoppingHistoryAdmin.aspx" />
     <Content Include="ShoppingHistory.aspx" />
     <Content Include="Shops.aspx" />
@@ -204,6 +205,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoreShoppingHistoryAdmin.aspx.cs">
+      <DependentUpon>StoreShoppingHistoryAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoreShoppingHistoryAdmin.aspx.designer.cs">
+      <DependentUpon>StoreShoppingHistoryAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShoppingHistoryAdmin.aspx.cs">
       <DependentUpon>ShoppingHistoryAdmin.aspx</DependentUpon>

@@ -35,7 +35,7 @@ namespace eCommerce.src.DomainLayer.Notifications
 
         public String ToString()
         {
-            return $"{Date.ToString("MM/dd/yyyy HH:mm")}\nNotice:\n{Message}\n";
+            return $"Date: {Date.ToString("MM/dd/yyyy HH:mm")}     {Message}";
         }
         
         public DTO_Notification getDTO()

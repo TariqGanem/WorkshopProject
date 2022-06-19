@@ -682,7 +682,8 @@ namespace eCommerce.src.DomainLayer.Store
                 {
                     foreach (Product pro in store.InventoryManager.Products.Values)
                     {
-                        output.Add(pro.getSO());
+                        if(pro.Quantity > 0)
+                            output.Add(pro.getSO());
                     }
                 }
             }
@@ -700,6 +701,16 @@ namespace eCommerce.src.DomainLayer.Store
                 }
             }
             throw new Exception("product was not found in any store");
+        }
+
+        public string getStoreIdByStoreName(string storename)
+        {
+            foreach(Store store in Stores.Values)
+            {
+                if (store.Name.Equals(storename))
+                    return store.Id;
+            }
+            throw new Exception($"store {storename} does not exist in the system");
         }
 
         public bool isStoreOwner(string userid, string storeid)

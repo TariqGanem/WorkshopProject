@@ -63,7 +63,7 @@ namespace Client.Code
             {
                 try
                 {
-                    t1.Rows.Add(i, notis[i].Replace("\n","\r\n")); // test
+                    t1.Rows.Add(i, notis[i].Replace(Environment.NewLine,"<BR />")); // test
                 }
                 catch
                 { }
@@ -175,7 +175,11 @@ namespace Client.Code
             t1.Columns.Add("Rate");
             t1.Columns.Add("NumbeOfRates");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("stores");
+            {
+                DataSet d2 = new DataSet("Stores");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3],jarray[i][4]);
@@ -210,7 +214,13 @@ namespace Client.Code
             d1.Tables.Add(t1);
             return d1;
         }
-        
+
+        public  string getStoreIdByStoreName(string storename)
+        {
+            string param = string.Format("storename={0}", storename);
+            return system.SendApi("getStoreIdByStoreName", param);
+        }
+
         public DataSet getUserPurchaseHistory(string userid)
         {
             string param = string.Format("userid={0}", userid);
@@ -221,7 +231,11 @@ namespace Client.Code
             t1.Columns.Add("Price");
             t1.Columns.Add("Quantity");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("shoppinghistory");
+            {
+                DataSet d2 = new DataSet("shoppinghistory");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3]);
@@ -308,7 +322,11 @@ namespace Client.Code
             t1.Columns.Add("Rate");
             t1.Columns.Add("NumbeOfRates");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("stores");
+            {
+                DataSet d2 = new DataSet("Stores");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1],getUsernameFromId(jarray[i][2].ToString()), jarray[i][3] , jarray[i][4]);
@@ -330,7 +348,11 @@ namespace Client.Code
             t1.Columns.Add("quantity");
             t1.Columns.Add("category");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("products");
+            {
+                DataSet d2 = new DataSet("Products");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3] , jarray[i][4]);
@@ -360,7 +382,11 @@ namespace Client.Code
             t1.Columns.Add("Quantity");
 
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("products");
+            {
+                DataSet d2 = new DataSet("purchaseHistory");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3]);
@@ -421,7 +447,11 @@ namespace Client.Code
             t1.Columns.Add("Rate");
             t1.Columns.Add("NumbeOfRates");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("products");
+            {
+                DataSet d2 = new DataSet("StoresIManage");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
@@ -443,7 +473,11 @@ namespace Client.Code
             t1.Columns.Add("Rate");
             t1.Columns.Add("NumbeOfRates");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("products");
+            {
+                DataSet d2 = new DataSet("StoresIOwn");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
@@ -465,7 +499,11 @@ namespace Client.Code
             t1.Columns.Add("quantity");
             t1.Columns.Add("category");
             if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
-                return new DataSet("products");
+            {
+                DataSet d2 = new DataSet("Products");
+                d2.Tables.Add(t1);
+                return d2;
+            }
             for (int i = 1; i < jarray.Count; i++)
             {
                 t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
@@ -500,6 +538,32 @@ namespace Client.Code
         {
             return id.Substring(1, 32);
         }
+
+        public DataSet GetStorePurchaseHistory(string ownerID, string storeID, Boolean isSysAdmin = false)
+        {
+            string param = string.Format("ownerID={0}&storeID={1}&isSysAdmin={2}", ownerID, storeID, isSysAdmin);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("GetStorePurchaseHistory", param).ToString());
+            DataTable t1 = new DataTable("storehistory");
+            t1.Columns.Add("storeid");
+            t1.Columns.Add("Name");
+            t1.Columns.Add("Price");
+            t1.Columns.Add("Quantity");
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+            {
+                DataSet d2 = new DataSet("storepurchasehistory");
+                d2.Tables.Add(t1);
+                return d2;
+            }
+            for (int i = 1; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3]);
+            }
+
+            DataSet d1 = new DataSet("storehistory");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
         // offers + policy funcs XD
 
 

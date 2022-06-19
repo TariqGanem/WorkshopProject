@@ -700,6 +700,41 @@ namespace ServerApi
             return output.Value;
         }
 
+        [HttpGet]
+        public String[][] GetStorePurchaseHistory(string ownerID, string storeID, Boolean isSysAdmin = false)
+        {
+            Result<UserHistorySO> output = facade.GetStorePurchaseHistory(ownerID,storeID,isSysAdmin);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
+            }
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            string[][] temp = output.Value.toArray();
+            foreach (string[] mat in temp)
+            {
+                toret.Add(mat);
+            }
+            return toret.ToArray();
+        }
+
+        [HttpGet]
+        public string getStoreIdByStoreName(string storename)
+        {
+            Result<string> output = facade.getStoreIdByStoreName(storename);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return "Error:" + output.ErrorMessage;
+            }
+            Logger.GetInstance().Event("store id fetched");
+            return output.Value;
+        }
+
+
+
+
 
         // offers ?
         // policy func ? to the end

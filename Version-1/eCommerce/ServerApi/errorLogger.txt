@@ -159,3 +159,35 @@ Parameter name: UserId is null or empty!
 6/19/2022 6:21:52 AM:   . 
 6/19/2022 6:21:53 AM:   . 
 6/19/2022 6:23:09 AM: -7777777777777777777777777777777 could not removed manager for 6326ffcdf505467fac7b2486710f4459  . 
+6/19/2022 7:14:05 AM: User already loged out!  . 
+6/19/2022 7:18:57 AM: Admin@Workshop.com is aleady in user
+ Please use different email!  . 
+6/19/2022 7:21:31 AM: store eran does not exist in the system  . 
+6/19/2022 7:21:35 AM: username is not found in the system  . 
+6/19/2022 7:21:36 AM: Username eran doesn't exist!  . 
+6/19/2022 7:21:38 AM: Username eran doesn't exist!  . 
+6/19/2022 7:21:49 AM: username is not found in the system  . 
+6/19/2022 7:21:52 AM: Username Admin2Workshop.com doesn't exist!  . 
+6/19/2022 7:22:07 AM: Admin@Workshop.com could not be removed as system admin
+ The system need at least one system admin!  . 
+6/19/2022 7:23:55 AM: -7777777777777777777777777777777 could not removed manager for 723725fec0d442ca98881b7133904eee  . 
+6/19/2022 7:24:05 AM: -7777777777777777777777777777777 could not removed manager for 723725fec0d442ca98881b7133904eee  . 
+6/19/2022 7:24:26 AM: -7777777777777777777777777777777 could not make new owner for 723725fec0d442ca98881b7133904eee  . 
+6/19/2022 7:24:47 AM: Staff ID not found in store.  . 
+6/19/2022 7:25:42 AM:   . 
+6/19/2022 7:25:43 AM:   . 
+6/19/2022 7:25:44 AM:   . 
+6/19/2022 7:27:45 AM: System.Exception: Store store1 could not be rated. Please use number between 1 to 5
+   at eCommerce.src.DomainLayer.Store.Store.AddRating(Double rate) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 93
+   at eCommerce.src.DomainLayer.SystemFacade.AddStoreRating(String userid, String storeid, Double rate) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 616
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.AddStoreRating(String userid, String storeid, Double rate) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 120  . 
+6/19/2022 7:35:52 AM:   . 
+6/19/2022 7:40:50 AM: -7777777777777777777777777777777 could not add product :f0ed72dff7e745b4935a83ab7bbd561bform store: 26d05a3699e54af4957618973b963a72 to his Cart  . 
+6/19/2022 7:51:53 AM: Store 26d05a3699e54af4957618973b963a72 is already closed ! 
+  . 
+6/19/2022 7:52:01 AM: Store 26d05a3699e54af4957618973b963a72 is already closed ! 
+  . 
+6/19/2022 8:09:56 AM: Wrong password!  . 
+6/19/2022 8:12:04 AM: Wrong password!  . 
+6/19/2022 8:12:12 AM: Store 26d05a3699e54af4957618973b963a72 is already closed ! 
+  . 
