@@ -733,7 +733,7 @@ namespace ServerApi
         }
 
         [HttpGet]
-        public string BadUser(string userid , string adminid)
+        public string BanUser(string userid , string adminid)
         {
             Result output = facade.BanRegUser(userid,adminid);
             if (output.ErrorOccured)

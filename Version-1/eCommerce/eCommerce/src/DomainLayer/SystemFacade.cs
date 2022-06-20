@@ -735,7 +735,7 @@ namespace eCommerce.src.DomainLayer
 
         public void BanUser(string userid, string adminid)
         {
-            if (userFacade.isSystemAdmin(adminid) && adminid != userid)
+            if (userFacade.isSystemAdmin(adminid) && adminid != userid && !userFacade.isSystemAdmin(userid))
             {
                 if (userFacade.RegisteredUsers.TryGetValue(userid, out RegisteredUser user))
                 {
@@ -744,9 +744,15 @@ namespace eCommerce.src.DomainLayer
                         //remove if owner somewhere // remove if manager somewhere
                         foreach (Store.Store store in storeFacade.Stores.Values)
                         {
-                            if (store.Owners.TryGetValue(userid, out _) & store.Owners.Count > 1 & store.Founder.GetId() != userid)
+                            if (store.Owners.TryGetValue(userid, out _) )
                             {
-                                storeFacade.RemoveStoreOwner(userid, store.Founder.GetId(), store.Id);
+                                if(store.Founder.GetId() != userid)
+                                    storeFacade.RemoveStoreOwner(userid, store.Founder.GetId(), store.Id);
+                                else if(store.Founder.GetId() == userid)
+                                {
+                                    // throw Exception if user is a founder - can't ban a founder
+                                    throw new Exception("User is a founder for at least one store , can't be banned for the time being , contact him directly");
+                                }
                             }
                             if (store.Managers.TryGetValue(userid, out _))
                             {
@@ -763,7 +769,7 @@ namespace eCommerce.src.DomainLayer
                 }
                 throw new Exception("user does not exist in the system");
             }
-            throw new Exception("user is not admin or the admin trying to remove himself");
+            throw new Exception("user is not admin or the admin trying to remove himself or you're trying to ban an admin");
         }
 
 

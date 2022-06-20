@@ -203,3 +203,18 @@ Parameter name: UserId is null or empty!
 6/19/2022 8:45:44 AM:  user: -7777777777777777777777777777777 product: 2e75035aafa74f08abbed1a5df8be30f has not been removed from the shop : f243604eb82d4309976fbc5af44428a8  . 
 6/19/2022 8:46:11 AM: Staff ID not found in store.  . 
 6/19/2022 8:47:44 AM:  user: -7777777777777777777777777777777 product: Doritus has not been added to the shop : f243604eb82d4309976fbc5af44428a8  . 
+6/20/2022 2:02:07 AM: Store f1909a292c884f488c1473ed2b15752b is already closed ! 
+  . 
+6/20/2022 2:02:13 AM: store aa does not exist in the system  . 
+6/20/2022 2:03:27 AM: Store f1909a292c884f488c1473ed2b15752b is already closed ! 
+  . 
+6/20/2022 2:03:34 AM: Store f1909a292c884f488c1473ed2b15752b is already closed ! 
+  . 
+6/20/2022 2:04:56 AM: username is not found in the system  . 
+6/20/2022 2:17:16 AM: dffc9202d97e45ca8637f16ba1f4ff15 could not make new manager for f4d157f1b89f46918dd4a0e9131f8461  . 
+6/20/2022 2:17:40 AM: store eran does not exist in the system  . 
+6/20/2022 2:17:54 AM: user is not admin or the admin trying to remove himself  . 
+6/20/2022 2:28:27 AM: User is a founder for at least one store , can't be banned for the time being , contact him directly  . 
+6/20/2022 2:29:14 AM: Store 240607466cea4da195cf34084dde8706 is already closed ! 
+  . 
+6/20/2022 3:02:04 AM: username is not found in the system  . 

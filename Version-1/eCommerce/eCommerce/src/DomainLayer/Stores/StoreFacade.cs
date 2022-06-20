@@ -37,7 +37,7 @@ namespace eCommerce.src.DomainLayer.Store
         void RemovePermissions(String storeID, String managerID, String ownerID, LinkedList<int> permissions);
         Dictionary<IStaff, Permission> GetStoreStaff(string ownerID, string storeID);
         History GetStorePurchaseHistory(string userID, string storeID, bool sysAdmin);
-        void CloseStore(RegisteredUser founder, string storeID);
+        void CloseStore(RegisteredUser founder, string storeID,bool force);
         List<Store> SearchStore(IDictionary<string, object> details);
 
     }
@@ -252,7 +252,7 @@ namespace eCommerce.src.DomainLayer.Store
                 dbutil.DeleteStoreOwner(filter_owner);
                 // Update Store in DB
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", store.Id);
-                var update = Builders<BsonDocument>.Update.Set("Owners", store.getDTO().Owners);
+                var update = Builders<BsonDocument>.Update.Set("Owners", store.getDTO().Owners).Set("Managers",store.getDTO().Managers);
                 dbutil.UpdateStore(filter, update);
             }
             else
@@ -344,14 +344,14 @@ namespace eCommerce.src.DomainLayer.Store
             return newStore;
         }
 
-        public void CloseStore(RegisteredUser founder, string storeID)
+        public void CloseStore(RegisteredUser founder, string storeID,bool force = false)
         {
             Store currStore = GetStore(storeID);
             if (!founder.Id.Equals(currStore.Founder.GetId()))
             {
                 throw new Exception($"Non-founder Trying to close store {currStore.Name}");
             }
-            if (currStore.Active == false)
+            if (currStore.Active == false & !force)
                 throw new Exception($"Store {storeID} is already closed ! \n");
             currStore.Active = false;
             currStore.NotificationPublisher.notifyStoreClosed();
@@ -363,6 +363,8 @@ namespace eCommerce.src.DomainLayer.Store
         public void CloseStoreAdmin(string storeid)
         {
             Store currStore = GetStore(storeid);
+            if (currStore.Active == false)
+                throw new Exception($"Store {storeid} is already closed ! \n");
             currStore.Active = false;
             currStore.NotificationPublisher.notifyStoreClosed();
             var filter = Builders<BsonDocument>.Filter.Eq("_id", storeid);

@@ -1310,6 +1310,20 @@ namespace eCommerce.src.DataAccessLayer
             if (!(deletedStore is null))
             {
                 Stores.TryRemove(deletedStore._id, out Store s);
+                foreach (string ownerid in deletedStore.Owners)
+                {
+                    var filter2 = Builders<BsonDocument>.Filter.Eq("UserId", ownerid);
+                    this.DeleteStoreOwner(filter2);
+                }
+                foreach(string productid in deletedStore.InventoryManager)
+                {
+                    var filter4 = Builders<BsonDocument>.Filter.Eq("_id", productid);
+                    this.DeleteProduct(filter4);
+                }
+                var filter3 = Builders<BsonDocument>.Filter.Eq("_id", deletedStore.MainPolicy._id);
+                this.DeleteBuyNowPolicy(filter3);
+                filter3 = Builders<BsonDocument>.Filter.Eq("_id", deletedStore.MainDiscount._id);
+                this.DeleteDiscountAddition(filter3);
             }
         }
 

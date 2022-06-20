@@ -70,7 +70,7 @@ namespace eCommerceTests.DataAccessLayerTests
             Assert.True(s.Name == "store1NewName");
         }
 
-        [Fact]
+        [Fact ( Skip = "TOO MUCH CHANGES TO DB")]
         [Trait("Category", "DALUnit")]
         public void DeleteStore()
         {
