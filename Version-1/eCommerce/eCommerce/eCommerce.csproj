@@ -295,6 +295,7 @@
     <Compile Include="src\ExternalSystems\Logistics.cs" />
     <Compile Include="src\ExternalSystems\Payments.cs" />
     <Compile Include="src\ExternalSystems\Proxy.cs" />
+    <Compile Include="src\InitSystem.cs" />
     <Compile Include="src\ServiceLayer\Controllers\DataController.cs" />
     <Compile Include="src\ServiceLayer\Controllers\GuestController.cs" />
     <Compile Include="src\ServiceLayer\Controllers\RegisteredUserController.cs" />

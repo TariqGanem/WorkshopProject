@@ -21,6 +21,9 @@ namespace eCommerce
     {
         static void Main(string[] args)
         {
+            //eCommerceSystem ecom = eCommerceSystem.getInstance();
+            //ecom.ResetSystem("Admin@Workshop.com");
+            //InitSystem.Test();
             return;
         }
         /*

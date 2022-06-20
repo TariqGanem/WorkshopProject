@@ -772,10 +772,17 @@ namespace eCommerce.src.DomainLayer
             throw new Exception("user is not admin or the admin trying to remove himself or you're trying to ban an admin");
         }
 
-
-
-
-
-
+        public Result<string> getproductIdByName(string productID)
+        {
+            foreach(Store.Store store in this.storeFacade.Stores.Values)
+            {
+                foreach(Product pro in store.InventoryManager.Products.Values)
+                {
+                    if (pro.Name == productID)
+                        return new Result<string>(pro.Id, null);
+                }
+            }
+            return new Result<string>("Product Does not exist");
+        }
     }
 }

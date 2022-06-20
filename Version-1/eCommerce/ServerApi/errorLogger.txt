@@ -276,3 +276,5 @@ Parameter name: UserId is null or empty!
    at eCommerce.src.DomainLayer.Store.StoreFacade.SendOfferResponseToUser(String storeID, String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 451
    at eCommerce.src.DomainLayer.SystemFacade.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 453
    at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 
+6/21/2022 1:16:02 AM: One or more errors occurred.  . 
+6/21/2022 1:16:02 AM: One or more errors occurred.  . 

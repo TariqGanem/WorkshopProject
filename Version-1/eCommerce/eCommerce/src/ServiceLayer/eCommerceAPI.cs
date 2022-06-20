@@ -101,6 +101,19 @@ namespace eCommerce.src.ServiceLayer
             return UserController.AddProductToCart(userID, ProductID, ProductQuantity, StoreID);
         }
 
+        public Result AddProductToCartInitFile(string userID, string ProductID, int ProductQuantity, string StoreID)
+        {
+            string userid = getUserIdByUsername(userID).Value;
+            string storeid = getStoreIdByStoreName(StoreID).Value;
+            string productid = getproductIdByName(ProductID).Value;
+            return UserController.AddProductToCart(userid, productid, ProductQuantity, storeid);
+        }
+
+        public Result<String> getproductIdByName(string productID)
+        {
+            return systemFacade.getproductIdByName(productID);
+        }
+
         public Result<ShoppingCartSO> GetUserShoppingCart(string userID)
         {
             return UserController.GetUserShoppingCart(userID);
@@ -147,8 +160,20 @@ namespace eCommerce.src.ServiceLayer
             return UserController.Logout(userid);
         }
 
+        public Result LogOutInitFile(string username)
+        {
+            string userid = getUserIdByUsername(username).Value;
+            return Logout(userid);
+        }
+        
         public Result<StoreService> OpenNewStore(string storename,string userid)
         {
+            return RegisteredUserController.OpenNewStore(storename, userid);
+        }
+
+        public Result<StoreService> OpenNewStoreUserName(String storename , string username)
+        {
+            string userid = getUserIdByUsername(username).Value;
             return RegisteredUserController.OpenNewStore(storename, userid);
         }
 
@@ -179,6 +204,12 @@ namespace eCommerce.src.ServiceLayer
             return this.StoreStaffController.AddProductToStore(userID, storeID, productName, price, initialQuantity, category, keywords);
         }
 
+        public Result<String> AddProductToStoreInitFile(string userID, string storeID, string productName, double price, int initialQuantity, string category, LinkedList<string> keywords = null)
+        {
+            string userid = getUserIdByUsername(userID).Value;
+            string storeid = getStoreIdByStoreName(storeID).Value;
+            return this.AddProductToStore(userid, storeid, productName, price, initialQuantity, category, keywords);
+        }
         public Result RemoveProductFromStore(string userID, string storeID, string productID)
         {
             return StoreStaffController.RemoveProductFromStore(userID, storeID, productID);
@@ -194,9 +225,25 @@ namespace eCommerce.src.ServiceLayer
             return StoreStaffController.AddStoreOwner(addedOwnerEmail, currentlyOwnerID, storeID);
         }
 
+        public Result AddStoreOwnerInitFile(string addedOwnerEmail, string currentlyOwnerID, string storeID)
+        {
+            string ownerid = getUserIdByUsername(addedOwnerEmail).Value;
+            string currentowner = getUserIdByUsername(currentlyOwnerID).Value;
+            string storename = getStoreIdByStoreName(storeID).Value;
+            return AddStoreOwner(ownerid, currentowner, storename);
+        }
+
         public Result AddStoreManager(string addedManagerEmail, string currentlyOwnerID, string storeID)
         {
             return StoreStaffController.AddStoreManager(addedManagerEmail, currentlyOwnerID, storeID);
+        }
+
+        public Result AddStoreManagerInitFile(string addedManagerEmail, string currentlyOwnerID, string storeID)
+        {
+            string managerid = getUserIdByUsername(addedManagerEmail).Value;
+            string currentowner = getUserIdByUsername(currentlyOwnerID).Value;
+            string storeid = getStoreIdByStoreName(storeID).Value;
+            return AddStoreManager(managerid, currentowner, storeid);
         }
 
         public Result SetPermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
@@ -286,6 +333,7 @@ namespace eCommerce.src.ServiceLayer
                 StoreStaffController = new StoreStaffController(systemFacade);
                 this.SystemAdminController = new SystemAdminController(systemFacade);
                 this.UserController = new UserController(systemFacade);
+                InitSystem.Test();
             }
             return res;
         }

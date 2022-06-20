@@ -485,8 +485,10 @@ namespace eCommerce.src.DomainLayer.User
             dbutil = DBUtil.getInstance();
             // Update DB
             DTO_RegisteredUser user_dto = defaultUser.getDTO();
+            ShoppingCart temp = new ShoppingCart();
+            defaultUser.ShoppingCart = temp;
             var filter_gu = Builders<BsonDocument>.Filter.Eq("_id", "-7777777777777777777777777777777");
-            var update_gu = Builders<BsonDocument>.Update.Set("ShoppingCart", user_dto.ShoppingCart)
+            var update_gu = Builders<BsonDocument>.Update.Set("ShoppingCart", temp.getDTO())
                                                          .Set("UserName", user_dto.UserName)
                                                          .Set("_password", Cryptography.encrypt(user_dto._password))
                                                          .Set("Active", user_dto.Active)
