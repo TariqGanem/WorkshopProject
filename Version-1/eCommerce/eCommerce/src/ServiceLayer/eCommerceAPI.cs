@@ -399,15 +399,6 @@ namespace eCommerce.src.ServiceLayer
             return StoreStaffController.RemoveDiscountCondition(storeId, id);
         }
 
-        public Result<bool> EditDiscountPolicy(string storeId, Dictionary<string, object> info, String id)
-        {
-            return StoreStaffController.EditDiscountPolicy(storeId, info, id);
-        }
-
-        public Result<bool> EditDiscountCondition(string storeId, Dictionary<string, object> info, String id)
-        {
-            return StoreStaffController.EditDiscountCondition(storeId, info, id);
-        }
 
         public Result<IDictionary<string, object>> GetDiscountPolicyData(string storeId)
         {
@@ -434,11 +425,27 @@ namespace eCommerce.src.ServiceLayer
             return StoreStaffController.RemovePurchasePolicy(storeId, id);
         }
 
+        // ------
+
+        /*
+        public Result<bool> EditDiscountPolicy(string storeId, Dictionary<string, object> info, String id)
+        {
+            return StoreStaffController.EditDiscountPolicy(storeId, info, id);
+        }
+
+        public Result<bool> EditDiscountCondition(string storeId, Dictionary<string, object> info, String id)
+        {
+            return StoreStaffController.EditDiscountCondition(storeId, info, id);
+        }
+        */
+        /*
         public Result<bool> EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id)
         {
             return StoreStaffController.EditPurchasePolicy(storeId, info, id);
         }
+        */
 
+        // aux_funcs
         public Result<bool> isRegisteredUser(string userid)
         {
             return UserController.isRegisteredUser(userid);
