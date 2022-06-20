@@ -758,6 +758,98 @@ namespace ServerApi
             return "Success : Store Was Closed By Admin";
         }
 
+        // offers XD
+
+        [HttpGet]
+        public bool SendOfferToStore(string storeID, string userID, string productID, int amount, double price)
+        {
+            Result<bool> output = facade.SendOfferToStore(storeID,userID,productID,amount,price);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("offer sent to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AnswerCounterOffer(string userID, string offerID, bool accepted)
+        {
+            Result<bool> output = facade.AnswerCounterOffer(userID, offerID, accepted);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("user answered counter offer");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer)
+        {
+            Result<bool> output = facade.SendOfferResponseToUser(storeID, ownerID, userID,offerID,accepted,counterOffer);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("user answered counter offer");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public string[][] getStoreOffers(string storeID)
+        {
+            Result<List<Dictionary<string,object>>> output = facade.getStoreOffers(storeID);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
+            }
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            foreach(Dictionary<string,object> item in output.Value)
+                toret.Add(offerDic2Arr(item));
+            Logger.GetInstance().Event("user answered counter offer");
+            return toret.ToArray();
+        }
+
+        [HttpGet]
+        public string[][] getUserOffers(string userId)
+        {
+            Result<List<Dictionary<string, object>>> output = facade.getUserOffers(userId);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
+            }
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            foreach (Dictionary<string, object> item in output.Value)
+                toret.Add(offerDic2Arr(item));
+            Logger.GetInstance().Event("user answered counter offer");
+            return toret.ToArray();
+        }
+
+
+        private string[] offerDic2Arr(Dictionary<String,object> dict)
+        {
+            string[] str = new string[7];
+            str[0] = (string)dict["Id"];
+            str[1] = (string)dict["Product"];
+            str[2] = (string)dict["User"];
+            str[3] = (string)dict["Store"];
+            str[4] = dict["Amount"].ToString();
+            str[5] = dict["Price"].ToString();
+            str[6] = dict["CounterOfferPrice"].ToString();
+            return str;
+        }
+
+        // --- 
+
+
 
 
 

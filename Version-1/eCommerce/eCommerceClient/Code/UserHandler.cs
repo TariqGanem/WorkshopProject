@@ -39,13 +39,13 @@ namespace Client.Code
             string holder, string ccv, string id, string name, string address, string city, string country, string zip)
         {
             string param = string.Format("userName={0}&card_number={1}&month={2}&year={3}&holder={4}" +
-                "&ccv={5}&id={6}&name={7}&address={8}&city={9}&country={10}&zip={11}", userName, card_number,month,year,holder,ccv,id,name,address,city,country,zip);
+                "&ccv={5}&id={6}&name={7}&address={8}&city={9}&country={10}&zip={11}", userName, card_number, month, year, holder, ccv, id, name, address, city, country, zip);
             return bool.Parse(system.SendApi("Purchase", param));
         }
 
         public bool UpdateCart(string userId, string storeId, string productId, int newAmount)
         {
-            string param = string.Format("userId={0}&storeId={1}&productId={2}&newAmount={3}", userId, storeId,productId,newAmount);
+            string param = string.Format("userId={0}&storeId={1}&productId={2}&newAmount={3}", userId, storeId, productId, newAmount);
             return bool.Parse(system.SendApi("UpdateCart", param));
         }
 
@@ -59,11 +59,11 @@ namespace Client.Code
             DataTable t1 = new DataTable("Notifications");
             t1.Columns.Add("id");
             t1.Columns.Add("msg");
-            for (int i = 0; i < notis.Length ; i++)
+            for (int i = 0; i < notis.Length; i++)
             {
                 try
                 {
-                    t1.Rows.Add(i, notis[i].Replace(Environment.NewLine,"<BR />")); // test
+                    t1.Rows.Add(i, notis[i].Replace(Environment.NewLine, "<BR />")); // test
                 }
                 catch
                 { }
@@ -75,26 +75,26 @@ namespace Client.Code
 
         public bool AddProductToCart(string userId, string productId, int quantity, string storeId)
         {
-            string param = string.Format("userId={0}&productId={1}&quantity={2}&storeId={3}", userId, productId,quantity,storeId);
+            string param = string.Format("userId={0}&productId={1}&quantity={2}&storeId={3}", userId, productId, quantity, storeId);
             return bool.Parse(system.SendApi("AddProductToCart", param));
         }
 
         public bool RemoveProductFromCart(string userId, string storeId, string productId)
         {
-            string param = string.Format("userId={0}&storeId={1}&productId={2}", userId, storeId,productId);
+            string param = string.Format("userId={0}&storeId={1}&productId={2}", userId, storeId, productId);
             return bool.Parse(system.SendApi("RemoveProductFromCart", param));
         }
 
         public bool AddProductToStore(string userId, string storeId, string productName, int price, int quantity,
             string category)
         {
-            string param = string.Format("userId={0}&storeId={1}&productName={2}&price={3}&quantity={4}&category={5}", userId, storeId,productName,price,quantity,category);
+            string param = string.Format("userId={0}&storeId={1}&productName={2}&price={3}&quantity={4}&category={5}", userId, storeId, productName, price, quantity, category);
             return bool.Parse(system.SendApi("AddProductToStore", param));
         }
 
         public bool RemoveProductFromStore(String userID, String storeID, String productID)
         {
-            string param = string.Format("userID={0}&storeID={1}&productID={2}", userID, storeID,productID);
+            string param = string.Format("userID={0}&storeID={1}&productID={2}", userID, storeID, productID);
             return bool.Parse(system.SendApi("RemoveProductFromStore", param));
         }
 
@@ -112,29 +112,29 @@ namespace Client.Code
 
         public bool makeNewOwner(string newOwnerId, string currentOwnerId, string storeId)
         {
-            string param = string.Format("newOwnerId={0}&currentOwnerId={1}&storeId={2}", newOwnerId, currentOwnerId,storeId);
+            string param = string.Format("newOwnerId={0}&currentOwnerId={1}&storeId={2}", newOwnerId, currentOwnerId, storeId);
             return bool.Parse(system.SendApi("makeNewOwner", param));
         }
 
         public bool AddStoreManager(string storeId, string currentOwnerId, string newManagerId)
         {
-            string param = string.Format("storeId={0}&currentOwnerId={1}&newManagerId={2}", storeId, currentOwnerId,newManagerId);
+            string param = string.Format("storeId={0}&currentOwnerId={1}&newManagerId={2}", storeId, currentOwnerId, newManagerId);
             return bool.Parse(system.SendApi("AddStoreManager", param));
         }
 
         public bool removeManager(string currentOwnerId, string storeId, string ManagerToRemove)
         {
-            string param = string.Format("currentOwnerId={0}&storeId={1}&ManagerToRemove={2}", currentOwnerId, storeId,ManagerToRemove);
+            string param = string.Format("currentOwnerId={0}&storeId={1}&ManagerToRemove={2}", currentOwnerId, storeId, ManagerToRemove);
             return bool.Parse(system.SendApi("removeManager", param));
         }
 
         public bool removeOwner(string currentOwnerId, string storeId, string OwnerToRemove)
         {
-            string param = string.Format("currentOwnerId={0}&storeId={1}&OwnerToRemove={2}", currentOwnerId, storeId,OwnerToRemove);
+            string param = string.Format("currentOwnerId={0}&storeId={1}&OwnerToRemove={2}", currentOwnerId, storeId, OwnerToRemove);
             return bool.Parse(system.SendApi("removeOwner", param));
         }
 
-        public bool isStoreOwner(string userid,string storeid)
+        public bool isStoreOwner(string userid, string storeid)
         {
             string param = string.Format("userid={0}&storeid={1}", userid, storeid);
             return bool.Parse(system.SendApi("isStoreOwner", param));
@@ -182,7 +182,7 @@ namespace Client.Code
             }
             for (int i = 1; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3],jarray[i][4]);
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }
 
             DataSet d1 = new DataSet("Stores");
@@ -205,9 +205,9 @@ namespace Client.Code
                 d2.Tables.Add(t1);
                 return d2;
             }
-            for (int i= 1; i < jarray.Count; i++)
+            for (int i = 1; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2] , jarray[i][3]);
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3]);
             }
 
             DataSet d1 = new DataSet("shoppingcart");
@@ -215,7 +215,7 @@ namespace Client.Code
             return d1;
         }
 
-        public  string getStoreIdByStoreName(string storename)
+        public string getStoreIdByStoreName(string storename)
         {
             string param = string.Format("storename={0}", storename);
             return system.SendApi("getStoreIdByStoreName", param);
@@ -253,27 +253,27 @@ namespace Client.Code
         }
 
         public bool editProductDetail(string userID, string storeID, string productID,
-            string param , string editto)
+            string param, string editto)
         {
-            string par = string.Format("userID={0}&storeID={1}&productID={2}&param={3}&editto={4}", userID, storeID,productID, param,editto);
+            string par = string.Format("userID={0}&storeID={1}&productID={2}&param={3}&editto={4}", userID, storeID, productID, param, editto);
             return bool.Parse(system.SendApi("editProductDetail", par));
         }
 
         public bool SetPermissions(string storeID, string managerID, string ownerID, String Permissions) // check permissions format before server req
         {
-            string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&Permissions={3}", storeID, managerID,ownerID, Permissions);
+            string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&Permissions={3}", storeID, managerID, ownerID, Permissions);
             return bool.Parse(system.SendApi("SetPermissions", param));
         }
 
         public bool RemovePermissions(string storeID, string managerID, string ownerID, String permissions) // check permissions format before server req
         {
-            string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&permissions={3}", storeID, managerID,ownerID,permissions);
+            string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&permissions={3}", storeID, managerID, ownerID, permissions);
             return bool.Parse(system.SendApi("RemovePermissions", param));
         }
 
         public DataSet GetStoreStaff(string ownerID, string storeID)
         {
-            string param = string.Format("ownerID={0}&storeID={1}",ownerID,storeID);
+            string param = string.Format("ownerID={0}&storeID={1}", ownerID, storeID);
             String str = system.SendApi("GetStoreStaff", param);
             if (str.Substring(0, 6).Equals("Error:"))
                 return new DataSet("storestaff");
@@ -283,13 +283,13 @@ namespace Client.Code
             DataTable t1 = new DataTable("StoreStaff");
             t1.Columns.Add("id");
             t1.Columns.Add("Username");
-            for (int i = 1; i < notis.Length ; i++)
+            for (int i = 1; i < notis.Length; i++)
             {
                 try
                 {
                     notis[i] = notis[i].TrimEnd();
                     notis[i].TrimStart();
-                    t1.Rows.Add(notis[i], this.getUsernameFromId(notis[i].Substring(1,32)));
+                    t1.Rows.Add(notis[i], this.getUsernameFromId(notis[i].Substring(1, 32)));
                 }
                 catch
                 { }
@@ -301,13 +301,13 @@ namespace Client.Code
 
         public bool AddStoreRating(String userid, String storeid, double rate)
         {
-            string param = string.Format("userid={0}&storeid={1}&rate={2}", userid, storeid,rate);
+            string param = string.Format("userid={0}&storeid={1}&rate={2}", userid, storeid, rate);
             return bool.Parse(system.SendApi("AddStoreRating", param));
         }
 
         public bool addProductRating(String userid, String storeid, String productid, double rate)
         {
-            string param = string.Format("userid={0}&storeid={1}&productid={2}&rate={3}", userid, storeid,productid,rate);
+            string param = string.Format("userid={0}&storeid={1}&productid={2}&rate={3}", userid, storeid, productid, rate);
             return bool.Parse(system.SendApi("addProductRating", param));
         }
 
@@ -329,7 +329,7 @@ namespace Client.Code
             }
             for (int i = 1; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1],getUsernameFromId(jarray[i][2].ToString()), jarray[i][3] , jarray[i][4]);
+                t1.Rows.Add(jarray[i][0], jarray[i][1], getUsernameFromId(jarray[i][2].ToString()), jarray[i][3], jarray[i][4]);
             }
 
             DataSet d1 = new DataSet("Stores");
@@ -355,14 +355,14 @@ namespace Client.Code
             }
             for (int i = 1; i < jarray.Count; i++)
             {
-                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3] , jarray[i][4]);
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4]);
             }
 
             DataSet d1 = new DataSet("Products");
             d1.Tables.Add(t1);
             return d1;
         }
-        
+
         // get permissions ?
 
         public String getTotalShoppingCartPrice(string userid)
@@ -373,7 +373,7 @@ namespace Client.Code
 
         public DataSet GetUserPurchaseHistory(string admin, string userid)
         {
-            string param = string.Format("admin={0}&userid={1}", admin , userid);
+            string param = string.Format("admin={0}&userid={1}", admin, userid);
             JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("GetUserPurchaseHistory", param).ToString());
             DataTable t1 = new DataTable("ShoppingCart");
             t1.Columns.Add("storeid");
@@ -399,13 +399,13 @@ namespace Client.Code
 
         public string AddSystemAdmin(string admin, string email)
         {
-            string param = string.Format("admin={0}&email={1}", admin , email);
+            string param = string.Format("admin={0}&email={1}", admin, email);
             return system.SendApi("AddSystemAdmin", param);
         }
 
         public string RemoveSystemAdmin(string admin, string email)
         {
-            string param = string.Format("admin={0}&email={1}", admin , email);
+            string param = string.Format("admin={0}&email={1}", admin, email);
             return system.SendApi("RemoveSystemAdmin", param);
         }
 
@@ -427,9 +427,9 @@ namespace Client.Code
             return bool.Parse(system.SendApi("isRegisteredUser", param));
         }
 
-        public String getProductId(string storeid , string productname)
+        public String getProductId(string storeid, string productname)
         {
-            string param = string.Format("storeid={0}&productname={1}", storeid , productname);
+            string param = string.Format("storeid={0}&productname={1}", storeid, productname);
             string str = system.SendApi("getProductId", param);
             str = str.Remove(0, 1);
             str = str.Remove(str.Length - 1, 1);
@@ -566,7 +566,7 @@ namespace Client.Code
 
         public string BanUser(string userid, string adminid)
         {
-            string param = string.Format("userid={0}&adminid={1}", userid,adminid);
+            string param = string.Format("userid={0}&adminid={1}", userid, adminid);
             string str = system.SendApi("BanUser", param);
             return str;
         }
@@ -578,6 +578,20 @@ namespace Client.Code
             return str;
         }
         // offers + policy funcs XD
+
+        public bool SendOfferToStore(string storeID, string userID, string productID, int amount, double price)
+        {
+            string param = string.Format("storeID={0}&userID={1}&productID={2}&amount={3}&price={4}", storeID, userID, productID, amount, price);
+            return bool.Parse(system.SendApi("SendOfferToStore", param));
+        }
+
+        /*
+        public bool AnswerCounterOffer(string userID, string offerID, bool accepted)
+        {
+            string param = string.Format("storeID={0}&userID={1}&productID={2}&amount={3}&price={4}", storeID, userID, productID, amount, price);
+            return bool.Parse(system.SendApi("SendOfferToStore", param));
+        }
+        */
 
 
 

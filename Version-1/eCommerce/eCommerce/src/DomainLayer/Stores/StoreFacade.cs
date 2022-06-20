@@ -480,7 +480,6 @@ namespace eCommerce.src.DomainLayer.Store
         {
             if (Stores.TryGetValue(storeID, out Store store))
             {
-                //mapper.Load_StoreOfferManager(store);
                 return store.getStoreOffers();
             }
             throw new Exception("Failed to get store offers: Failed to locate the store\n");
