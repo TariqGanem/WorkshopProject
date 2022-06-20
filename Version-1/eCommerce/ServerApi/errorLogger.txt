@@ -278,3 +278,8 @@ Parameter name: UserId is null or empty!
    at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 
 6/21/2022 1:16:02 AM: One or more errors occurred.  . 
 6/21/2022 1:16:02 AM: One or more errors occurred.  . 
+6/21/2022 1:53:37 AM: User is Logged in in an another page  . 
+6/21/2022 1:56:30 AM: User is Logged in in an another page  . 
+6/21/2022 1:57:56 AM: User is Logged in in an another page  . 
+6/21/2022 2:02:58 AM: User is Logged in in an another page  . 
+6/21/2022 2:03:03 AM: User is Logged in in an another page  . 

@@ -68,6 +68,23 @@ namespace Client
             }
             else if (Session["userId"] == null)
             {
+                UserHistoryBtn.Visible = false;
+                ShoppingHistory.Visible = false;
+                ResetSystem.Visible = false;
+                txtAdmin.Visible = false;
+                btnRemoveAdmin.Visible = false;
+                btnAddAdmin.Visible = false;
+                LabelPasword.Visible = false;
+                LabelUsername.Visible = false;
+                Labelname.Visible = true;
+                OpenShop.Visible = false;
+                MyShops.Visible = false;
+                Notifications.Visible = false;
+                StoreHistory.Visible = false;
+                ButtonCloseStore.Visible = false;
+                ButtonBanUser.Visible = false;
+                UserOfferBtn.Visible = false;
+                InitFilePath.Visible = false;
                 UserHandler h = new UserHandler();
                 Session["userId"] = h.GuestLogin().Substring(1,32);
                 Labelname.Text = "Hello Dear Guest";
@@ -77,6 +94,23 @@ namespace Client
             }
             else
             {
+                UserHistoryBtn.Visible = false;
+                ShoppingHistory.Visible = false;
+                ResetSystem.Visible = false;
+                txtAdmin.Visible = false;
+                btnRemoveAdmin.Visible = false;
+                btnAddAdmin.Visible = false;
+                LabelPasword.Visible = false;
+                LabelUsername.Visible = false;
+                Labelname.Visible = true;
+                OpenShop.Visible = false;
+                MyShops.Visible = false;
+                Notifications.Visible = false;
+                StoreHistory.Visible = false;
+                ButtonCloseStore.Visible = false;
+                ButtonBanUser.Visible = false;
+                UserOfferBtn.Visible = false;
+                InitFilePath.Visible = false;
                 Labelname.Text = "Hello Dear Guest";
                 Labelname.Visible = true;
                 UserOfferBtn.Visible = true;

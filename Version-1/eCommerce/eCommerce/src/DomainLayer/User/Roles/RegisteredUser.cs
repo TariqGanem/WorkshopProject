@@ -46,6 +46,8 @@ namespace eCommerce.src.DomainLayer.User
 
         public void Login(String password)
         {
+            //if (Active)
+            //    throw new Exception("User is Logged in in an another page");
             if (!_password.Equals(password))
             {
                 throw new Exception("Wrong password!");
