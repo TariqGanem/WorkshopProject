@@ -30,6 +30,7 @@ namespace Client
             StoreHistory.Visible = false;
             ButtonCloseStore.Visible = false;
             ButtonBanUser.Visible = false;
+            UserOfferBtn.Visible = false;
 
 
             if (Session["isLogin"] != null && new UserHandler().isAdminUser(Session["userId"].ToString()))
@@ -49,6 +50,8 @@ namespace Client
                 StoreHistory.Visible=true;
                 ButtonCloseStore.Visible = true;
                 ButtonBanUser.Visible = true;
+                UserOfferBtn.Visible = true;
+
             }
             else if(Session["isLogin"] != null)
             {
@@ -58,6 +61,8 @@ namespace Client
                 MyShops.Visible = true;
                 Notifications.Visible = true;
                 ShoppingHistory.Visible = true;
+                UserOfferBtn.Visible = true;
+
             }
             else if (Session["userId"] == null)
             {
@@ -65,11 +70,14 @@ namespace Client
                 Session["userId"] = h.GuestLogin().Substring(1,32);
                 Labelname.Text = "Hello Dear Guest";
                 Labelname.Visible = true;
+                UserOfferBtn.Visible = true;
+
             }
             else
             {
                 Labelname.Text = "Hello Dear Guest";
                 Labelname.Visible = true;
+                UserOfferBtn.Visible = true;
             }
         }
 
@@ -104,6 +112,7 @@ namespace Client
                     MyShops.Visible = true;
                     Labelname.Visible = true;
                     ShoppingHistory.Visible = true;
+                    UserOfferBtn.Visible = true;
                     Session["isLogin"] = "true";
                     Session["username"] = txtusername.Text;
                     Labelname.Text = "Hello " + txtusername.Text;
@@ -286,7 +295,11 @@ namespace Client
             Response.Redirect("~/Home.aspx");
         }
 
+        protected void Offers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UserOffers.aspx");
 
+        }
 
         protected void HomeButton_Click(object sender, EventArgs e)
         {
@@ -334,6 +347,6 @@ namespace Client
             Response.Redirect("~/Notifications.aspx");
         }
 
-
+ 
     }
 }

@@ -68,5 +68,35 @@ namespace Client
                 return;
             }
         }
+
+        protected void SendOfferBtn_OnClick(object sender, EventArgs e)
+        {
+            UserHandler sh = new UserHandler();
+            if (priceTxt.Text.Trim().Length == 0 || AmountTxt.Text.Trim().Length == 0 || !int.TryParse(priceTxt.Text,out int val) || val < 0 || !int.TryParse(AmountTxt.Text, out int val2) || val2 <= 0)
+            {
+                LabelErrorRateProduct.Visible = true;
+                LabelErrorRateProduct.Text = "fields have illegal vals";
+                return;
+            }
+            string storeid = sh.getStoreIdByProductId(Session["productId"].ToString());
+            if(storeid.Substring(1,6).Equals("Error:"))
+            {
+                LabelErrorRateProduct.Visible = true;
+                LabelErrorRateProduct.Text = "store is not found";
+                return;
+            }
+            if (sh.SendOfferToStore(storeid.Substring(1, 32), Session["userId"].ToString(), Session["productId"].ToString(), int.Parse(AmountTxt.Text), int.Parse(priceTxt.Text)))
+            {
+                LabelErrorRateProduct.Visible = true;
+                LabelErrorRateProduct.Text = "Offer Sent";
+                return;
+            }
+            else
+            {
+                LabelErrorRateProduct.Visible = true;
+                LabelErrorRateProduct.Text = "Something Went Wrong";
+                return;
+            }
+        }
     }
 }

@@ -110,6 +110,7 @@
     <Content Include="Cart.aspx" />
     <Content Include="Client.csproj.user" />
     <Content Include="EditShop.aspx" />
+    <Content Include="UserOffers.aspx" />
     <Content Include="home.aspx" />
     <Content Include="img\-.PNG" />
     <Content Include="img\add_to_cart.PNG" />
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="EditShop.aspx.designer.cs">
       <DependentUpon>EditShop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOffers.aspx.cs">
+      <DependentUpon>UserOffers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOffers.aspx.designer.cs">
+      <DependentUpon>UserOffers.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

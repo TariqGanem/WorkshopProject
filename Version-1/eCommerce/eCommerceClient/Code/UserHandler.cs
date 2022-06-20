@@ -585,13 +585,75 @@ namespace Client.Code
             return bool.Parse(system.SendApi("SendOfferToStore", param));
         }
 
-        /*
+        
         public bool AnswerCounterOffer(string userID, string offerID, bool accepted)
         {
-            string param = string.Format("storeID={0}&userID={1}&productID={2}&amount={3}&price={4}", storeID, userID, productID, amount, price);
-            return bool.Parse(system.SendApi("SendOfferToStore", param));
+            string param = string.Format("userID={0}&offerID={1}&accepted={2}",userID,offerID,accepted);
+            return bool.Parse(system.SendApi("AnswerCounterOffer", param));
         }
-        */
+
+        public bool SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer)
+        {
+            string param = string.Format("storeID={0}&ownerID={1}&userID={2}&offerID={3}&accepted={4}&counterOffer={5}", storeID, ownerID, userID,offerID,accepted,counterOffer);
+            return bool.Parse(system.SendApi("SendOfferResponseToUser", param));
+        }
+
+        public DataSet getStoreOffers(string storeID)
+        {
+            string param = string.Format("storeID={0}", storeID);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getStoreOffers", param).ToString());
+            DataTable t1 = new DataTable("storeoffers");
+            t1.Columns.Add("OfferId");
+            t1.Columns.Add("ProductId");
+            t1.Columns.Add("UserId");
+            t1.Columns.Add("StoreId");
+            t1.Columns.Add("Amount");
+            t1.Columns.Add("Price");
+            t1.Columns.Add("CounterOfferPrice");
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+            {
+                DataSet d2 = new DataSet("storeoffers");
+                d2.Tables.Add(t1);
+                return d2;
+            }
+            for (int i = 1; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4], jarray[i][5], jarray[i][6]);
+            }
+
+            DataSet d1 = new DataSet("storeoffers");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
+        public DataSet getUserOffers(string userId)
+        {
+            string param = string.Format("userId={0}", userId);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getUserOffers", param).ToString());
+            DataTable t1 = new DataTable("useroffers");
+            t1.Columns.Add("OfferId");
+            t1.Columns.Add("ProductId");
+            t1.Columns.Add("UserId");
+            t1.Columns.Add("StoreId");
+            t1.Columns.Add("Amount");
+            t1.Columns.Add("Price");
+            t1.Columns.Add("CounterOfferPrice");
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+            {
+                DataSet d2 = new DataSet("useroffers");
+                d2.Tables.Add(t1);
+                return d2;
+            }
+            for (int i = 1; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3], jarray[i][4], jarray[i][5], jarray[i][6]);
+            }
+
+            DataSet d1 = new DataSet("useroffers");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+
 
 
 

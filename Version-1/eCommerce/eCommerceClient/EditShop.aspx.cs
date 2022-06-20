@@ -28,6 +28,7 @@ namespace Client
                 DataListproducts.Visible = false;
                 StoreStaff.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
             }
         }
 
@@ -47,6 +48,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 StoreStaff.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
             }
 
@@ -63,6 +65,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Add New Manager")
@@ -78,6 +81,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
 
 
@@ -96,6 +100,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
 
 
@@ -114,6 +119,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
 
 
@@ -133,6 +139,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
 
 
@@ -150,6 +157,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
 
 
@@ -170,6 +178,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
 
             }
@@ -186,7 +195,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
-
+                DataListOffers.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Store Staff")
@@ -205,6 +214,7 @@ namespace Client
                     StoreStaff.Visible = true;
                     DataListRemoveProduct.Visible = false;
                     DataListsShoppingHistory.Visible = false;
+                    DataListOffers.Visible = false;
 
 
                     StoreStaff.DataSource = a.GetStoreStaff(Session["userId"].ToString(),Session["storeId"].ToString());
@@ -227,6 +237,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = true;
                 DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListRemoveProduct.DataSource = a.GetAllProductByStoreIDToDisplay(Session["storeId"].ToString());
@@ -245,10 +256,30 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = true;
+                DataListOffers.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListsShoppingHistory.DataSource = a.GetStorePurchaseHistory(Session["userId"].ToString(),Session["storeId"].ToString());
                 DataListsShoppingHistory.DataBind();
+            }
+            if (DropDownList1.SelectedItem.Text == "Store Offer Requests")
+            {
+                table1.Visible = false;
+                table2.Visible = false;
+                table3.Visible = false;
+                table4.Visible = false;
+                table5.Visible = false;
+                table6.Visible = false;
+                table7.Visible = false;
+                DataListproducts.Visible = false;
+                StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = true;
+
+                UserHandler a = new UserHandler();
+                DataListOffers.DataSource = a.getStoreOffers(Session["storeId"].ToString());
+                DataListOffers.DataBind();
             }
 
         }
@@ -635,6 +666,70 @@ namespace Client
             }
         }
 
+        protected void DataListOffers_ItemCommand1(object sender, DataListCommandEventArgs e)
+        {
+            UserHandler a = new UserHandler();
+
+            if(e.CommandName == "AcceptOffer")
+            {
+                string[] cargs = e.CommandArgument.ToString().Split(',');
+                if (a.SendOfferResponseToUser(Session["storeId"].ToString(),Session["userId"].ToString(),cargs[0].ToString(),cargs[1].ToString(),true,-1))
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Response Sent!";
+                }
+                else
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Something went wrong - you cant submit two responses to the same offer / only owners can make this operation";
+                }
+            }
+            if (e.CommandName == "DeclineOffer")
+            {
+                string[] cargs = e.CommandArgument.ToString().Split(',');
+                if (a.SendOfferResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), cargs[0].ToString(), cargs[1].ToString(), false, -1))
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Response Sent!";
+                }
+                else
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Something went wrong - you cant submit two responses to the same offer / only owners can make this operation";
+                }
+            }
+            if (e.CommandName == "SendCounterOffer")
+            {
+                TextBox counterofferbox = (TextBox)(e.Item.FindControl("CounterOffer"));
+                string counteroffer = counterofferbox.Text;
+                if (counteroffer.Trim().Length == 0 || !int.TryParse(counteroffer,out int val ) || val < 0 )
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Counter Offer Field is not legal";
+                    return;
+                }
+
+                string[] cargs = e.CommandArgument.ToString().Split(',');
+                if (a.SendOfferResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), cargs[0].ToString(), cargs[1].ToString(), false, int.Parse(counteroffer)))
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Response <Counter Offer> Sent!";
+                }
+                else
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Something went wrong - you cant submit two responses to the same offer / only owners can make this operation";
+                }
+            }
+
+        }
         protected void DataListRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
 

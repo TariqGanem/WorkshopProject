@@ -432,18 +432,30 @@ namespace eCommerce.src.DomainLayer.User
         public void DeclineOffer(string userID, string offerID)
         {
             if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
-                 guest_user.DeclineOffer(offerID);
+            {
+                guest_user.DeclineOffer(offerID);
+                return;
+            }
             else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
-                 registerd_user.DeclineOffer(offerID);
+            {
+                registerd_user.DeclineOffer(offerID);
+                return;
+            }
             throw new Exception("Failed to decline offer: Failed to locate the user");
         }
 
         public void CounterOffer(string userID, string offerID)
         {
             if (GuestUsers.TryGetValue(userID, out GuestUser guest_user))
+            {
                 guest_user.CounterOffer(offerID);
+                return;
+            }
             else if (RegisteredUsers.TryGetValue(userID, out RegisteredUser registerd_user))
+            {
                 registerd_user.CounterOffer(offerID);
+                return;
+            }
             throw new Exception("Failed to counter the offer: Failed to locate the user");
         }
 

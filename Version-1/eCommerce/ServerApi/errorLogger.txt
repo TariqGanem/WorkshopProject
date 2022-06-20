@@ -218,3 +218,61 @@ Parameter name: UserId is null or empty!
 6/20/2022 2:29:14 AM: Store 240607466cea4da195cf34084dde8706 is already closed ! 
   . 
 6/20/2022 3:02:04 AM: username is not found in the system  . 
+6/20/2022 5:33:31 AM: Store Name Already Exists In the system  . 
+6/20/2022 5:34:14 AM: System.Exception: Store is not closed or does not exists, therefore can not reopen it
+
+   at eCommerce.src.DomainLayer.Store.StoreFacade.ReOpenStore(RegisteredUser owner, String storeid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 444
+   at eCommerce.src.DomainLayer.SystemFacade.ReOpenStore(String storeid, String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 444
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.ReOpenStore(String storeid, String userid) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 124  . 
+6/20/2022 5:52:54 AM: Failed to respond to a counter offer: The offer is not a counter offer  . 
+6/20/2022 5:53:00 AM: Failed to respond to a counter offer: The offer is not a counter offer  . 
+6/20/2022 5:54:05 AM: System.Exception: Failed to response to an offer: Failed to locate the offer
+   at eCommerce.src.DomainLayer.Stores.Policies.Offer.OfferManager.SendOfferResponseToUser(String ownerID, String offerID, Boolean accepted, Double counterOffer, List`1 allOwners) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\Offer\OfferManager.cs:line 49
+   at eCommerce.src.DomainLayer.Store.Store.SendOfferResponseToUser(String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 477
+   at eCommerce.src.DomainLayer.Store.StoreFacade.SendOfferResponseToUser(String storeID, String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 451
+   at eCommerce.src.DomainLayer.SystemFacade.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 453
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 
+6/20/2022 6:22:53 AM:   . 
+6/20/2022 6:22:54 AM:   . 
+6/20/2022 6:22:56 AM:   . 
+6/20/2022 6:22:59 AM:   . 
+6/20/2022 6:31:22 AM: Wrong password!  . 
+6/20/2022 6:33:00 AM: Failed to respond to a counter offer: The offer is not a counter offer  . 
+6/20/2022 6:41:39 AM: System.Exception: Failed to counter the offer: Failed to locate the user
+   at eCommerce.src.DomainLayer.User.UserFacade.CounterOffer(String userID, String offerID) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\User\UserFacade.cs:line 447
+   at eCommerce.src.DomainLayer.SystemFacade.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 484
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 
+6/20/2022 6:41:48 AM: System.Exception: Failed to response to an offer: Failed to locate the offer
+   at eCommerce.src.DomainLayer.Stores.Policies.Offer.OfferManager.SendOfferResponseToUser(String ownerID, String offerID, Boolean accepted, Double counterOffer, List`1 allOwners) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\Offer\OfferManager.cs:line 49
+   at eCommerce.src.DomainLayer.Store.Store.SendOfferResponseToUser(String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 477
+   at eCommerce.src.DomainLayer.Store.StoreFacade.SendOfferResponseToUser(String storeID, String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 451
+   at eCommerce.src.DomainLayer.SystemFacade.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 453
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 
+6/20/2022 6:42:45 AM: System.Exception: Failed to response to an offer: Failed to locate the offer
+   at eCommerce.src.DomainLayer.Stores.Policies.Offer.OfferManager.SendOfferResponseToUser(String ownerID, String offerID, Boolean accepted, Double counterOffer, List`1 allOwners) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\Offer\OfferManager.cs:line 49
+   at eCommerce.src.DomainLayer.Store.Store.SendOfferResponseToUser(String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 477
+   at eCommerce.src.DomainLayer.Store.StoreFacade.SendOfferResponseToUser(String storeID, String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 451
+   at eCommerce.src.DomainLayer.SystemFacade.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 453
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 
+6/20/2022 6:47:35 AM: System.Exception: Failed to counter the offer: Failed to locate the user
+   at eCommerce.src.DomainLayer.User.UserFacade.CounterOffer(String userID, String offerID) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\User\UserFacade.cs:line 447
+   at eCommerce.src.DomainLayer.SystemFacade.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 484
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 
+6/20/2022 6:54:33 AM: One or more errors occurred.  . 
+6/20/2022 6:54:40 AM: One or more errors occurred.  . 
+6/20/2022 6:54:50 AM: One or more errors occurred.  . 
+6/20/2022 6:54:51 AM: One or more errors occurred.  . 
+6/20/2022 6:55:05 AM: One or more errors occurred.  . 
+6/20/2022 6:55:12 AM: One or more errors occurred.  . 
+6/20/2022 7:04:16 AM: Wrong password!  . 
+6/20/2022 7:04:27 AM: System.Exception: Failed to decline offer: Failed to locate the user
+   at eCommerce.src.DomainLayer.User.UserFacade.DeclineOffer(String userID, String offerID) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\User\UserFacade.cs:line 438
+   at eCommerce.src.DomainLayer.SystemFacade.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 479
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 
+6/20/2022 7:08:02 AM: -7777777777777777777777777777777 could not add product :6bcf6e03fe1c49eabfd6a132bf74bdf9form store: 87e7bc0fc42046138396436f4e7b1be7 to his Cart  . 
+6/20/2022 7:08:48 AM: Username manager doesn't exist!  . 
+6/20/2022 7:09:29 AM: System.Exception: Failed to reponse to an offer: The responding user is not an owner
+   at eCommerce.src.DomainLayer.Store.Store.SendOfferResponseToUser(String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 476
+   at eCommerce.src.DomainLayer.Store.StoreFacade.SendOfferResponseToUser(String storeID, String ownerID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 451
+   at eCommerce.src.DomainLayer.SystemFacade.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 453
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOfferResponseToUser(String storeID, String ownerID, String userID, String offerID, Boolean accepted, Double counterOffer) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 244  . 

@@ -187,6 +187,8 @@
                                 <asp:Button ID="Notifications" CssClass="auto-style7" Width="120px" runat="server" Text="Notifications" OnClick="Notifications_Click" />
                             </td>
                             <td><asp:Button ID="ShoppingHistory" CssClass="auto-style7" Width="123px" runat="server" Text="ShoppingHistory" OnClick="ShoppingHistory_Click" /></td>
+                            <td><asp:Button ID="UserOfferBtn" CssClass="auto-style7" Width="123px" runat="server" Text="Offers" OnClick="Offers_Click" /></td>
+
                             <td class="auto-style12">
                                 <asp:ImageButton ID="ImageButtoncart" src="img/shopping_cart_black_72x72.png" runat="server" CssClass="auto-style11" Height="46px" OnClick="ImageButtoncart_Click" />
                             </td>

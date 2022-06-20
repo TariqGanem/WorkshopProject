@@ -90,11 +90,21 @@
         </tr>
         <tr>
              <td class="auto-style8">
-                <asp:TextBox ID="TextBoxRate" CssClass="txt" placeholder="Rate Store" runat="server" Style="text-align: center" Height="10px" Width="80px"></asp:TextBox></td>
+                <asp:TextBox ID="TextBoxRate" CssClass="txt" placeholder="Rate Store" runat="server" Style="text-align: center" Height="10px" Width="94px"></asp:TextBox></td>
             <td style="auto-style8" class="auto-style19">
                 <asp:Button ID="btnRateProduct" runat="server" Text="Rate" CssClass="auto_class8" Height="30px" Width="50px" OnClick="btnRateStore_OnClick"   />
             </td>     
              <td><asp:Label ID="LabelErrorRateProduct" runat="server" Text="Error:"></asp:Label></td>
+        </tr>
+        <tr>
+             <td class="auto-style8">
+                <asp:TextBox ID="priceTxt" CssClass="txt" placeholder="Offer Price" runat="server" Style="text-align: center" Height="10px" Width="96px"></asp:TextBox></td>
+            <td class="auto-style8">
+                <asp:TextBox ID="AmountTxt" CssClass="txt" placeholder="Offer Amount" runat="server" Style="text-align: center" Height="10px" Width="100px"></asp:TextBox></td>
+            <td style="auto-style8" class="auto-style19">
+                <asp:Button ID="SendOfferBtn" runat="server" Text="Send Offer" CssClass="auto_class8" Height="30px" Width="100px" OnClick="SendOfferBtn_OnClick"   />
+            </td>     
+             <td><asp:Label ID="ErrorOfferLabel" runat="server"></asp:Label></td>
         </tr>
         <tr>
             <td class="auto-style14">
