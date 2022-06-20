@@ -409,9 +409,9 @@ namespace Client.Code
             return system.SendApi("RemoveSystemAdmin", param);
         }
 
-        public bool ResetSystem(string admin)
+        public bool ResetSystem(string admin , string filepath)
         {
-            string param = string.Format("admin={0}", admin);
+            string param = string.Format("admin={0}&filepath={1}", admin, filepath);
             return bool.Parse(system.SendApi("ResetSystem", param));
         }
 

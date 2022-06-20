@@ -31,6 +31,7 @@ namespace Client
             ButtonCloseStore.Visible = false;
             ButtonBanUser.Visible = false;
             UserOfferBtn.Visible = false;
+            InitFilePath.Visible = false;
 
 
             if (Session["isLogin"] != null && new UserHandler().isAdminUser(Session["userId"].ToString()))
@@ -51,6 +52,7 @@ namespace Client
                 ButtonCloseStore.Visible = true;
                 ButtonBanUser.Visible = true;
                 UserOfferBtn.Visible = true;
+                InitFilePath.Visible = true;
 
             }
             else if(Session["isLogin"] != null)
@@ -130,6 +132,7 @@ namespace Client
                         StoreHistory.Visible = true;
                         ButtonCloseStore.Visible = true;
                         ButtonBanUser.Visible = true;
+                        InitFilePath.Visible = true;
                     }
                 }
                 else
@@ -178,10 +181,14 @@ namespace Client
 
         protected void ResetSystem_OnClick(object sender, EventArgs e)
         {
-            bool res = new UserHandler().ResetSystem(Session["userId"].ToString());
+            bool res = false;
+            if (InitFilePath.Text.Trim().Length == 0)
+                res = new UserHandler().ResetSystem(Session["userId"].ToString(),"");
+            else
+                res = new UserHandler().ResetSystem(Session["userId"].ToString(), InitFilePath.Text);
             if (!res)
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
-                "alert('System could not be RESSETTED')", true);
+                "alert('System Ressetted , yet Could not be Initialized by given Init File Path')", true);
             else
             {
                 Session.Clear();

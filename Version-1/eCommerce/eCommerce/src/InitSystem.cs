@@ -19,13 +19,14 @@ namespace eCommerce.src
         private static readonly Type FacadeType =
             Assembly.GetExecutingAssembly().GetTypes().First(t => t.Name == "eCommerceSystem");
 
-        public static void Test()
+        public static bool Test()
         {
             //CreateJson();
-            ReadStateFile(DesktopPath + @"\json\file.json");
+            return ReadStateFile(DesktopPath + @"\json\file.json");
             //Console.ReadKey();
         }
 
+        //C:\Users\aeran\OneDrive\Desktop\json\file.json
         public static bool ReadStateFile(string path)
         {
             // wrap all this in try and different catches
@@ -76,13 +77,15 @@ namespace eCommerce.src
             }
             catch (TargetInvocationException targetException)
             {
-                if (targetException.InnerException != null)
-                    throw targetException.InnerException;
-                throw;
+                // if (targetException.InnerException != null)
+                //     throw targetException.InnerException;
+                //  throw;
+                return false;
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                //throw new Exception(e.Message);
+                return false;
             }
 
             return true;

@@ -323,7 +323,7 @@ namespace eCommerce.src.ServiceLayer
 
         }
 
-        public Result<bool> ResetSystem(String sysAdminID)
+        public Result<bool> ResetSystem(String sysAdminID,string filepath = "")
         {
             Result<Boolean> res = SystemAdminController.ResetSystem(sysAdminID);
             if (!res.ErrorOccured)
@@ -333,7 +333,10 @@ namespace eCommerce.src.ServiceLayer
                 StoreStaffController = new StoreStaffController(systemFacade);
                 this.SystemAdminController = new SystemAdminController(systemFacade);
                 this.UserController = new UserController(systemFacade);
-                InitSystem.Test();
+                if (filepath == null || filepath == "" )
+                    return new Result<bool>(InitSystem.Test()); // mock
+                else
+                    return new Result<bool>(InitSystem.ReadStateFile(filepath));
             }
             return res;
         }

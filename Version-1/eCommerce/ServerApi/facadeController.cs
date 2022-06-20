@@ -554,9 +554,9 @@ namespace ServerApi
         }
         
         [HttpGet]
-        public bool ResetSystem(string admin)
+        public bool ResetSystem(string admin , string filepath)
         {
-            Result<bool> output = facade.ResetSystem(admin);
+            Result<bool> output = facade.ResetSystem(admin , filepath);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);

@@ -226,6 +226,8 @@
                          <td class="auto-style8">
                             <asp:Button ID="ResetSystem" runat="server" Text="Reset System<Caution>" CssClass="auto_class8" Height="44px" Width="191px" OnClick="ResetSystem_OnClick"  />
                         </td>
+                         <td class="auto-style4">
+                             <asp:TextBox ID="InitFilePath" CssClass="txt" placeholder="Init File Path" runat="server" Style="text-align: center" Width="150px" ></asp:TextBox></td>
                     </tr>
                 </table>
         </table>
