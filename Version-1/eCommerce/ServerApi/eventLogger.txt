@@ -3783,3 +3783,95 @@
 6/21/2022 2:03:15 AM: -7777777777777777777777777777777 is admin  .
 6/21/2022 2:03:15 AM: -7777777777777777777777777777777 is admin  .
 6/21/2022 2:04:13 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 12:49:46 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 12:49:53 AM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 12:49:53 AM: -7777777777777777777777777777777 is admin  .
+6/22/2022 12:49:56 AM: -7777777777777777777777777777777 is admin  .
+6/22/2022 12:50:04 AM: system resetted  .
+6/22/2022 12:50:04 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 12:50:20 AM: Eranhas LoggedIn   .
+6/22/2022 12:50:20 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:50:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:50:29 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:50:30 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:59:23 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 12:59:32 AM: Eranhas LoggedIn   .
+6/22/2022 12:59:32 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:59:33 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:59:33 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:59:34 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:59:34 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:59:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:59:38 AM: purchase policies fetched  .
+6/22/2022 12:59:58 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 12:59:58 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83has LoggedOut   .
+6/22/2022 12:59:58 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 1:54:09 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 1:54:20 AM: Eranhas LoggedIn   .
+6/22/2022 1:54:20 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:54:22 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:54:22 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:54:23 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:54:23 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:54:25 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:54:25 AM: purchase policies fetched  .
+6/22/2022 1:54:26 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:22 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 1:56:42 AM: Eranhas LoggedIn   .
+6/22/2022 1:56:42 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:45 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:45 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:47 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:47 AM: purchase policies fetched  .
+6/22/2022 1:56:48 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:48 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:51 AM: Or Condition Discount Added to store  .
+6/22/2022 1:56:55 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:55 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:57 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:56:57 AM: purchase policies fetched  .
+6/22/2022 1:59:14 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 1:59:25 AM: Eranhas LoggedIn   .
+6/22/2022 1:59:25 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:59:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:59:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:59:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:59:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:59:30 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:59:30 AM: purchase policies fetched  .
+6/22/2022 1:59:32 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 1:59:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:25 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 2:03:32 AM: Eranhas LoggedIn   .
+6/22/2022 2:03:32 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:33 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:33 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:34 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:34 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:36 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:36 AM: purchase policies fetched  .
+6/22/2022 2:03:37 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:40 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:41 AM: Or Condition Discount Added to store  .
+6/22/2022 2:03:43 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:43 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:46 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:03:46 AM: purchase policies fetched  .
+6/22/2022 2:03:47 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:04:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:04:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:04:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:04:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:04:29 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:04:29 AM: purchase policies fetched  .
+6/22/2022 2:04:50 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .

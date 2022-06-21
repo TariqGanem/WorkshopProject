@@ -29,6 +29,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
             }
         }
 
@@ -50,6 +51,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
             }
 
@@ -68,6 +70,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Add New Manager")
@@ -85,6 +88,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
 
 
@@ -105,6 +109,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
 
 
@@ -125,6 +130,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
 
 
@@ -146,6 +152,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
 
 
@@ -165,7 +172,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
-
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
 
                 UserHandler a = new UserHandler();
@@ -187,7 +194,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
-
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Remove Permissions")
@@ -205,7 +212,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
-
+                ButtonAddPurchasePolicyToMain.Visible = false;
             }
             if (DropDownList1.SelectedItem.Text == "Store Staff")
             {
@@ -225,7 +232,7 @@ namespace Client
                     DataListsShoppingHistory.Visible = false;
                     DataListOffers.Visible = false;
                     PurchasePolicies.Visible = false;
-
+                    ButtonAddPurchasePolicyToMain.Visible = false;
 
                     StoreStaff.DataSource = a.GetStoreStaff(Session["userId"].ToString(),Session["storeId"].ToString());
                     StoreStaff.DataBind();
@@ -249,6 +256,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListRemoveProduct.DataSource = a.GetAllProductByStoreIDToDisplay(Session["storeId"].ToString());
@@ -269,6 +277,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = true;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListsShoppingHistory.DataSource = a.GetStorePurchaseHistory(Session["userId"].ToString(),Session["storeId"].ToString());
@@ -289,6 +298,7 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = true;
                 PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListOffers.DataSource = a.getStoreOffers(Session["storeId"].ToString());
@@ -310,10 +320,11 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = true;
+                ButtonAddPurchasePolicyToMain.Visible = true;
 
                 UserHandler a = new UserHandler();
-                DataListOffers.DataSource = a.getPruchasePolicies(Session["storeId"].ToString());
-                DataListOffers.DataBind();
+                PurchasePolicies.DataSource = a.getPruchasePolicies(Session["storeId"].ToString());
+                PurchasePolicies.DataBind();
             }
 
         }
@@ -770,7 +781,7 @@ namespace Client
             if(e.CommandName.Equals("AddPolicy"))
             {
                 Session["PolicyId"] = e.CommandArgument.ToString();
-                Response.Redirect("~/AddPurchasePolicy.aspx");
+                Response.Redirect("~/AddPruchasePolicy.aspx");
                 return;
             }
             if(e.CommandName.Equals("RemovePolicy"))
@@ -792,6 +803,16 @@ namespace Client
         protected void DataListRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void DataListPurchasePolicies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ButtonAddPurchasePolicyToMain_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AddPruchasePolicyMain.aspx");
         }
     }
 }

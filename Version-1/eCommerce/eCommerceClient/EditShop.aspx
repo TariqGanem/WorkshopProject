@@ -634,6 +634,12 @@ margin-bottom: 16px;
                         </ItemTemplate>
     </asp:DataList>
 
+
+        <td class="auto-style13">
+            <asp:Button ID="ButtonAddPurchasePolicyToMain" runat="server" Text="Add Policy To Main"  Height="39px" Width="200px" OnClick="ButtonAddPurchasePolicyToMain_Click" ></asp:Button>
+        </td>
+
+
     <asp:DataList ID="PurchasePolicies" runat="server" OnItemCommand="DataListPurchasePolicies_ItemCommand1" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" OnSelectedIndexChanged="DataListPurchasePolicies_SelectedIndexChanged">
         <FooterStyle BackColor="White" ForeColor="#333333" />
         <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />

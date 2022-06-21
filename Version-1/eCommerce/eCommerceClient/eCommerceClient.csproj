@@ -107,8 +107,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddPruchasePolicyMain.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Client.csproj.user" />
+    <Content Include="AddPruchasePolicy.aspx" />
     <Content Include="EditShop.aspx" />
     <Content Include="UserOffers.aspx" />
     <Content Include="home.aspx" />
@@ -133,6 +135,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPruchasePolicyMain.aspx.cs">
+      <DependentUpon>AddPruchasePolicyMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPruchasePolicyMain.aspx.designer.cs">
+      <DependentUpon>AddPruchasePolicyMain.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,6 +152,13 @@
     <Compile Include="Code\Notifications.cs" />
     <Compile Include="Code\System.cs" />
     <Compile Include="Code\UserHandler.cs" />
+    <Compile Include="AddPruchasePolicy.aspx.cs">
+      <DependentUpon>AddPruchasePolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPruchasePolicy.aspx.designer.cs">
+      <DependentUpon>AddPruchasePolicy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditShop.aspx.cs">
       <DependentUpon>EditShop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

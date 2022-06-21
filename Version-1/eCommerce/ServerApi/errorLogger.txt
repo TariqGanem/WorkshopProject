@@ -283,3 +283,19 @@ Parameter name: UserId is null or empty!
 6/21/2022 1:57:56 AM: User is Logged in in an another page  . 
 6/21/2022 2:02:58 AM: User is Logged in in an another page  . 
 6/21/2022 2:03:03 AM: User is Logged in in an another page  . 
+6/22/2022 1:59:32 AM: System.Exception: Store does not exists
+
+   at eCommerce.src.DomainLayer.Store.StoreFacade.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 626
+   at eCommerce.src.DomainLayer.SystemFacade.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 610
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 429  . 
+6/22/2022 1:59:44 AM: System.Exception: The policy removal failed because the policy with an id $7b8e9a75d3044ce58801920f55352579 was not found
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.RemovePurchasePolicy(String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 204
+   at eCommerce.src.DomainLayer.Store.Store.RemovePurchasePolicy(String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 629
+   at eCommerce.src.DomainLayer.Store.StoreFacade.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 617
+   at eCommerce.src.DomainLayer.SystemFacade.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 610
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 429  . 
+6/22/2022 2:03:48 AM: System.Exception: Store does not exists
+
+   at eCommerce.src.DomainLayer.Store.StoreFacade.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 626
+   at eCommerce.src.DomainLayer.SystemFacade.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 610
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 429  . 
