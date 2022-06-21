@@ -27,13 +27,15 @@ namespace eCommerce
             //ecom.Register("eran", "pass");
             //ecom.Login("eran","pass");
             //IDictionary<string,object> res = ecom.GetPurchasePolicyData("c9e9eec4202248a7857a9c33daa919ac").Value;
-            Result<bool> res2 = ecom.AddDiscountPolicy("c9e9eec4202248a7857a9c33daa919ac", new Dictionary<string, object> { {"type" , "DiscreetDiscount" } , { "DiscountCode" , "secretcode" } } , "a2dcca41f71f44d09fedd3837d3cc970");
-            IDictionary<string, object> res = ecom.GetDiscountPolicyData("c9e9eec4202248a7857a9c33daa919ac").Value;
+            //Result<bool> res2 = ecom.AddDiscountPolicy("c9e9eec4202248a7857a9c33daa919ac", new Dictionary<string, object> { {"type" , "DiscreetDiscount" } , { "DiscountCode" , "secretcode" } } , "a2dcca41f71f44d09fedd3837d3cc970");
+            Result<Dictionary<string, string>> res = ecom.getPruchasePolicies("c9e9eec4202248a7857a9c33daa919ac");
 
-            if (res2.ErrorOccured)
-                Console.Out.WriteLine(res2.ErrorMessage);
-            Console.Out.WriteLine(string.Join(Environment.NewLine, res));
-            Console.Out.WriteLine(((IDictionary<string, object>)(res["children"]))["name"]);
+            if (res.ErrorOccured)
+            {
+                Console.Out.WriteLine(res.ErrorMessage);
+                return;
+            }
+            Console.Out.WriteLine(string.Join(Environment.NewLine, res.Value));
             Console.ReadKey();
             return;
         }
