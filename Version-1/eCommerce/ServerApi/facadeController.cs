@@ -1302,7 +1302,7 @@ namespace ServerApi
         [HttpGet]
         public bool AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min)
         {
-            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductPolicy" }, { "ProductId", ProductId }, { "Min", Min } };
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MinProductPolicy" }, { "ProductId", ProductId }, { "Min", Min } };
             Result<bool> output = facade.AddPurchasePolicy(storeId, info);
             if (output.ErrorOccured)
             {
@@ -1401,7 +1401,7 @@ namespace ServerApi
         [HttpGet]
         public bool AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min , string id )
         {
-            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductPolicy" }, { "ProductId", ProductId }, { "Min", Min } };
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MinProductPolicy" }, { "ProductId", ProductId }, { "Min", Min } };
             Result<bool> output = facade.AddPurchasePolicy(storeId, info , id);
             if (output.ErrorOccured)
             {

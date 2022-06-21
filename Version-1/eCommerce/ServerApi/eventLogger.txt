@@ -3875,3 +3875,307 @@
 6/22/2022 2:04:29 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
 6/22/2022 2:04:29 AM: purchase policies fetched  .
 6/22/2022 2:04:50 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 2:05:21 AM: Eranhas LoggedIn   .
+6/22/2022 2:05:21 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:22 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:22 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:23 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:23 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:25 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:25 AM: purchase policies fetched  .
+6/22/2022 2:05:26 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:26 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:29 AM: Or Condition Discount Added to store  .
+6/22/2022 2:05:33 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:33 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:34 AM: Or Condition Discount Added to store  .
+6/22/2022 2:05:36 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:40 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:40 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:45 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:05:56 AM: purchase policies fetched  .
+6/22/2022 2:06:05 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:06 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:09 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:13 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:14 AM: Or Condition Discount Added to store  .
+6/22/2022 2:06:19 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:22 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:31 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:33 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:55 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:55 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:55 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:55 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:58 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:06:58 AM: purchase policies fetched  .
+6/22/2022 2:07:07 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:08 AM: Or Condition Discount Added to store  .
+6/22/2022 2:07:10 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:10 AM: Or Condition Discount Added to store  .
+6/22/2022 2:07:11 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:12 AM: Or Condition Discount Added to store  .
+6/22/2022 2:07:14 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:14 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:14 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:14 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:16 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:16 AM: user answered counter offer  .
+6/22/2022 2:07:17 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:07:17 AM: purchase policies fetched  .
+6/22/2022 2:08:28 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 2:08:37 AM: Eranhas LoggedIn   .
+6/22/2022 2:08:37 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:39 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:39 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:41 AM: purchase policies fetched  .
+6/22/2022 2:08:42 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:42 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:45 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:46 AM: Or Condition Discount Added to store  .
+6/22/2022 2:08:49 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:51 AM: Or Condition Discount Added to store  .
+6/22/2022 2:08:54 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:55 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:08:56 AM: Or Condition Discount Added to store  .
+6/22/2022 2:08:58 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:01 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:01 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:02 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:02 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:04 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:23 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:23 AM: purchase policies fetched  .
+6/22/2022 2:09:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:30 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:35 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:36 AM: Or Condition Discount Added to store  .
+6/22/2022 2:09:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:09:45 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:21 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:32 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:33 AM: Or Condition Discount Added to store  .
+6/22/2022 2:10:35 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:35 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:36 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:36 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:38 AM: purchase policies fetched  .
+6/22/2022 2:10:46 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:47 AM: Or Condition Discount Added to store  .
+6/22/2022 2:10:48 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:49 AM: Or Condition Discount Added to store  .
+6/22/2022 2:10:52 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:53 AM: Or Condition Discount Added to store  .
+6/22/2022 2:10:53 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:54 AM: Or Condition Discount Added to store  .
+6/22/2022 2:10:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:58 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:10:58 AM: purchase policies fetched  .
+6/22/2022 2:12:44 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 2:13:00 AM: Eranhas LoggedIn   .
+6/22/2022 2:13:00 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:02 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:02 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:03 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:03 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:04 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:04 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:08 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:08 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:08 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:08 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:10 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:11 AM: purchase policies fetched  .
+6/22/2022 2:13:20 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:25 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:25 AM: purchase policies fetched  .
+6/22/2022 2:13:26 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:26 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:31 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:32 AM: Or Condition Discount Added to store  .
+6/22/2022 2:13:42 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:42 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:46 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:46 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:49 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:49 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:51 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:51 AM: store fetched  .
+6/22/2022 2:13:51 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 has has added product :fc36cc9615f143799b46d18b86bc9dd8form store: ed36a9ab6257480f8615c13d2ee129a2 to his Cart  .
+6/22/2022 2:13:51 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:52 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:53 AM: Total shopping cart price fetched  .
+6/22/2022 2:13:53 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:56 AM: store fetched  .
+6/22/2022 2:13:56 AM: Total shopping cart price fetched  .
+6/22/2022 2:13:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:13:57 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:06 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:09 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:09 AM: store fetched  .
+6/22/2022 2:14:10 AM: Total shopping cart price fetched  .
+6/22/2022 2:14:10 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:18 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:27 AM: store fetched  .
+6/22/2022 2:14:27 AM: Total shopping cart price fetched  .
+6/22/2022 2:14:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:35 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:43 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:43 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:51 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:51 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:58 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:14:58 AM: Total shopping cart price fetched  .
+6/22/2022 2:14:58 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:04 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:04 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:06 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:06 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83has LoggedOut   .
+6/22/2022 2:15:06 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 2:15:16 AM: Eranhas LoggedIn   .
+6/22/2022 2:15:16 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:18 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:18 AM: Total shopping cart price fetched  .
+6/22/2022 2:15:18 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:26 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:26 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:27 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:29 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:29 AM: purchase policies fetched  .
+6/22/2022 2:15:33 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:34 AM: Or Condition Discount Added to store  .
+6/22/2022 2:15:35 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:35 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:36 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:36 AM: Total shopping cart price fetched  .
+6/22/2022 2:15:36 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:38 AM: store fetched  .
+6/22/2022 2:15:38 AM: Total shopping cart price fetched  .
+6/22/2022 2:15:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:38 AM: store fetched  .
+6/22/2022 2:15:38 AM: Total shopping cart price fetched  .
+6/22/2022 2:15:38 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:40 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:40 AM: store fetched  .
+6/22/2022 2:15:40 AM: Total shopping cart price fetched  .
+6/22/2022 2:15:40 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:46 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:52 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:52 AM: store fetched  .
+6/22/2022 2:15:53 AM: Total shopping cart price fetched  .
+6/22/2022 2:15:53 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:15:59 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:03 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83has purchased succesfully   .
+6/22/2022 2:16:03 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:08 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:08 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:12 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:13 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:13 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:13 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:15 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:15 AM: purchase policies fetched  .
+6/22/2022 2:16:20 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:21 AM: Or Condition Discount Added to store  .
+6/22/2022 2:16:36 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:36 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:49 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:49 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:51 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:53 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:53 AM: purchase policies fetched  .
+6/22/2022 2:16:54 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:54 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:56 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:57 AM: Or Condition Discount Added to store  .
+6/22/2022 2:16:59 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:59 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:59 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:16:59 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:02 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:02 AM: purchase policies fetched  .
+6/22/2022 2:17:03 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:03 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:21 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:29 AM: Or Condition Discount Added to store  .
+6/22/2022 2:17:32 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:35 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:36 AM: Or Condition Discount Added to store  .
+6/22/2022 2:17:39 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:39 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:43 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:43 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:45 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:45 AM: purchase policies fetched  .
+6/22/2022 2:17:53 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:17:53 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:03 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:03 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:05 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:06 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:06 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:06 AM: store fetched  .
+6/22/2022 2:18:07 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 has has added product :fc36cc9615f143799b46d18b86bc9dd8form store: ed36a9ab6257480f8615c13d2ee129a2 to his Cart  .
+6/22/2022 2:18:07 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:07 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:08 AM: Total shopping cart price fetched  .
+6/22/2022 2:18:08 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:16 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:19 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:19 AM: store fetched  .
+6/22/2022 2:18:19 AM: Total shopping cart price fetched  .
+6/22/2022 2:18:19 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:19 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:19 AM: store fetched  .
+6/22/2022 2:18:20 AM: Total shopping cart price fetched  .
+6/22/2022 2:18:20 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:25 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:28 AM: store fetched  .
+6/22/2022 2:18:28 AM: Total shopping cart price fetched  .
+6/22/2022 2:18:28 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:35 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:39 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83has purchased succesfully   .
+6/22/2022 2:18:39 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:41 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:42 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:42 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:44 AM: purchase policies fetched  .
+6/22/2022 2:18:47 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:48 AM: Or Condition Discount Added to store  .
+6/22/2022 2:18:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:18:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .

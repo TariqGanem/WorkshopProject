@@ -299,3 +299,45 @@ Parameter name: UserId is null or empty!
    at eCommerce.src.DomainLayer.Store.StoreFacade.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 626
    at eCommerce.src.DomainLayer.SystemFacade.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 610
    at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemovePurchasePolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 429  . 
+6/22/2022 2:06:22 AM: System.Exception: Can't create MaxProductPolicy: Max not found
+   at eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies.MaxProductPolicy.create(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PurchasePolicies\MaxProductPolicy.cs:line 36
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.CreatePurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 223
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.AddPurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 169
+   at eCommerce.src.DomainLayer.Store.Store.AddPurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 614
+   at eCommerce.src.DomainLayer.Store.StoreFacade.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 586
+   at eCommerce.src.DomainLayer.SystemFacade.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 599
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 403  . 
+6/22/2022 2:06:31 AM: System.Exception: Can't create MaxProductPolicy: ProductId not found
+   at eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies.MaxProductPolicy.create(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PurchasePolicies\MaxProductPolicy.cs:line 33
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.CreatePurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 223
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.AddPurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 169
+   at eCommerce.src.DomainLayer.Store.Store.AddPurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 614
+   at eCommerce.src.DomainLayer.Store.StoreFacade.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 586
+   at eCommerce.src.DomainLayer.SystemFacade.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 599
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 403  . 
+6/22/2022 2:09:45 AM: System.Exception: Can't create MaxProductPolicy: Max not found
+   at eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies.MaxProductPolicy.create(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PurchasePolicies\MaxProductPolicy.cs:line 36
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.CreatePurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 223
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.AddPurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 169
+   at eCommerce.src.DomainLayer.Store.Store.AddPurchasePolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 614
+   at eCommerce.src.DomainLayer.Store.StoreFacade.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 586
+   at eCommerce.src.DomainLayer.SystemFacade.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 599
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.AddPurchasePolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 403  . 
+6/22/2022 2:12:54 AM: Username eran doesn't exist!  . 
+6/22/2022 2:13:56 AM:   . 
+6/22/2022 2:14:07 AM: One or more errors occurred.  . 
+6/22/2022 2:14:09 AM:   . 
+6/22/2022 2:14:18 AM: One or more errors occurred.  . 
+6/22/2022 2:14:27 AM:   . 
+6/22/2022 2:14:36 AM: One or more errors occurred.  . 
+6/22/2022 2:15:38 AM:   . 
+6/22/2022 2:15:38 AM:   . 
+6/22/2022 2:15:40 AM:   . 
+6/22/2022 2:15:47 AM: One or more errors occurred.  . 
+6/22/2022 2:15:51 AM: One or more errors occurred.  . 
+6/22/2022 2:15:52 AM:   . 
+6/22/2022 2:18:17 AM: One or more errors occurred.  . 
+6/22/2022 2:18:19 AM:   . 
+6/22/2022 2:18:20 AM:   . 
+6/22/2022 2:18:26 AM: One or more errors occurred.  . 
+6/22/2022 2:18:28 AM:   . 
