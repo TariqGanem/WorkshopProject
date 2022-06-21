@@ -195,14 +195,14 @@ namespace Client
             }
             if (new UserHandler().AddPurchasePolicyMaxProductPolicy(Session["storeId"].ToString(), ProductIdBox.Text , MaxBox.Text , Session["PolicyId"].ToString()))
             {
-                AndLabel.Visible = true;
-                AndLabel.Text = "Policy Added";
+                MaxProductLabel.Visible = true;
+                MaxProductLabel.Text = "Policy Added";
                 return;
             }
             else
             {
-                AndLabel.Visible = true;
-                AndLabel.Text = "Policy Failed To Add";
+                MaxProductLabel.Visible = true;
+                MaxProductLabel.Text = "Policy Failed To Add";
                 return;
             }
         }

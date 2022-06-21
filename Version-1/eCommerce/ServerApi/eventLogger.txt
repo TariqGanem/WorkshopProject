@@ -4179,3 +4179,30 @@
 6/22/2022 2:18:48 AM: Or Condition Discount Added to store  .
 6/22/2022 2:18:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
 6/22/2022 2:18:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:19:43 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:19:43 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:19:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:19:44 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:19:46 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:19:52 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:19:52 AM: Product details updated  .
+6/22/2022 2:19:54 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:19:54 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:20:59 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 2:21:05 AM: Eranhas LoggedIn   .
+6/22/2022 2:21:05 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:07 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:07 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:07 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:07 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:09 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:09 AM: purchase policies fetched  .
+6/22/2022 2:21:49 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:49 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:50 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:57 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:21:57 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:22:00 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83 is admin  .
+6/22/2022 2:22:00 AM: f5ea9ae0d2254cea9bcd6badbd0a4a83has LoggedOut   .
+6/22/2022 2:22:00 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
