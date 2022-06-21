@@ -49,6 +49,7 @@ namespace Client
                 StoreStaff.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
             }
 
@@ -66,6 +67,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Add New Manager")
@@ -82,6 +84,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
 
 
@@ -101,6 +104,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
 
 
@@ -120,6 +124,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
 
 
@@ -140,6 +145,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
 
 
@@ -158,6 +164,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
 
 
@@ -179,6 +186,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
 
             }
@@ -196,6 +204,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Store Staff")
@@ -215,6 +224,7 @@ namespace Client
                     DataListRemoveProduct.Visible = false;
                     DataListsShoppingHistory.Visible = false;
                     DataListOffers.Visible = false;
+                    PurchasePolicies.Visible = false;
 
 
                     StoreStaff.DataSource = a.GetStoreStaff(Session["userId"].ToString(),Session["storeId"].ToString());
@@ -238,6 +248,7 @@ namespace Client
                 DataListRemoveProduct.Visible = true;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListRemoveProduct.DataSource = a.GetAllProductByStoreIDToDisplay(Session["storeId"].ToString());
@@ -257,6 +268,7 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = true;
                 DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListsShoppingHistory.DataSource = a.GetStorePurchaseHistory(Session["userId"].ToString(),Session["storeId"].ToString());
@@ -276,9 +288,31 @@ namespace Client
                 DataListRemoveProduct.Visible = false;
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = true;
+                PurchasePolicies.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListOffers.DataSource = a.getStoreOffers(Session["storeId"].ToString());
+                DataListOffers.DataBind();
+            }
+
+            if (DropDownList1.SelectedItem.Text == "Pruchase Policies")
+            {
+                table1.Visible = false;
+                table2.Visible = false;
+                table3.Visible = false;
+                table4.Visible = false;
+                table5.Visible = false;
+                table6.Visible = false;
+                table7.Visible = false;
+                DataListproducts.Visible = false;
+                StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
+                PurchasePolicies.Visible = true;
+
+                UserHandler a = new UserHandler();
+                DataListOffers.DataSource = a.getPruchasePolicies(Session["storeId"].ToString());
                 DataListOffers.DataBind();
             }
 
@@ -729,6 +763,31 @@ namespace Client
                 }
             }
 
+        }
+
+        protected void DataListPurchasePolicies_ItemCommand1(object sender, DataListCommandEventArgs e)
+        {
+            if(e.CommandName.Equals("AddPolicy"))
+            {
+                Session["PolicyId"] = e.CommandArgument.ToString();
+                Response.Redirect("~/AddPurchasePolicy.aspx");
+                return;
+            }
+            if(e.CommandName.Equals("RemovePolicy"))
+            {
+                if(new UserHandler().RemovePurchasePolicy(Session["storeId"].ToString(), e.CommandArgument.ToString()))
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelPolicyError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Policy Removed";
+                }
+                else
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelPolicyError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Removing Policy Failed";
+                }
+            }
         }
         protected void DataListRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
