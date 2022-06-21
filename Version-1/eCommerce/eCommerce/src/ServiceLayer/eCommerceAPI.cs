@@ -384,30 +384,19 @@ namespace eCommerce.src.ServiceLayer
             return StoreStaffController.AddDiscountPolicy(storeId, info, id);
         }
 
-        public Result<bool> AddDiscountCondition(string storeId, Dictionary<string, object> info, String id)
-        {
-            return StoreStaffController.AddDiscountCondition(storeId, info, id);
-        }
-
         public Result<bool> RemoveDiscountPolicy(string storeId, String id)
         {
             return StoreStaffController.RemoveDiscountPolicy(storeId, id);
         }
 
+        public Result<bool> AddDiscountCondition(string storeId, Dictionary<string, object> info, String id)
+        {
+            return StoreStaffController.AddDiscountCondition(storeId, info, id);
+        }
+
         public Result<bool> RemoveDiscountCondition(string storeId, String id)
         {
             return StoreStaffController.RemoveDiscountCondition(storeId, id);
-        }
-
-
-        public Result<IDictionary<string, object>> GetDiscountPolicyData(string storeId)
-        {
-            return StoreStaffController.GetDiscountPolicyData(storeId);
-        }
-
-        public Result<IDictionary<string, object>> GetPurchasePolicyData(string storeId)
-        {
-            return StoreStaffController.GetPurchasePolicyData(storeId);
         }
 
         public Result<bool> AddPurchasePolicy(string storeId, Dictionary<string, object> info)
@@ -424,6 +413,31 @@ namespace eCommerce.src.ServiceLayer
         {
             return StoreStaffController.RemovePurchasePolicy(storeId, id);
         }
+        
+
+
+        public Result<Dictionary<string,string>> getDiscountPolicies(string storeid)
+        {
+            return StoreStaffController.getDiscountPolicies(storeid);
+        }
+
+        public Result<Dictionary<string, string>> getPruchasePolicies(string storeid)
+        {
+            return StoreStaffController.getPruchasePolicies(storeid);
+
+        }
+
+        /*
+            public Result<IDictionary<string, object>> GetDiscountPolicyData(string storeId)
+            {
+                return StoreStaffController.GetDiscountPolicyData(storeId);
+            }
+
+            public Result<IDictionary<string, object>> GetPurchasePolicyData(string storeId)
+            {
+                return StoreStaffController.GetPurchasePolicyData(storeId);
+            }
+        */
 
         // ------
 

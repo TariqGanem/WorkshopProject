@@ -654,47 +654,314 @@ namespace Client.Code
             return d1;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        public DataSet GetAllNotifications(string userId)
+        // policies
+            //Data
+        public DataSet getDiscountPolicies(string storeid)
         {
-            string param = string.Format("userId={0}", userId);
-            JArray arr = (JArray)JsonConvert.DeserializeObject(system.SendApi("GetAllNotifications", param).ToString());
-            DataTable t1 = new DataTable("Notifications");
-            t1.Columns.Add("id");
-            t1.Columns.Add("msg");
-            if (arr != null)
+            string param = string.Format("storeid={0}", storeid);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getDiscountPolicies", param).ToString());
+            DataTable t1 = new DataTable("StoreDiscoutPolicies");
+            t1.Columns.Add("DiscountId");
+            t1.Columns.Add("Type");
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
             {
-                for (int i = 0; i < arr.Count && arr[i] != null; i++)
-                {
-                    try
-                    {
-                        t1.Rows.Add(i, arr[i]);
-                    }
-                    catch
-                    { }
-                }
+                DataSet d2 = new DataSet("StoreDiscoutPolicies");
+                d2.Tables.Add(t1);
+                return d2;
             }
-            DataSet set = new DataSet("Notification");
-            set.Tables.Add(t1);
-            return set;
+            for (int i = 1; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1]);
+            }
+
+            DataSet d1 = new DataSet("StoreDiscoutPolicies");
+            d1.Tables.Add(t1);
+            return d1;
         }
-        */
+
+        public DataSet getPruchasePolicies(string storeid)
+        {
+            string param = string.Format("storeid={0}", storeid);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getPruchasePolicies", param).ToString());
+            DataTable t1 = new DataTable("StorePurchasePolicies");
+            t1.Columns.Add("PurchaseId");
+            t1.Columns.Add("Type");
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+            {
+                DataSet d2 = new DataSet("StorePurchasePolicies");
+                d2.Tables.Add(t1);
+                return d2;
+            }
+            for (int i = 1; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1]);
+            }
+
+            DataSet d1 = new DataSet("StorePurchasePolicies");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+            
+            // Discount FUNCS
+        public bool AddDiscountPolicyVisibleDiscount(string storeId, string ExpirationDate, string Percentage, string Target)
+        {
+            string param = string.Format("storeId={0}&ExpirationDate={1}&Percentage={2}&Target={3}", storeId, ExpirationDate, Percentage, Target);
+            return bool.Parse(system.SendApi("AddDiscountPolicyVisibleDiscount", param));
+        }
+
+        public bool AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode)
+        {
+            string param = string.Format("storeId={0}&DiscountCode={1}", storeId, DiscountCode);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscreetDiscount", param));
+        }
+
+        public bool AddDiscountPolicyConditionalDiscount(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddDiscountPolicyConditionalDiscount", param));
+        }
+
+        public bool AddDiscountPolicyDiscountAddition(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountAddition", param));
+        }
+
+        public bool AddDiscountPolicyDiscountAnd(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountAnd", param));
+        }
+
+        public bool AddDiscountPolicyDiscountMax(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountMax", param));
+        }
+
+        public bool AddDiscountPolicyDiscountMin(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountMin", param));
+        }
+
+        public bool AddDiscountPolicyDiscountOr(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountOr", param));
+        }
+
+        public bool AddDiscountPolicyDiscountXor(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountXor", param));
+        }
+
+        public bool AddDiscountPolicyVisibleDiscount(string storeId, string ExpirationDate, string Percentage, string Target , string id)
+        {
+            string param = string.Format("storeId={0}&ExpirationDate={1}&Percentage={2}&Target={3}&id={4}", storeId, ExpirationDate, Percentage, Target,id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyVisibleDiscount", param));
+        }
+
+        public bool AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode,string id)
+        {
+            string param = string.Format("storeId={0}&DiscountCode={1}&id={2}", storeId, DiscountCode,id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscreetDiscount", param));
+        }
+
+        public bool AddDiscountPolicyConditionalDiscount(string storeId, string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId,id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyConditionalDiscount", param));
+        }
+
+        public bool AddDiscountPolicyDiscountAddition(string storeId, string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId,id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountAddition", param));
+        }
+
+        public bool AddDiscountPolicyDiscountAnd(string storeId, string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId, id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountAnd", param));
+        }
+
+        public bool AddDiscountPolicyDiscountMax(string storeId, string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId,id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountMax", param));
+        }
+
+        public bool AddDiscountPolicyDiscountMin(string storeId, string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId, id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountMin", param));
+        }
+
+        public bool AddDiscountPolicyDiscountOr(string storeId, string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId,id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountOr", param));
+        }
+
+        public bool AddDiscountPolicyDiscountXor(string storeId , string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId,id);
+            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountXor", param));
+        }
+
+        public bool RemoveDiscountPolicy(string storeId, String id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId, id);
+            return bool.Parse(system.SendApi("RemoveDiscountPolicy", param));
+        }
+
+           // Conditions
+
+        public bool AddDiscountConditionDiscountConditionAnd(string storeId, String id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId, id);
+            return bool.Parse(system.SendApi("AddDiscountConditionDiscountConditionAnd", param));
+        }
+
+        public bool AddDiscountConditionDiscountConditionOr(string storeId, String id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId, id);
+            return bool.Parse(system.SendApi("AddDiscountConditionDiscountConditionOr", param));
+        }
+
+        public bool AddDiscountConditionMaxProductCondition(string storeId, string MaxQuantity, string ProductId, string id)
+        {
+            string param = string.Format("storeId={0}&MaxQuantity={1}&ProductId={2}&id={3}", storeId, MaxQuantity, ProductId, id);
+            return bool.Parse(system.SendApi("AddDiscountConditionMaxProductCondition", param));
+        }
+
+        public bool AddDiscountConditionMinProductCondition(string storeId, string MinQuantity, string ProductId, string id)
+        {
+            string param = string.Format("storeId={0}&MinQuantity={1}&ProductId={2}&id={2}", storeId, MinQuantity, ProductId, id);
+            return bool.Parse(system.SendApi("AddDiscountConditionMinProductCondition", param));
+        }
+
+        public bool AddDiscountConditionMinBagPriceCondition(string storeId, string MinPrice, string id)
+        {
+            string param = string.Format("storeId={0}&MinPrice={1}&id={2}", storeId, MinPrice, id);
+            return bool.Parse(system.SendApi("AddDiscountConditionMinBagPriceCondition", param));
+        }
+
+        public bool RemoveDiscountCondition(string storeId, String id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId, id);
+            return bool.Parse(system.SendApi("RemoveDiscountCondition", param));
+        }
+
+            // Purchase Funcs
+
+        public bool AddPurchasePolicyAndPolicy(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddPurchasePolicyAndPolicy", param));
+        }
+
+        public bool AddPurchasePolicyOrPolicy(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddPurchasePolicyOrPolicy", param));
+        }
+
+        public bool AddPurchasePolicyConditionalPolicy(string storeId)
+        {
+            string param = string.Format("storeId={0}", storeId);
+            return bool.Parse(system.SendApi("AddPurchasePolicyConditionalPolicy", param));
+        }
+
+        public bool AddPurchasePolicyMaxProductPolicy(string storeId, string ProductId, string Max)
+        {
+            string param = string.Format("storeId={0}&ProductId={1}&Max={2}", storeId, ProductId, Max);
+            return bool.Parse(system.SendApi("AddPurchasePolicyMaxProductPolicy", param));
+        }
+
+        public bool AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min)
+        {
+            string param = string.Format("storeId={0}&ProductId={1}&Min={2}", storeId, ProductId, Min);
+            return bool.Parse(system.SendApi("AddPurchasePolicyMinProductPolicy", param));
+        }
+
+        public bool AddPurchasePolicyMinAgePolicy(string storeId, string Age)
+        {
+            string param = string.Format("storeId={0}&Age={1}", storeId, Age);
+            return bool.Parse(system.SendApi("AddPurchasePolicyMinAgePolicy", param));
+        }
+
+        public bool AddPurchasePolicyRestrictedHoursPolicy(string storeId, string StartRestrict, string EndRestrict , string ProductId)
+        {
+            string param = string.Format("storeId={0}&StartRestrict={1}&EndRestrict={2}&ProductId={3}", storeId, StartRestrict, EndRestrict, ProductId);
+            return bool.Parse(system.SendApi("AddPurchasePolicyRestrictedHoursPolicy", param));
+        }
+
+        public bool AddPurchasePolicyAndPolicy(string storeId , string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId,id);
+            return bool.Parse(system.SendApi("AddPurchasePolicyAndPolicy", param));
+        }
+
+        public bool AddPurchasePolicyOrPolicy(string storeId , string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId,id);
+            return bool.Parse(system.SendApi("AddPurchasePolicyOrPolicy", param));
+        }
+
+        public bool AddPurchasePolicyConditionalPolicy(string storeId,string id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId,id);
+            return bool.Parse(system.SendApi("AddPurchasePolicyConditionalPolicy", param));
+        }
+
+        public bool AddPurchasePolicyMaxProductPolicy(string storeId, string ProductId, string Max, string id)
+        {
+            string param = string.Format("storeId={0}&ProductId={1}&Max={2}&id={3}", storeId, ProductId, Max,id);
+            return bool.Parse(system.SendApi("AddPurchasePolicyMaxProductPolicy", param));
+        }
+
+        public bool AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min, string id)
+        {
+            string param = string.Format("storeId={0}&ProductId={1}&Min={2}&id={3}", storeId, ProductId, Min,id);
+            return bool.Parse(system.SendApi("AddPurchasePolicyMinProductPolicy", param));
+        }
+
+        public bool AddPurchasePolicyMinAgePolicy(string storeId, string Age, string id)
+        {
+            string param = string.Format("storeId={0}&Age={1}&id={2}", storeId, Age,id);
+            return bool.Parse(system.SendApi("AddPurchasePolicyMinAgePolicy", param));
+        }
+
+        public bool AddPurchasePolicyRestrictedHoursPolicy(string storeId, string StartRestrict, string EndRestrict, string ProductId, string id)
+        {
+            string param = string.Format("storeId={0}&StartRestrict={1}&EndRestrict={2}&ProductId={3}&id={4}", storeId, StartRestrict, EndRestrict, ProductId,id);
+            return bool.Parse(system.SendApi("AddPurchasePolicyRestrictedHoursPolicy", param));
+        }
+
+        public bool RemovePurchasePolicy(string storeId, String id)
+        {
+            string param = string.Format("storeId={0}&id={1}", storeId, id);
+            return bool.Parse(system.SendApi("RemovePurchasePolicy", param));
+        }
+
+        // ---- policies done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

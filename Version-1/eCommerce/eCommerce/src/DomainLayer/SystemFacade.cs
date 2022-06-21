@@ -95,6 +95,8 @@ namespace eCommerce.src.DomainLayer
         string getUsernameFromId(string userid);
         bool isStoreOwner(string userid, string storeid);
         string getStoreIdByStoreName(string storename);
+        Dictionary<string, string> getDiscountPolicies(string storeid);
+        Dictionary<string, string> getPruchasePolicies(string storeid);
         #endregion
     }
 
@@ -783,6 +785,16 @@ namespace eCommerce.src.DomainLayer
                 }
             }
             return new Result<string>("Product Does not exist");
+        }
+
+        public Dictionary<string, string> getDiscountPolicies(string storeid)
+        {
+            return storeFacade.getDiscountPolicies(storeid);
+        }
+
+        public Dictionary<string, string> getPruchasePolicies(string storeid)
+        {
+            return storeFacade.getPruchasePolicies(storeid);
         }
     }
 }

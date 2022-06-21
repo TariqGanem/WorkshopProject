@@ -35,29 +35,41 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             string errorMsg = "Can't create VisibleDiscount: ";
             if (!info.ContainsKey("ExpirationDate"))
                 throw new Exception(errorMsg + "ExpirationDate not found");
-            DateTime expirationDate = createDateTime((JsonElement)info["ExpirationDate"]);
+            DateTime expirationDate = createDateTime((string)info["ExpirationDate"]);
 
             if (!info.ContainsKey("Percentage"))
                 throw new Exception(errorMsg + "Percentage not found");
-            Double percentage = ((JsonElement)info["Percentage"]).GetDouble();
+            Double percentage = int.Parse((string)info["Percentage"]);
 
             if (!info.ContainsKey("Target"))
                 throw new Exception(errorMsg + "Target not found");
 
-            IDiscountTarget targetResult = createTarget((JsonElement)info["Target"]);
+            IDiscountTarget targetResult = createTarget((string)info["Target"]);
             return new VisibleDiscount(expirationDate, targetResult, percentage);
         }
 
-        private static DateTime createDateTime(JsonElement timeElement)
+        private static DateTime createDateTime(string timeElement)
         {
-            String timeString = timeElement.GetString();
-            DateTime time = DateTime.ParseExact(timeString, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            String timeString = timeElement;
+            DateTime time;
+            try
+            {
+                time = DateTime.ParseExact(timeString, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+            }
+            catch (FormatException) { throw new Exception("Date Format Error"); }
             return time;
         }
 
-        private static IDiscountTarget createTarget(JsonElement targetElement)
+        private static IDiscountTarget createTarget(string targetElement)
         {
-            Dictionary<string, object> targetDict = JsonSerializer.Deserialize<Dictionary<string, object>>(targetElement.GetRawText());
+            string[] arr = targetElement.Split('|');
+            Dictionary<string, object> targetDict;
+            if (arr.Length > 1 & arr[1].Split(':')[0] == "Categories")
+                targetDict =  new Dictionary<string, object>() { { "type" , arr[0]} , { "Categories" , arr[1].Split(':')[1] } };
+            else if (arr.Length > 1 & arr[1].Split(':')[0] == "ProductIds")
+                targetDict = new Dictionary<string, object>() { { "type", arr[0] }, { "ProductIds", arr[1].Split(':')[1] } };
+            else
+                targetDict = new Dictionary<string, object>() { { "type", arr[0] } };
             return createTarget(targetDict);
         }
 
@@ -120,7 +132,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             if (!info.ContainsKey("type"))
                 throw new Exception("Can't create a target without a type");
 
-            string type = ((JsonElement)info["type"]).ToString();
+            string type = ((string)info["type"]);
             switch (type)
             {
                 case "DiscountTargetShop":
@@ -142,21 +154,21 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             if (info.ContainsKey("ExpirationDate"))
             {
                 //ExpirationDate = (DateTime)info["ExpirationDate"];
-                ExpirationDate = createDateTime((JsonElement)info["ExpirationDate"]);
+                ExpirationDate = createDateTime((string)info["ExpirationDate"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("ExpirationDate", ExpirationDate.ToString());
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }
 
             if (info.ContainsKey("Percentage"))
             {
-                Percentage = ((JsonElement)info["Percentage"]).GetDouble();
+                Percentage = int.Parse((string)info["Percentage"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("Percentage", Percentage);
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }
 
             if (info.ContainsKey("Target"))
             {
-                IDiscountTarget targetResult = createTarget((JsonElement)info["Target"]);
+                IDiscountTarget targetResult = createTarget((string)info["Target"]);
             }
             return true;
         }

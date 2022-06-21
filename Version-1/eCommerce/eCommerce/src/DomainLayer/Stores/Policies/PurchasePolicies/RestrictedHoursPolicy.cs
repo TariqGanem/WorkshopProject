@@ -33,15 +33,15 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
             string errorMsg = "Can't create RestrictedHoursPolicy: ";
             if (!info.ContainsKey("StartRestrict"))
                 throw new Exception(errorMsg + "StartRestrict not found");
-            DateTime startRestrict = createDateTime((JsonElement)info["StartRestrict"]);
+            DateTime startRestrict = createDateTime((string)info["StartRestrict"]);
 
             if (!info.ContainsKey("EndRestrict"))
                 throw new Exception(errorMsg + "EndRestrict not found");
-            DateTime endRestrict = createDateTime((JsonElement)info["EndRestrict"]);
+            DateTime endRestrict = createDateTime((string)info["EndRestrict"]);
 
             if (!info.ContainsKey("ProductId"))
                 throw new Exception(errorMsg + "ProductId not found");
-            string productId = ((JsonElement)info["ProductId"]).GetString();
+            string productId = ((string)info["ProductId"]);
 
             return new RestrictedHoursPolicy(startRestrict, endRestrict, productId);
         }
@@ -81,21 +81,21 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
 
             if (info.ContainsKey("StartRestrict"))
             {
-                StartRestrict = createDateTime((JsonElement)info["StartRestrict"]);
+                StartRestrict = createDateTime((string)info["StartRestrict"]);
                 var update_discount = Builders<MongoDB.Bson.BsonDocument>.Update.Set("StartRestrict", StartRestrict.ToString());
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }
 
             if (info.ContainsKey("EndRestrict"))
             {
-                EndRestrict = createDateTime((JsonElement)info["EndRestrict"]);
+                EndRestrict = createDateTime((string)info["EndRestrict"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("EndRestrict", EndRestrict.ToString());
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }
 
             if (info.ContainsKey("ProductId"))
             {
-                ProductId = ((JsonElement)info["ProductId"]).GetString();
+                ProductId = ((string)info["ProductId"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("ProductId", ProductId);
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }
@@ -103,9 +103,9 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
             return true;
         }
 
-        private static DateTime createDateTime(JsonElement timeElement)
+        private static DateTime createDateTime(string timeElement)
         {
-            String timeString = timeElement.GetString();
+            String timeString = timeElement;
             DateTime time = DateTime.ParseExact(timeString, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
             return time;
         }

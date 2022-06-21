@@ -30,7 +30,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
 
             if (!info.ContainsKey("Age"))
                 throw new Exception(errorMsg + "Age not found");
-            int age = ((JsonElement)info["Age"]).GetInt32();
+            int age = int.Parse((string)info["Age"]);
 
             return new MinAgePolicy(age);
         }
@@ -69,7 +69,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
 
             if (info.ContainsKey("Age"))
             {
-                Age = ((JsonElement)info["Age"]).GetInt32();
+                Age = int.Parse((string)info["Age"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("Age", Age);
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }

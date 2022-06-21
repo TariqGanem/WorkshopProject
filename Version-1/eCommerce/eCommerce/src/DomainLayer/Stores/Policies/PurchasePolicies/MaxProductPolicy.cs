@@ -31,10 +31,10 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
             string errorMsg = "Can't create MaxProductPolicy: ";
             if (!info.ContainsKey("ProductId"))
                 throw new Exception(errorMsg + "ProductId not found");
-            string productId = ((JsonElement)info["ProductId"]).GetString();
+            string productId = ((string)info["ProductId"]);
             if (!info.ContainsKey("Max"))
                 throw new Exception(errorMsg + "Max not found");
-            int max = ((JsonElement)info["Max"]).GetInt32();
+            int max = int.Parse((string)info["Max"]);
             return new MaxProductPolicy(productId, max);
         }
 
@@ -77,14 +77,14 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
 
             if (info.ContainsKey("Max"))
             {
-                Max = ((JsonElement)info["Max"]).GetInt32();
+                Max = int.Parse((string)info["Max"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("Max", Max);
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }
 
             if (info.ContainsKey("ProductId"))
             {
-                ProductId = ((JsonElement)info["ProductId"]).GetString();
+                ProductId = ((string)info["ProductId"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("ProductId", ProductId);
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }

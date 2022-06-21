@@ -39,6 +39,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<bool> RemovePurchasePolicy(string storeId, string id);
         Result<bool> EditPurchasePolicy(string storeId, Dictionary<string, object> info, string id);
         Result<bool> isStoreOwner(string userid, string storeid);
+        Result<Dictionary<string, string>> getDiscountPolicies(string storeid);
+        Result<Dictionary<string, string>> getPruchasePolicies(string storeid);
     }
 
     public class StoreStaffController : IStoreStaffController
@@ -456,6 +458,32 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 logger.LogError(ex.ToString());
                 return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<Dictionary<string, string>> getDiscountPolicies(string storeid)
+        {
+            try
+            {
+                return new Result<Dictionary<string, string>>(SystemFacade.getDiscountPolicies(storeid));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<Dictionary<string, string>>(ex.ToString());
+            }
+        }
+
+        public Result<Dictionary<string, string>> getPruchasePolicies(string storeid)
+        {
+            try
+            {
+                return new Result<Dictionary<string, string>>(SystemFacade.getPruchasePolicies(storeid));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<Dictionary<string, string>>(ex.ToString());
             }
         }
 

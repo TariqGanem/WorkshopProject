@@ -30,13 +30,15 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountTar
             string errorMsg = "Can't create DiscountTargetProducts: ";
             if (!info.ContainsKey("ProductIds"))
                 throw new Exception(errorMsg + "ProductIds not found");
-            List<string> productIds = createProductsList((JsonElement)info["ProductIds"]);
+            List<string> productIds = createProductsList((string)info["ProductIds"]);
             return new DiscountTargetProducts(productIds);
         }
 
-        private static List<string> createProductsList(JsonElement productsElement)
+        private static List<string> createProductsList(string productsElement)
         {
-            List<string> products = JsonSerializer.Deserialize<List<string>>(productsElement.GetRawText());
+            List<string> products = new List<string>();
+            foreach (string str in productsElement.Split(','))
+                products.Add(str);
             return products;
         }
 

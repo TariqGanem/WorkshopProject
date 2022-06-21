@@ -29,14 +29,17 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountTar
             string errorMsg = "Can't create DiscountTargetCategories: ";
             if (!info.ContainsKey("Categories"))
                 throw new Exception(errorMsg + "Categories not found");
-            List<string> categories = createCategoriesList((JsonElement)info["Categories"]);
+            List<string> categories = createCategoriesList((string)info["Categories"]);
 
             return new DiscountTargetCategories(categories);
         }
 
-        private static List<string> createCategoriesList(JsonElement categoriesElement)
+        private static List<string> createCategoriesList(string categoriesElement)
         {
-            List<string> categories = JsonSerializer.Deserialize<List<string>>(categoriesElement.GetRawText());
+            string[] res = categoriesElement.Split(',');
+            List<string> categories = new List<string>();
+            foreach (string str in res)
+                categories.Add(str);
             return categories;
         }
 

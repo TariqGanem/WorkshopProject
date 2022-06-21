@@ -177,7 +177,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountCom
             return new DTO_DiscountAddition(this.Id, Discounts_dto);
         }
 
-        private ConcurrentDictionary<String, String> ConvertDiscountToIDs()
+        public ConcurrentDictionary<String, String> ConvertDiscountToIDs()
         {
             ConcurrentDictionary<String, String> list = new ConcurrentDictionary<String, String>();    //<id , type>
 

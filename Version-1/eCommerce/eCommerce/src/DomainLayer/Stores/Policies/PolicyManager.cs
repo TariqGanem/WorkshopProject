@@ -210,7 +210,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             if (!info.ContainsKey("type"))
                 throw new Exception("Can't create a purchase Policy without a type");
 
-            string type = ((JsonElement)info["type"]).GetString();
+            string type = ((string)info["type"]);
             switch (type)
             {
                 case "AndPolicy":
@@ -246,7 +246,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             if (!info.ContainsKey("type"))
                 throw new Exception("Can't create a discount without a type");
 
-            string type = ((JsonElement)info["type"]).GetString();
+            string type = (string)info["type"];
             switch (type)
             {
                 case "VisibleDiscount":
@@ -278,7 +278,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             if (!info.ContainsKey("type"))
                 throw new Exception("Can't create a condition without a type");
 
-            string type = ((JsonElement)info["type"]).GetString();
+            string type = ((string)info["type"]);
             switch (type)
             {
                 case "DiscountConditionAnd":

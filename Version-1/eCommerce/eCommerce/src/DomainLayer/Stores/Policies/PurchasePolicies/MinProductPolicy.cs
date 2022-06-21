@@ -31,11 +31,11 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
             string errorMsg = "Can't create MinProductPolicy: ";
             if (!info.ContainsKey("ProductId"))
                 throw new Exception(errorMsg + "ProductId not found");
-            string productId = ((JsonElement)info["ProductId"]).GetString();
+            string productId = ((string)info["ProductId"]);
 
             if (!info.ContainsKey("Min"))
                 throw new Exception(errorMsg + "Min not found");
-            int min = ((JsonElement)info["Min"]).GetInt32();
+            int min = int.Parse((string)info["Min"]);
 
             return new MinProductPolicy(productId, min);
         }
@@ -79,14 +79,14 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies
 
             if (info.ContainsKey("Min"))
             {
-                Min = ((JsonElement)info["Min"]).GetInt32();
+                Min = int.Parse((string)info["Min"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("Min", Min);
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }
 
             if (info.ContainsKey("ProductId"))
             {
-                ProductId = ((JsonElement)info["ProductId"]).GetString();
+                ProductId = ((string)info["ProductId"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("ProductId", ProductId);
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }

@@ -26,11 +26,11 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountCond
             string errorMsg = "Can't create MaxProductCondition: ";
             if (!info.ContainsKey("MaxQuantity"))
                 throw new Exception(errorMsg + "MaxQuantity not found");
-            int maxQuantity = ((JsonElement)info["MaxQuantity"]).GetInt32();
+            int maxQuantity = int.Parse((string)info["MaxQuantity"]);
 
             if (!info.ContainsKey("ProductId"))
                 throw new Exception("ProductId not found");
-            String productId = ((JsonElement)info["ProductId"]).GetString();
+            String productId = ((string)info["ProductId"]);
             return new MaxProductCondition(productId, maxQuantity);
         }
 
@@ -80,7 +80,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountCond
 
             if (info.ContainsKey("MaxQuantity"))
             {
-                MaxQuantity = ((JsonElement)info["MaxQuantity"]).GetInt32();
+                MaxQuantity = int.Parse((string)info["MaxQuantity"]);
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
                 var update_discount = Builders<BsonDocument>.Update.Set("MaxQuantity", MaxQuantity);
                 DBUtil.getInstance().UpdateMaxProductCondition(filter, update_discount);
@@ -88,7 +88,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountCond
 
             if (info.ContainsKey("ProductId"))
             {
-                ProductId = ((JsonElement)info["ProductId"]).GetString();
+                ProductId = ((string)info["ProductId"]);
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
                 var update_discount = Builders<BsonDocument>.Update.Set("ProductId", ProductId);
                 DBUtil.getInstance().UpdateMaxProductCondition(filter, update_discount);

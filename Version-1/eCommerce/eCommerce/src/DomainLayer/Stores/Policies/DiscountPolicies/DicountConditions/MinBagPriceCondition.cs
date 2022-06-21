@@ -24,7 +24,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountCond
             string errorMsg = "Can't create MinBagPriceCondition: ";
             if (!info.ContainsKey("MinPrice"))
                 throw new Exception(errorMsg + "MinPrice not found");
-            Double minPrice = ((JsonElement)info["MinPrice"]).GetDouble();
+            Double minPrice = int.Parse((string)info["MinPrice"]);
 
             return new MinBagPriceCondition(minPrice);
         }
@@ -68,7 +68,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountCond
 
             if (info.ContainsKey("MinPrice"))
             {
-                MinPrice = ((JsonElement)info["MinPrice"]).GetDouble();
+                MinPrice = int.Parse((string)info["MinPrice"]);
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
                 var update_discount = Builders<BsonDocument>.Update.Set("MinPrice", MinPrice);
                 DBUtil.getInstance().UpdateMinBagPriceCondition(filter, update_discount);

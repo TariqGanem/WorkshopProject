@@ -89,7 +89,7 @@ namespace eCommerce.src.DomainLayer.Store
                         value = jsonElement.GetString().ToLower();
                         if (!store.Name.ToLower().Contains((String)value)) { result = false; }
                         break;
-                    case "rating":
+                    case "rate":
                         value = jsonElement.GetDouble();
                         if (store.Rate < (Double)value) { result = false; }
                         break;
@@ -783,6 +783,25 @@ namespace eCommerce.src.DomainLayer.Store
             }
             throw new Exception("Store does not exists\n");
         }
-        
+
+        public Dictionary<string, string> getDiscountPolicies(string storeid)
+        {
+            if(Stores.TryGetValue(storeid, out Store store))
+            {
+                return store.PolicyManager.MainDiscount.ConvertDiscountToIDs().ToDictionary(entry => entry.Key,
+                                                       entry => entry.Value);
+            }
+            throw new Exception("store does not exist in the system");
+        }
+
+        public Dictionary<string, string> getPruchasePolicies(string storeid)
+        {
+            if (Stores.TryGetValue(storeid, out Store store))
+            {
+                return store.PolicyManager.MainPolicy.Policy.getPolicis_dto().ToDictionary(entry => entry.Key,
+                                                       entry => entry.Value);
+            }
+            throw new Exception("store does not exist in the system");
+        }
     }
 }

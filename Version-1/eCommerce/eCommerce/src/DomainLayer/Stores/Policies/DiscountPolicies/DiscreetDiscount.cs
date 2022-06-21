@@ -27,7 +27,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             string errorMsg = "Can't create DiscreetDiscount: ";
             if (!info.ContainsKey("DiscountCode"))
                 throw new Exception(errorMsg + "DiscountCode not found");
-            String discountCode = ((JsonElement)info["DiscountCode"]).GetString();
+            String discountCode = ((string)info["DiscountCode"]);
 
             return new DiscreetDiscount(null, discountCode);
         }
@@ -97,7 +97,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
 
             if (info.ContainsKey("DiscountCode"))
             {
-                DiscountCode = ((JsonElement)info["DiscountCode"]).GetString();
+                DiscountCode = ((string)info["DiscountCode"]);
                 var update_discount = Builders<BsonDocument>.Update.Set("DiscountCode", DiscountCode);
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
             }

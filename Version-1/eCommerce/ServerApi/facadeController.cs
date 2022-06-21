@@ -849,13 +849,614 @@ namespace ServerApi
 
         // --- 
 
+        // policies
+
+            // DATA
+        [HttpGet]
+        public string[][] getDiscountPolicies(string storeid)
+        {
+            Result<Dictionary<string, string>> dict = facade.getDiscountPolicies(storeid);
+            if(dict.ErrorOccured)
+            {
+                Logger.GetInstance().Error(dict.ErrorMessage);
+                return new string[][] { new string[] { $"Error:{dict.ErrorMessage}" } };
+            }
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            foreach (KeyValuePair<string, string> item in dict.Value)
+                toret.Add(new string[] {item.Key , item.Value});
+            Logger.GetInstance().Event("discount policies fetched");
+            return toret.ToArray();
+        }
+
+        [HttpGet]
+        public string[][] getPruchasePolicies(string storeid)
+        {
+            Result<Dictionary<string, string>> dict = facade.getPruchasePolicies(storeid);
+            if (dict.ErrorOccured)
+            {
+                Logger.GetInstance().Error(dict.ErrorMessage);
+                return new string[][] { new string[] { $"Error:{dict.ErrorMessage}" } };
+            }
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            foreach (KeyValuePair<string, string> item in dict.Value)
+                toret.Add(new string[] { item.Key, item.Value });
+            Logger.GetInstance().Event("purchase policies fetched");
+            return toret.ToArray();
+        }
+
+            // Discounts
+        [HttpGet]
+        public bool AddDiscountPolicyVisibleDiscount(string storeId, string ExpirationDate , string Percentage , string Target)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "VisibleDiscount" }, { "ExpirationDate", ExpirationDate }, { "Percentage", Percentage }, { "Target", Target } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Visible Discount Added to store");
+            return output.Value;
+        }
 
 
+        [HttpGet]
+        public bool AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscreetDiscount" }, { "DiscountCode", DiscountCode } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Discrete Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyConditionalDiscount(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "ConditionalDiscount" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Conditinal Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountAddition(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "ConditionalDiscount" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Addition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountAnd(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountAnd" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("And Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountMax(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountMax" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Max Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountMin(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountMin" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Min Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountOr(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountOr" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountXor(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountXor" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Xor Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyVisibleDiscount(string storeId, string ExpirationDate, string Percentage, string Target , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "VisibleDiscount" }, { "ExpirationDate", ExpirationDate }, { "Percentage", Percentage }, { "Target", Target } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Visible Discount Added to store");
+            return output.Value;
+        }
 
 
+        [HttpGet]
+        public bool AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscreetDiscount" }, { "DiscountCode", DiscountCode } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Discrete Discount Added to store");
+            return output.Value;
+        }
 
-        // offers ?
-        // policy func ? to the end
+        [HttpGet]
+        public bool AddDiscountPolicyConditionalDiscount(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "ConditionalDiscount" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Conditinal Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountAddition(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "ConditionalDiscount" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Addition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountAnd(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountAnd" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("And Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountMax(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountMax" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Max Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountMin(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountMin" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Min Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountOr(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountOr" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountPolicyDiscountXor(string storeId,string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountXor" } };
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Xor Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool RemoveDiscountPolicy(string storeId, String id)
+        {
+            Result<bool> output = facade.RemoveDiscountPolicy(storeId,id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("user answered counter offer");
+            return output.Value;
+        }
+
+        // Conditions
+
+        [HttpGet]
+        public bool AddDiscountConditionDiscountConditionAnd(string storeId, String id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountConditionAnd" } };
+            Result<bool> output = facade.AddDiscountCondition(storeId, info , id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("And Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountConditionDiscountConditionOr(string storeId, String id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountConditionOr" } };
+            Result<bool> output = facade.AddDiscountCondition(storeId, info, id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountConditionMaxProductCondition(string storeId, string MaxQuantity, string ProductId, String id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductCondition" }, { "MaxQuantity", MaxQuantity }, { "ProductId" , ProductId }  };
+            Result<bool> output = facade.AddDiscountCondition(storeId, info, id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountConditionMinProductCondition(string storeId, string MinQuantity, string ProductId, String id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MinProductCondition" }, { "MinQuantity", MinQuantity }, { "ProductId", ProductId } };
+            Result<bool> output = facade.AddDiscountCondition(storeId, info, id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddDiscountConditionMinBagPriceCondition(string storeId, string MinPrice, String id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MinBagPriceCondition" }, { "MinPrice", MinPrice }};
+            Result<bool> output = facade.AddDiscountCondition(storeId, info, id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+
+        [HttpGet]
+        public bool RemoveDiscountCondition(string storeId,String id)
+        {
+            Result<bool> output = facade.RemoveDiscountCondition(storeId, id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+
+            // purchase policies
+
+        [HttpGet]
+        public bool AddPurchasePolicyAndPolicy(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "AndPolicy" } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyOrPolicy(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "OrPolicy" } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyConditionalPolicy(string storeId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "ConditionalPolicy" } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyMaxProductPolicy(string storeId , string ProductId , string Max)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductPolicy" } , { "ProductId" , ProductId } , { "Max" , Max } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductPolicy" }, { "ProductId", ProductId }, { "Min", Min } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyMinAgePolicy(string storeId, string Age)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductPolicy" }, { "Age", Age } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+
+        [HttpGet]
+        public bool AddPurchasePolicyRestrictedHoursPolicy(string storeId, string StartRestrict , string EndRestrict , string ProductId)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "RestrictedHoursPolicy" }, { "StartRestrict", StartRestrict }, { "EndRestrict", EndRestrict }, { "ProductId", ProductId } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyAndPolicy(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "AndPolicy" } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info,id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyOrPolicy(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "OrPolicy" } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info , id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyConditionalPolicy(string storeId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "ConditionalPolicy" } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info , id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyMaxProductPolicy(string storeId, string ProductId, string Max , string id )
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductPolicy" }, { "ProductId", ProductId }, { "Max", Max } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info , id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min , string id )
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductPolicy" }, { "ProductId", ProductId }, { "Min", Min } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info , id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool AddPurchasePolicyMinAgePolicy(string storeId, string Age , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "MaxProductPolicy" }, { "Age", Age } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info , id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+
+        [HttpGet]
+        public bool AddPurchasePolicyRestrictedHoursPolicy(string storeId, string StartRestrict, string EndRestrict, string ProductId , string id)
+        {
+            Dictionary<string, object> info = new Dictionary<string, object> { { "type", "RestrictedHoursPolicy" }, { "StartRestrict", StartRestrict }, { "EndRestrict", EndRestrict }, { "ProductId", ProductId } };
+            Result<bool> output = facade.AddPurchasePolicy(storeId, info , id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool RemovePurchasePolicy(string storeId, string id)
+        {
+            Result<bool> output = facade.RemovePurchasePolicy(storeId, id);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Or Condition Discount Added to store");
+            return output.Value;
+        }
+
+        // --- policies done
+
+
 
 
 
