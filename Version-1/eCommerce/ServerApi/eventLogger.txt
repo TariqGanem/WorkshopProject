@@ -5015,3 +5015,693 @@
 6/22/2022 6:08:59 AM: 58ee64568c314d3d86c963e279b155c2 is admin  .
 6/22/2022 6:08:59 AM: discount policies fetched  .
 6/22/2022 6:09:35 AM: 58ee64568c314d3d86c963e279b155c2 is admin  .
+6/22/2022 9:04:04 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 9:04:15 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 9:04:15 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 9:04:17 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 9:04:23 PM: system resetted  .
+6/22/2022 9:04:23 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 9:04:37 PM: Eranhas LoggedIn   .
+6/22/2022 9:04:37 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:38 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:38 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:39 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:40 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:41 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:41 PM: discount policies fetched  .
+6/22/2022 9:04:42 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:42 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:45 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:45 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:50 PM: Conditinal Discount Added to store  .
+6/22/2022 9:04:57 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:57 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:58 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:04:58 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:00 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:00 PM: purchase policies fetched  .
+6/22/2022 9:05:01 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:01 PM: discount policies fetched  .
+6/22/2022 9:05:03 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:07 PM: user answered counter offer  .
+6/22/2022 9:05:10 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:10 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:10 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:10 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:15 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:15 PM: discount policies fetched  .
+6/22/2022 9:05:22 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:22 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:25 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:26 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:26 PM: Conditinal Discount Added to store  .
+6/22/2022 9:05:28 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:28 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:29 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:29 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:33 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:33 PM: discount policies fetched  .
+6/22/2022 9:05:34 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:35 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:38 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:42 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:44 PM: 079ffc1fff0348d49956b069c5f9ccf4 is admin  .
+6/22/2022 9:05:44 PM: And Condition Discount Added to store  .
+6/22/2022 9:36:55 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 9:37:05 PM: Eranhas LoggedIn   .
+6/22/2022 9:37:05 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:07 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:07 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:08 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:08 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:10 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:10 PM: discount policies fetched  .
+6/22/2022 9:37:10 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:10 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:13 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:14 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:35 PM: Conditinal Discount Added to store  .
+6/22/2022 9:37:40 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:40 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:41 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:41 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:43 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:43 PM: discount policies fetched  .
+6/22/2022 9:37:44 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:44 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:48 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:49 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:37:59 PM: And Discount Added to store  .
+6/22/2022 9:39:39 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:39:39 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:39:40 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:39:40 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:39:42 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:39:42 PM: discount policies fetched  .
+6/22/2022 9:39:53 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:39:53 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:39:56 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:39:58 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:40:00 PM: 1e51e524258645a38950b6a78b006ee8 is admin  .
+6/22/2022 9:59:36 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 9:59:55 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 9:59:55 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 9:59:56 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:00:05 PM: system resetted  .
+6/22/2022 10:00:05 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:00:10 PM: Eranhas LoggedIn   .
+6/22/2022 10:00:10 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:11 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:11 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:12 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:12 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:14 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:14 PM: discount policies fetched  .
+6/22/2022 10:00:15 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:15 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:22 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:22 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:24 PM: Xor Discount Added to store  .
+6/22/2022 10:00:25 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:25 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:26 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:26 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:29 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:29 PM: discount policies fetched  .
+6/22/2022 10:00:29 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:30 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:32 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:33 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:00:34 PM: And Condition Discount Added to store  .
+6/22/2022 10:01:06 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:01:06 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:01:07 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:01:07 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:01:09 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:01:09 PM: discount policies fetched  .
+6/22/2022 10:01:11 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:01:21 PM: 97e9d568520a4b8dbb2849601d45e298 is admin  .
+6/22/2022 10:01:21 PM: 97e9d568520a4b8dbb2849601d45e298has LoggedOut   .
+6/22/2022 10:01:21 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:27:17 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:27:31 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 10:27:31 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:27:33 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:27:43 PM: system resetted  .
+6/22/2022 10:27:43 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:27:51 PM: Eranhas LoggedIn   .
+6/22/2022 10:27:51 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:27:52 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:27:52 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:27:53 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:27:53 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:27:56 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:27:56 PM: discount policies fetched  .
+6/22/2022 10:27:57 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:27:57 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:27:59 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:01 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:01 PM: Conditinal Discount Added to store  .
+6/22/2022 10:28:03 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:03 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:03 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:03 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:05 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:05 PM: discount policies fetched  .
+6/22/2022 10:28:07 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:07 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:09 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:11 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:28:12 PM: Or Condition Discount Added to store  .
+6/22/2022 10:31:33 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:31:34 PM: Or Condition Discount Added to store  .
+6/22/2022 10:31:41 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:31:41 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:31:42 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:31:42 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:31:44 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:31:44 PM: discount policies fetched  .
+6/22/2022 10:31:46 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:31:46 PM: user answered counter offer  .
+6/22/2022 10:32:03 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:32:03 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:32:04 PM: 4972e7cef0ed49f08d052cdcd37b5dc2 is admin  .
+6/22/2022 10:32:04 PM: 4972e7cef0ed49f08d052cdcd37b5dc2has LoggedOut   .
+6/22/2022 10:32:04 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:32:11 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 10:32:11 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:32:12 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:32:23 PM: system resetted  .
+6/22/2022 10:32:23 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:34:08 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:34:22 PM: Eranhas LoggedIn   .
+6/22/2022 10:34:22 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:24 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:24 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:26 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:26 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:29 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:29 PM: discount policies fetched  .
+6/22/2022 10:34:30 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:30 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:34 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:39 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:40 PM: Conditinal Discount Added to store  .
+6/22/2022 10:34:42 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:42 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:43 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:43 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:47 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:47 PM: discount policies fetched  .
+6/22/2022 10:34:48 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:48 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:53 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:34:55 PM: 77b364fef9f44e2ab4a3a147f57666fb is admin  .
+6/22/2022 10:38:17 PM: Or Condition Discount Added to store  .
+6/22/2022 10:40:46 PM: Or Condition Discount Added to store  .
+6/22/2022 10:42:27 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:42:53 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 10:42:53 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:42:53 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:43:05 PM: system resetted  .
+6/22/2022 10:43:05 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:43:17 PM: Eranhas LoggedIn   .
+6/22/2022 10:43:17 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:20 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:20 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:21 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:21 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:22 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:22 PM: discount policies fetched  .
+6/22/2022 10:43:22 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:23 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:24 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:26 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:26 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:27 PM: Conditinal Discount Added to store  .
+6/22/2022 10:43:28 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:28 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:29 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:29 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:32 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:32 PM: discount policies fetched  .
+6/22/2022 10:43:33 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:33 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:35 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:37 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:43:38 PM: 9c635d9547e146668ecba7f10d6e2af5 is admin  .
+6/22/2022 10:45:38 PM: Or Condition Discount Added to store  .
+6/22/2022 10:47:07 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:47:13 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 10:47:13 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:47:14 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:47:25 PM: system resetted  .
+6/22/2022 10:47:25 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:47:41 PM: Eranhas LoggedIn   .
+6/22/2022 10:47:41 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:43 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:43 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:44 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:44 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:46 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:46 PM: discount policies fetched  .
+6/22/2022 10:47:47 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:47 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:48 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:49 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:49 PM: Conditinal Discount Added to store  .
+6/22/2022 10:47:50 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:50 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:50 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:50 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:52 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:52 PM: purchase policies fetched  .
+6/22/2022 10:47:54 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:47:54 PM: discount policies fetched  .
+6/22/2022 10:48:03 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:48:03 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:48:10 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:48:12 PM: fae54f71b9d848e08daf947cdd99f12a is admin  .
+6/22/2022 10:50:29 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:50:42 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 10:50:42 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:50:43 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 10:50:52 PM: system resetted  .
+6/22/2022 10:50:52 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 10:51:08 PM: Eranhas LoggedIn   .
+6/22/2022 10:51:08 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:10 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:10 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:11 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:11 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:13 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:13 PM: discount policies fetched  .
+6/22/2022 10:51:14 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:14 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:16 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:17 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:18 PM: Conditinal Discount Added to store  .
+6/22/2022 10:51:19 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:19 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:20 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:20 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:21 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:21 PM: discount policies fetched  .
+6/22/2022 10:51:24 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:24 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:26 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:27 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 10:51:31 PM: dae49549ace34a9ca809024683b704d6 is admin  .
+6/22/2022 11:07:06 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:07:18 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 11:07:18 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 11:07:19 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 11:07:31 PM: system resetted  .
+6/22/2022 11:07:31 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:07:40 PM: Eranhas LoggedIn   .
+6/22/2022 11:07:40 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:52 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:52 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:53 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:53 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:54 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:54 PM: discount policies fetched  .
+6/22/2022 11:07:55 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:55 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:56 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:58 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:58 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:07:59 PM: Conditinal Discount Added to store  .
+6/22/2022 11:08:01 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:01 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:02 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:02 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:05 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:05 PM: discount policies fetched  .
+6/22/2022 11:08:07 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:08 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:12 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:13 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:08:14 PM: Max Discount Added to store  .
+6/22/2022 11:20:15 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:15 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:16 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:16 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:18 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:18 PM: discount policies fetched  .
+6/22/2022 11:20:22 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:23 PM: user answered counter offer  .
+6/22/2022 11:20:41 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:42 PM: user answered counter offer  .
+6/22/2022 11:20:55 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:55 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:57 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:20:57 PM: f55f5eb99a1d42dd8aa5043467634f70has LoggedOut   .
+6/22/2022 11:20:57 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:28:14 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:28:21 PM: Eranhas LoggedIn   .
+6/22/2022 11:28:21 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:22 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:22 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:23 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:24 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:25 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:25 PM: discount policies fetched  .
+6/22/2022 11:28:25 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:25 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:28 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:29 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:30 PM: Conditinal Discount Added to store  .
+6/22/2022 11:28:31 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:31 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:31 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:28:31 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:38 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:38 PM: discount policies fetched  .
+6/22/2022 11:35:39 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:39 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:42 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:42 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:43 PM: Conditinal Discount Added to store  .
+6/22/2022 11:35:45 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:45 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:45 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:45 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:47 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:47 PM: discount policies fetched  .
+6/22/2022 11:35:51 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:52 PM: user answered counter offer  .
+6/22/2022 11:35:54 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:54 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:57 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:58 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:35:58 PM: Or Condition Discount Added to store  .
+6/22/2022 11:36:18 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:36:18 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:36:19 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:36:19 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:36:21 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:36:21 PM: discount policies fetched  .
+6/22/2022 11:36:24 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:36:24 PM: user answered counter offer  .
+6/22/2022 11:38:31 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:38:43 PM: Eranhas LoggedIn   .
+6/22/2022 11:38:43 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:45 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:45 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:46 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:46 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:47 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:47 PM: discount policies fetched  .
+6/22/2022 11:38:48 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:48 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:52 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:52 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:53 PM: Conditinal Discount Added to store  .
+6/22/2022 11:38:54 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:54 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:55 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:55 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:56 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:56 PM: discount policies fetched  .
+6/22/2022 11:38:58 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:38:58 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:00 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:02 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:02 PM: Or Condition Discount Added to store  .
+6/22/2022 11:39:04 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:04 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:04 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:04 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:06 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:06 PM: discount policies fetched  .
+6/22/2022 11:39:12 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:39:20 PM: f55f5eb99a1d42dd8aa5043467634f70 is admin  .
+6/22/2022 11:40:44 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:40:58 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 11:40:58 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 11:40:59 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 11:41:04 PM: system resetted  .
+6/22/2022 11:41:04 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:41:14 PM: Eranhas LoggedIn   .
+6/22/2022 11:41:14 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:16 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:16 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:16 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:16 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:18 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:18 PM: discount policies fetched  .
+6/22/2022 11:41:19 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:19 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:23 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:24 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:24 PM: Conditinal Discount Added to store  .
+6/22/2022 11:41:26 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:26 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:26 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:26 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:28 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:28 PM: discount policies fetched  .
+6/22/2022 11:41:30 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:30 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:32 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:34 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:35 PM: Or Condition Discount Added to store  .
+6/22/2022 11:41:36 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:36 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:36 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:36 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:38 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:38 PM: discount policies fetched  .
+6/22/2022 11:41:39 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:45 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:45 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:46 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:46 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:47 PM: e83615d1010c42f08ed16af99ff9e2a3 is admin  .
+6/22/2022 11:41:47 PM: discount policies fetched  .
+6/22/2022 11:44:08 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:44:19 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 11:44:19 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 11:44:20 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 11:44:25 PM: system resetted  .
+6/22/2022 11:44:25 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:44:31 PM: Eranhas LoggedIn   .
+6/22/2022 11:44:31 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:32 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:32 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:33 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:33 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:35 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:35 PM: discount policies fetched  .
+6/22/2022 11:44:36 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:36 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:39 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:39 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:39 PM: Conditinal Discount Added to store  .
+6/22/2022 11:44:41 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:41 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:41 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:41 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:43 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:43 PM: discount policies fetched  .
+6/22/2022 11:44:45 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:45 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:48 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:49 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:50 PM: Or Condition Discount Added to store  .
+6/22/2022 11:44:50 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:50 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:51 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:51 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:53 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:44:53 PM: discount policies fetched  .
+6/22/2022 11:44:54 PM: 6924d4f5ba2a420bb0d6cb6a72d11407 is admin  .
+6/22/2022 11:57:50 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:57:56 PM: Admin@Workshop.comhas LoggedIn   .
+6/22/2022 11:57:56 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 11:58:00 PM: -7777777777777777777777777777777 is admin  .
+6/22/2022 11:58:05 PM: system resetted  .
+6/22/2022 11:58:05 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/22/2022 11:58:14 PM: Eranhas LoggedIn   .
+6/22/2022 11:58:14 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:15 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:15 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:16 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:16 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:29 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:29 PM: discount policies fetched  .
+6/22/2022 11:58:29 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:29 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:31 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:32 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:33 PM: Conditinal Discount Added to store  .
+6/22/2022 11:58:34 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:34 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:35 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:35 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:36 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:36 PM: discount policies fetched  .
+6/22/2022 11:58:39 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:39 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:41 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:42 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:43 PM: Or Condition Discount Added to store  .
+6/22/2022 11:58:45 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:45 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:46 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:46 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:47 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:47 PM: discount policies fetched  .
+6/22/2022 11:58:49 PM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/22/2022 11:58:49 PM: user answered counter offer  .
+6/23/2022 12:00:05 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:05 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:05 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:05 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:07 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:07 AM: discount policies fetched  .
+6/23/2022 12:00:38 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/23/2022 12:00:53 AM: Eranhas LoggedIn   .
+6/23/2022 12:00:53 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:54 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:54 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:55 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:55 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:56 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:56 AM: discount policies fetched  .
+6/23/2022 12:00:57 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:00:57 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:02 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:02 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:03 AM: Conditinal Discount Added to store  .
+6/23/2022 12:01:04 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:04 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:05 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:05 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:06 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:06 AM: discount policies fetched  .
+6/23/2022 12:01:11 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:11 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:13 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:54 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:55 AM: And Condition Discount Added to store  .
+6/23/2022 12:01:56 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:56 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:56 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:56 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:59 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:01:59 AM: discount policies fetched  .
+6/23/2022 12:02:13 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:13 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:28 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:31 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:32 AM: Or Condition Discount Added to store  .
+6/23/2022 12:02:34 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:34 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:34 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:34 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:37 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:37 AM: discount policies fetched  .
+6/23/2022 12:02:40 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:40 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:02:59 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:00 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:00 AM: And Discount Added to store  .
+6/23/2022 12:03:01 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:01 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:02 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:02 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:04 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:04 AM: discount policies fetched  .
+6/23/2022 12:03:07 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:07 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:03:55 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:00 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:04 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:05 AM: Discrete Discount Added to store  .
+6/23/2022 12:04:06 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:06 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:08 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:09 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:20 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:20 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:21 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:22 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:22 AM: store fetched  .
+6/23/2022 12:04:22 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 has has added product :5b528b06d3c14b59a337855d3ad86f06form store: f43568b32606458ba0415a9915141368 to his Cart  .
+6/23/2022 12:04:22 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:23 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:23 AM: Total shopping cart price fetched  .
+6/23/2022 12:04:23 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:25 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:25 AM: store fetched  .
+6/23/2022 12:04:26 AM: Total shopping cart price fetched  .
+6/23/2022 12:04:26 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:28 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:28 AM: store fetched  .
+6/23/2022 12:04:28 AM: Total shopping cart price fetched  .
+6/23/2022 12:04:28 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:31 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:31 AM: store fetched  .
+6/23/2022 12:04:31 AM: Total shopping cart price fetched  .
+6/23/2022 12:04:31 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:32 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:32 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:33 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:33 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:36 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:36 AM: discount policies fetched  .
+6/23/2022 12:04:40 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:40 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:42 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:44 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:45 AM: Discrete Discount Added to store  .
+6/23/2022 12:04:46 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:46 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:47 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:47 AM: Total shopping cart price fetched  .
+6/23/2022 12:04:47 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:48 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:48 AM: store fetched  .
+6/23/2022 12:04:49 AM: Total shopping cart price fetched  .
+6/23/2022 12:04:49 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:50 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:50 AM: store fetched  .
+6/23/2022 12:04:50 AM: Total shopping cart price fetched  .
+6/23/2022 12:04:50 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:52 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:52 AM: store fetched  .
+6/23/2022 12:04:52 AM: Total shopping cart price fetched  .
+6/23/2022 12:04:52 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:54 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:54 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:55 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:55 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:57 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:04:57 AM: discount policies fetched  .
+6/23/2022 12:05:02 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:02 AM: user answered counter offer  .
+6/23/2022 12:05:04 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:04 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:05 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:05 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:07 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:07 AM: discount policies fetched  .
+6/23/2022 12:05:11 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:11 AM: user answered counter offer  .
+6/23/2022 12:05:12 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:13 AM: user answered counter offer  .
+6/23/2022 12:05:14 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:14 AM: user answered counter offer  .
+6/23/2022 12:05:16 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:16 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:18 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:18 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:19 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:19 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:20 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:21 AM: Total shopping cart price fetched  .
+6/23/2022 12:05:21 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:22 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .
+6/23/2022 12:05:22 AM: 35129f540acc4d5ab3dd4afcb1bf55f6 is admin  .

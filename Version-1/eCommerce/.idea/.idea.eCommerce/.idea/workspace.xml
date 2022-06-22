@@ -11,11 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/AddPruchasePolicy.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/AddPruchasePolicy.aspx.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/eCommerceClient.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/eCommerceClient.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerApi/src/Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/src/Config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/DiscountPolicies/ConditionalDiscount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/DiscountPolicies/ConditionalDiscount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/DiscountPolicies/DiscountComposition/DiscountXor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/DiscountPolicies/DiscountComposition/DiscountXor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +27,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/469ece4c5e50469a945a25a6befb4ee56f5e8/0f/d233025f/ReflectedHttpActionDescriptor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/41/3956d2d3/String.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/79/ef973d44/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/ce/4c070c6e/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/eCommerceClient/ShoppingHistory.aspx" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -35,19 +42,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.49903288",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected=".NET Project.eCommerce">
+}]]></component>
+  <component name="RunManager" selected=".NET Project.ServerApi">
     <configuration name="ServerApi" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -119,6 +127,7 @@
       <workItem from="1655540132829" duration="2081000" />
       <workItem from="1655606211935" duration="204000" />
       <workItem from="1655848693168" duration="157000" />
+      <workItem from="1655925957568" duration="6019000" />
     </task>
     <servers />
   </component>
@@ -145,56 +154,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ServerApi/Program.cs</url>
-          <line>100</line>
-          <properties documentPath="C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\ServerApi\Program.cs" initialLine="100" containingFunctionPresentation="">
+          <url>file://$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/PolicyManager.cs</url>
+          <line>280</line>
+          <properties documentPath="C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs" initialLine="280" containingFunctionPresentation="method 'CreateDiscountCondition'">
             <startOffsets>
-              <option value="4204" />
+              <option value="11670" />
             </startOffsets>
             <endOffsets>
-              <option value="4261" />
+              <option value="11707" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/eCommerce/src/ServiceLayer/eCommerceAPI.cs</url>
-          <line>56</line>
-          <properties documentPath="C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\eCommerceAPI.cs" initialLine="56" containingFunctionPresentation="constructor 'eCommerceSystem'">
-            <startOffsets>
-              <option value="2278" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2342" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/eCommerce/src/DomainLayer/User/UserFacade.cs</url>
-          <line>309</line>
-          <properties documentPath="C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\User\UserFacade.cs" initialLine="309" containingFunctionPresentation="method 'LoadAllRegisterUsers'">
-            <startOffsets>
-              <option value="12507" />
-            </startOffsets>
-            <endOffsets>
-              <option value="12577" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs</url>
-          <line>844</line>
-          <properties documentPath="C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs" initialLine="845" containingFunctionPresentation="method 'LoadAllRegisterUsers'">
-            <startOffsets>
-              <option value="35837" />
-            </startOffsets>
-            <endOffsets>
-              <option value="35936" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

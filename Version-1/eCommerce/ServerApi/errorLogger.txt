@@ -509,3 +509,45 @@ Parameter name: UserId is null or empty!
    at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 328  . 
 6/22/2022 5:41:38 AM:   . 
 6/22/2022 5:51:59 AM:   . 
+6/22/2022 9:59:43 PM: Username Eran doesn't exist!  . 
+6/22/2022 10:01:18 PM: System.NullReferenceException: Object reference not set to an instance of an object.
+   at eCommerce.src.DataAccessLayer.DBUtil.DeleteDiscountXor(FilterDefinition`1 filter) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 2234
+   at eCommerce.src.DataAccessLayer.DBUtil.DeleteIDiscountPolicy(String type, String discount_id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 514
+   at eCommerce.src.DataAccessLayer.DBUtil.Delete(IDiscountPolicy discount) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 410
+   at eCommerce.src.DomainLayer.Store.StoreFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 557
+   at eCommerce.src.DomainLayer.SystemFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 567
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 328  . 
+6/22/2022 10:42:45 PM: Username Eran doesn't exist!  . 
+6/22/2022 11:39:12 PM: System.NullReferenceException: Object reference not set to an instance of an object.
+   at eCommerce.src.DataAccessLayer.DBUtil.DeleteConditionalDiscount(FilterDefinition`1 filter) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 2003
+   at eCommerce.src.DataAccessLayer.DBUtil.DeleteIDiscountPolicy(String type, String discount_id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 490
+   at eCommerce.src.DataAccessLayer.DBUtil.Delete(IDiscountPolicy discount) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 410
+   at eCommerce.src.DomainLayer.Store.StoreFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 557
+   at eCommerce.src.DomainLayer.SystemFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 567
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 328  . 
+6/22/2022 11:39:20 PM: System.Exception: The discount removal failed because the discount with an id $4257a4074c034bfc8d3ee1e75ba5ea1c was not found
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.RemoveDiscountPolicy(String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 146
+   at eCommerce.src.DomainLayer.Store.Store.RemoveDiscountPolicy(String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 584
+   at eCommerce.src.DomainLayer.Store.StoreFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 555
+   at eCommerce.src.DomainLayer.SystemFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 567
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 328  . 
+6/22/2022 11:41:39 PM: System.NullReferenceException: Object reference not set to an instance of an object.
+   at eCommerce.src.DataAccessLayer.DBUtil.DeleteConditionalDiscount(FilterDefinition`1 filter) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 2003
+   at eCommerce.src.DataAccessLayer.DBUtil.DeleteIDiscountPolicy(String type, String discount_id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 490
+   at eCommerce.src.DataAccessLayer.DBUtil.Delete(IDiscountPolicy discount) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 410
+   at eCommerce.src.DomainLayer.Store.StoreFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 557
+   at eCommerce.src.DomainLayer.SystemFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 567
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 328  . 
+6/22/2022 11:44:54 PM: System.NullReferenceException: Object reference not set to an instance of an object.
+   at eCommerce.src.DataAccessLayer.DBUtil.DeleteConditionalDiscount(FilterDefinition`1 filter) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 2003
+   at eCommerce.src.DataAccessLayer.DBUtil.DeleteIDiscountPolicy(String type, String discount_id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 490
+   at eCommerce.src.DataAccessLayer.DBUtil.Delete(IDiscountPolicy discount) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DataAccessLayer\DBUtil.cs:line 410
+   at eCommerce.src.DomainLayer.Store.StoreFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 557
+   at eCommerce.src.DomainLayer.SystemFacade.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 567
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.RemoveDiscountPolicy(String storeId, String id) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 328  . 
+6/23/2022 12:04:26 AM:   . 
+6/23/2022 12:04:28 AM:   . 
+6/23/2022 12:04:31 AM:   . 
+6/23/2022 12:04:48 AM:   . 
+6/23/2022 12:04:50 AM:   . 
+6/23/2022 12:04:52 AM:   . 

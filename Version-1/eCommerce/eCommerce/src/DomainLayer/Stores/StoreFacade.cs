@@ -760,8 +760,8 @@ namespace eCommerce.src.DomainLayer.Store
                 var update = Builders<BsonDocument>.Update.Set("MainDiscount", store.PolicyManager.MainDiscount.getDTO());
                 dbutil.UpdateStore(filter, update);
                 UpdatePolicyRoot(store.PolicyManager.MainDiscount);
+                return true;
 
-                
             }
             throw new Exception("Store does not exists\n");
         }

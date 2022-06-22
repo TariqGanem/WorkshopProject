@@ -28,6 +28,8 @@ namespace eCommerce
             //ecom.Login("eran","pass");
             //IDictionary<string,object> res = ecom.GetPurchasePolicyData("c9e9eec4202248a7857a9c33daa919ac").Value;
             //Result<bool> res2 = ecom.AddDiscountPolicy("c9e9eec4202248a7857a9c33daa919ac", new Dictionary<string, object> { {"type" , "DiscreetDiscount" } , { "DiscountCode" , "secretcode" } } , "a2dcca41f71f44d09fedd3837d3cc970");
+            ecom.ResetSystem("-7777777777777777777777777777777");
+            return;
             Result<Dictionary<string, string>> res = ecom.getPruchasePolicies("c9e9eec4202248a7857a9c33daa919ac");
 
             if (res.ErrorOccured)

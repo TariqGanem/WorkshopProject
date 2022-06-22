@@ -15,7 +15,8 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
         public IDiscountCondition Condition { set; get; }
         public IDiscountPolicy Discount { set; get; }
 
-        public ConditionalDiscount(IDiscountPolicy discount, IDiscountCondition condition, String id = "") : base(new Dictionary<string, object>(), id)
+        public ConditionalDiscount(IDiscountPolicy discount, IDiscountCondition condition, String id = "") : base(
+            new Dictionary<string, object>(), id)
         {
             Condition = condition;
             Discount = discount;
@@ -26,7 +27,8 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             return new ConditionalDiscount(null, null);
         }
 
-        public override Dictionary<Product, Double> CalculateDiscount(ConcurrentDictionary<Product, int> products, string code = "")
+        public override Dictionary<Product, Double> CalculateDiscount(ConcurrentDictionary<Product, int> products,
+            string code = "")
         {
             if (Condition == null || Discount == null)
                 return new Dictionary<Product, Double>();
@@ -36,7 +38,8 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             {
                 return Discount.CalculateDiscount(products, code);
             }
-            return  new Dictionary<Product, Double>();
+
+            return new Dictionary<Product, Double>();
         }
 
         public override bool AddDiscount(String id, IDiscountPolicy discount)
@@ -50,6 +53,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             }
             else if (Discount != null)
                 return Discount.AddDiscount(id, discount);
+
             return false;
         }
 
@@ -65,6 +69,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             }
             else if (Discount != null)
                 return Discount.RemoveDiscount(id);
+
             return null;
         }
 
@@ -73,13 +78,23 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             if (Id == id)
             {
                 Condition = condition;
-                var update_discount = Builders<BsonDocument>.Update.Set("Condition", condition.Id);
+                var update_discount = Builders<BsonDocument>.Update.Set("Condition", getConditonData(condition));
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
                 return true;
             }
             else if (Condition != null)
                 return Condition.AddCondition(id, condition);
+
             return false;
+        }
+        
+        private ConcurrentDictionary<string,string> getConditonData(IDiscountCondition condition)
+        {
+            ConcurrentDictionary<String, String> list = new ConcurrentDictionary<String, String>(); //<id , type>
+            string[] type = condition.GetType().ToString().Split('.');
+            string discount_type = type[type.Length - 1];
+            list.TryAdd(condition.Id, discount_type);
+            return list;
         }
 
         public override IDiscountCondition RemoveCondition(string id)

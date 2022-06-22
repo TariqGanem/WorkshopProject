@@ -1999,10 +1999,7 @@ namespace eCommerce.src.DataAccessLayer
         public void DeleteConditionalDiscount(FilterDefinition<BsonDocument> filter)
         {
 
-                
             DTO_ConditionalDiscount deletedConditionalDiscount = DAO_ConditionalDiscount.Delete(filter);
-            if (deletedConditionalDiscount == null) // fix here deletedConditionDiscount can't be null
-                return;
             foreach (var condition in deletedConditionalDiscount.Condition)
             {
                 DeleteIDiscountCondition(condition.Value, condition.Key);

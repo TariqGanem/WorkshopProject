@@ -113,7 +113,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountCom
             if (Id == id)
             {
                 ChoosingCondition = condition;
-                var update_discount = Builders<BsonDocument>.Update.Set("ChoosingCondition", condition.Id);
+                var update_discount = Builders<BsonDocument>.Update.Set("ChoosingCondition", getConditonData(condition));
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
                 return true;
             }
@@ -127,6 +127,15 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountCom
             if (result)
                 return result;
             return Discount2.AddCondition(id, condition);
+        }
+        
+        private ConcurrentDictionary<string,string> getConditonData(IDiscountCondition condition)
+        {
+            ConcurrentDictionary<String, String> list = new ConcurrentDictionary<String, String>(); //<id , type>
+            string[] type = condition.GetType().ToString().Split('.');
+            string discount_type = type[type.Length - 1];
+            list.TryAdd(condition.Id, discount_type);
+            return list;
         }
 
         public override IDiscountCondition RemoveCondition(string id)
