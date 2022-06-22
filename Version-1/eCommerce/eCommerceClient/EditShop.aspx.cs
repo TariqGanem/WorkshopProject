@@ -30,6 +30,8 @@ namespace Client
                 DataListsShoppingHistory.Visible = false;
                 DataListOffers.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
             }
         }
 
@@ -52,6 +54,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
             }
 
@@ -71,6 +75,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Add New Manager")
@@ -89,6 +95,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
 
 
@@ -110,6 +118,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
 
 
@@ -131,6 +141,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
 
 
@@ -153,6 +165,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
 
 
@@ -173,6 +187,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
 
                 UserHandler a = new UserHandler();
@@ -195,6 +211,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Remove Permissions")
@@ -213,6 +231,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
             }
             if (DropDownList1.SelectedItem.Text == "Store Staff")
             {
@@ -233,6 +253,8 @@ namespace Client
                     DataListOffers.Visible = false;
                     PurchasePolicies.Visible = false;
                     ButtonAddPurchasePolicyToMain.Visible = false;
+                    MainDiscountBtn.Visible = false;
+                    DataListDiscountPolicies.Visible = false;
 
                     StoreStaff.DataSource = a.GetStoreStaff(Session["userId"].ToString(),Session["storeId"].ToString());
                     StoreStaff.DataBind();
@@ -257,6 +279,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListRemoveProduct.DataSource = a.GetAllProductByStoreIDToDisplay(Session["storeId"].ToString());
@@ -278,6 +302,8 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListsShoppingHistory.DataSource = a.GetStorePurchaseHistory(Session["userId"].ToString(),Session["storeId"].ToString());
@@ -299,6 +325,8 @@ namespace Client
                 DataListOffers.Visible = true;
                 PurchasePolicies.Visible = false;
                 ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListOffers.DataSource = a.getStoreOffers(Session["storeId"].ToString());
@@ -321,10 +349,35 @@ namespace Client
                 DataListOffers.Visible = false;
                 PurchasePolicies.Visible = true;
                 ButtonAddPurchasePolicyToMain.Visible = true;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
 
                 UserHandler a = new UserHandler();
                 PurchasePolicies.DataSource = a.getPruchasePolicies(Session["storeId"].ToString());
                 PurchasePolicies.DataBind();
+            }
+            if (DropDownList1.SelectedItem.Text == "Discount Policies")
+            {
+                table1.Visible = false;
+                table2.Visible = false;
+                table3.Visible = false;
+                table4.Visible = false;
+                table5.Visible = false;
+                table6.Visible = false;
+                table7.Visible = false;
+                DataListproducts.Visible = false;
+                StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = true;
+                DataListDiscountPolicies.Visible = true;
+
+                UserHandler a = new UserHandler();
+                DataListDiscountPolicies.DataSource = a.getDiscountPolicies(Session["storeId"].ToString());
+                DataListDiscountPolicies.DataBind();
             }
 
         }
@@ -800,6 +853,51 @@ namespace Client
                 }
             }
         }
+
+        protected void ButtonAddPurchasePolicyToMain_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AddPruchasePolicyMain.aspx");
+        }
+
+        protected void DataListDiscountPolicies_ItemCommand1(object sender, DataListCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("AddDiscountPolicy"))
+            {
+                Session["DisId"] = e.CommandArgument.ToString();
+                Response.Redirect("~/AddDiscountPolicy.aspx");
+                return;
+            }
+            if (e.CommandName.Equals("RemoveDiscountPolicy"))
+            {
+                if (new UserHandler().RemoveDiscountPolicy(Session["storeId"].ToString(), e.CommandArgument.ToString()))
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelDiscountError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Discount Removed";
+                }
+                else
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("LabelDiscountError"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Removing Discount Failed";
+                }
+                return;
+            }
+            if (e.CommandName.Equals("AddDiscountCondition"))
+            {
+                Session["DisId"] = e.CommandArgument.ToString();
+                Response.Redirect("~/AddDiscountCondition.aspx");
+                return;
+            }
+        }
+
+        protected void MainDiscountBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AddDiscountPolicyToMain.aspx");
+        }
+
+
+
         protected void DataListRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -810,9 +908,11 @@ namespace Client
 
         }
 
-        protected void ButtonAddPurchasePolicyToMain_Click(object sender, EventArgs e)
+        protected void DataListDiscountPolicies_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Redirect("~/AddPruchasePolicyMain.aspx");
+
         }
+
+
     }
 }

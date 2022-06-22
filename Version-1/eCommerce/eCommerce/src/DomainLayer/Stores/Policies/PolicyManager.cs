@@ -129,7 +129,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
                 return true;
             else throw new Exception($"The discount addition failed because the discount with an id ${id} was not found");
         }
-
+        
         public bool AddDiscountCondition(IDiscountCondition condition, String id)
         {
             bool result = MainDiscount.AddCondition(id, condition);

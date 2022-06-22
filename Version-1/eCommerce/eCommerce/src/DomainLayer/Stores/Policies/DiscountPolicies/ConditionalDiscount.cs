@@ -139,5 +139,6 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
                 return Discount.EditCondition(info, id);
             return false;
         }
+
     }
 }

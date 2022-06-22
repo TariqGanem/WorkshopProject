@@ -107,6 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddDiscountPolicyToMain.aspx" />
+    <Content Include="AddDiscountPolicy.aspx" />
+    <Content Include="AddDiscountCondition.aspx" />
     <Content Include="AddPruchasePolicyMain.aspx" />
     <Content Include="Cart.aspx" />
     <Content Include="Client.csproj.user" />
@@ -135,6 +138,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDiscountPolicyToMain.aspx.cs">
+      <DependentUpon>AddDiscountPolicyToMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddDiscountPolicyToMain.aspx.designer.cs">
+      <DependentUpon>AddDiscountPolicyToMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddDiscountPolicy.aspx.cs">
+      <DependentUpon>AddDiscountPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddDiscountPolicy.aspx.designer.cs">
+      <DependentUpon>AddDiscountPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddDiscountCondition.aspx.cs">
+      <DependentUpon>AddDiscountCondition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddDiscountCondition.aspx.designer.cs">
+      <DependentUpon>AddDiscountCondition.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddPruchasePolicyMain.aspx.cs">
       <DependentUpon>AddPruchasePolicyMain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

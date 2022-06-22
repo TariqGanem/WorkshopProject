@@ -839,7 +839,7 @@ namespace Client.Code
 
         public bool AddDiscountConditionMinProductCondition(string storeId, string MinQuantity, string ProductId, string id)
         {
-            string param = string.Format("storeId={0}&MinQuantity={1}&ProductId={2}&id={2}", storeId, MinQuantity, ProductId, id);
+            string param = string.Format("storeId={0}&MinQuantity={1}&ProductId={2}&id={3}", storeId, MinQuantity, ProductId, id);
             return bool.Parse(system.SendApi("AddDiscountConditionMinProductCondition", param));
         }
 

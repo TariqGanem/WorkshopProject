@@ -28,5 +28,6 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
         public abstract bool EditDiscount(Dictionary<string, object> info, string id);
         public abstract bool EditCondition(Dictionary<string, object> info, string id);
         public abstract IDictionary<string, object> GetData();
+
     }
 }

@@ -85,6 +85,8 @@ margin-bottom: 16px;
                                                 <asp:ListItem Text="Store History" Value="11"></asp:ListItem>
                                                 <asp:ListItem Text="Store Offer Requests" Value="12"></asp:ListItem>
                                                 <asp:ListItem Text="Pruchase Policies" Value="13"></asp:ListItem>
+                                                <asp:ListItem Text="Discount Policies" Value="14"></asp:ListItem>
+
 
 
 
@@ -661,7 +663,7 @@ margin-bottom: 16px;
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span style="font-weight: 700; font-size: 20px;">Name: <%#Eval("Type") %> </span></td>
+                                            <span style="font-weight: 700; font-size: 20px;">Type: <%#Eval("Type") %> </span></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
@@ -674,6 +676,58 @@ margin-bottom: 16px;
                                         </td>
                                         <tr>
                                             <td><asp:Label ID="LabelPolicyError" runat="server" Text="Error:"></asp:Label></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 10px;"></td>
+                                        </tr>
+                                    </tr>
+                                </table>
+                        
+                        </ItemTemplate>
+    </asp:DataList>
+
+    <td class="auto-style13">
+        <asp:Button ID="MainDiscountBtn" runat="server" Text="Add Discount Policy To Main"  Height="39px" Width="250px" OnClick="MainDiscountBtn_Click" ></asp:Button>
+    </td>
+
+    <asp:DataList ID="DataListDiscountPolicies" runat="server" OnItemCommand="DataListDiscountPolicies_ItemCommand1" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" OnSelectedIndexChanged="DataListDiscountPolicies_SelectedIndexChanged">
+        <FooterStyle BackColor="White" ForeColor="#333333" />
+        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <SelectedItemStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+        <ItemStyle BackColor="White" ForeColor="#333333" />
+        <ItemTemplate>
+                       
+                                <table align="left" style="width: 250px; background-color: #f5f5f5; border: 1px solid #CCC;">
+
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">
+                                                    <span style="font-weight: 700; font-size: 14px;">Id: <%#Eval("DiscountId") %> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-weight: 700; font-size: 20px;">Type: <%#Eval("Type") %> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="auto-style13">
+                                            <asp:Button ID="ButtonAddDiscountPolicy" runat="server" Text="AddPolicy" CommandArgument='<%#Eval("DiscountId")%>' CommandName="AddDiscountPolicy" Height="39px" Width="90px" ></asp:Button>
+                                            <asp:Button ID="ButtonRemoveDiscountPolicy" runat="server" Text="RemovePolicy" CommandArgument='<%#Eval("DiscountId")%>' CommandName="RemoveDiscountPolicy" Height="39px" Width="120px" ></asp:Button>
+                                        </td>
+                                        <tr>
+                                            <td class="auto-style13">
+                                            <asp:Button ID="AddConditionBtn" runat="server" Text="AddCondition" CommandArgument='<%#Eval("DiscountId")%>' CommandName="AddDiscountCondition" Height="39px" Width="120px" ></asp:Button> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><asp:Label ID="LabelDiscountError" runat="server" Text="Error:"></asp:Label></td>
                                         </tr>
                                         <tr>
                                             <td style="height: 10px;"></td>

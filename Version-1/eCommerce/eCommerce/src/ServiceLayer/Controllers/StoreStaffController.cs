@@ -287,6 +287,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception ex)
             {
+                Console.Out.WriteLine(ex.Message);
                 logger.LogError(ex.ToString());
                 return new Result<bool>(ex.ToString());
             }
@@ -300,6 +301,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception ex)
             {
+                Console.Out.WriteLine(ex.Message);
                 logger.LogError(ex.ToString());
                 return new Result<bool>(ex.ToString());
             }
@@ -313,6 +315,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception ex)
             {
+                Console.Out.WriteLine(ex.Message);
                 logger.LogError(ex.ToString());
                 return new Result<bool>(ex.ToString());
             }

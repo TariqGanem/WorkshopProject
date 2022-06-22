@@ -65,7 +65,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             string[] arr = targetElement.Split('|');
             Dictionary<string, object> targetDict;
             if (arr.Length > 1 & arr[1].Split(':')[0] == "Categories")
-                targetDict =  new Dictionary<string, object>() { { "type" , arr[0]} , { "Categories" , arr[1].Split(':')[1] } };
+                targetDict = new Dictionary<string, object>() { { "type", arr[0] }, { "Categories", arr[1].Split(':')[1] } };
             else if (arr.Length > 1 & arr[1].Split(':')[0] == "ProductIds")
                 targetDict = new Dictionary<string, object>() { { "type", arr[0] }, { "ProductIds", arr[1].Split(':')[1] } };
             else
@@ -135,11 +135,11 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             string type = ((string)info["type"]);
             switch (type)
             {
-                case "DiscountTargetShop":
+                case "Shop":
                     return DiscountTargetShop.create(info);
-                case "DiscountTargetCategories":
+                case "Categories":
                     return DiscountTargetCategories.create(info);
-                case "DiscountTargetProducts":
+                case "Products":
                     return DiscountTargetProducts.create(info);
                 default:
                     return null;
