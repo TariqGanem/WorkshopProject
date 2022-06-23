@@ -16,6 +16,7 @@ using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountConditio
 using eCommerce.src.ServiceLayer.ResultService;
 using eCommerce.src.DomainLayer.Stores.Policies.PurchasePolicies;
 using eCommerce.src.DataAccessLayer.DataTransferObjects;
+using eCommerce.src.DomainLayer.Stores.OwnerAppointmennt;
 
 namespace eCommerce.src.DomainLayer.Store
 {
@@ -52,6 +53,7 @@ namespace eCommerce.src.DomainLayer.Store
         public NotificationPublisher NotificationPublisher { get; set; }
         public PolicyManager PolicyManager { get; set; }
         public OfferManager OfferManager { get; set; }
+        public OwnerRequestManager RequestManager { get; set; }
 
 
 
@@ -67,7 +69,8 @@ namespace eCommerce.src.DomainLayer.Store
             InventoryManager = new InventoryManager();
             History = new History();
             PolicyManager = new PolicyManager();  
-            OfferManager = new OfferManager();     
+            OfferManager = new OfferManager();   
+            RequestManager = new OwnerRequestManager();
         }
 
         public Store(string id, string name, InventoryManager inventoryManager, History history, double rate, int numberOfRates, NotificationPublisher notificationManager, bool active)
@@ -84,6 +87,8 @@ namespace eCommerce.src.DomainLayer.Store
             Managers = new ConcurrentDictionary<string, StoreManager>();
             PolicyManager = new PolicyManager();
             OfferManager = new OfferManager();
+            RequestManager = new OwnerRequestManager();
+
         }
 
         public void AddRating(Double rate)
@@ -421,6 +426,20 @@ namespace eCommerce.src.DomainLayer.Store
             return true;
         }
 
+        public bool SendOwnerRequestToStore(OwnerRequest offer)
+        {
+            foreach(OwnerRequest req in RequestManager.PendingOffers)
+            {
+                if (req.UserID == offer.Id)
+                    throw new Exception("Request Already in place for the current user");
+            }
+            RequestManager.AddOffer(offer);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
+            var update_offer = Builders<BsonDocument>.Update.Set("OwnerRequestManager", DBUtil.getInstance().Get_DTO_OwnerRequests(RequestManager.PendingOffers));
+            DBUtil.getInstance().UpdateStore(filter, update_offer);
+            return true;
+        }
+
         private void RemoveAllStaffAppointedByOwner(StoreOwner owner)
         {
             this.NotificationPublisher.notifyOwnerSubscriptionRemoved(owner.GetId(), owner);
@@ -469,6 +488,11 @@ namespace eCommerce.src.DomainLayer.Store
             this.NotificationPublisher.notifyOfferRecievedUser(offer.UserID, offer.StoreID, offer.ProductID, offer.Amount, offer.Price, offer.CounterOffer, v);
         }
 
+        public void sendNotificationToAllOwners(OwnerRequest offer, bool v)
+        {
+            this.NotificationPublisher.notifyOfferRecievedUser(offer.UserID, offer.StoreID, v);
+        }
+
         public OfferResponse SendOfferResponseToUser(string ownerID, string offerID, bool accepted, double counterOffer)
         {
             List<string> ids = ownerIDs();
@@ -477,6 +501,18 @@ namespace eCommerce.src.DomainLayer.Store
             OfferResponse res = OfferManager.SendOfferResponseToUser(ownerID, offerID, accepted, counterOffer, ids);
             var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
             var update_offer = Builders<BsonDocument>.Update.Set("OfferManager", DBUtil.getInstance().Get_DTO_Offers(OfferManager.PendingOffers));
+            DBUtil.getInstance().UpdateStore(filter, update_offer);
+            return res;
+        }
+
+        public OwnerRequestResponse SendOwnerRequestResponseToUser(string ownerID, string RequestID, bool accepted)
+        {
+            List<string> ids = ownerIDs();
+            if (!ids.Contains(ownerID))
+                throw new Exception("Failed to respond to the request: The responding user is not an owner");
+            OwnerRequestResponse res = RequestManager.SendOfferResponseToUser(ownerID, RequestID, accepted, ids);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", Id);
+            var update_offer = Builders<BsonDocument>.Update.Set("OwnerRequestManager", DBUtil.getInstance().Get_DTO_OwnerRequests(RequestManager.PendingOffers));
             DBUtil.getInstance().UpdateStore(filter, update_offer);
             return res;
         }
@@ -492,6 +528,11 @@ namespace eCommerce.src.DomainLayer.Store
         public List<Dictionary<string, object>> getStoreOffers()
         {
             return OfferManager.getStoreOffers();
+        }
+
+        public List<Dictionary<string, string>> getStoreOwnerRequests()
+        {
+            return RequestManager.getStoreOffers();
         }
 
         public DTO_Store getDTO()
@@ -515,7 +556,7 @@ namespace eCommerce.src.DomainLayer.Store
 
             return new DTO_Store(Id, Name, Founder.User.Id, owners_dto, managers_dto,
                 inventoryManagerProducts_dto, History.getDTO(), Rate, NumberOfRates, Active,
-                PolicyManager.MainDiscount.getDTO(), PolicyManager.MainPolicy.getDTO(), Get_DTO_Offers());
+                PolicyManager.MainDiscount.getDTO(), PolicyManager.MainPolicy.getDTO(), Get_DTO_Offers() , Get_DTO_OwnerRequests());
         }
 
         public List<DTO_Offer> Get_DTO_Offers()
@@ -524,6 +565,17 @@ namespace eCommerce.src.DomainLayer.Store
             foreach (Offer offer in OfferManager.PendingOffers)
             {
                 dto_offers.Add(new DTO_Offer(offer.Id, offer.UserID, offer.ProductID, offer.StoreID, offer.Amount, offer.Price, offer.CounterOffer, offer.acceptedOwners));
+            }
+
+            return dto_offers;
+        }
+
+        public List<DTO_OwnerRequest> Get_DTO_OwnerRequests()
+        {
+            List<DTO_OwnerRequest> dto_offers = new List<DTO_OwnerRequest>();
+            foreach (OwnerRequest offer in RequestManager.PendingOffers)
+            {
+                dto_offers.Add(new DTO_OwnerRequest(offer.Id, offer.UserID, offer.StoreID, offer.AppointedBy , offer.acceptedOwners));
             }
 
             return dto_offers;

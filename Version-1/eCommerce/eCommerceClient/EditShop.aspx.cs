@@ -32,6 +32,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
             }
         }
 
@@ -56,6 +57,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
             }
 
@@ -77,6 +79,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Add New Manager")
@@ -97,6 +100,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
 
 
@@ -120,6 +124,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
 
 
@@ -143,6 +148,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
 
 
@@ -167,6 +173,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
 
 
@@ -189,6 +196,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
 
                 UserHandler a = new UserHandler();
@@ -213,6 +221,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
             }
             if (DropDownList1.SelectedItem.Text == "Remove Permissions")
@@ -233,6 +242,8 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
+
             }
             if (DropDownList1.SelectedItem.Text == "Store Staff")
             {
@@ -255,6 +266,7 @@ namespace Client
                     ButtonAddPurchasePolicyToMain.Visible = false;
                     MainDiscountBtn.Visible = false;
                     DataListDiscountPolicies.Visible = false;
+                    OwnerRequests.Visible = false;
 
                     StoreStaff.DataSource = a.GetStoreStaff(Session["userId"].ToString(),Session["storeId"].ToString());
                     StoreStaff.DataBind();
@@ -281,6 +293,8 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
+
 
                 UserHandler a = new UserHandler();
                 DataListRemoveProduct.DataSource = a.GetAllProductByStoreIDToDisplay(Session["storeId"].ToString());
@@ -304,6 +318,8 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
+
 
                 UserHandler a = new UserHandler();
                 DataListsShoppingHistory.DataSource = a.GetStorePurchaseHistory(Session["userId"].ToString(),Session["storeId"].ToString());
@@ -327,6 +343,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListOffers.DataSource = a.getStoreOffers(Session["storeId"].ToString());
@@ -351,6 +368,7 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = true;
                 MainDiscountBtn.Visible = false;
                 DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = false;
 
                 UserHandler a = new UserHandler();
                 PurchasePolicies.DataSource = a.getPruchasePolicies(Session["storeId"].ToString());
@@ -374,10 +392,35 @@ namespace Client
                 ButtonAddPurchasePolicyToMain.Visible = false;
                 MainDiscountBtn.Visible = true;
                 DataListDiscountPolicies.Visible = true;
+                OwnerRequests.Visible = false;
 
                 UserHandler a = new UserHandler();
                 DataListDiscountPolicies.DataSource = a.getDiscountPolicies(Session["storeId"].ToString());
                 DataListDiscountPolicies.DataBind();
+            }
+            if (DropDownList1.SelectedItem.Text == "Owner Requests")
+            {
+                table1.Visible = false;
+                table2.Visible = false;
+                table3.Visible = false;
+                table4.Visible = false;
+                table5.Visible = false;
+                table6.Visible = false;
+                table7.Visible = false;
+                DataListproducts.Visible = false;
+                StoreStaff.Visible = false;
+                DataListRemoveProduct.Visible = false;
+                DataListsShoppingHistory.Visible = false;
+                DataListOffers.Visible = false;
+                PurchasePolicies.Visible = false;
+                ButtonAddPurchasePolicyToMain.Visible = false;
+                MainDiscountBtn.Visible = false;
+                DataListDiscountPolicies.Visible = false;
+                OwnerRequests.Visible = true;
+
+                UserHandler a = new UserHandler();
+                OwnerRequests.DataSource = a.getOwnerRequests(Session["storeId"].ToString());
+                OwnerRequests.DataBind();
             }
 
         }
@@ -464,11 +507,11 @@ namespace Client
                 Labelerror3.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            if (u.makeNewOwner(userid.Substring(1,32), Session["userId"].ToString(),Session["storeId"].ToString()))
+            if (u.SendOwnerApp(Session["storeId"].ToString(), Session["userId"].ToString(), userid.Substring(1, 32)))
             {
                 table3.Visible = false;
                 table3.Visible = false;
-                Labelerror3.Text = "User has been added as a owner";
+                Labelerror3.Text = "Owner App Request Sent";
                 Labelerror3.ForeColor = System.Drawing.Color.Green;
             }
             else
@@ -896,6 +939,39 @@ namespace Client
             Response.Redirect("~/AddDiscountPolicyToMain.aspx");
         }
 
+        protected void OwnerRequests_ItemCommand1(object sender, DataListCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("AcceptOwner"))
+            {
+                if(new UserHandler().SendOwnerRequestResponseToUser(Session["storeId"].ToString(),Session["userId"].ToString(),e.CommandArgument.ToString(),true))
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("OwnerReqErrorLabel"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Request Accepted";
+                }
+                else
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("OwnerReqErrorLabel"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Something went wrong - check permissions / if you already made a response";
+                }
+            }
+            if (e.CommandName.Equals("DeclineOwner"))
+            {
+                if (new UserHandler().SendOwnerRequestResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), e.CommandArgument.ToString(), false))
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("OwnerReqErrorLabel"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Request Declined";
+                }
+                else
+                {
+                    Label errorlabel = (Label)(e.Item.FindControl("OwnerReqErrorLabel"));
+                    errorlabel.Visible = true;
+                    errorlabel.Text = "Something went wrong - check permissions / if you already made a response";
+                }
+            }
+        }
 
 
         protected void DataListRemoveProduct_SelectedIndexChanged(object sender, EventArgs e)
@@ -913,6 +989,10 @@ namespace Client
 
         }
 
+        protected void DataListOwnerRequests_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

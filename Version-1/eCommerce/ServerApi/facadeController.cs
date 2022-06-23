@@ -1456,6 +1456,61 @@ namespace ServerApi
 
         // --- policies done
 
+        // sore owner reqs
+        [HttpGet]
+        public bool SendOwnerApp(string storeID, string owner, string appointee)
+        {
+            Result<bool> output = facade.SendOwnerApp(storeID, owner,appointee);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Owner Request sent to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public bool SendOwnerRequestResponseToUser(string storeID, string ownerID, string offerID, bool accepted)
+        {
+            Result<bool> output = facade.SendOwnerRequestResponseToUser(storeID, ownerID,offerID,accepted);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return false;
+            }
+            Logger.GetInstance().Event("Owner Request sent to store");
+            return output.Value;
+        }
+
+        [HttpGet]
+        public string[][] getOwnerRequests(string storeid)
+        {
+            Result<List<Dictionary<string, string>>> output = facade.getOwnerRequests(storeid);
+            if (output.ErrorOccured)
+            {
+                Logger.GetInstance().Error(output.ErrorMessage);
+                return new string[][] { new string[] { $"Error:{output.ErrorMessage}" } };
+            }
+            List<string[]> toret = new List<string[]>();
+            toret.Add(new String[] { "Succes" });
+            foreach (Dictionary<string, string> item in output.Value)
+                toret.Add(ownerreqDic2Arr(item));
+            Logger.GetInstance().Event("Owner Requests fetched");
+            return toret.ToArray();
+        }
+
+        private string[] ownerreqDic2Arr(Dictionary<string,string> dic)
+        {
+            string[] arr = new string[dic.Count];
+            int i = 0;
+            foreach(object str in dic.Values)
+            {
+                arr[i] = (string)str;
+                i++;
+            }
+            return arr;
+        }
 
 
 

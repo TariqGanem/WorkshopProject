@@ -34,9 +34,12 @@ namespace eCommerce.src.DataAccessLayer.DataTransferObjects.Stores
         public DTO_BuyNow MainPolicy { get; set; }
         [BsonElement]
         public List<DTO_Offer> OfferManager { get; set; }
+        [BsonElement]
+        public List<DTO_OwnerRequest> OwnerRequestManager { get; set; }
+
 
         public DTO_Store(String id, String name, String founder, LinkedList<String> owners, LinkedList<String> managers, LinkedList<String> inventoryManager, DTO_History history,
-                            Double rating, int numberOfRates, Boolean isActive, DTO_DiscountAddition mainDiscount, DTO_BuyNow mainPolicy, List<DTO_Offer> offerManager)
+                            Double rating, int numberOfRates, Boolean isActive, DTO_DiscountAddition mainDiscount, DTO_BuyNow mainPolicy, List<DTO_Offer> offerManager , List<DTO_OwnerRequest> ownerRequestManager)
         {
             _id = id;
             Name = name;
@@ -51,6 +54,7 @@ namespace eCommerce.src.DataAccessLayer.DataTransferObjects.Stores
             MainDiscount = mainDiscount;
             MainPolicy = mainPolicy;
             OfferManager = offerManager;
+            OwnerRequestManager = ownerRequestManager;
         }
     }
 }

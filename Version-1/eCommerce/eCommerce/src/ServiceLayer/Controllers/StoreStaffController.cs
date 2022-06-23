@@ -41,6 +41,8 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result<bool> isStoreOwner(string userid, string storeid);
         Result<Dictionary<string, string>> getDiscountPolicies(string storeid);
         Result<Dictionary<string, string>> getPruchasePolicies(string storeid);
+        Result<bool> SendOwnerRequestResponseToUser(string storeID, string ownerID, string offerID, bool accepted);
+        Result<List<Dictionary<string, string>>> getOwnerRequests(string storeid);
     }
 
     public class StoreStaffController : IStoreStaffController
@@ -492,6 +494,33 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 logger.LogError(ex.ToString());
                 return new Result<Dictionary<string, string>>(ex.ToString());
+            }
+        }
+
+        public Result<bool> SendOwnerRequestResponseToUser(string storeID, string ownerID, string offerID, bool accepted)
+        {
+            try
+            {
+                return new Result<bool>(SystemFacade.SendOwnerRequestResponse(storeID,ownerID,offerID,accepted));
+            }
+            catch (Exception ex)
+            {
+                Console.Out.WriteLine(ex.ToString());
+                logger.LogError(ex.ToString());
+                return new Result<bool>(ex.ToString());
+            }
+        }
+
+        public Result<List<Dictionary<string, string>>> getOwnerRequests(string storeid)
+        {
+            try
+            {
+                return new Result<List<Dictionary<string, string>>>(SystemFacade.getOwnerRequests(storeid));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return new Result<List<Dictionary<string, string>>>(ex.ToString());
             }
         }
 

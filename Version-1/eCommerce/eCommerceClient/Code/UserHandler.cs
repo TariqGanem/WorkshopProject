@@ -949,6 +949,44 @@ namespace Client.Code
 
         // ---- policies done
 
+        // owner req
+        public bool SendOwnerApp(string storeID, string owner, string appointee)
+        {
+            string param = string.Format("storeID={0}&owner={1}&appointee={2}", storeID, owner,appointee);
+            return bool.Parse(system.SendApi("SendOwnerApp", param));
+        }
+
+        public bool SendOwnerRequestResponseToUser(string storeID, string ownerID, string offerID, bool accepted)
+        {
+            string param = string.Format("storeID={0}&ownerID={1}&offerID={2}&accepted={3}", storeID, ownerID, offerID,accepted);
+            return bool.Parse(system.SendApi("SendOwnerRequestResponseToUser", param));
+        }
+
+        public DataSet getOwnerRequests(string storeid)
+        {
+            string param = string.Format("storeid={0}", storeid);
+            JArray jarray = (JArray)JsonConvert.DeserializeObject(system.SendApi("getOwnerRequests", param).ToString());
+            DataTable t1 = new DataTable("StoreOwnerReqs");
+            t1.Columns.Add("ReqId");
+            t1.Columns.Add("FutureOwnerId");
+            t1.Columns.Add("StoreId");
+            t1.Columns.Add("AppointedBy");
+            if (jarray[0][0].ToString().Substring(0, 6).Equals("Error:"))
+            {
+                DataSet d2 = new DataSet("StoreOwnerReqs");
+                d2.Tables.Add(t1);
+                return d2;
+            }
+            for (int i = 1; i < jarray.Count; i++)
+            {
+                t1.Rows.Add(jarray[i][0], jarray[i][1], jarray[i][2], jarray[i][3]);
+            }
+            DataSet d1 = new DataSet("StoreOwnerReqs");
+            d1.Tables.Add(t1);
+            return d1;
+        }
+        // --- 
+
 
 
 

@@ -29,7 +29,6 @@ namespace Client
             Notifications.Visible = false;
             StoreHistory.Visible = false;
             ButtonCloseStore.Visible = false;
-            ButtonBanUser.Visible = false;
             UserOfferBtn.Visible = false;
             InitFilePath.Visible = false;
 
@@ -50,7 +49,6 @@ namespace Client
                 ShoppingHistory.Visible = true;
                 StoreHistory.Visible=true;
                 ButtonCloseStore.Visible = true;
-                ButtonBanUser.Visible = true;
                 UserOfferBtn.Visible = true;
                 InitFilePath.Visible = true;
 
@@ -82,7 +80,6 @@ namespace Client
                 Notifications.Visible = false;
                 StoreHistory.Visible = false;
                 ButtonCloseStore.Visible = false;
-                ButtonBanUser.Visible = false;
                 UserOfferBtn.Visible = false;
                 InitFilePath.Visible = false;
                 UserHandler h = new UserHandler();
@@ -108,7 +105,6 @@ namespace Client
                 Notifications.Visible = false;
                 StoreHistory.Visible = false;
                 ButtonCloseStore.Visible = false;
-                ButtonBanUser.Visible = false;
                 UserOfferBtn.Visible = false;
                 InitFilePath.Visible = false;
                 Labelname.Text = "Hello Dear Guest";
@@ -165,7 +161,6 @@ namespace Client
                         UserHistoryBtn.Visible = true;
                         StoreHistory.Visible = true;
                         ButtonCloseStore.Visible = true;
-                        ButtonBanUser.Visible = true;
                         InitFilePath.Visible = true;
                     }
                 }
@@ -297,6 +292,7 @@ namespace Client
             "alert(" + res + " )", true);
         }
 
+        /*
         protected void ButtonBanUser_OnClick(object sender, EventArgs e)
         {
             if (txtAdmin.Text.Trim().Length == 0)
@@ -325,9 +321,9 @@ namespace Client
             }
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
             "alert(" + res + " )", true);
-            */
+            
         }
-
+        */
         protected void ButtonLogOut_Click(object sender, EventArgs e)
         {
             new UserHandler().Logout(Session["userId"].ToString());

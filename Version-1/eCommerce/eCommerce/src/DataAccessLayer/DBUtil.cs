@@ -22,6 +22,7 @@ using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountTargets
 using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies;
 using eCommerce.src.ServiceLayer.ResultService;
 using eCommerce.src.DomainLayer.Stores.Policies;
+using eCommerce.src.DomainLayer.Stores.OwnerAppointmennt;
 
 namespace eCommerce.src.DataAccessLayer
 {
@@ -71,6 +72,8 @@ namespace eCommerce.src.DataAccessLayer
         public DAO<DTO_DiscountMax> DAO_DiscountMax;
         public DAO<DTO_DiscountAnd> DAO_DiscountAnd;
         public DAO<DTO_DiscountAddition> DAO_DiscountAddition;
+        public DAO<DTO_OwnerRequest> DAO_OwnerRequest;
+
 
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers;
         public ConcurrentDictionary<String, GuestUser> GuestUsers;
@@ -105,6 +108,8 @@ namespace eCommerce.src.DataAccessLayer
         public ConcurrentDictionary<String, DiscountMax> Discount_DiscountMaxs;
         public ConcurrentDictionary<String, DiscountAnd> Discount_DiscountAnds;
         public ConcurrentDictionary<String, DiscountAddition> Discount_DiscountAdditions;
+        public ConcurrentDictionary<String, OwnerRequest> OwnerRequests;
+
 
         private DBUtil(String connection_url , String db_name)
         {
@@ -148,6 +153,7 @@ namespace eCommerce.src.DataAccessLayer
                 DAO_DiscountMax = new DAO<DTO_DiscountMax>(db, "DiscountPolicies");
                 DAO_DiscountAnd = new DAO<DTO_DiscountAnd>(db, "DiscountPolicies");
                 DAO_DiscountAddition = new DAO<DTO_DiscountAddition>(db, "DiscountPolicies");
+                DAO_OwnerRequest = new DAO<DTO_OwnerRequest>(db, "OwnerRequests");
 
                 RegisteredUsers = new ConcurrentDictionary<String, RegisteredUser>();
                 GuestUsers = new ConcurrentDictionary<String, GuestUser>();
@@ -182,6 +188,7 @@ namespace eCommerce.src.DataAccessLayer
                 Discount_DiscountMaxs = new ConcurrentDictionary<String, DiscountMax>();
                 Discount_DiscountAnds = new ConcurrentDictionary<String, DiscountAnd>();
                 Discount_DiscountAdditions = new ConcurrentDictionary<String, DiscountAddition>();
+                OwnerRequests = new ConcurrentDictionary<string, OwnerRequest>();
             }
             catch(Exception ex)
             {
@@ -776,6 +783,19 @@ namespace eCommerce.src.DataAccessLayer
             return Offers;
         }
 
+        private List<OwnerRequest> ToObject(List<DTO_OwnerRequest> dto, User user)
+        {
+            List<OwnerRequest> Offers = new List<OwnerRequest>();
+            if (dto != null)
+            {
+                foreach (DTO_OwnerRequest offer in dto)
+                {
+                    Offers.Add(new OwnerRequest(offer.UserID, offer.StoreID,offer.AppointedBy, offer._id, offer.acceptedOwners));
+                }
+            }
+            return Offers;
+        }
+
         private ShoppingCart ToObject(DTO_ShoppingCart dto, User user)
         {
             ConcurrentDictionary<String, ShoppingBag> sb = new ConcurrentDictionary<String, ShoppingBag>();
@@ -1252,7 +1272,7 @@ namespace eCommerce.src.DataAccessLayer
             foreach (var product in s.InventoryManager.Products) { inventory.AddLast(product.Key); }
 
             DAO_Store.Create(new DTO_Store(s.Id, s.Name, s.Founder.GetId(), owners, managers, inventory, Get_DTO_History(s.History),
-                                            s.Rate, s.NumberOfRates, s.Active, s.PolicyManager.MainDiscount.getDTO(), s.PolicyManager.MainPolicy.getDTO(), s.OfferManager.GetDTO()));
+                                            s.Rate, s.NumberOfRates, s.Active, s.PolicyManager.MainDiscount.getDTO(), s.PolicyManager.MainPolicy.getDTO(), s.OfferManager.GetDTO() , s.RequestManager.GetDTO()));
             this.DAO_DiscountAddition.Create(s.PolicyManager.MainDiscount.getDTO());
             this.DAO_BuyNow.Create(s.PolicyManager.MainPolicy.getDTO());
             Stores.TryAdd(s.Id, s);
@@ -1292,6 +1312,7 @@ namespace eCommerce.src.DataAccessLayer
                 shb.Store = s;
             }
             s.OfferManager = new OfferManager(Load_StoreOfferManager(dto));
+            s.RequestManager = new OwnerRequestManager(Load_StoreRequestManagger(dto));
             // loading staff
             //var filterstaff = Builders<BsonDocument>.Filter.Eq("StoreId", s.Id);
             //s.Managers = LoadAllManagersForStore(filterstaff);
@@ -1345,6 +1366,19 @@ namespace eCommerce.src.DataAccessLayer
                 }
             }
 
+            return offers;
+        }
+
+        public List<OwnerRequest> Load_StoreRequestManagger(DTO_Store store)
+        {
+            List<OwnerRequest> offers = new List<OwnerRequest>();
+            if (store.OwnerRequestManager != null)
+            {
+                foreach (DTO_OwnerRequest offer in store.OwnerRequestManager)
+                {
+                    offers.Add(new OwnerRequest(offer.UserID, offer.StoreID,offer.AppointedBy, offer._id, offer.acceptedOwners));
+                }
+            }
             return offers;
         }
 
@@ -1551,6 +1585,11 @@ namespace eCommerce.src.DataAccessLayer
             DAO_Offer.Update(filter, update);
         }
 
+        public void UpdateOwnerRequestPolicy(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update)
+        {
+            this.DAO_OwnerRequest.Update(filter, update);
+        }
+
         public void DeleteOfferPolicy(FilterDefinition<BsonDocument> filter)
         {
             DTO_Offer deletedOffer = DAO_Offer.Delete(filter);
@@ -1560,6 +1599,14 @@ namespace eCommerce.src.DataAccessLayer
             }
         }
 
+        public void DeleteOwnerRequestPolicy(FilterDefinition<BsonDocument> filter)
+        {
+            DTO_OwnerRequest deletedOffer = this.DAO_OwnerRequest.Delete(filter);
+            if (!(deletedOffer is null))
+            {
+                OwnerRequests.TryRemove(deletedOffer._id, out OwnerRequest o);
+            }
+        }
 
         public void Create(RestrictedHoursPolicy restrictedHoursPolicy)
         {
@@ -2629,6 +2676,16 @@ namespace eCommerce.src.DataAccessLayer
             return dto_offers;
         }
 
+        public List<DTO_OwnerRequest> Get_DTO_OwnerRequests(List<OwnerRequest> offers)
+        {
+            List<DTO_OwnerRequest> dto_offers = new List<DTO_OwnerRequest>();
+            foreach (OwnerRequest offer in offers)
+            {
+                dto_offers.Add(new DTO_OwnerRequest(offer.Id, offer.UserID, offer.StoreID,offer.AppointedBy, offer.acceptedOwners));
+            }
+            return dto_offers;
+        }
+
         public void Load_RegisteredUserOffers(RegisteredUser user)
         {
             var filter = Builders<BsonDocument>.Filter.Eq("_id", user.Id);
@@ -2679,6 +2736,7 @@ namespace eCommerce.src.DataAccessLayer
                 db.GetCollection<BsonDocument>("SystemAdmins").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("DiscountPolicies").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("PurchasePolicies").DeleteMany(emptyFilter);
+                db.GetCollection<BsonDocument>("OwnerRequests").DeleteMany(emptyFilter);
 
                 RegisteredUsers.Clear();
                 GuestUsers.Clear();
@@ -2713,6 +2771,7 @@ namespace eCommerce.src.DataAccessLayer
                 Discount_DiscountMaxs.Clear();
                 Discount_DiscountAnds.Clear();
                 Discount_DiscountAdditions.Clear();
+                OwnerRequests.Clear();
 
             }
 

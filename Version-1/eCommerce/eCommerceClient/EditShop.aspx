@@ -86,6 +86,7 @@ margin-bottom: 16px;
                                                 <asp:ListItem Text="Store Offer Requests" Value="12"></asp:ListItem>
                                                 <asp:ListItem Text="Pruchase Policies" Value="13"></asp:ListItem>
                                                 <asp:ListItem Text="Discount Policies" Value="14"></asp:ListItem>
+                                                <asp:ListItem Text="Owner Requests" Value="15"></asp:ListItem>
 
 
 
@@ -737,5 +738,59 @@ margin-bottom: 16px;
                         
                         </ItemTemplate>
     </asp:DataList>
+
+    <asp:DataList ID="OwnerRequests" runat="server" OnItemCommand="OwnerRequests_ItemCommand1" BackColor="White" BorderStyle="Double" CellPadding="4"  RepeatDirection="Horizontal" RepeatColumns="3" BorderColor="#336666" BorderWidth="3px" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" GridLines="Horizontal" OnSelectedIndexChanged="DataListOwnerRequests_SelectedIndexChanged">
+        <FooterStyle BackColor="White" ForeColor="#333333" />
+        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <SelectedItemStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+        <ItemStyle BackColor="White" ForeColor="#333333" />
+        <ItemTemplate>
+                       
+                                <table align="left" style="width: 300px; background-color: #f5f5f5; border: 1px solid #CCC;">
+
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">
+                                                    <span style="font-weight: 700; font-size: 14px;">RequestId: <%#Eval("ReqId") %> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="height: 10px;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-weight: 700; font-size: 20px;">FutuoreOwnerId: <%#Eval("FutureOwnerId") %> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-weight: 700; font-size: 20px;">StoreId: <%#Eval("StoreId") %> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span style="font-weight: 700; font-size: 20px;">AppointedBy: <%#Eval("AppointedBy") %> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="auto-style13">
+                                            <asp:Button ID="ButtonAcceptOwner" runat="server" Text="Accept" CommandArgument='<%#Eval("ReqId")%>' CommandName="AcceptOwner" Height="39px" Width="120px" ></asp:Button>
+                                            <asp:Button ID="ButtonDeclineOwner" runat="server" Text="Decline" CommandArgument='<%#Eval("ReqId")%>' CommandName="DeclineOwner" Height="39px" Width="120px" ></asp:Button>
+                                        </td>
+                                        <tr>
+                                            <td><asp:Label ID="OwnerReqErrorLabel" runat="server" Text=""></asp:Label></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="height: 10px;"></td>
+                                        </tr>
+                                    </tr>
+                                </table>
+                        
+                        </ItemTemplate>
+    </asp:DataList>
+
+
 
 </asp:Content>

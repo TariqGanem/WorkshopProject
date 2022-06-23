@@ -11,15 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/src/Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/src/Config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/DiscountPolicies/ConditionalDiscount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/DiscountPolicies/ConditionalDiscount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/DiscountPolicies/DiscountComposition/DiscountXor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/Policies/DiscountPolicies/DiscountComposition/DiscountXor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +118,7 @@
       <workItem from="1655540132829" duration="2081000" />
       <workItem from="1655606211935" duration="204000" />
       <workItem from="1655848693168" duration="157000" />
-      <workItem from="1655925957568" duration="6019000" />
+      <workItem from="1655925957568" duration="6369000" />
     </task>
     <servers />
   </component>

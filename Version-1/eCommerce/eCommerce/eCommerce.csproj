@@ -157,6 +157,7 @@
     <Compile Include="src\Config.cs" />
     <Compile Include="src\DataAccessLayer\Cryptography.cs" />
     <Compile Include="src\DataAccessLayer\DAO.cs" />
+    <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\DTO_OwnerRequest.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\DTO_Product.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\DTO_PurchasedProduct.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\DTO_Store.cs" />
@@ -206,6 +207,8 @@
     <Compile Include="src\DomainLayer\Notifications\Observer\SubscriberInterface.cs" />
     <Compile Include="src\DomainLayer\Service.cs" />
     <Compile Include="src\DomainLayer\Stores\InventoryManager.cs" />
+    <Compile Include="src\DomainLayer\Stores\OwnerAppointmennt\OwnerRequest.cs" />
+    <Compile Include="src\DomainLayer\Stores\OwnerAppointmennt\OwnerRequestManager.cs" />
     <Compile Include="src\DomainLayer\Stores\Policies\DiscountPolicies\AbstractDiscountPolicy.cs" />
     <Compile Include="src\DomainLayer\Stores\Policies\DiscountPolicies\ConditionalDiscount.cs" />
     <Compile Include="src\DomainLayer\Stores\Policies\DiscountPolicies\DicountConditions\AbstractDiscountCondition.cs" />
@@ -336,6 +339,7 @@
     <Content Include="Core\Compression\Zstandard\lib\win\libzstd.dll" />
     <Content Include="mongocrypt.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MongoDB.Libmongocrypt.1.5.2\build\MongoDB.Libmongocrypt.targets" Condition="Exists('..\packages\MongoDB.Libmongocrypt.1.5.2\build\MongoDB.Libmongocrypt.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -269,8 +269,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         Result AddProductToCart(string userID, string ProductID, int ProductQuantity, string StoreID);
         Result<ShoppingCartSO> GetUserShoppingCart(string userID);
         Result<bool> SendOfferToStore(string storeID, string userID, string productID, int amount, double price);
-
-
+        Result<bool> SendOwnerApp(string storeID, string owner, string appointee);
     }
     public class GuestController : UserController, IGuestController
     {
@@ -299,6 +298,22 @@ namespace eCommerce.src.ServiceLayer.Controllers
                 ValidateId(storeID);
                 ValidateId(productID);
                 bool res = this.SystemFacade.SendOfferToStore(storeID, userID, productID, amount, price);
+                return new Result<bool>(res);
+            }
+            catch (Exception ex)
+            {
+                return new Result<bool>(ex.Message);
+            }
+        }
+
+        public Result<bool> SendOwnerApp(string storeID, string owner, string appointee)
+        {
+            try
+            {
+                ValidateId(storeID);
+                ValidateId(owner);
+                ValidateId(appointee);
+                bool res = this.SystemFacade.SendOwnerApp(storeID,owner,appointee);
                 return new Result<bool>(res);
             }
             catch (Exception ex)

@@ -8,6 +8,7 @@ using System.Text.Json;
 using eCommerce.src.DataAccessLayer;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.Stores;
 using eCommerce.src.DataAccessLayer.DataTransferObjects.User.Roles;
+using eCommerce.src.DomainLayer.Stores.OwnerAppointmennt;
 using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies;
 using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DicountConditions;
 using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountComposition;
@@ -184,6 +185,8 @@ namespace eCommerce.src.DomainLayer.Store
                 throw new Exception($"Store ID {storeID} not found");
             }
         }
+
+
 
         public void AddStoreManager(RegisteredUser futureManager, string currentlyOwnerID, string storeID)
         {
@@ -401,6 +404,15 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception("Failed to add an offer: Failed to locate the store\n");
         }
 
+        public bool SendOwnerRequestToStore(OwnerRequest offer)
+        {
+            if (Stores.TryGetValue(offer.StoreID, out Store store))
+            {
+                return store.SendOwnerRequestToStore(offer);
+            }
+            throw new Exception("Failed to add a request: Failed to locate the store\n");
+        }
+
         public void RemovePermissions(string storeID, string managerID, string ownerID, LinkedList<int> permissions)
         {
             if (Stores.TryGetValue(storeID, out Store store))
@@ -453,6 +465,15 @@ namespace eCommerce.src.DomainLayer.Store
             throw new Exception("Failed to response to an offer: Failed to locate the store\n");
         }
 
+        public OwnerRequestResponse SendOwnerRequestResponseToUser(string storeID, string ownerID, string offerID, bool accepted)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))
+            {
+                return store.SendOwnerRequestResponseToUser(ownerID, offerID, accepted);
+            }
+            throw new Exception("Failed to respond to a request: Failed to locate the store\n");
+        }
+
         public Store GetStore(String storeID)
         {
             if (Stores.TryGetValue(storeID, out Store store))
@@ -483,6 +504,15 @@ namespace eCommerce.src.DomainLayer.Store
                 return store.getStoreOffers();
             }
             throw new Exception("Failed to get store offers: Failed to locate the store\n");
+        }
+
+        public List<Dictionary<string, string>> getStoreOwnerRequests(string storeID)
+        {
+            if (Stores.TryGetValue(storeID, out Store store))
+            {
+                return store.getStoreOwnerRequests();
+            }
+            throw new Exception("Failed to get store owner requests: Failed to locate the store\n");
         }
 
         public void resetSystem()
@@ -528,6 +558,18 @@ namespace eCommerce.src.DomainLayer.Store
             dbutil.Create(purchaseRoot);
             dbutil.Create(purchaseRoot.Policy);
         }
+
+        public OwnerRequest getOwnerRequest(string offerid , Store store)
+        {
+            foreach(OwnerRequest req in store.RequestManager.PendingOffers)
+            {
+                if (req.Id == offerid)
+                    return req;
+            }
+            throw new Exception("Offer Does Not Exist in the store");
+        }
+
+
 
         public bool AddDiscountPolicy(string storeId, Dictionary<string, object> info, string id)
         {

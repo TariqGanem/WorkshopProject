@@ -143,7 +143,6 @@ namespace eCommerce.src.ServiceLayer
         {
             return GuestController.SendOfferToStore(storeID, userID, productID, amount, price);
         }
-
         public Result<bool> AnswerCounterOffer(string userID, string offerID, bool accepted)
         {
             return StoreStaffController.AnswerCounterOffer(userID, offerID, accepted);
@@ -515,5 +514,23 @@ namespace eCommerce.src.ServiceLayer
         {
             return SystemAdminController.BanUser(userid,adminid);
         }
+
+        // store owner request req
+        public Result<bool> SendOwnerApp(string storeID, string owner, string appointee)
+        {
+            return GuestController.SendOwnerApp(storeID, owner, appointee);
+        }
+
+        public Result<bool> SendOwnerRequestResponseToUser(string storeID, string ownerID, string offerID, bool accepted)
+        {
+            return StoreStaffController.SendOwnerRequestResponseToUser(storeID, ownerID, offerID, accepted);
+        }
+
+        public Result<List<Dictionary<string, string>>> getOwnerRequests(string storeid)
+        {
+            return StoreStaffController.getOwnerRequests(storeid);
+
+        }
+        // ---
     }
 }

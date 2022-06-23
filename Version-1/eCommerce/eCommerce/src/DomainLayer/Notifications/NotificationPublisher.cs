@@ -101,5 +101,16 @@ namespace eCommerce.src.DomainLayer.Store
                 owner.Value.Update(notification);
             }
         }
+
+        public void notifyOfferRecievedUser(string userID, string storeID, bool v)
+        {
+            String msg = "";
+            if (v)
+                msg = $"Event : Owner Application Has Been Accepted     Owner Id : {userID}     Store Id : {storeID}    ";
+            else
+                msg = $"Event : A counter offer was recieved     Owner Id : {userID}     Store Id : {storeID}    ";
+
+            notifyOwners(msg, false);
+        }
     }
 }

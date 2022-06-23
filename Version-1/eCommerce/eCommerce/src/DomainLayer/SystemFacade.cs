@@ -13,6 +13,7 @@ using eCommerce.src.DomainLayer.Stores.Policies.Offer;
 using eCommerce.src.DomainLayer.Notifications;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using eCommerce.src.DomainLayer.Stores.OwnerAppointmennt;
 
 namespace eCommerce.src.DomainLayer
 {
@@ -97,6 +98,10 @@ namespace eCommerce.src.DomainLayer
         string getStoreIdByStoreName(string storename);
         Dictionary<string, string> getDiscountPolicies(string storeid);
         Dictionary<string, string> getPruchasePolicies(string storeid);
+        bool SendOwnerApp(string storeID, string owner, string appointee);
+
+        bool SendOwnerRequestResponse(string storeID, string ownerID,string offerID, bool accepted);
+        List<Dictionary<string, string>> getOwnerRequests(string storeid);
         #endregion
     }
 
@@ -341,6 +346,45 @@ namespace eCommerce.src.DomainLayer
             }
         }
 
+        public bool SendOfferToStore(string storeID, string userID, string productID, int amount, double price)
+        {
+
+            Offer userResult = this.userFacade.SendOfferToStore(storeID, userID, productID, amount, price);
+            try { this.storeFacade.SendOfferToStore(userResult); }
+            catch (Exception ex)
+            {
+                userFacade.RemoveOffer(userID, userResult.Id);
+                throw new Exception(ex.Message);
+            }
+            return true;
+        }
+
+        public bool SendOwnerApp(string storeID, string owner, string appointee)
+        {
+            if (userFacade.RegisteredUsers.TryGetValue(appointee, out RegisteredUser futureOwner))  // Check if addedOwnerID is a registered user
+            {
+                if (storeFacade.Stores.TryGetValue(storeID, out Store.Store store))
+                {
+                    if (store.Owners.TryGetValue(owner, out _))
+                    {
+                        OwnerRequest userResult = new OwnerRequest(appointee, storeID , owner);
+                        try { this.storeFacade.SendOwnerRequestToStore(userResult); }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                        }
+                        return true;
+                    }
+                    throw new Exception("Only Owners Can make an Owner Application");
+                }
+                throw new Exception("Store does not exist");
+            }
+            else
+            {
+                throw new Exception($"Failed to appoint store owner: {appointee} is not a registered user");
+            }
+        }
+
         public void AddStoreManager(String addedManagerID, String currentlyOwnerID, String storeID)
         {
             if (userFacade.RegisteredUsers.TryGetValue(addedManagerID, out RegisteredUser futureManager))  // Check if addedManagerID is a registered user
@@ -421,17 +465,7 @@ namespace eCommerce.src.DomainLayer
         }
         #endregion
 
-        public bool SendOfferToStore(string storeID, string userID, string productID, int amount, double price)
-        {
 
-            Offer userResult = this.userFacade.SendOfferToStore(storeID, userID, productID, amount, price);
-            try { this.storeFacade.SendOfferToStore(userResult); }
-            catch(Exception ex) {
-                userFacade.RemoveOffer(userID, userResult.Id);
-                throw new Exception(ex.Message);
-            }
-            return true;
-        }
 
         public bool AnswerCounterOffer(string userID, string offerID, bool accepted)
         {
@@ -487,6 +521,32 @@ namespace eCommerce.src.DomainLayer
                 store.sendNotificationToAllOwners(offer, false);
             }
 
+            Logger.GetInstance().LogInfo("Offer response was sent successfully");
+            return true;
+        }
+
+        public bool SendOwnerRequestResponse(string storeID, string ownerID, string offerID, bool accepted)
+        {
+            Store.Store store;
+            if (!storeFacade.Stores.TryGetValue(storeID, out store))
+                throw new Exception("store does not exist");
+            OwnerRequest offer;
+            offer = storeFacade.getOwnerRequest(offerID, store);
+
+            OwnerRequestResponse storeResult = storeFacade.SendOwnerRequestResponseToUser(storeID, ownerID, offerID, accepted);
+
+            OwnerRequestResponse respone = storeResult;
+            if (!userFacade.RegisteredUsers.TryGetValue(offer.UserID, out RegisteredUser futureowner))
+                throw new Exception("userId is not a registered User");
+            if (respone == OwnerRequestResponse.Accepted)
+            {
+                storeFacade.AddStoreOwner( futureowner, offer.AppointedBy, storeID);
+                store.sendNotificationToAllOwners(offer, true);
+            }
+            else if (respone == OwnerRequestResponse.Declined)
+            {
+                store.sendNotificationToAllOwners(offer, false);
+            }
             Logger.GetInstance().LogInfo("Offer response was sent successfully");
             return true;
         }
@@ -795,6 +855,11 @@ namespace eCommerce.src.DomainLayer
         public Dictionary<string, string> getPruchasePolicies(string storeid)
         {
             return storeFacade.getPruchasePolicies(storeid);
+        }
+
+        public List<Dictionary<string, string>> getOwnerRequests(string storeid)
+        {
+            return storeFacade.getStoreOwnerRequests(storeid);
         }
     }
 }

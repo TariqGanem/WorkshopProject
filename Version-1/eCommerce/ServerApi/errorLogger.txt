@@ -551,3 +551,11 @@ Parameter name: UserId is null or empty!
 6/23/2022 12:04:48 AM:   . 
 6/23/2022 12:04:50 AM:   . 
 6/23/2022 12:04:52 AM:   . 
+6/23/2022 4:47:15 AM: System.Exception: Offer Does Not Exist in the store
+   at eCommerce.src.DomainLayer.Store.StoreFacade.getOwnerRequest(String offerid, Store store) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 569
+   at eCommerce.src.DomainLayer.SystemFacade.SendOwnerRequestResponse(String storeID, String ownerID, String offerID, Boolean accepted) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 539
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOwnerRequestResponseToUser(String storeID, String ownerID, String offerID, Boolean accepted) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 504  . 
+6/23/2022 4:55:04 AM: System.Exception: Offer Does Not Exist in the store
+   at eCommerce.src.DomainLayer.Store.StoreFacade.getOwnerRequest(String offerid, Store store) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 569
+   at eCommerce.src.DomainLayer.SystemFacade.SendOwnerRequestResponse(String storeID, String ownerID, String offerID, Boolean accepted) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 539
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOwnerRequestResponseToUser(String storeID, String ownerID, String offerID, Boolean accepted) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 504  . 
