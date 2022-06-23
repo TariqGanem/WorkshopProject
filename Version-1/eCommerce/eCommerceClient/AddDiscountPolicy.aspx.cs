@@ -356,7 +356,7 @@ namespace Client
             }
             else if(type == "Products")
             {
-                if (new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|ProductIds"+TargetParamsBox.Text, Session["DisId"].ToString()))
+                if (new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|ProductIds:"+TargetParamsBox.Text, Session["DisId"].ToString()))
                 {
                     VisibleLabel.Visible = true;
                     VisibleLabel.Text = "Discount Added";
@@ -371,7 +371,7 @@ namespace Client
             }
             else if (type == "Categories")
             {
-                if (new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|Categories" + TargetParamsBox.Text, Session["DisId"].ToString()))
+                if (new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|Categories:" + TargetParamsBox.Text, Session["DisId"].ToString()))
                 {
                     VisibleLabel.Visible = true;
                     VisibleLabel.Text = "Discount Added";

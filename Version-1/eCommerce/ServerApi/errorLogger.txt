@@ -559,3 +559,28 @@ Parameter name: UserId is null or empty!
    at eCommerce.src.DomainLayer.Store.StoreFacade.getOwnerRequest(String offerid, Store store) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 569
    at eCommerce.src.DomainLayer.SystemFacade.SendOwnerRequestResponse(String storeID, String ownerID, String offerID, Boolean accepted) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 539
    at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.SendOwnerRequestResponseToUser(String storeID, String ownerID, String offerID, Boolean accepted) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 504  . 
+6/23/2022 5:17:47 AM: System.Exception: Can't create DiscountTargetProducts: ProductIds not found
+   at eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountTargets.DiscountTargetProducts.create(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\DiscountPolicies\DiscountTargets\DiscountTargetProducts.cs:line 32
+   at eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.VisibleDiscount.createTarget(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\DiscountPolicies\VisibleDiscount.cs:line 143
+   at eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.VisibleDiscount.createTarget(String targetElement) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\DiscountPolicies\VisibleDiscount.cs:line 73
+   at eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.VisibleDiscount.create(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\DiscountPolicies\VisibleDiscount.cs:line 47
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.CreateDiscount(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 253
+   at eCommerce.src.DomainLayer.Stores.Policies.PolicyManager.AddDiscountPolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Policies\PolicyManager.cs:line 98
+   at eCommerce.src.DomainLayer.Store.Store.AddDiscountPolicy(Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\Store.cs:line 586
+   at eCommerce.src.DomainLayer.Store.StoreFacade.AddDiscountPolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\Stores\StoreFacade.cs:line 537
+   at eCommerce.src.DomainLayer.SystemFacade.AddDiscountPolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 612
+   at eCommerce.src.ServiceLayer.Controllers.StoreStaffController.AddDiscountPolicy(String storeId, Dictionary`2 info) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\StoreStaffController.cs:line 288  . 
+6/23/2022 5:22:15 AM:   . 
+6/23/2022 5:22:25 AM:   . 
+6/23/2022 5:22:27 AM:   . 
+6/23/2022 5:22:29 AM:   . 
+6/23/2022 5:22:39 AM:   . 
+6/23/2022 5:22:40 AM:   . 
+6/23/2022 5:22:41 AM:   . 
+6/23/2022 5:22:41 AM:   . 
+6/23/2022 5:22:42 AM:   . 
+6/23/2022 5:23:23 AM:   . 
+6/23/2022 5:28:27 AM: Wrong password!  . 
+6/23/2022 5:29:03 AM: System.Exception: user d35b2171004e4b5aa01dd51378136346 does not exist
+   at eCommerce.src.DomainLayer.SystemFacade.AddStoreRating(String userid, String storeid, Double rate) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 696
+   at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.AddStoreRating(String userid, String storeid, Double rate) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 138  . 
