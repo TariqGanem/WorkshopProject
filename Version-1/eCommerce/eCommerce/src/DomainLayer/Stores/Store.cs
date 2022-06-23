@@ -129,7 +129,7 @@ namespace eCommerce.src.DomainLayer.Store
         {
             try
             {
-                Monitor.TryEnter(productID);
+                Monitor.Enter(productID);
                 try
                 {
                     if (CheckIfStoreOwner(userID) || CheckStoreManagerAndPermissions(userID, Methods.RemoveProduct))
@@ -186,7 +186,7 @@ namespace eCommerce.src.DomainLayer.Store
         {
             try
             {
-                Monitor.TryEnter(futureOwner);
+                Monitor.Enter(futureOwner);
                 try
                 {
                     // Check new owner not already an owner + appointing owner is not a fraud or the appointing user is a manager with the right permissions
@@ -233,7 +233,7 @@ namespace eCommerce.src.DomainLayer.Store
         {
             try
             {
-                Monitor.TryEnter(futureManager);
+                Monitor.Enter(futureManager);
                 try
                 {
                     // Check new manager not already an owner/manager + appointing owner is not a fraud or the appointing user is a manager with the right permissions

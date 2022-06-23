@@ -110,7 +110,7 @@ namespace eCommerce.src.DomainLayer.User
         {
             try
             {
-                Monitor.TryEnter(my_lock);
+                Monitor.Enter(my_lock);
                 try
                 {
                     if (isUniqueEmail(userName))

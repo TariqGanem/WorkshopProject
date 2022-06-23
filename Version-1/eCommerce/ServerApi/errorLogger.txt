@@ -584,3 +584,20 @@ Parameter name: UserId is null or empty!
 6/23/2022 5:29:03 AM: System.Exception: user d35b2171004e4b5aa01dd51378136346 does not exist
    at eCommerce.src.DomainLayer.SystemFacade.AddStoreRating(String userid, String storeid, Double rate) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\DomainLayer\SystemFacade.cs:line 696
    at eCommerce.src.ServiceLayer.Controllers.RegisteredUserController.AddStoreRating(String userid, String storeid, Double rate) in C:\Users\aeran\OneDrive\Desktop\sadnaDAL2.0\WorkshopProject\Version-1\eCommerce\eCommerce\src\ServiceLayer\Controllers\RegisteredUserController.cs:line 138  . 
+6/23/2022 1:13:59 PM: Username eran doesn't exist!  . 
+6/23/2022 1:20:22 PM: User already loged out!  . 
+6/23/2022 1:21:17 PM: Store Name Already Exists In the system  . 
+6/23/2022 1:23:39 PM: Username qweas doesn't exist!  . 
+6/23/2022 1:24:04 PM: Wrong password!  . 
+6/23/2022 1:37:45 PM: Username Eran doesn't exist!  . 
+6/23/2022 1:41:21 PM:   . 
+6/23/2022 1:41:55 PM:   . 
+6/23/2022 1:41:56 PM:   . 
+6/23/2022 1:45:09 PM:   . 
+6/23/2022 1:45:10 PM:   . 
+6/23/2022 1:45:10 PM:   . 
+6/23/2022 1:45:42 PM:   . 
+6/23/2022 1:46:57 PM:   . 
+6/23/2022 1:49:50 PM: One or more errors occurred.  . 
+6/23/2022 1:49:59 PM:   . 
+6/23/2022 1:50:00 PM:   . 
