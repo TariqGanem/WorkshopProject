@@ -26,7 +26,7 @@
 
 # State File Initiation
 	You have the ability to write scenarios where you can test the system.
-	You Provide the eCommerceClient with a path to a Initiation File ,
+	You Provide the eCommerceClient with a path to an Initiation File ,
 	and it runs the functions inside of it.
 	
 	For Example:
