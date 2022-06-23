@@ -20,6 +20,14 @@ namespace eCommerceIntegrationTests.Utils
 
             return Real.AddProductToCart(userID, ProductID, ProductQuantity, StoreID);
         }
+        public Result<Boolean> ResetSystem(string admin , string filepatt = "")
+        {
+            if (Real == null)
+                return new Result<Boolean>(true);
+
+            return Real.ResetSystem(admin,filepatt);
+        }
+
 
         public Result<string> AddProductToStore(string userID, string storeID, string productName, double price, int initialQuantity, string category)
         {

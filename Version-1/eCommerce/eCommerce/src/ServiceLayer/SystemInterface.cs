@@ -51,6 +51,8 @@ namespace eCommerce.src.ServiceLayer
         Result<Dictionary<String, List<int>>> GetStoreStaff(String ownerID, String storeID);
         Result<List<String>> GetStorePurchaseHistory(String ownerID, String storeID); //userID to List<permissions>
 
+        Result<bool> ResetSystem(string adminid , string filepath = "");
+
 
         #endregion
     }

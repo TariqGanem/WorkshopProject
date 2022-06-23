@@ -160,6 +160,16 @@ namespace eCommerce.src.ServiceLayer
 
         }
 
+
+        public Result<bool> ResetSystem(string adminid , string filepath = "")
+        {
+            Result<bool> res = system.ResetSystem(adminid , filepath);
+            if (!res.ErrorOccured)
+                return new Result<bool>(res.Value);
+            else
+                return new Result<bool>(res.ErrorMessage);
+        }
+
         public Result<string> AddSystemAdmin(string sysAdminId, string userName)
         {
             Result<RegisteredUserSO> res = system.AddSystemAdmin(sysAdminId, userName);
