@@ -28,17 +28,43 @@ namespace eCommerce
             //ecom.Login("eran","pass");
             //IDictionary<string,object> res = ecom.GetPurchasePolicyData("c9e9eec4202248a7857a9c33daa919ac").Value;
             //Result<bool> res2 = ecom.AddDiscountPolicy("c9e9eec4202248a7857a9c33daa919ac", new Dictionary<string, object> { {"type" , "DiscreetDiscount" } , { "DiscountCode" , "secretcode" } } , "a2dcca41f71f44d09fedd3837d3cc970");
-            ecom.ResetSystem("-7777777777777777777777777777777");
-            return;
-            Result<Dictionary<string, string>> res = ecom.getPruchasePolicies("c9e9eec4202248a7857a9c33daa919ac");
 
-            if (res.ErrorOccured)
+
+            //CREATING A HUGE DB FOR LOAD TESTING
+
+            //int num = 0;
+            //List<RegisteredUserSO> regs = new List<RegisteredUserSO>();
+            //while (num < 10000)
+            //{
+            //    regs.Add(ecom.Register("user" + num.ToString(), "pass").Value);
+            //    num++;
+            //}
+            List<RegisteredUserSO> regs = new List<RegisteredUserSO>();
+            int i = 0;
+            foreach(RegisteredUser r in ecom.systemFacade.userFacade.RegisteredUsers.Values)
             {
-                Console.Out.WriteLine(res.ErrorMessage);
-                return;
+                if (i >= 1000)
+                    break;
+                regs.Add(ecom.Login(r.UserName, "pass").Value);
+                i++;
             }
-            Console.Out.WriteLine(string.Join(Environment.NewLine, res.Value));
-            Console.ReadKey();
+            int num = 0;
+            List<StoreService> services = new List<StoreService>();
+            while (num < 1000)
+            {
+                services.Add(ecom.OpenNewStore("store" + num.ToString(), regs[num].Id).Value);
+                num++;
+            }
+            num = 0;
+            foreach (StoreService service in services)
+            {
+                while (num < 1000)
+                {
+                    ecom.AddProductToStore(service.Founder, service.Id, "product" + num.ToString(), 10, 10, "cat");
+                    num++;
+                }
+                num = 0;
+            }
             return;
         }
         /*
