@@ -1018,7 +1018,7 @@ namespace ServerApi
         public bool AddDiscountPolicyVisibleDiscount(string storeId, string ExpirationDate, string Percentage, string Target , string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "VisibleDiscount" }, { "ExpirationDate", ExpirationDate }, { "Percentage", Percentage }, { "Target", Target } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -1033,7 +1033,7 @@ namespace ServerApi
         public bool AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode , string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscreetDiscount" }, { "DiscountCode", DiscountCode } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -1047,7 +1047,7 @@ namespace ServerApi
         public bool AddDiscountPolicyConditionalDiscount(string storeId , string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "ConditionalDiscount" } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -1061,7 +1061,7 @@ namespace ServerApi
         public bool AddDiscountPolicyDiscountAddition(string storeId , string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "ConditionalDiscount" } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -1075,7 +1075,7 @@ namespace ServerApi
         public bool AddDiscountPolicyDiscountAnd(string storeId , string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountAnd" } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -1089,7 +1089,7 @@ namespace ServerApi
         public bool AddDiscountPolicyDiscountMax(string storeId , string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountMax" } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -1103,7 +1103,7 @@ namespace ServerApi
         public bool AddDiscountPolicyDiscountMin(string storeId , string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountMin" } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -1117,7 +1117,7 @@ namespace ServerApi
         public bool AddDiscountPolicyDiscountOr(string storeId , string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountOr" } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);
@@ -1131,7 +1131,7 @@ namespace ServerApi
         public bool AddDiscountPolicyDiscountXor(string storeId,string id)
         {
             Dictionary<string, object> info = new Dictionary<string, object> { { "type", "DiscountXor" } };
-            Result<bool> output = facade.AddDiscountPolicy(storeId, info);
+            Result<bool> output = facade.AddDiscountPolicy(storeId, info,id);
             if (output.ErrorOccured)
             {
                 Logger.GetInstance().Error(output.ErrorMessage);

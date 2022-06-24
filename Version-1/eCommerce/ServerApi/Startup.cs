@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Owin.Limits;
 
 [assembly: Microsoft.Owin.OwinStartup(typeof(ServerApi.Startup))]
 namespace ServerApi
@@ -14,10 +15,10 @@ namespace ServerApi
     {
         public static void Configuration(IAppBuilder appBuilder)
         {
+            
             HttpConfiguration CONFIG = new HttpConfiguration();
             CONFIG.EnableCors();
             CONFIG.MapHttpAttributeRoutes();
-
             CONFIG.Routes.MapHttpRoute(
                 name: "createUserApi",
                 routeTemplate: "api/{controller}/{Action}/{id}",
@@ -25,8 +26,10 @@ namespace ServerApi
                 );
             CONFIG.Formatters.JsonFormatter.SupportedMediaTypes
      .Add(new MediaTypeHeaderValue("text/html"));
+            
 
             appBuilder.UseWebApi(CONFIG);
+            appBuilder.MaxConcurrentRequests(500);
         }
     }
 }
