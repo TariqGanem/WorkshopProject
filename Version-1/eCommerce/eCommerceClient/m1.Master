@@ -218,6 +218,9 @@
                             <asp:Button ID="StoreHistory" runat="server" Text="StoreHistory" CssClass="auto_class8" Height="44px" Width="143px" OnClick="StoryHistoryBtn_OnClick"  />
                         </td>
                          <td class="auto-style21">
+                            <asp:Button ID="UserVisits" runat="server" Text="UserVisits" CssClass="auto_class8" Height="44px" Width="143px" OnClick="ButtonUserVisists_OnClick"  />
+                        </td>
+                         <td class="auto-style21">
                             <asp:Button ID="ButtonCloseStore" runat="server" Text="CloseStore" CssClass="auto_class8" Height="44px" Width="143px" OnClick="ButtonCloseStore_OnClick"  />
                         </td>
                          <td class="auto-style8">

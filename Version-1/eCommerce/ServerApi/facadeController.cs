@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using eCommerce.src.DataAccessLayer.DataTransferObjects;
 using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.ServiceLayer;
 using eCommerce.src.ServiceLayer.Objects;
@@ -1513,7 +1514,24 @@ namespace ServerApi
         }
 
 
-
+        // system info
+        [HttpGet]
+        public string[] getUsersVisitsInDate(string date)
+        {
+            Result<SystemInfo> output = facade.getUsersVisitsInDate(date);
+            if(output.ErrorOccured)
+            {
+                return new string[] { "Error:" + output.ErrorMessage };
+            }
+            String[] ret = new string[6];
+            ret[0] = output.Value.Date;
+            ret[1] = output.Value.RegisteredUsers.ToString();
+            ret[2] = output.Value.GuestUsers.ToString();
+            ret[3] = output.Value.ManagersNotOwners.ToString();
+            ret[4] = output.Value.Owners.ToString();
+            ret[5] = output.Value.Admins.ToString();
+            return ret;
+        }
 
 
 

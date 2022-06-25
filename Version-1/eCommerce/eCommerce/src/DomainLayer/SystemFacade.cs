@@ -14,6 +14,7 @@ using eCommerce.src.DomainLayer.Notifications;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using eCommerce.src.DomainLayer.Stores.OwnerAppointmennt;
+using eCommerce.src.ServiceLayer.Controllers;
 
 namespace eCommerce.src.DomainLayer
 {
@@ -121,6 +122,7 @@ namespace eCommerce.src.DomainLayer
         public GuestUserSO Login()
         {
             GuestUser user = userFacade.Login();
+            updateMonitor(user.Id);
             return new GuestUserSO(user);
         }
 
@@ -132,10 +134,14 @@ namespace eCommerce.src.DomainLayer
         public RegisteredUserSO Login(String userName, String password)
         {
             RegisteredUser user = userFacade.Login(userName, password);
+            updateMonitor(user.Id);
             return new RegisteredUserSO(user);
         }
 
-        public void Logout(String userId) { userFacade.Logout(userId); }
+        public void Logout(String userId) { 
+            userFacade.Logout(userId);
+            updateMonitor(userId);
+        }
 
         public void AddProductToCart(string userId, String productId, int quantity, String storeId)
         {
@@ -289,6 +295,7 @@ namespace eCommerce.src.DomainLayer
                 if (storeFacade.StoreExist(storeName))
                     throw new Exception("Store Name Already Exists In the system");
                 Store.Store s = storeFacade.OpenNewStore(founder, storeName);
+                updateMonitorForOpenStore(userID);
                 return new StoreService(s.Id, s.Name, s.Founder.GetId(), new LinkedList<string>(s.Owners.Keys), new LinkedList<string>(s.Managers.Keys), new UserHistorySO(s.History), s.Rate, s.NumberOfRates);
             }
             else
@@ -860,6 +867,88 @@ namespace eCommerce.src.DomainLayer
         public List<Dictionary<string, string>> getOwnerRequests(string storeid)
         {
             return storeFacade.getStoreOwnerRequests(storeid);
+        }
+
+        // system info
+
+        public void updateMonitor(String userID)
+        {
+            SysInfoController monitor = SysInfoController.getInstance();
+            if (userFacade.SystemAdmins.ContainsKey(userID))
+            {
+                monitor.update("Admins", userID);
+                return;
+            }
+            Boolean owner = isOwner(userID);
+            if (isManager(userID) && !owner)
+            {
+                monitor.update("ManagersNotOwners", userID);
+                return;
+            }
+            if (owner)
+            {
+                monitor.update("Owners", userID);
+                return;
+            }
+            if (isRegisterUser(userID))
+            {
+                monitor.update("RegisteredUsers", userID);
+            }
+            else
+            {
+                monitor.update("GuestUsers", userID);
+            }
+        }
+
+        public void updateMonitorForOpenStore(String userID)
+        {
+            SysInfoController monitor = SysInfoController.getInstance();
+            Boolean owner = isOwner(userID);
+            if (isManager(userID) && !owner)
+            {
+                monitor.updateForOpenStore("ManagersNotOwners", userID);
+                return;
+            }
+            if (isRegisterUser(userID))
+            {
+                monitor.updateForOpenStore("RegisteredUsers", userID);
+            }
+        }
+        public Boolean isRegisterUser(String userID)
+        {
+            return userFacade.RegisteredUsers.ContainsKey(userID);
+        }
+
+        public Boolean isManager(String userID)
+        {
+            foreach (var record in storeFacade.Stores)
+            {
+                Store.Store s = record.Value;
+                foreach (var manager in s.Managers)
+                {
+                    if (manager.Value.GetId() == userID)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public Boolean isOwner(String userID)
+        {
+            foreach (var record in storeFacade.Stores)
+            {
+                Store.Store s = record.Value;
+                foreach (var owner in s.Owners)
+                {
+                    if (owner.Value.GetId() == userID)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

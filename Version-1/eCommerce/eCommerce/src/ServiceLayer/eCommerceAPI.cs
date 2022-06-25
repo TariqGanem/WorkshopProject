@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using eCommerce.src.DataAccessLayer;
+using eCommerce.src.DataAccessLayer.DataTransferObjects;
 using eCommerce.src.DomainLayer;
 using eCommerce.src.DomainLayer.Notifications;
 using eCommerce.src.DomainLayer.User;
@@ -29,7 +30,7 @@ namespace eCommerce.src.ServiceLayer
         public NotificationsService notificationsService { get; set; }
 
         public IDataController dataController { get; set; }
-
+        public SysInfoController SysInfoController { get; set; }
         private eCommerceSystem(String config_path = @"..\..\src\Config.json" , string configData = "")
         {
             Config config;
@@ -54,6 +55,7 @@ namespace eCommerce.src.ServiceLayer
 
             DBUtil.getInstance(config.mongoDB_url, config.dbenv);
             Proxy.getInstance(config.externalSystem_url);
+            this.SysInfoController = SysInfoController.getInstance();
             systemFacade = new SystemFacade(config.email , config.password);
             UserController = new UserController(systemFacade);
             GuestController = new GuestController(systemFacade);
@@ -532,5 +534,14 @@ namespace eCommerce.src.ServiceLayer
 
         }
         // ---
+
+        // system info
+        public Result<SystemInfo> getUsersVisitsInDate(string date)
+        {
+            return SysInfoController.getUserVisistsInDate(date);
+
+        }
+
+        // --- 
     }
 }

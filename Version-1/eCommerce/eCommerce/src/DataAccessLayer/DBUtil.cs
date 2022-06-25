@@ -23,6 +23,7 @@ using eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies;
 using eCommerce.src.ServiceLayer.ResultService;
 using eCommerce.src.DomainLayer.Stores.Policies;
 using eCommerce.src.DomainLayer.Stores.OwnerAppointmennt;
+using System.Globalization;
 
 namespace eCommerce.src.DataAccessLayer
 {
@@ -73,6 +74,8 @@ namespace eCommerce.src.DataAccessLayer
         public DAO<DTO_DiscountAnd> DAO_DiscountAnd;
         public DAO<DTO_DiscountAddition> DAO_DiscountAddition;
         public DAO<DTO_OwnerRequest> DAO_OwnerRequest;
+        public DAO<SystemInfo> DAO_SysInfo;
+
 
 
         public ConcurrentDictionary<String, RegisteredUser> RegisteredUsers;
@@ -154,6 +157,8 @@ namespace eCommerce.src.DataAccessLayer
                 DAO_DiscountAnd = new DAO<DTO_DiscountAnd>(db, "DiscountPolicies");
                 DAO_DiscountAddition = new DAO<DTO_DiscountAddition>(db, "DiscountPolicies");
                 DAO_OwnerRequest = new DAO<DTO_OwnerRequest>(db, "OwnerRequests");
+                DAO_SysInfo = new DAO<SystemInfo>(db, "SystemVisits");
+
 
                 RegisteredUsers = new ConcurrentDictionary<String, RegisteredUser>();
                 GuestUsers = new ConcurrentDictionary<String, GuestUser>();
@@ -2722,6 +2727,51 @@ namespace eCommerce.src.DataAccessLayer
                     p.Quantity = dto.Quantity;
                 }
             }
+        }
+
+        // system info
+        public SystemInfo LoadSystemInfoRecord(string date)
+        {
+
+            var filter = Builders<BsonDocument>.Filter.Eq("Date", date);
+
+            List<BsonDocument> docs = DAO_SysInfo.collection.Find(filter).ToList();
+
+            SystemInfo dto = null;
+            foreach (BsonDocument doc in docs)
+            {
+                var json = doc.ToJson();
+                if (json.StartsWith("{ \"_id\" : ObjectId(")) { json = "{" + json.Substring(47); }
+                dto = JsonConvert.DeserializeObject<SystemInfo>(json);
+            }
+
+            return dto;
+        }
+
+        public void Update(SystemInfo monitor)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Date", monitor.Date);
+            var update = Builders<BsonDocument>.Update.Set("GuestUsers", monitor.GuestUsers)
+                                                    .Set("RegisteredUsers", monitor.RegisteredUsers)
+                                                    .Set("ManagersNotOwners", monitor.ManagersNotOwners)
+                                                    .Set("Owners", monitor.Owners)
+                                                    .Set("Admins", monitor.Admins);
+            DAO_SysInfo.Update(filter, update, true);
+        }
+
+        public SystemInfo LoadSystemInfo()
+        {
+
+            String date = DateTime.Now.Date.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);
+            var filter = Builders<BsonDocument>.Filter.Eq("Date", date);
+
+            SystemInfo dto = DAO_SysInfo.Load(filter);
+            if (dto is null)
+            {
+                dto = new SystemInfo(date, 0, 0, 0, 0, 0);
+            }
+            return dto;
+
         }
 
         public void clearDB()

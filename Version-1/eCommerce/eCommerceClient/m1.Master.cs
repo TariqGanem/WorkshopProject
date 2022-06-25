@@ -31,6 +31,7 @@ namespace Client
             ButtonCloseStore.Visible = false;
             UserOfferBtn.Visible = false;
             InitFilePath.Visible = false;
+            UserVisits.Visible = false;
 
 
             if (Session["isLogin"] != null && new UserHandler().isAdminUser(Session["userId"].ToString()))
@@ -51,6 +52,7 @@ namespace Client
                 ButtonCloseStore.Visible = true;
                 UserOfferBtn.Visible = true;
                 InitFilePath.Visible = true;
+                UserVisits.Visible = true;
 
             }
             else if(Session["isLogin"] != null)
@@ -82,6 +84,7 @@ namespace Client
                 ButtonCloseStore.Visible = false;
                 UserOfferBtn.Visible = false;
                 InitFilePath.Visible = false;
+                UserVisits.Visible = false;
                 UserHandler h = new UserHandler();
                 Session["userId"] = h.GuestLogin().Substring(1,32);
                 Labelname.Text = "Hello Dear Guest";
@@ -107,6 +110,7 @@ namespace Client
                 ButtonCloseStore.Visible = false;
                 UserOfferBtn.Visible = false;
                 InitFilePath.Visible = false;
+                UserVisits.Visible = false;
                 Labelname.Text = "Hello Dear Guest";
                 Labelname.Visible = true;
                 UserOfferBtn.Visible = true;
@@ -162,6 +166,8 @@ namespace Client
                         StoreHistory.Visible = true;
                         ButtonCloseStore.Visible = true;
                         InitFilePath.Visible = true;
+                        UserVisits.Visible = true;
+
                     }
                 }
                 else
@@ -384,6 +390,17 @@ namespace Client
             Response.Redirect("~/Notifications.aspx");
         }
 
- 
+        protected void ButtonUserVisists_OnClick(object sender, EventArgs e)
+        {
+            if(txtAdmin.Text.Trim().Length == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert('You Must Enter A Date in the admin txt box to access this op')", true);
+                return;
+            }
+            Session["Date"] = txtAdmin.Text;
+            Response.Redirect("~/UserVisits.aspx");
+
+        }
     }
 }

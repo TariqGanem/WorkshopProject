@@ -189,6 +189,7 @@
     <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\Policies\Purchase\DTO_OrPolicy.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\Policies\Purchase\DTO_Policies.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\Stores\Policies\Purchase\DTO_RestrictedHoursPolicy.cs" />
+    <Compile Include="src\DataAccessLayer\DataTransferObjects\SystemInfo.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\User\DTO_History.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\User\DTO_Notification.cs" />
     <Compile Include="src\DataAccessLayer\DataTransferObjects\User\DTO_PurchasedShoppingBag.cs" />
@@ -303,6 +304,7 @@
     <Compile Include="src\ServiceLayer\Controllers\GuestController.cs" />
     <Compile Include="src\ServiceLayer\Controllers\RegisteredUserController.cs" />
     <Compile Include="src\ServiceLayer\Controllers\StoreStaffController.cs" />
+    <Compile Include="src\ServiceLayer\Controllers\SysInfoController.cs" />
     <Compile Include="src\ServiceLayer\Controllers\SystemAdminController.cs" />
     <Compile Include="src\ServiceLayer\eCommerceAPI.cs" />
     <Compile Include="src\ServiceLayer\NotificationsService.cs" />
