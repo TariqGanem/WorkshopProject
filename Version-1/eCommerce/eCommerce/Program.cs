@@ -32,39 +32,38 @@ namespace eCommerce
 
             //CREATING A HUGE DB FOR LOAD TESTING
 
-            //int num = 0;
-            //List<RegisteredUserSO> regs = new List<RegisteredUserSO>();
-            //while (num < 10000)
-            //{
-            //    regs.Add(ecom.Register("user" + num.ToString(), "pass").Value);
-            //    num++;
-            //}
-            List<RegisteredUserSO> regs = new List<RegisteredUserSO>();
-            int i = 0;
-            foreach(RegisteredUser r in ecom.systemFacade.userFacade.RegisteredUsers.Values)
-            {
-                if (i >= 1000)
-                    break;
-                regs.Add(ecom.Login(r.UserName, "pass").Value);
-                i++;
-            }
-            int num = 0;
-            List<StoreService> services = new List<StoreService>();
-            while (num < 1000)
-            {
-                services.Add(ecom.OpenNewStore("store" + num.ToString(), regs[num].Id).Value);
-                num++;
-            }
-            num = 0;
-            foreach (StoreService service in services)
-            {
-                while (num < 1000)
+            /*
+                int num = 0;
+                List<RegisteredUserSO> regs = new List<RegisteredUserSO>();
+                //while (num < 3000)
+               // {
+                //    regs.Add(ecom.Register("user" + num.ToString(), "pass").Value);
+                //    num++;
+                //}
+
+                num = 0;
+                while(num < 3000)
                 {
-                    ecom.AddProductToStore(service.Founder, service.Id, "product" + num.ToString(), 10, 10, "cat");
+                    regs.Add(ecom.Login("user"+num.ToString(), "pass").Value);
                     num++;
                 }
                 num = 0;
-            }
+                List<StoreService> services = new List<StoreService>();
+                while (num < 3000)
+                {
+                    services.Add(ecom.OpenNewStore("store" + num.ToString(), regs[num].Id).Value);
+                    num++;
+                }
+                num = 0;
+                foreach (StoreService service in services)
+                {
+                    ecom.AddProductToStore(service.Founder, service.Id, "product", 10, 10, "cat");
+                }
+                foreach(RegisteredUserSO r in regs)
+                {
+                    ecom.Logout(r.Id);
+                }
+            */
             return;
         }
         /*
