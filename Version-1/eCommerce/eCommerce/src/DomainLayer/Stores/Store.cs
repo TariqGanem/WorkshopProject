@@ -91,6 +91,23 @@ namespace eCommerce.src.DomainLayer.Store
 
         }
 
+        public Store(string id, string name, InventoryManager inventoryManager, double rating, int numberOfRates, NotificationPublisher notificationManager, Boolean isClosed = false)
+        {
+            Id = id;
+            Name = name;
+            //Founder is injected manually
+            Owners = new ConcurrentDictionary<String, StoreOwner>();
+            Managers = new ConcurrentDictionary<String, StoreManager>();
+            InventoryManager = inventoryManager;
+            PolicyManager = new PolicyManager();   //PolicyManager is injected manually when needed for lazy load
+            OfferManager = new OfferManager();     //OfferManager is injected manually when needed for lazy load
+            History = new History();
+            Rate = rating;
+            NumberOfRates = numberOfRates;
+            NotificationPublisher = notificationManager;
+            this.Active = isClosed;
+        }
+
         public void AddRating(Double rate)
         {
             if (rate < 0 || rate > 5)

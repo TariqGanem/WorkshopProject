@@ -44,6 +44,29 @@ namespace eCommerce.src.DomainLayer.User
             this.PendingNotification = notifications;
         }
 
+        public RegisteredUser(string id, String email, String password)
+        {
+            this.UserName = email;
+            this.Id = id;
+            this._password = password; 
+            this.Active = false;
+            this.History = new History();
+            this.PendingNotification = new LinkedList<Notification>();
+            this.NotificationsDistributer = NotificationsDistributer.GetInstance();
+        }
+
+        public RegisteredUser(String Id, String email, String password, Boolean loggedin)
+        {
+            this.Id = Id;
+            this.UserName = email;
+            this._password = password;
+            this.Active = loggedin;
+            this.History = new History(); 
+            this.PendingNotification = new LinkedList<Notification>(); 
+            this.NotificationsDistributer = NotificationsDistributer.GetInstance();
+        }
+
+
         public void Login(String password)
         {
             //if (Active)
