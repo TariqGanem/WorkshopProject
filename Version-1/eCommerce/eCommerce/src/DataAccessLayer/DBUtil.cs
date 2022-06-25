@@ -2787,6 +2787,8 @@ namespace eCommerce.src.DataAccessLayer
                 db.GetCollection<BsonDocument>("DiscountPolicies").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("PurchasePolicies").DeleteMany(emptyFilter);
                 db.GetCollection<BsonDocument>("OwnerRequests").DeleteMany(emptyFilter);
+                db.GetCollection<BsonDocument>("SystemVisits").DeleteMany(emptyFilter);
+
 
                 RegisteredUsers.Clear();
                 GuestUsers.Clear();
