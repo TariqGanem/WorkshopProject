@@ -191,6 +191,8 @@
     <Compile Include="EditShop.aspx.designer.cs">
       <DependentUpon>EditShop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Result\Result.cs" />
+    <Compile Include="Result\ResultT.cs" />
     <Compile Include="UserVisits.aspx.cs">
       <DependentUpon>UserVisits.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

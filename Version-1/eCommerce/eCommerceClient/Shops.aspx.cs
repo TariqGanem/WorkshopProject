@@ -33,7 +33,8 @@ namespace Client
                     errorlabel.Text = "Rate Field is Empty";
                     return;
                 }
-                else if (a.AddStoreRating(Session["userId"].ToString(), e.CommandArgument.ToString(), int.Parse(nametxtbox.Text.ToString())))
+                string str = a.AddStoreRating(Session["userId"].ToString(), e.CommandArgument.ToString(), int.Parse(nametxtbox.Text.ToString()));
+                if (str.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelRateError"));
                     errorlabel.Visible = true;
@@ -43,7 +44,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelRateError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong -> Check Permission";
+                    errorlabel.Text = str;
                 }
             }
         }

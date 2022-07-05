@@ -39,7 +39,13 @@ namespace Client
             UserHandler sh = new UserHandler();
             String storeid = sh.getStoreIdByProductId(Session["productId"].ToString());
             storeid = UserHandler.getID(storeid);
-            sh.AddProductToCart(Session["userId"].ToString(), Session["productId"].ToString(),int.Parse(Label1.Text.ToString()), storeid);
+            string s = sh.AddProductToCart(Session["userId"].ToString(), Session["productId"].ToString(),int.Parse(Label1.Text.ToString()), storeid);
+            if(s.Substring(1,6) == "Error:")
+            {
+                LabelErrorRateProduct.Text = s;
+                LabelErrorRateProduct.Visible = true;
+                return;
+            }
             Response.Redirect("~/Home.aspx");
 
         }
@@ -55,7 +61,8 @@ namespace Client
                 LabelErrorRateProduct.Text = "Rate Field is Empty";
                 return;
             }
-            if (sh.addProductRating(Session["userId"].ToString(),storeid,Session["productId"].ToString(), int.Parse(TextBoxRate.Text.ToString())))
+            string str = sh.addProductRating(Session["userId"].ToString(), storeid, Session["productId"].ToString(), int.Parse(TextBoxRate.Text.ToString()));
+            if (str.Substring(1,6) != "Error:")
             {
                 LabelErrorRateProduct.Visible = true;
                 LabelErrorRateProduct.Text = "Product Rate Updated";
@@ -85,7 +92,8 @@ namespace Client
                 LabelErrorRateProduct.Text = "store is not found";
                 return;
             }
-            if (sh.SendOfferToStore(storeid.Substring(1, 32), Session["userId"].ToString(), Session["productId"].ToString(), int.Parse(AmountTxt.Text), int.Parse(priceTxt.Text)))
+            string str = sh.SendOfferToStore(storeid.Substring(1, 32), Session["userId"].ToString(), Session["productId"].ToString(), int.Parse(AmountTxt.Text), int.Parse(priceTxt.Text));
+            if (str.Substring(1,6) != "Error:")
             {
                 LabelErrorRateProduct.Visible = true;
                 LabelErrorRateProduct.Text = "Offer Sent";
@@ -94,7 +102,7 @@ namespace Client
             else
             {
                 LabelErrorRateProduct.Visible = true;
-                LabelErrorRateProduct.Text = "Something Went Wrong";
+                LabelErrorRateProduct.Text = str;
                 return;
             }
         }

@@ -133,7 +133,8 @@ namespace Client
 
         protected void ButtonAdd_Click(object sender, EventArgs e)
         {
-            if(new UserHandler().AddPurchasePolicyAndPolicy(Session["storeId"].ToString(),Session["PolicyId"].ToString()))
+            string str = new UserHandler().AddPurchasePolicyAndPolicy(Session["storeId"].ToString(), Session["PolicyId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 AndLabel.Visible = true;
                 AndLabel.Text = "Policy Added";
@@ -142,14 +143,15 @@ namespace Client
             else
             {
                 AndLabel.Visible = true;
-                AndLabel.Text = "Policy Failed To Add";
+                AndLabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonOr_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddPurchasePolicyOrPolicy(Session["storeId"].ToString(), Session["PolicyId"].ToString()))
+            string str = new UserHandler().AddPurchasePolicyOrPolicy(Session["storeId"].ToString(), Session["PolicyId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 OrLabel.Visible = true;
                 OrLabel.Text = "Policy Added";
@@ -158,14 +160,15 @@ namespace Client
             else
             {
                 OrLabel.Visible = true;
-                OrLabel.Text = "Policy Failed To Add";
+                OrLabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonCond_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddPurchasePolicyConditionalPolicy(Session["storeId"].ToString(), Session["PolicyId"].ToString()))
+            string str = new UserHandler().AddPurchasePolicyConditionalPolicy(Session["storeId"].ToString(), Session["PolicyId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 ConditionalLabel.Visible = true;
                 ConditionalLabel.Text = "Policy Added";
@@ -174,7 +177,7 @@ namespace Client
             else
             {
                 ConditionalLabel.Visible = true;
-                ConditionalLabel.Text = "Policy Failed To Add";
+                ConditionalLabel.Text = str;
                 return;
             }
         }
@@ -193,7 +196,8 @@ namespace Client
                 MaxProductLabel.Text = "Max Field is not a number";
                 return;
             }
-            if (new UserHandler().AddPurchasePolicyMaxProductPolicy(Session["storeId"].ToString(), ProductIdBox.Text , MaxBox.Text , Session["PolicyId"].ToString()))
+            string str = new UserHandler().AddPurchasePolicyMaxProductPolicy(Session["storeId"].ToString(), ProductIdBox.Text, MaxBox.Text, Session["PolicyId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 MaxProductLabel.Visible = true;
                 MaxProductLabel.Text = "Policy Added";
@@ -202,7 +206,7 @@ namespace Client
             else
             {
                 MaxProductLabel.Visible = true;
-                MaxProductLabel.Text = "Policy Failed To Add";
+                MaxProductLabel.Text = str;
                 return;
             }
         }
@@ -221,7 +225,8 @@ namespace Client
                 MinProductLabel.Text = "Min Field is not a number";
                 return;
             }
-            if (new UserHandler().AddPurchasePolicyMinProductPolicy(Session["storeId"].ToString(), ProductIdBoxMin.Text, MinBox.Text, Session["PolicyId"].ToString()))
+            string str = new UserHandler().AddPurchasePolicyMinProductPolicy(Session["storeId"].ToString(), ProductIdBoxMin.Text, MinBox.Text, Session["PolicyId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 MinProductLabel.Visible = true;
                 MinProductLabel.Text = "Policy Added";
@@ -230,7 +235,7 @@ namespace Client
             else
             {
                 MinProductLabel.Visible = true;
-                MinProductLabel.Text = "Policy Failed To Add";
+                MinProductLabel.Text = str;
                 return;
             }
         }
@@ -249,7 +254,8 @@ namespace Client
                 MinAgeLabel.Text = "Age Field is not a number";
                 return;
             }
-            if (new UserHandler().AddPurchasePolicyMinAgePolicy(Session["storeId"].ToString(), AgeBox.Text, Session["PolicyId"].ToString()))
+            string str = new UserHandler().AddPurchasePolicyMinAgePolicy(Session["storeId"].ToString(), AgeBox.Text, Session["PolicyId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 MinAgeLabel.Visible = true;
                 MinAgeLabel.Text = "Policy Added";
@@ -258,7 +264,7 @@ namespace Client
             else
             {
                 MinAgeLabel.Visible = true;
-                MinAgeLabel.Text = "Policy Failed To Add";
+                MinAgeLabel.Text = str;
                 return;
             }
         }
@@ -277,7 +283,8 @@ namespace Client
                 RestrictedHoursLabel.Text = "StartRestrict or EndRestrict are not dates";
                 return;
             }
-            if (new UserHandler().AddPurchasePolicyRestrictedHoursPolicy(Session["storeId"].ToString(),StartRestrictBox.Text , EndRestrictBox.Text, ProductIdBoxRes.Text, Session["PolicyId"].ToString()))
+            string str =  new UserHandler().AddPurchasePolicyRestrictedHoursPolicy(Session["storeId"].ToString(), StartRestrictBox.Text, EndRestrictBox.Text, ProductIdBoxRes.Text, Session["PolicyId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 RestrictedHoursLabel.Visible = true;
                 RestrictedHoursLabel.Text = "Policy Added";
@@ -286,7 +293,7 @@ namespace Client
             else
             {
                 RestrictedHoursLabel.Visible = true;
-                RestrictedHoursLabel.Text = "Policy Failed To Add";
+                RestrictedHoursLabel.Text = str;
                 return;
             }
         }

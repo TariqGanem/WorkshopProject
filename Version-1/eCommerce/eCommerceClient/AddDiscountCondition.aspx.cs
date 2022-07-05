@@ -83,7 +83,8 @@ namespace Client
         }
         protected void ButtonAndCond_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddDiscountConditionDiscountConditionAnd(Session["storeId"].ToString(), Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountConditionDiscountConditionAnd(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 AndLabel.Visible = true;
                 AndLabel.Text = "Condition Added";
@@ -92,14 +93,15 @@ namespace Client
             else
             {
                 AndLabel.Visible = true;
-                AndLabel.Text = "Failed To Add Condition";
+                AndLabel.Text =str;
                 return;
             }
         }
 
         protected void ButtonOr_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddDiscountConditionDiscountConditionOr(Session["storeId"].ToString(), Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountConditionDiscountConditionOr(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 OrLabel.Visible = true;
                 OrLabel.Text = "Condition Added";
@@ -108,7 +110,7 @@ namespace Client
             else
             {
                 OrLabel.Visible = true;
-                OrLabel.Text = "Failed To Add Condition";
+                OrLabel.Text = str;
                 return;
             }
         }
@@ -127,7 +129,8 @@ namespace Client
                 MaxProductLabel.Text = "Max Quantity must be a number";
                 return;
             }
-            if(new UserHandler().AddDiscountConditionMaxProductCondition(Session["storeId"].ToString(),MaxQuantityBox.Text, ProductIdBoxMaxPro.Text , Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountConditionMaxProductCondition(Session["storeId"].ToString(), MaxQuantityBox.Text, ProductIdBoxMaxPro.Text, Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 MaxProductLabel.Visible = true;
                 MaxProductLabel.Text = "Condition Added";
@@ -136,7 +139,7 @@ namespace Client
             else
             {
                 MaxProductLabel.Visible = true;
-                MaxProductLabel.Text = "Failed To Add Condition";
+                MaxProductLabel.Text = str;
                 return;
             }
         }
@@ -155,7 +158,8 @@ namespace Client
                 MinQuanLabel.Text = "Min Quantity must be a number";
                 return;
             }
-            if (new UserHandler().AddDiscountConditionMinProductCondition(Session["storeId"].ToString(), MinQuantityBox.Text, ProductIdBoxMinQuan.Text, Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountConditionMinProductCondition(Session["storeId"].ToString(), MinQuantityBox.Text, ProductIdBoxMinQuan.Text, Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 MinQuanLabel.Visible = true;
                 MinQuanLabel.Text = "Condition Added";
@@ -164,7 +168,7 @@ namespace Client
             else
             {
                 MinQuanLabel.Visible = true;
-                MinQuanLabel.Text = "Failed To Add Condition";
+                MinQuanLabel.Text = str;
                 return;
             }
         }
@@ -183,7 +187,8 @@ namespace Client
                 MinBagPriceLabel.Text = "Min Price must be a number";
                 return;
             }
-            if (new UserHandler().AddDiscountConditionMinBagPriceCondition(Session["storeId"].ToString(), MinPriceBox.Text,Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountConditionMinBagPriceCondition(Session["storeId"].ToString(), MinPriceBox.Text, Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 MinBagPriceLabel.Visible = true;
                 MinBagPriceLabel.Text = "Condition Added";
@@ -192,7 +197,7 @@ namespace Client
             else
             {
                 MinBagPriceLabel.Visible = true;
-                MinBagPriceLabel.Text = "Failed To Add Condition";
+                MinBagPriceLabel.Text =str;
                 return;
             }
         }

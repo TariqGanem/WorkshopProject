@@ -35,22 +35,22 @@ namespace Client
             {
                 Session["storeId"] = e.CommandArgument;
                 UserHandler sh = new UserHandler();
-                bool res  = sh.CloseShop(Session["storeId"].ToString(), Session["userId"].ToString());
+                string res  = sh.CloseShop(Session["storeId"].ToString(), Session["userId"].ToString());
                 Response.Redirect("~/MyShops.aspx");
-                if(!res)
+                if(res.Substring(1,6) == "Error:")
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('you dont have permission')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(" + res + ")", true);
                 }
             }
             if (e.CommandName == "reopen")
             {
                 Session["storeId"] = e.CommandArgument;
                 UserHandler sh = new UserHandler();
-                bool res = sh.reOpenStore(Session["storeId"].ToString(), Session["userId"].ToString());
+                string res = sh.reOpenStore(Session["storeId"].ToString(), Session["userId"].ToString());
                 Response.Redirect("~/MyShops.aspx");
-                if (!res)
+                if (res.Substring(1,6) == "Error:")
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('you dont have permission')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(" + res + ")", true);
                 }
             }
         }

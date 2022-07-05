@@ -171,7 +171,8 @@ namespace Client
 
         protected void ButtonAConditional_Click(object sender, EventArgs e)
         {
-            if(new UserHandler().AddDiscountPolicyConditionalDiscount(Session["storeId"].ToString(),Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountPolicyConditionalDiscount(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 ConditionalLabel.Visible = true;
                 ConditionalLabel.Text = "Discount Added";
@@ -180,14 +181,15 @@ namespace Client
             else
             {
                 ConditionalLabel.Visible = true;
-                ConditionalLabel.Text = "Failed To Add Discount";
+                ConditionalLabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonAnd_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddDiscountPolicyDiscountAnd(Session["storeId"].ToString(), Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountPolicyDiscountAnd(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 AndLabel.Visible = true;
                 AndLabel.Text = "Discount Added";
@@ -196,14 +198,15 @@ namespace Client
             else
             {
                 AndLabel.Visible = true;
-                AndLabel.Text = "Failed To Add Discount";
+                AndLabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonAddition_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddDiscountPolicyDiscountAddition(Session["storeId"].ToString(), Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountPolicyDiscountAddition(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 additionlabel.Visible = true;
                 additionlabel.Text = "Discount Added";
@@ -212,14 +215,15 @@ namespace Client
             else
             {
                 additionlabel.Visible = true;
-                additionlabel.Text = "Failed To Add Discount";
+                additionlabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonMax_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddDiscountPolicyDiscountMax(Session["storeId"].ToString(), Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountPolicyDiscountMax(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 MaxLabel.Visible = true;
                 MaxLabel.Text = "Discount Added";
@@ -228,14 +232,15 @@ namespace Client
             else
             {
                 MaxLabel.Visible = true;
-                MaxLabel.Text = "Failed To Add Discount";
+                MaxLabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonMin_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddDiscountPolicyDiscountMin(Session["storeId"].ToString(), Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountPolicyDiscountMin(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 MinLabel.Visible = true;
                 MinLabel.Text = "Discount Added";
@@ -244,14 +249,15 @@ namespace Client
             else
             {
                 MinLabel.Visible = true;
-                MinLabel.Text = "Failed To Add Discount";
+                MinLabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonOr_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddDiscountPolicyDiscountOr(Session["storeId"].ToString(), Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountPolicyDiscountOr(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 OrLabel.Visible = true;
                 OrLabel.Text = "Discount Added";
@@ -260,14 +266,15 @@ namespace Client
             else
             {
                 OrLabel.Visible = true;
-                OrLabel.Text = "Failed To Add Discount";
+                OrLabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonXor_Click(object sender, EventArgs e)
         {
-            if (new UserHandler().AddDiscountPolicyDiscountXor(Session["storeId"].ToString(), Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountPolicyDiscountXor(Session["storeId"].ToString(), Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 XorLabel.Visible = true;
                 XorLabel.Text = "Discount Added";
@@ -276,7 +283,7 @@ namespace Client
             else
             {
                 XorLabel.Visible = true;
-                XorLabel.Text = "Failed To Add Discount";
+                XorLabel.Text = str;
                 return;
             }
         }
@@ -289,7 +296,8 @@ namespace Client
                 DiscreetLabel.Text = "Code Field is Empty";
                 return;
             }
-            if (new UserHandler().AddDiscountPolicyDiscreetDiscount(Session["storeId"].ToString(), DisCodeBox.Text ,Session["DisId"].ToString()))
+            string str = new UserHandler().AddDiscountPolicyDiscreetDiscount(Session["storeId"].ToString(), DisCodeBox.Text, Session["DisId"].ToString());
+            if (str.Substring(1,6) != "Error:")
             {
                 DiscreetLabel.Visible = true;
                 DiscreetLabel.Text = "Discount Added";
@@ -298,13 +306,14 @@ namespace Client
             else
             {
                 DiscreetLabel.Visible = true;
-                DiscreetLabel.Text = "Failed To Add Discount";
+                DiscreetLabel.Text = str;
                 return;
             }
         }
 
         protected void ButtonVisibleDis_Click(object sender, EventArgs e)
         {
+            string str = "";
             if (ExpirationDateBox.Text.Trim().Length == 0 | PercentageBox.Text.Trim().Length == 0 | TargetTypeBox.Text.Trim().Length == 0 )
             {
                 VisibleLabel.Visible = true;
@@ -341,7 +350,8 @@ namespace Client
             }
             if (type == "Shop")
             {
-                if (new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|" , Session["DisId"].ToString()))
+                str = new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|", Session["DisId"].ToString());
+                if (str.Substring(1,6) != "Error:")
                 {
                     VisibleLabel.Visible = true;
                     VisibleLabel.Text = "Discount Added";
@@ -350,13 +360,14 @@ namespace Client
                 else
                 {
                     DiscreetLabel.Visible = true;
-                    DiscreetLabel.Text = "Failed To Add Discount";
+                    DiscreetLabel.Text = str;
                     return;
                 }
             }
             else if(type == "Products")
             {
-                if (new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|ProductIds:"+TargetParamsBox.Text, Session["DisId"].ToString()))
+                str = new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|ProductIds:" + TargetParamsBox.Text, Session["DisId"].ToString());
+                if (str.Substring(1,6) != "Error:")
                 {
                     VisibleLabel.Visible = true;
                     VisibleLabel.Text = "Discount Added";
@@ -365,13 +376,14 @@ namespace Client
                 else
                 {
                     DiscreetLabel.Visible = true;
-                    DiscreetLabel.Text = "Failed To Add Discount";
+                    DiscreetLabel.Text = str;
                     return;
                 }
             }
             else if (type == "Categories")
             {
-                if (new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|Categories:" + TargetParamsBox.Text, Session["DisId"].ToString()))
+                str = new UserHandler().AddDiscountPolicyVisibleDiscount(Session["storeId"].ToString(), ExpirationDateBox.Text, PercentageBox.Text, type + "|Categories:" + TargetParamsBox.Text, Session["DisId"].ToString());
+                if (str.Substring(1,6) != "Error:")
                 {
                     VisibleLabel.Visible = true;
                     VisibleLabel.Text = "Discount Added";
@@ -380,7 +392,7 @@ namespace Client
                 else
                 {
                     DiscreetLabel.Visible = true;
-                    DiscreetLabel.Text = "Failed To Add Discount";
+                    DiscreetLabel.Text = str;
                     return;
                 }
             }

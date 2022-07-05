@@ -36,14 +36,14 @@ namespace Client.Code
         }
 
         public string Purchase(string userName, string card_number, string month, string year,
-            string holder, string ccv, string id, string name, string address, string city, string country, string zip) // fixing
+            string holder, string ccv, string id, string name, string address, string city, string country, string zip)
         {
             string param = string.Format("userName={0}&card_number={1}&month={2}&year={3}&holder={4}" +
                 "&ccv={5}&id={6}&name={7}&address={8}&city={9}&country={10}&zip={11}", userName, card_number, month, year, holder, ccv, id, name, address, city, country, zip);
             return system.SendApi("Purchase", param);
         }
 
-        public string UpdateCart(string userId, string storeId, string productId, int newAmount) // fixing
+        public string UpdateCart(string userId, string storeId, string productId, int newAmount) 
         {
             string param = string.Format("userId={0}&storeId={1}&productId={2}&newAmount={3}", userId, storeId, productId, newAmount);
             return system.SendApi("UpdateCart", param);
@@ -73,26 +73,26 @@ namespace Client.Code
             return set;
         }
 
-        public string AddProductToCart(string userId, string productId, int quantity, string storeId) // fixing
+        public string AddProductToCart(string userId, string productId, int quantity, string storeId) 
         {
             string param = string.Format("userId={0}&productId={1}&quantity={2}&storeId={3}", userId, productId, quantity, storeId);
             return system.SendApi("AddProductToCart", param);
         }
 
-        public string RemoveProductFromCart(string userId, string storeId, string productId) // fixing
+        public string RemoveProductFromCart(string userId, string storeId, string productId) 
         {
             string param = string.Format("userId={0}&storeId={1}&productId={2}", userId, storeId, productId);
             return system.SendApi("RemoveProductFromCart", param);
         }
 
-        public string AddProductToStore(string userId, string storeId, string productName, int price, int quantity, // fixing
+        public string AddProductToStore(string userId, string storeId, string productName, int price, int quantity,
             string category)
         {
             string param = string.Format("userId={0}&storeId={1}&productName={2}&price={3}&quantity={4}&category={5}", userId, storeId, productName, price, quantity, category);
             return system.SendApi("AddProductToStore", param);
         }
 
-        public string RemoveProductFromStore(String userID, String storeID, String productID) // fixing
+        public string RemoveProductFromStore(String userID, String storeID, String productID) 
         {
             string param = string.Format("userID={0}&storeID={1}&productID={2}", userID, storeID, productID);
             return system.SendApi("RemoveProductFromStore", param);
@@ -104,40 +104,40 @@ namespace Client.Code
             return system.SendApi("OpenShop", param);
         }
 
-        public string CloseShop(string storeId, string userId) // fixing
+        public string CloseShop(string storeId, string userId) 
         {
             string param = string.Format("storeId={0}&userId={1}", storeId, userId);
             return system.SendApi("CloseShop", param);
         }
 
-        public string makeNewOwner(string newOwnerId, string currentOwnerId, string storeId) // fixing
+        public string makeNewOwner(string newOwnerId, string currentOwnerId, string storeId) 
         {
             string param = string.Format("newOwnerId={0}&currentOwnerId={1}&storeId={2}", newOwnerId, currentOwnerId, storeId);
             return system.SendApi("makeNewOwner", param);
         }
 
-        public string AddStoreManager(string storeId, string currentOwnerId, string newManagerId) // fixing
+        public string AddStoreManager(string storeId, string currentOwnerId, string newManagerId) 
         {
             string param = string.Format("storeId={0}&currentOwnerId={1}&newManagerId={2}", storeId, currentOwnerId, newManagerId);
             return system.SendApi("AddStoreManager", param);
         }
 
-        public string removeManager(string currentOwnerId, string storeId, string ManagerToRemove) // fixing
+        public string removeManager(string currentOwnerId, string storeId, string ManagerToRemove)
         {
             string param = string.Format("currentOwnerId={0}&storeId={1}&ManagerToRemove={2}", currentOwnerId, storeId, ManagerToRemove);
             return system.SendApi("removeManager", param);
         }
 
-        public string removeOwner(string currentOwnerId, string storeId, string OwnerToRemove) // fixing
+        public string removeOwner(string currentOwnerId, string storeId, string OwnerToRemove) 
         {
             string param = string.Format("currentOwnerId={0}&storeId={1}&OwnerToRemove={2}", currentOwnerId, storeId, OwnerToRemove);
             return system.SendApi("removeOwner", param);
         }
 
-        public string isStoreOwner(string userid, string storeid) // fixing
+        public bool isStoreOwner(string userid, string storeid) 
         {
             string param = string.Format("userid={0}&storeid={1}", userid, storeid);
-            return system.SendApi("isStoreOwner", param);
+            return bool.Parse(system.SendApi("isStoreOwner", param));
         }
 
         public DataSet SearchProduct(string keyword)
@@ -246,26 +246,26 @@ namespace Client.Code
             return d1;
         }
 
-        public string reOpenStore(string storeid, string userid) // fixing
+        public string reOpenStore(string storeid, string userid) 
         {
             string param = string.Format("storeid={0}&userid={1}", storeid, userid);
             return system.SendApi("reOpenStore", param);
         }
 
-        public string editProductDetail(string userID, string storeID, string productID, // fixing
+        public string editProductDetail(string userID, string storeID, string productID, 
             string param, string editto)
         {
             string par = string.Format("userID={0}&storeID={1}&productID={2}&param={3}&editto={4}", userID, storeID, productID, param, editto);
             return system.SendApi("editProductDetail", par);
         }
 
-        public string SetPermissions(string storeID, string managerID, string ownerID, String Permissions) // fixing
+        public string SetPermissions(string storeID, string managerID, string ownerID, String Permissions) 
         {
             string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&Permissions={3}", storeID, managerID, ownerID, Permissions);
             return system.SendApi("SetPermissions", param);
         }
 
-        public string RemovePermissions(string storeID, string managerID, string ownerID, String permissions) // fixing
+        public string RemovePermissions(string storeID, string managerID, string ownerID, String permissions) 
         {
             string param = string.Format("storeID={0}&managerID={1}&ownerID={2}&permissions={3}", storeID, managerID, ownerID, permissions);
             return system.SendApi("RemovePermissions", param);
@@ -299,13 +299,13 @@ namespace Client.Code
             return set;
         }
 
-        public string AddStoreRating(String userid, String storeid, double rate) // fixing
+        public string AddStoreRating(String userid, String storeid, double rate) 
         {
             string param = string.Format("userid={0}&storeid={1}&rate={2}", userid, storeid, rate);
             return system.SendApi("AddStoreRating", param);
         }
 
-        public string addProductRating(String userid, String storeid, String productid, double rate) // fixing
+        public string addProductRating(String userid, String storeid, String productid, double rate) 
         {
             string param = string.Format("userid={0}&storeid={1}&productid={2}&rate={3}", userid, storeid, productid, rate);
             return system.SendApi("addProductRating", param);
@@ -578,20 +578,20 @@ namespace Client.Code
         }
         // offers + policy funcs XD
 
-        public string SendOfferToStore(string storeID, string userID, string productID, int amount, double price) // fixing
+        public string SendOfferToStore(string storeID, string userID, string productID, int amount, double price) 
         {
             string param = string.Format("storeID={0}&userID={1}&productID={2}&amount={3}&price={4}", storeID, userID, productID, amount, price);
             return system.SendApi("SendOfferToStore", param);
         }
 
         
-        public string AnswerCounterOffer(string userID, string offerID, bool accepted) // fixing
+        public string AnswerCounterOffer(string userID, string offerID, bool accepted) 
         {
             string param = string.Format("userID={0}&offerID={1}&accepted={2}",userID,offerID,accepted);
             return system.SendApi("AnswerCounterOffer", param);
         }
 
-        public string SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer) // fixing
+        public string SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer) 
         {
             string param = string.Format("storeID={0}&ownerID={1}&userID={2}&offerID={3}&accepted={4}&counterOffer={5}", storeID, ownerID, userID,offerID,accepted,counterOffer);
             return system.SendApi("SendOfferResponseToUser", param);
@@ -708,109 +708,109 @@ namespace Client.Code
             return system.SendApi("AddDiscountPolicyVisibleDiscount", param);
         }
 
-        public string AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode) // fixing
+        public string AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode)
         {
             string param = string.Format("storeId={0}&DiscountCode={1}", storeId, DiscountCode);
             return system.SendApi("AddDiscountPolicyDiscreetDiscount", param);
         }
 
-        public string AddDiscountPolicyConditionalDiscount(string storeId) // fixing
+        public string AddDiscountPolicyConditionalDiscount(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddDiscountPolicyConditionalDiscount", param);
         }
 
-        public bool AddDiscountPolicyDiscountAddition(string storeId) // fixing
+        public string AddDiscountPolicyDiscountAddition(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
-            return bool.Parse(system.SendApi("AddDiscountPolicyDiscountAddition", param));
+            return system.SendApi("AddDiscountPolicyDiscountAddition", param);
         }
 
-        public string AddDiscountPolicyDiscountAnd(string storeId) // fixing
+        public string AddDiscountPolicyDiscountAnd(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddDiscountPolicyDiscountAnd", param);
         }
 
-        public string AddDiscountPolicyDiscountMax(string storeId) // fixing
+        public string AddDiscountPolicyDiscountMax(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddDiscountPolicyDiscountMax", param);
         }
 
-        public string AddDiscountPolicyDiscountMin(string storeId) // fixing
+        public string AddDiscountPolicyDiscountMin(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddDiscountPolicyDiscountMin", param);
         }
 
-        public string AddDiscountPolicyDiscountOr(string storeId) // fixing
+        public string AddDiscountPolicyDiscountOr(string storeId)
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddDiscountPolicyDiscountOr", param);
         }
 
-        public string AddDiscountPolicyDiscountXor(string storeId) // fixing
+        public string AddDiscountPolicyDiscountXor(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddDiscountPolicyDiscountXor", param);
         }
 
-        public string AddDiscountPolicyVisibleDiscount(string storeId, string ExpirationDate, string Percentage, string Target , string id) // fixing
+        public string AddDiscountPolicyVisibleDiscount(string storeId, string ExpirationDate, string Percentage, string Target , string id) 
         {
             string param = string.Format("storeId={0}&ExpirationDate={1}&Percentage={2}&Target={3}&id={4}", storeId, ExpirationDate, Percentage, Target,id);
             return system.SendApi("AddDiscountPolicyVisibleDiscount", param);
         }
 
-        public string AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode,string id) // fixing
+        public string AddDiscountPolicyDiscreetDiscount(string storeId, string DiscountCode,string id) 
         {
             string param = string.Format("storeId={0}&DiscountCode={1}&id={2}", storeId, DiscountCode,id);
             return system.SendApi("AddDiscountPolicyDiscreetDiscount", param);
         }
 
-        public string AddDiscountPolicyConditionalDiscount(string storeId, string id) // fixing
+        public string AddDiscountPolicyConditionalDiscount(string storeId, string id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId,id);
             return system.SendApi("AddDiscountPolicyConditionalDiscount", param);
         }
 
-        public string AddDiscountPolicyDiscountAddition(string storeId, string id) // fixing
+        public string AddDiscountPolicyDiscountAddition(string storeId, string id)
         {
             string param = string.Format("storeId={0}&id={1}", storeId,id);
             return system.SendApi("AddDiscountPolicyDiscountAddition", param);
         }
 
-        public string AddDiscountPolicyDiscountAnd(string storeId, string id) // fixing
+        public string AddDiscountPolicyDiscountAnd(string storeId, string id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId, id);
             return system.SendApi("AddDiscountPolicyDiscountAnd", param);
         }
 
-        public string AddDiscountPolicyDiscountMax(string storeId, string id) // fixing
+        public string AddDiscountPolicyDiscountMax(string storeId, string id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId,id);
             return system.SendApi("AddDiscountPolicyDiscountMax", param);
         }
 
-        public string AddDiscountPolicyDiscountMin(string storeId, string id) // fixing
-        {
+        public string AddDiscountPolicyDiscountMin(string storeId, string id)
+        { 
             string param = string.Format("storeId={0}&id={1}", storeId, id);
             return system.SendApi("AddDiscountPolicyDiscountMin", param);
         }
 
-        public string AddDiscountPolicyDiscountOr(string storeId, string id) // fixing
+        public string AddDiscountPolicyDiscountOr(string storeId, string id)
         {
             string param = string.Format("storeId={0}&id={1}", storeId,id);
             return system.SendApi("AddDiscountPolicyDiscountOr", param);
         }
 
-        public string AddDiscountPolicyDiscountXor(string storeId , string id) // fixing
+        public string AddDiscountPolicyDiscountXor(string storeId , string id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId,id);
             return system.SendApi("AddDiscountPolicyDiscountXor", param);
         }
 
-        public string RemoveDiscountPolicy(string storeId, String id) // fixing
+        public string RemoveDiscountPolicy(string storeId, String id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId, id);
             return system.SendApi("RemoveDiscountPolicy", param);
@@ -818,37 +818,37 @@ namespace Client.Code
 
            // Conditions
 
-        public string AddDiscountConditionDiscountConditionAnd(string storeId, String id) // fixing
+        public string AddDiscountConditionDiscountConditionAnd(string storeId, String id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId, id);
             return system.SendApi("AddDiscountConditionDiscountConditionAnd", param);
         }
 
-        public string AddDiscountConditionDiscountConditionOr(string storeId, String id) // fixing
+        public string AddDiscountConditionDiscountConditionOr(string storeId, String id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId, id);
             return system.SendApi("AddDiscountConditionDiscountConditionOr", param);
         }
 
-        public string AddDiscountConditionMaxProductCondition(string storeId, string MaxQuantity, string ProductId, string id) // fixing
+        public string AddDiscountConditionMaxProductCondition(string storeId, string MaxQuantity, string ProductId, string id)
         {
             string param = string.Format("storeId={0}&MaxQuantity={1}&ProductId={2}&id={3}", storeId, MaxQuantity, ProductId, id);
             return system.SendApi("AddDiscountConditionMaxProductCondition", param);
         }
 
-        public string AddDiscountConditionMinProductCondition(string storeId, string MinQuantity, string ProductId, string id) // fixing
+        public string AddDiscountConditionMinProductCondition(string storeId, string MinQuantity, string ProductId, string id) 
         {
             string param = string.Format("storeId={0}&MinQuantity={1}&ProductId={2}&id={3}", storeId, MinQuantity, ProductId, id);
             return system.SendApi("AddDiscountConditionMinProductCondition", param);
         }
 
-        public string AddDiscountConditionMinBagPriceCondition(string storeId, string MinPrice, string id) // fixing
+        public string AddDiscountConditionMinBagPriceCondition(string storeId, string MinPrice, string id) 
         {
             string param = string.Format("storeId={0}&MinPrice={1}&id={2}", storeId, MinPrice, id);
             return system.SendApi("AddDiscountConditionMinBagPriceCondition", param);
         }
 
-        public string RemoveDiscountCondition(string storeId, String id) // fixing
+        public string RemoveDiscountCondition(string storeId, String id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId, id);
             return system.SendApi("RemoveDiscountCondition", param);
@@ -856,91 +856,91 @@ namespace Client.Code
 
             // Purchase Funcs
 
-        public string AddPurchasePolicyAndPolicy(string storeId) // fixing
+        public string AddPurchasePolicyAndPolicy(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddPurchasePolicyAndPolicy", param);
         }
 
-        public string AddPurchasePolicyOrPolicy(string storeId) // fixing
+        public string AddPurchasePolicyOrPolicy(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddPurchasePolicyOrPolicy", param);
         }
 
-        public string AddPurchasePolicyConditionalPolicy(string storeId) // fixing
+        public string AddPurchasePolicyConditionalPolicy(string storeId) 
         {
             string param = string.Format("storeId={0}", storeId);
             return system.SendApi("AddPurchasePolicyConditionalPolicy", param);
         }
 
-        public string AddPurchasePolicyMaxProductPolicy(string storeId, string ProductId, string Max) // fixing
+        public string AddPurchasePolicyMaxProductPolicy(string storeId, string ProductId, string Max) 
         {
             string param = string.Format("storeId={0}&ProductId={1}&Max={2}", storeId, ProductId, Max);
             return system.SendApi("AddPurchasePolicyMaxProductPolicy", param);
         }
 
-        public string AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min) // fixing
+        public string AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min) 
         {
             string param = string.Format("storeId={0}&ProductId={1}&Min={2}", storeId, ProductId, Min);
             return system.SendApi("AddPurchasePolicyMinProductPolicy", param);
         }
 
-        public string AddPurchasePolicyMinAgePolicy(string storeId, string Age) // fixing
+        public string AddPurchasePolicyMinAgePolicy(string storeId, string Age) 
         {
             string param = string.Format("storeId={0}&Age={1}", storeId, Age);
             return system.SendApi("AddPurchasePolicyMinAgePolicy", param);
         }
 
-        public string AddPurchasePolicyRestrictedHoursPolicy(string storeId, string StartRestrict, string EndRestrict , string ProductId) // fixing
+        public string AddPurchasePolicyRestrictedHoursPolicy(string storeId, string StartRestrict, string EndRestrict , string ProductId) 
         {
             string param = string.Format("storeId={0}&StartRestrict={1}&EndRestrict={2}&ProductId={3}", storeId, StartRestrict, EndRestrict, ProductId);
             return system.SendApi("AddPurchasePolicyRestrictedHoursPolicy", param);
         }
 
-        public string AddPurchasePolicyAndPolicy(string storeId , string id) // fixing
+        public string AddPurchasePolicyAndPolicy(string storeId , string id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId,id);
             return system.SendApi("AddPurchasePolicyAndPolicy", param);
         }
 
-        public string AddPurchasePolicyOrPolicy(string storeId , string id) // fixing
+        public string AddPurchasePolicyOrPolicy(string storeId , string id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId,id);
             return system.SendApi("AddPurchasePolicyOrPolicy", param);
         }
 
-        public string AddPurchasePolicyConditionalPolicy(string storeId,string id) // fixing
+        public string AddPurchasePolicyConditionalPolicy(string storeId,string id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId,id);
             return system.SendApi("AddPurchasePolicyConditionalPolicy", param);
         }
 
-        public string AddPurchasePolicyMaxProductPolicy(string storeId, string ProductId, string Max, string id) // fixing
+        public string AddPurchasePolicyMaxProductPolicy(string storeId, string ProductId, string Max, string id) 
         {
             string param = string.Format("storeId={0}&ProductId={1}&Max={2}&id={3}", storeId, ProductId, Max,id);
             return system.SendApi("AddPurchasePolicyMaxProductPolicy", param);
         }
 
-        public string AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min, string id) // fixing
+        public string AddPurchasePolicyMinProductPolicy(string storeId, string ProductId, string Min, string id) 
         {
             string param = string.Format("storeId={0}&ProductId={1}&Min={2}&id={3}", storeId, ProductId, Min,id);
             return system.SendApi("AddPurchasePolicyMinProductPolicy", param);
         }
 
-        public string AddPurchasePolicyMinAgePolicy(string storeId, string Age, string id) // fixing
+        public string AddPurchasePolicyMinAgePolicy(string storeId, string Age, string id) 
         {
             string param = string.Format("storeId={0}&Age={1}&id={2}", storeId, Age,id);
             return system.SendApi("AddPurchasePolicyMinAgePolicy", param);
         }
 
         public string AddPurchasePolicyRestrictedHoursPolicy(string storeId, string StartRestrict, string EndRestrict, string ProductId, string id)
-        { // fixing
+        { 
             string param = string.Format("storeId={0}&StartRestrict={1}&EndRestrict={2}&ProductId={3}&id={4}", storeId, StartRestrict, EndRestrict, ProductId,id);
             return system.SendApi("AddPurchasePolicyRestrictedHoursPolicy", param);
         }
 
-        public string RemovePurchasePolicy(string storeId, String id) // fixing
+        public string RemovePurchasePolicy(string storeId, String id) 
         {
             string param = string.Format("storeId={0}&id={1}", storeId, id);
             return system.SendApi("RemovePurchasePolicy", param);
@@ -949,13 +949,13 @@ namespace Client.Code
         // ---- policies done
 
         // owner req
-        public string  SendOwnerApp(string storeID, string owner, string appointee) // fixing
+        public string  SendOwnerApp(string storeID, string owner, string appointee) 
         {
             string param = string.Format("storeID={0}&owner={1}&appointee={2}", storeID, owner,appointee);
             return system.SendApi("SendOwnerApp", param);
         }
 
-        public string SendOwnerRequestResponseToUser(string storeID, string ownerID, string offerID, bool accepted) // fixing
+        public string SendOwnerRequestResponseToUser(string storeID, string ownerID, string offerID, bool accepted) 
         {
             string param = string.Format("storeID={0}&ownerID={1}&offerID={2}&accepted={3}", storeID, ownerID, offerID,accepted);
             return system.SendApi("SendOwnerRequestResponseToUser", param);

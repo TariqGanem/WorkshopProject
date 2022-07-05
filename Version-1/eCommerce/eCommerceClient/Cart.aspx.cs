@@ -35,8 +35,8 @@ namespace Client
                 string[] cargs = e.CommandArgument.ToString().Split(',');
                 UserHandler s = new UserHandler();
                 string productid = s.getProductId(cargs[1].ToString(), cargs[0].ToString());
-                bool b = s.RemoveProductFromCart(Session["userId"].ToString(), cargs[1].ToString(), productid);
-                if (b)
+                string b = s.RemoveProductFromCart(Session["userId"].ToString(), cargs[1].ToString(), productid);
+                if (b.Substring(1, 6) != "Error:") ;
                 {
                     UserHandler c = new UserHandler();
                     Data_cart.DataSource = c.getUserShoppingCart(Session["userId"].ToString());
@@ -52,8 +52,8 @@ namespace Client
                 UserHandler s = new UserHandler();
                 string productid = s.getProductId(cargs[1].ToString(), cargs[0].ToString());
 
-                bool a = s.UpdateCart(Session["userId"].ToString(), cargs[1].ToString(), productid, int.Parse(cargs[2].ToString()) + 1);
-                if (a)
+                string a = s.UpdateCart(Session["userId"].ToString(), cargs[1].ToString(), productid, int.Parse(cargs[2].ToString()) + 1);
+                if (a.Substring(1,6) != "Error:")
                 {
                     Label b = e.Item.FindControl("Label1") as Label;
                     b.Text = String.Format("{0}", int.Parse(b.Text) + 1);
@@ -66,10 +66,9 @@ namespace Client
                 UserHandler s = new UserHandler();
                 string productid = s.getProductId(cargs[1].ToString(), cargs[0].ToString());
 
-                bool a = s.UpdateCart(Session["userId"].ToString(), cargs[1].ToString(), productid, int.Parse(cargs[2].ToString()) - 1);
-                if (a){
-                    //Data_cart.DataSource = s.GetUserBaskets(Session["userId"].ToString());
-                    //Data_cart.DataBind();
+                string a = s.UpdateCart(Session["userId"].ToString(), cargs[1].ToString(), productid, int.Parse(cargs[2].ToString()) - 1);
+                if (a.Substring(1,6) != "Error:")
+                {
                     Label b = e.Item.FindControl("Label1") as Label;
                     b.Text = String.Format("{0}", int.Parse(b.Text) - 1);
                 }
@@ -88,15 +87,16 @@ namespace Client
             }
             else
             {
-                bool buy = s.Purchase(Session["userId"].ToString(), TextBoxCreditcard.Text.ToString() , TextBoxMonth.Text.ToString(),TextBoxYear.Text.ToString(),TextBoxHolder.Text.ToString(),
+                string buy = s.Purchase(Session["userId"].ToString(), TextBoxCreditcard.Text.ToString() , TextBoxMonth.Text.ToString(),TextBoxYear.Text.ToString(),TextBoxHolder.Text.ToString(),
                     TextBoxCVV.Text.ToString() , TextBoxId.Text.ToString() , TextBoxName.Text.ToString(), TextBoxAdress.Text.ToString(), TextBoxCity.Text.ToString() , 
                     TextBoxCountry.Text.ToString() , TextBoxZip.Text.ToString());
-                if (buy)
+                if (buy.Substring(1,6) != "Error:")
                 {
                     Response.Redirect("~/PurchaseDone.aspx");
                 }
                 else
                 {
+                    LabelError.Text = buy;
                     LabelError.Visible = true;
                 }
             }

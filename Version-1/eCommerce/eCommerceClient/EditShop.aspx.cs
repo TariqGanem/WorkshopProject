@@ -435,12 +435,14 @@ namespace Client
                 Labelerror1.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            if (!a.AddProductToStore(Session["userId"].ToString(), Session["storeId"].ToString(),TextBoxproductName.Text.ToString(),
-                int.Parse(TextBoxprice.Text.ToString()), int.Parse(TextBoxAmount.Text.ToString()), TextBoxcategories.Text.ToString()))
+            string s = a.AddProductToStore(Session["userId"].ToString(), Session["storeId"].ToString(), TextBoxproductName.Text.ToString(),
+                int.Parse(TextBoxprice.Text.ToString()), int.Parse(TextBoxAmount.Text.ToString()), TextBoxcategories.Text.ToString());
+
+            if (s.Substring(1, 6) == "Error:") 
             {
 
                 Labelerror1.Visible = true;
-                Labelerror1.Text = "Something went wrong : You don't have permission";
+                Labelerror1.Text = s;
                 Labelerror1.ForeColor = System.Drawing.Color.Red;
 
             }
@@ -473,7 +475,8 @@ namespace Client
                 Labelerror2.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            if (u.AddStoreManager(Session["storeId"].ToString(), Session["userId"].ToString(), userid.Substring(1,32)))
+            string s = u.AddStoreManager(Session["storeId"].ToString(), Session["userId"].ToString(), userid.Substring(1, 32));
+            if (s.Substring(1,6) != "Error:")
             {
                 table2.Visible = false;
                 table1.Visible = false;
@@ -483,7 +486,7 @@ namespace Client
             else
             {
                 Labelerror2.Visible = true;
-                Labelerror2.Text = "Something gone wrong!";
+                Labelerror2.Text = s;
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
             
@@ -507,7 +510,8 @@ namespace Client
                 Labelerror3.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            if (u.SendOwnerApp(Session["storeId"].ToString(), Session["userId"].ToString(), userid.Substring(1, 32)))
+            string str = u.SendOwnerApp(Session["storeId"].ToString(), Session["userId"].ToString(), userid.Substring(1, 32));
+            if (str.Substring(1,6) != "Error:")
             {
                 table3.Visible = false;
                 table3.Visible = false;
@@ -517,7 +521,7 @@ namespace Client
             else
             {
                 Labelerror3.Visible = true;
-                Labelerror3.Text = "Something gone wrong!";
+                Labelerror3.Text = str;
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
 
@@ -541,7 +545,8 @@ namespace Client
                 Labelerror4.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            if (u.removeManager(Session["userId"].ToString(), Session["storeId"].ToString(), userid.Substring(1, 32)))
+            string s = u.removeManager(Session["userId"].ToString(), Session["storeId"].ToString(), userid.Substring(1, 32));
+            if (s.Substring(1,6) != "Error:")
             {
                 table4.Visible = false;
                 table4.Visible = false;
@@ -551,7 +556,7 @@ namespace Client
             else
             {
                 Labelerror4.Visible = true;
-                Labelerror4.Text = "Something gone wrong!";
+                Labelerror4.Text = s;
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
         }
@@ -574,7 +579,8 @@ namespace Client
                 Labelerror5.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            if (u.removeOwner(Session["userId"].ToString(), Session["storeId"].ToString(), userid.Substring(1, 32)))
+            string s = u.removeOwner(Session["userId"].ToString(), Session["storeId"].ToString(), userid.Substring(1, 32));
+            if (s.Substring(1,6) != "Error:")
             {
                 table5.Visible = false;
                 table5.Visible = false;
@@ -584,7 +590,7 @@ namespace Client
             else
             {
                 Labelerror5.Visible = true;
-                Labelerror5.Text = "Something gone wrong!";
+                Labelerror5.Text = s;
             }
             DropDownList1.SelectedIndex = DropDownList1.Items.IndexOf(DropDownList1.Items.FindByText("Select"));
         }
@@ -602,7 +608,8 @@ namespace Client
                     errorlabel.Text = "Name Field is Empty";
                     return;
                 }
-                else if (a.editProductDetail(Session["userId"].ToString(),Session["storeId"].ToString(),e.CommandArgument.ToString(),"Name", nametxtbox.Text.ToString()))
+                string res = a.editProductDetail(Session["userId"].ToString(), Session["storeId"].ToString(), e.CommandArgument.ToString(), "Name", nametxtbox.Text.ToString());
+                if (res.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelEditProductError"));
                     errorlabel.Visible = true;
@@ -612,7 +619,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelEditProductError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong -> Check Permission";
+                    errorlabel.Text = res;
                 }
             }
             if(e.CommandName.Equals("editPriceProduct"))
@@ -625,7 +632,8 @@ namespace Client
                     errorlabel.Text = "Price Field is Empty";
                     return;
                 }
-                else if (a.editProductDetail(Session["userId"].ToString(), Session["storeId"].ToString(), e.CommandArgument.ToString(), "Price", nametxtbox.Text.ToString()))
+                string str2 = a.editProductDetail(Session["userId"].ToString(), Session["storeId"].ToString(), e.CommandArgument.ToString(), "Price", nametxtbox.Text.ToString());
+                if (str2.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelEditProductError"));
                     errorlabel.Visible = true;
@@ -635,7 +643,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelEditProductError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong -> Check Permission";
+                    errorlabel.Text = str2;
                 }
             }
             if(e.CommandName.Equals("editCategoryProduct"))
@@ -648,7 +656,8 @@ namespace Client
                     errorlabel.Text = "Category Field is Empty";
                     return;
                 }
-                else if (a.editProductDetail(Session["userId"].ToString(), Session["storeId"].ToString(), e.CommandArgument.ToString(), "Category", nametxtbox.Text.ToString()))
+                string str3 = a.editProductDetail(Session["userId"].ToString(), Session["storeId"].ToString(), e.CommandArgument.ToString(), "Category", nametxtbox.Text.ToString());
+                if (str3.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelEditProductError"));
                     errorlabel.Visible = true;
@@ -658,7 +667,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelEditProductError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong -> Check Permission";
+                    errorlabel.Text = str3;
                 }
             }
             if(e.CommandName.Equals("editQuantityProduct"))
@@ -671,7 +680,8 @@ namespace Client
                     errorlabel.Text = "Quantity Field is Empty";
                     return;
                 }
-                else if (a.editProductDetail(Session["userId"].ToString(), Session["storeId"].ToString(), e.CommandArgument.ToString(), "Quantity", nametxtbox.Text.ToString()))
+                string str4 = a.editProductDetail(Session["userId"].ToString(), Session["storeId"].ToString(), e.CommandArgument.ToString(), "Quantity", nametxtbox.Text.ToString());
+                if (str4.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelEditProductError"));
                     errorlabel.Visible = true;
@@ -681,7 +691,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelEditProductError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong -> Check Permission";
+                    errorlabel.Text = str4;
                 }
             }
         }
@@ -727,7 +737,8 @@ namespace Client
                 return;
             }
             userid = userid.Substring(1, 32);
-           if(a.SetPermissions(Session["storeId"].ToString(),userid,Session["userId"].ToString(),TextBoxPermissionsToSet.Text.ToString()))
+            string str = a.SetPermissions(Session["storeId"].ToString(), userid, Session["userId"].ToString(), TextBoxPermissionsToSet.Text.ToString());
+           if (str.Substring(1,6) != "Error:")
             {
                 LabelErrorAddPerm.Visible = true;
                 LabelErrorAddPerm.Text = "Permissions Updated";
@@ -736,7 +747,7 @@ namespace Client
            else
             {
                 LabelErrorAddPerm.Visible = true;
-                LabelErrorAddPerm.Text = "Something Went Wrong - check permissions";
+                LabelErrorAddPerm.Text = str;
                 return;
             }
         }
@@ -782,7 +793,8 @@ namespace Client
                 return;
             }
             userid = userid.Substring(1, 32);
-            if (a.SetPermissions(Session["storeId"].ToString(), userid, Session["userId"].ToString(), TextBoxPermToRem.Text.ToString()))
+            string str2 = a.SetPermissions(Session["storeId"].ToString(), userid, Session["userId"].ToString(), TextBoxPermToRem.Text.ToString());
+            if (str2.Substring(1,6) != "Error:")
             {
                 LabelErrorRemovePerm.Visible = true;
                 LabelErrorRemovePerm.Text = "Permissions Updated";
@@ -791,7 +803,7 @@ namespace Client
             else
             {
                 LabelErrorRemovePerm.Visible = true;
-                LabelErrorRemovePerm.Text = "Something Went Wrong - check permissions";
+                LabelErrorRemovePerm.Text = str2;
                 return;
             }
 
@@ -814,7 +826,8 @@ namespace Client
             if(e.CommandName == "AcceptOffer")
             {
                 string[] cargs = e.CommandArgument.ToString().Split(',');
-                if (a.SendOfferResponseToUser(Session["storeId"].ToString(),Session["userId"].ToString(),cargs[0].ToString(),cargs[1].ToString(),true,-1))
+                string str1 = a.SendOfferResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), cargs[0].ToString(), cargs[1].ToString(), true, -1);
+                if (str1.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
                     errorlabel.Visible = true;
@@ -824,13 +837,14 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong - you cant submit two responses to the same offer / only owners can make this operation";
+                    errorlabel.Text = str1;
                 }
             }
             if (e.CommandName == "DeclineOffer")
             {
                 string[] cargs = e.CommandArgument.ToString().Split(',');
-                if (a.SendOfferResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), cargs[0].ToString(), cargs[1].ToString(), false, -1))
+                string str2 = a.SendOfferResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), cargs[0].ToString(), cargs[1].ToString(), false, -1);
+                if (str2.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
                     errorlabel.Visible = true;
@@ -840,7 +854,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong - you cant submit two responses to the same offer / only owners can make this operation";
+                    errorlabel.Text = str2;
                 }
             }
             if (e.CommandName == "SendCounterOffer")
@@ -856,7 +870,8 @@ namespace Client
                 }
 
                 string[] cargs = e.CommandArgument.ToString().Split(',');
-                if (a.SendOfferResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), cargs[0].ToString(), cargs[1].ToString(), false, int.Parse(counteroffer)))
+                string str3 = a.SendOfferResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), cargs[0].ToString(), cargs[1].ToString(), false, int.Parse(counteroffer));
+                if (str3.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
                     errorlabel.Visible = true;
@@ -866,7 +881,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelOfferError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong - you cant submit two responses to the same offer / only owners can make this operation";
+                    errorlabel.Text = str3;
                 }
             }
 
@@ -882,7 +897,8 @@ namespace Client
             }
             if(e.CommandName.Equals("RemovePolicy"))
             {
-                if(new UserHandler().RemovePurchasePolicy(Session["storeId"].ToString(), e.CommandArgument.ToString()))
+                string str = new UserHandler().RemovePurchasePolicy(Session["storeId"].ToString(), e.CommandArgument.ToString());
+                if (str.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelPolicyError"));
                     errorlabel.Visible = true;
@@ -892,7 +908,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelPolicyError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Removing Policy Failed";
+                    errorlabel.Text = str;
                 }
             }
         }
@@ -912,7 +928,8 @@ namespace Client
             }
             if (e.CommandName.Equals("RemoveDiscountPolicy"))
             {
-                if (new UserHandler().RemoveDiscountPolicy(Session["storeId"].ToString(), e.CommandArgument.ToString()))
+                string str = new UserHandler().RemoveDiscountPolicy(Session["storeId"].ToString(), e.CommandArgument.ToString());
+                if (str.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelDiscountError"));
                     errorlabel.Visible = true;
@@ -922,7 +939,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("LabelDiscountError"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Removing Discount Failed";
+                    errorlabel.Text = str;
                 }
                 return;
             }
@@ -943,7 +960,8 @@ namespace Client
         {
             if (e.CommandName.Equals("AcceptOwner"))
             {
-                if(new UserHandler().SendOwnerRequestResponseToUser(Session["storeId"].ToString(),Session["userId"].ToString(),e.CommandArgument.ToString(),true))
+                string str = new UserHandler().SendOwnerRequestResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), e.CommandArgument.ToString(), true);
+                if (str.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("OwnerReqErrorLabel"));
                     errorlabel.Visible = true;
@@ -953,12 +971,13 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("OwnerReqErrorLabel"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong - check permissions / if you already made a response";
+                    errorlabel.Text = str;
                 }
             }
             if (e.CommandName.Equals("DeclineOwner"))
             {
-                if (new UserHandler().SendOwnerRequestResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), e.CommandArgument.ToString(), false))
+                string str2 = new UserHandler().SendOwnerRequestResponseToUser(Session["storeId"].ToString(), Session["userId"].ToString(), e.CommandArgument.ToString(), false);
+                if (str2.Substring(1,6) != "Error:")
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("OwnerReqErrorLabel"));
                     errorlabel.Visible = true;
@@ -968,7 +987,7 @@ namespace Client
                 {
                     Label errorlabel = (Label)(e.Item.FindControl("OwnerReqErrorLabel"));
                     errorlabel.Visible = true;
-                    errorlabel.Text = "Something went wrong - check permissions / if you already made a response";
+                    errorlabel.Text = str2;
                 }
             }
         }

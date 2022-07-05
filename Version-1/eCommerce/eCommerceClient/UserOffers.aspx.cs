@@ -28,19 +28,21 @@ namespace Client
             string[] cargs = e.CommandArgument.ToString().Split(',');
             if (e.CommandName == "AcceptCounterOffer")
             {
-                if(!a.AnswerCounterOffer(Session["userId"].ToString(),cargs[1],true))
+                string str1 = a.AnswerCounterOffer(Session["userId"].ToString(), cargs[1], true);
+                if (str1.Substring(1,6) == "Error:")
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
-                    "alert('Something went wrong - Offer still under acceptance process in the store')", true);
+                    "alert(" + str1 + ")", true);
                     return;
                 }
             }
             if (e.CommandName == "DeclineCounterOffer")
             {
-                if (!a.AnswerCounterOffer(Session["userId"].ToString(), cargs[1], false))
+                string str2 = a.AnswerCounterOffer(Session["userId"].ToString(), cargs[1], false);
+                if (str2.Substring(1,6) == "Error:")
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
-                    "alert('Something went wrong - Offer still under acceptance process in the store')", true);
+                    "alert("+str2+")", true);
                     return;
                 }
             }

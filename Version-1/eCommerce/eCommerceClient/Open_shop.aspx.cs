@@ -30,7 +30,7 @@ namespace Client
             if (open.Substring(1,6).Equals("Error:")) {
                 Labelerror.Text = open;
                 Labelerror.Visible = true;
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('failed to open store!!!')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(" + open +  ")", true);
             }
             Labelerror.Text = "Store Opened";
             Labelerror.Visible = true;
