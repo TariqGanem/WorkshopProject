@@ -122,7 +122,7 @@ namespace eCommerce.src.DomainLayer.User
                     }
                     else
                     {
-                        throw new Exception($"{userName} is aleady in user\n Please use different email!");
+                        throw new Exception($"{userName} is aleady a user");
                     }
                 }
                 finally
@@ -132,7 +132,7 @@ namespace eCommerce.src.DomainLayer.User
             }
             catch (SynchronizationLockException SyncEx)
             {
-                throw new Exception("A SynchronizationLockException occurred. Message:" + SyncEx.Message);
+                throw new Exception("A SynchronizationLockException occurred.");
             }
         }
         public History GetUserPurchaseHistory(string userId)
@@ -159,7 +159,7 @@ namespace eCommerce.src.DomainLayer.User
             }
             else
             {
-                throw new Exception($"User (ID: {userId}) does not exists!");
+                throw new Exception($"User does not exists!");
             }
         }
 
@@ -277,7 +277,7 @@ namespace eCommerce.src.DomainLayer.User
             //there is only one system admin
             else
             {
-                throw new Exception($"{userName} could not be removed as system admin\n The system need at least one system admin!");
+                throw new Exception($"Failed To Remove , the system needs at least one admin");
 
             }
 
@@ -348,7 +348,7 @@ namespace eCommerce.src.DomainLayer.User
                     return registeredUser;
                 }
             }
-            throw new Exception($"Username {userName} doesn't exist!");
+            throw new Exception($"Username doesn't exist!");
         }
 
         private RegisteredUser GetUserById(String Id)
@@ -360,7 +360,7 @@ namespace eCommerce.src.DomainLayer.User
                     return registeredUser;
                 }
             }
-            throw new Exception($"Username {Id} doesn't exist!");
+            throw new Exception($"Username doesn't exist!");
         }
         private Boolean isUniqueEmail(string userName)
         {
@@ -522,7 +522,7 @@ namespace eCommerce.src.DomainLayer.User
             {
                 return user.UserName;
             }
-            throw new Exception($"user {userid} does not exist in the system");
+            throw new Exception($"user does not exist in the system");
         }
         #endregion
     }

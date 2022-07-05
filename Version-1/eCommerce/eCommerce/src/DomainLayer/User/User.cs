@@ -63,7 +63,7 @@ namespace eCommerce.src.DomainLayer.User
             }
             catch (SynchronizationLockException SyncEx)
             {
-                Console.WriteLine("A SynchronizationLockException occurred. Message:");
+                Console.WriteLine("A SynchronizationLockException occurred.");
                 Console.WriteLine(SyncEx.Message);
                 throw new Exception(SyncEx.Message);
             }

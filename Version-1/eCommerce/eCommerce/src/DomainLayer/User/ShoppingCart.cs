@@ -44,7 +44,7 @@ namespace eCommerce.src.DomainLayer.User
         {
             if (ShoppingBags.TryGetValue(storeId, out ShoppingBag shoppingBag))
                 return shoppingBag;
-            throw new Exception($"Shopping bag not found for the store id: {storeId}.");
+            throw new Exception($"Shopping bag not found for the store");
         }
 
         public Boolean AddShoppingBagToCart(ShoppingBag shoppingBag)
@@ -100,7 +100,7 @@ namespace eCommerce.src.DomainLayer.User
 
             if (paymentId == -1)
             {
-                throw new Exception("Attempt to purchase the shopping cart failed due to error in payment details\n");
+                throw new Exception("Attempt to purchase the shopping cart failed due to error in payment details");
 
             }
 
@@ -111,8 +111,8 @@ namespace eCommerce.src.DomainLayer.User
                 refundDetails.Add("transaction_id", paymentId.ToString());
                 int refundSuccess = Proxy.CancelTransaction(refundDetails);
                 if (refundSuccess == -1)
-                    throw new Exception("Attempt to purchase the shopping cart failed due to error in delivery details and refund failed\n");
-                throw new Exception("Attempt to purchase the shopping cart failed due to error in delivery details\n");
+                    throw new Exception("Attempt to purchase the shopping cart failed due to error in delivery details and refund failed");
+                throw new Exception("Attempt to purchase the shopping cart failed due to error in delivery details");
             }
             ShoppingCart copy = new ShoppingCart(this);
 

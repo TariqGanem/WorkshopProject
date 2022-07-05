@@ -237,7 +237,7 @@ namespace eCommerce.src.DomainLayer
                     //Console.WriteLine(SyncEx.Message);  
                     Logger.GetInstance().LogError(SyncEx.Message);
                     DBUtil.getInstance().RevertTransaction_Purchase(userId);
-                    throw new Exception("An error had occurred while you purchase");
+                    throw new Exception("Error occured during purchasing");
                 }
                 catch (Exception e)
                 {
@@ -300,7 +300,7 @@ namespace eCommerce.src.DomainLayer
             }
             else
             {
-                throw new Exception($"Failed to open store {storeName}: {userID} is not a registered user");
+                throw new Exception($"Failed to open store: {userID} is not a registered user");
             }
         }
 
@@ -312,7 +312,7 @@ namespace eCommerce.src.DomainLayer
             }
             else
             {
-                throw new Exception($"Failed to close store with id {storeID}: {userID} is not a registered user");
+                throw new Exception($"Failed to close store: {userID} is not a registered user");
             }
         }
         public void CloseStoreAdmin(string storeid)
@@ -349,7 +349,7 @@ namespace eCommerce.src.DomainLayer
             }
             else
             {
-                throw new Exception($"Failed to appoint store owner: {addedOwnerID} is not a registered user");
+                throw new Exception($"Failed to appoint store owner: not a registered user");
             }
         }
 
@@ -388,7 +388,7 @@ namespace eCommerce.src.DomainLayer
             }
             else
             {
-                throw new Exception($"Failed to appoint store owner: {appointee} is not a registered user");
+                throw new Exception($"Failed to appoint store owner: not a registered user");
             }
         }
 
@@ -400,7 +400,7 @@ namespace eCommerce.src.DomainLayer
             }
             else
             {
-                throw new Exception($"Failed to appoint store manager: {addedManagerID} is not a registered user");
+                throw new Exception($"Failed to appoint store manager: not a registered user");
             }
         }
 
@@ -412,7 +412,7 @@ namespace eCommerce.src.DomainLayer
             }
             else
             {
-                throw new Exception($"Failed to remove store manager: {removedManagerID} is not a registered user");
+                throw new Exception($"Failed to remove store manager: not a registered user");
             }
         }
 
@@ -424,7 +424,7 @@ namespace eCommerce.src.DomainLayer
             }
             else
             {
-                throw new Exception($"Failed to remove store owner: {removedOwnerID} is not a registered user");
+                throw new Exception($"Failed to remove store owner: not a registered user");
             }
         }
 
@@ -488,7 +488,7 @@ namespace eCommerce.src.DomainLayer
                 return res.getSO();
             }
             //else
-            throw new Exception($"Failed to reopen store (Id: {storeid}): {userid} is not a registered user.\n");
+            throw new Exception($"Failed to reopen store : not a registered user.\n");
         }
 
         public bool SendOfferResponseToUser(string storeID, string ownerID, string userID, string offerID, bool accepted, double counterOffer)
@@ -544,7 +544,7 @@ namespace eCommerce.src.DomainLayer
 
             OwnerRequestResponse respone = storeResult;
             if (!userFacade.RegisteredUsers.TryGetValue(offer.UserID, out RegisteredUser futureowner))
-                throw new Exception("userId is not a registered User");
+                throw new Exception("future owner is not a registered User");
             if (respone == OwnerRequestResponse.Accepted)
             {
                 storeFacade.AddStoreOwner( futureowner, offer.AppointedBy, storeID);
@@ -694,13 +694,13 @@ namespace eCommerce.src.DomainLayer
                         return true;
                     }
                     else
-                        throw new Exception($"user {userid} is not logged in to give rating");
+                        throw new Exception($"user is not logged in to give rating");
                 }
                 else
-                    throw new Exception($"store {storeid} does not exist");
+                    throw new Exception($"store does not exist");
             }
             else
-                throw new Exception($"user {userid} does not exist");
+                throw new Exception($"user does not exist");
         }
 
         public bool AddProductRatingInStore(string userid, string storeid, string productid, double rate)
@@ -716,13 +716,13 @@ namespace eCommerce.src.DomainLayer
 
                     }
                     else
-                        throw new Exception($"user {userid} is not logged in to give rating");
+                        throw new Exception($"user is not logged in to give rating");
                 }
                 else
-                    throw new Exception($"store {storeid} does not exist");
+                    throw new Exception($"store does not exist");
             }
             else
-                throw new Exception($"user {userid} does not exist");
+                throw new Exception($"user does not exist");
         }
 
         public LinkedList<Notification> getUserNotifications(string userid)
@@ -737,7 +737,7 @@ namespace eCommerce.src.DomainLayer
                     throw new Exception("user is not active cant dispaly notifications");
             }
             else
-                throw new Exception($"user {userid} does not exits");
+                throw new Exception($"user does not exits");
 
         }
 
@@ -747,7 +747,7 @@ namespace eCommerce.src.DomainLayer
             {
                 return true;
             }
-            throw new Exception($"{userid} is not a registered user");
+            throw new Exception($"user is not a registered user");
 
         }
 
@@ -758,7 +758,7 @@ namespace eCommerce.src.DomainLayer
                 return store.getProductId(productname);
             }
             else
-                throw new Exception($"store {storeid} does not exist");
+                throw new Exception($"store does not exist");
         }
 
         public List<StoreService> GetStoresIManage(string userid)

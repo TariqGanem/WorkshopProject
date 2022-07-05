@@ -49,7 +49,7 @@ namespace eCommerce.src.DomainLayer.Store
             if (Products.TryRemove(productID, out Product _)){  }
             else
             {
-                throw new Exception($"Trying to remove non-existed product. (ID: {productID})");
+                throw new Exception($"Trying to remove non-existed product");
             }
         }
 
@@ -60,7 +60,7 @@ namespace eCommerce.src.DomainLayer.Store
                 ObjectDictionaryMapper<Product>.SetPropertyValue(toEdit, details);
             }
             else // bug fix ( added else )
-                throw new Exception($"Faild to edit product (ID: {productID}) - Product not found");
+                throw new Exception($"Faild to edit product - Product not found");
         }
 
         public List<Product> SearchProduct(Double storeRating, IDictionary<String, Object> searchAttributes)
@@ -139,7 +139,7 @@ namespace eCommerce.src.DomainLayer.Store
             {
                 return product;
             }
-            throw new Exception($"Product (ID: {productID}) not found");
+            throw new Exception($"Product not found");
         }
     }
 }

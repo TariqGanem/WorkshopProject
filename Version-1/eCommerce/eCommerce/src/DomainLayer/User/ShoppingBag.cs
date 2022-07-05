@@ -65,7 +65,7 @@ namespace eCommerce.src.DomainLayer.User
                 }
             }
             //else failed
-            throw new Exception($"Asked quantity ({productQuantity}) of product {product.Name} is higher than quantity in store ({product.Quantity}).\n");
+            throw new Exception($"Asked quantity ({productQuantity}) of product {product.Name} is higher than quantity in store ({product.Quantity})");
         }
 
         // This quantity will be the updated quantity of the product in the bag .

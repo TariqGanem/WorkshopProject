@@ -91,7 +91,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
         public override bool AddDiscount(String id, IDiscountPolicy discount)
         {
             if (Id.Equals(id))
-                throw new Exception("Can't add a discount to a visible discount with an id ");
+                throw new Exception("Can't add a discount to a visible discount");
             return false;
         }
 

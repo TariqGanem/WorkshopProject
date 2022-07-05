@@ -115,7 +115,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
             else
             {
-                throw new Exception($"Store ID {storeID} not found");
+                throw new Exception($"Store ID not found");
             }
         }
 
@@ -133,7 +133,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
             else
             {
-                throw new Exception($"Store ID {storeID} not found");
+                throw new Exception($"Store ID not found");
             }
         }
 
@@ -156,7 +156,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
             else
             {
-                throw new Exception($"Store ID {storeID} not found");
+                throw new Exception($"Store ID not found");
             }
         }
 
@@ -182,7 +182,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
             else
             {
-                throw new Exception($"Store ID {storeID} not found");
+                throw new Exception($"Store ID not found");
             }
         }
 
@@ -211,7 +211,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
             else
             {
-                throw new Exception($"Store ID {storeID} not found");
+                throw new Exception($"Store ID not found");
             }
         }
 
@@ -236,7 +236,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
             else
             {
-                throw new Exception($"Store ID {storeID} not found");
+                throw new Exception($"Store ID not found");
             }
         }
 
@@ -260,7 +260,7 @@ namespace eCommerce.src.DomainLayer.Store
             }
             else
             {
-                throw new Exception($"Store ID {storeID} not found.");
+                throw new Exception($"Store not found.");
             }
         }
 
@@ -305,7 +305,7 @@ namespace eCommerce.src.DomainLayer.Store
                 }
                 else
                 {
-                    throw new Exception($"The store closed or the given user Id {userID} is not an owner");
+                    throw new Exception($"The store closed or the given user Id is not an owner");
                 }
             }
             else
@@ -326,7 +326,7 @@ namespace eCommerce.src.DomainLayer.Store
                 }
                 else
                 {
-                    throw new Exception($"The store closed or the given user Id {userID} is not an owner");
+                    throw new Exception($"The store closed or the given user Id is not an owner");
                 }
             }
             else
@@ -355,7 +355,7 @@ namespace eCommerce.src.DomainLayer.Store
                 throw new Exception($"Non-founder Trying to close store {currStore.Name}");
             }
             if (currStore.Active == false & !force)
-                throw new Exception($"Store {storeID} is already closed ! \n");
+                throw new Exception($"Store is already closed ! \n");
             currStore.Active = false;
             currStore.NotificationPublisher.notifyStoreClosed();
             var filter = Builders<BsonDocument>.Filter.Eq("_id", storeID);

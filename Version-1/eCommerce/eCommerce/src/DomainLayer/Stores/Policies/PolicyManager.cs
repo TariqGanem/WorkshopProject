@@ -127,7 +127,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             bool result = MainDiscount.AddDiscount(id, discount);
             if (result)
                 return true;
-            else throw new Exception($"The discount addition failed because the discount with an id ${id} was not found");
+            else throw new Exception($"The discount addition failed because the discount was not found");
         }
         
         public bool AddDiscountCondition(IDiscountCondition condition, String id)
@@ -135,7 +135,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             bool result = MainDiscount.AddCondition(id, condition);
             if (result)
                 return true;
-            else throw new Exception($"The discount condition addition failed because the discount condition with an id ${id} was not found");
+            else throw new Exception($"The discount condition addition failed because the discount condition was not found");
         }
 
         public IDiscountPolicy RemoveDiscountPolicy(string id)
@@ -143,7 +143,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             IDiscountPolicy result = MainDiscount.RemoveDiscount(id);
             if (result != null)
                 return result;
-            else throw new Exception($"The discount removal failed because the discount with an id ${id} was not found");
+            else throw new Exception($"The discount removal failed because the discount was not found");
         }
 
         public IDiscountCondition RemoveDiscountCondition(string id)
@@ -151,7 +151,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             IDiscountCondition result = MainDiscount.RemoveCondition(id);
             if (result != null)
                 return result;
-            else throw new Exception($"The discount condition removal failed because the discount condition with an id ${id} was not found");
+            else throw new Exception($"The discount condition removal failed because the discount condition was not found");
         }
 
         public IDictionary<string, object> GetDiscountPolicyData()
@@ -193,7 +193,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             bool result = MainPolicy.AddPolicy(policy, id);
             if (result)
                 return true;
-            else throw new Exception($"The policy addition failed because the policy with an id ${id} was not found");
+            else throw new Exception($"The policy addition failed because the policy was not found");
         }
 
         public IPurchasePolicy RemovePurchasePolicy(string id)
@@ -201,7 +201,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             IPurchasePolicy result = MainPolicy.RemovePolicy(id);
             if (result != null)
                 return result;
-            else throw new Exception($"The policy removal failed because the policy with an id ${id} was not found");
+            else throw new Exception($"The policy removal failed because the policy was not found");
             
         }
 
@@ -238,7 +238,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             bool result = MainPolicy.EditPolicy(info, id);  
             if (result)
                 return true;
-            else throw new Exception($"The Purchase policy edit failed because the policy with an id ${id} was not found");
+            else throw new Exception($"The Purchase policy edit failed because the policy was not found");
         }
 
         private IDiscountPolicy CreateDiscount(Dictionary<string, object> info)
@@ -303,7 +303,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             bool result = MainDiscount.EditDiscount(info, id);
             if (result)
                 return true;
-            else throw new Exception($"The discount edit failed because the discount with an id ${id} was not found");
+            else throw new Exception($"The discount edit failed because the discount was not found");
         }
 
         public bool EditDiscountCondition(Dictionary<string, object> info, string id)
@@ -311,7 +311,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies
             bool result = MainDiscount.EditCondition(info, id);
             if (result)
                 return true;
-            else throw new Exception($"The discount condition edit failed because the discount condition with an id ${id} was not found");
+            else throw new Exception($"The discount condition edit failed because the discount condition was not found");
         }
 
     }
