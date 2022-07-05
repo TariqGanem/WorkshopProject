@@ -9150,3 +9150,147 @@
 6/25/2022 9:21:00 AM: -7777777777777777777777777777777 is admin  .
 6/25/2022 9:21:00 AM: -7777777777777777777777777777777has LoggedOut   .
 6/25/2022 9:21:00 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/26/2022 5:01:36 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/26/2022 5:01:53 PM: Eranhas LoggedIn   .
+6/26/2022 5:01:53 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:12 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:12 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:13 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:13 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:16 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:16 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:16 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:16 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:18 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:18 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:22 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:48 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:48 PM: Product details updated  .
+6/26/2022 5:02:51 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:02:51 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:00 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:00 PM: username fetched  .
+6/26/2022 5:03:00 PM: username fetched  .
+6/26/2022 5:03:00 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:05 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:05 PM: Store Rated  .
+6/26/2022 5:03:07 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:07 PM: username fetched  .
+6/26/2022 5:03:07 PM: username fetched  .
+6/26/2022 5:03:07 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:18 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:18 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:23 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:23 PM: user answered counter offer  .
+6/26/2022 5:03:23 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:25 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:25 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:34 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:34 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:46 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:46 PM: store fetched  .
+6/26/2022 5:03:46 PM: offer sent to store  .
+6/26/2022 5:03:50 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:03:50 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:04:00 PM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+6/26/2022 5:04:00 PM: 0fcb5f9033d34eaf862ab4eb7f35dbedhas LoggedOut   .
+6/26/2022 5:04:00 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+6/26/2022 5:04:27 PM: Admin@Workshop.comhas LoggedIn   .
+6/26/2022 5:04:27 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:04:38 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:04:49 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:04:49 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:05:16 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:05:16 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:05:27 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:05:27 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:05:29 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:05:29 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:05:30 PM: -7777777777777777777777777777777 is admin  .
+6/26/2022 5:05:30 PM: -7777777777777777777777777777777has LoggedOut   .
+6/26/2022 5:05:30 PM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:30:36 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:31:33 AM: Admin@Workshop.comhas LoggedIn   .
+7/5/2022 11:31:33 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:31:41 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:31:42 AM: -7777777777777777777777777777777has LoggedOut   .
+7/5/2022 11:31:42 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:31:54 AM: Eranhas LoggedIn   .
+7/5/2022 11:31:54 AM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+7/5/2022 11:32:02 AM: 0fcb5f9033d34eaf862ab4eb7f35dbed is admin  .
+7/5/2022 11:32:02 AM: 0fcb5f9033d34eaf862ab4eb7f35dbedhas LoggedOut   .
+7/5/2022 11:32:02 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:32:11 AM: Admin@Workshop.comhas LoggedIn   .
+7/5/2022 11:32:11 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:32:33 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:32:33 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:32:48 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:32:48 AM: -7777777777777777777777777777777has LoggedOut   .
+7/5/2022 11:32:48 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:33:03 AM: Admin@Workshop.comhas LoggedIn   .
+7/5/2022 11:33:03 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:33:17 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:33:17 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:33:30 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:33:30 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:33:34 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:33:34 AM: -7777777777777777777777777777777has LoggedOut   .
+7/5/2022 11:33:34 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:34:05 AM: Orabihas LoggedIn   .
+7/5/2022 11:34:05 AM: 95942d0eabaf4235b8d6c170d4c87a2b is admin  .
+7/5/2022 11:34:14 AM: 95942d0eabaf4235b8d6c170d4c87a2b is admin  .
+7/5/2022 11:34:14 AM: 95942d0eabaf4235b8d6c170d4c87a2bhas LoggedOut   .
+7/5/2022 11:34:14 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:34:19 AM: Admin@Workshop.comhas LoggedIn   .
+7/5/2022 11:34:19 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:34:33 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:34:33 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:34:48 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:34:52 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:34:55 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:34:55 AM: -7777777777777777777777777777777has LoggedOut   .
+7/5/2022 11:34:55 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:34:57 AM: 766d6d5c64e14c3db5150aa827844ae9has LoggedOut   .
+7/5/2022 11:34:57 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:35:15 AM: Tareqhas LoggedIn   .
+7/5/2022 11:35:15 AM: a2348f27d9fe4fb8ba3270b42e21e795 is admin  .
+7/5/2022 11:35:27 AM: a2348f27d9fe4fb8ba3270b42e21e795 is admin  .
+7/5/2022 11:35:27 AM: Masalhahas LoggedIn   .
+7/5/2022 11:35:27 AM: 80880ca81c1f48629a2cf99a665a0739 is admin  .
+7/5/2022 11:41:45 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:41:52 AM: Admin@Workshop.comhas LoggedIn   .
+7/5/2022 11:41:52 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:41:58 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:41:58 AM: userid fetched  .
+7/5/2022 11:41:58 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:42:00 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:42:01 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:42:02 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:45:06 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:45:07 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:45:15 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:45:50 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:45:52 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:46:28 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:47:07 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:47:44 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:47:44 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:47:49 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:47:53 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:48:03 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:48:04 AM: -7777777777777777777777777777777has LoggedOut   .
+7/5/2022 11:48:04 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/5/2022 11:48:09 AM: Admin@Workshop.comhas LoggedIn   .
+7/5/2022 11:48:09 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:38 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:38 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:39 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:42 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:43 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:44 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:44 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:46 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:49:50 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:50:11 AM: -7777777777777777777777777777777 is admin  .
+7/5/2022 11:50:11 AM: -7777777777777777777777777777777has LoggedOut   .
+7/5/2022 11:50:11 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .

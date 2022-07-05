@@ -282,7 +282,7 @@ namespace Client
             if (txtAdmin.Text.Trim().Length == 0)
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
-                "alert('You didn't input an admin username')", true);
+                "alert('Admin txt field cant be empty')", true);
                 return;
             }
             UserHandler u = new UserHandler();

@@ -2717,9 +2717,9 @@ namespace eCommerce.src.DataAccessLayer
             ShoppingCart shoppingCart = user.ShoppingCart;
             foreach (var bag in shoppingCart.ShoppingBags)
             {
-                Load_StoreHistory(bag.Value.Store);        // Revert each Store - History
+                Load_StoreHistory(bag.Value.Store);      
 
-                foreach (var product in bag.Value.Products)              // Revert each Product - Quantity
+                foreach (var product in bag.Value.Products) 
                 {
                     Product p = product.Key;
                     var filter = Builders<BsonDocument>.Filter.Eq("_id", p.Id);

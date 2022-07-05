@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DataAccessLayer/DBUtil.cs" afterDir="false" />
-    </list>
+    <list default="true" id="35b97fa9-8a4f-45ec-bd7c-6a739e76e590" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +124,7 @@
       <workItem from="1655848693168" duration="157000" />
       <workItem from="1655925957568" duration="6369000" />
       <workItem from="1655977900498" duration="3962000" />
-      <workItem from="1656136540922" duration="1802000" />
+      <workItem from="1656136540922" duration="1835000" />
     </task>
     <servers />
   </component>

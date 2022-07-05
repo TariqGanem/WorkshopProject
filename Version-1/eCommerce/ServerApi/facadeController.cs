@@ -1532,12 +1532,5 @@ namespace ServerApi
             ret[5] = output.Value.Admins.ToString();
             return ret;
         }
-
-
-
-
-
-
-
     }
 }

@@ -539,7 +539,6 @@ namespace eCommerce.src.ServiceLayer
         public Result<SystemInfo> getUsersVisitsInDate(string date)
         {
             return SysInfoController.getUserVisistsInDate(date);
-
         }
 
         // --- 
