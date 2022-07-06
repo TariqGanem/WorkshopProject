@@ -47,7 +47,7 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
             if (Id == id)
             {
                 Discount = discount;
-                var update_discount = Builders<BsonDocument>.Update.Set("Discount", discount.Id);
+                var update_discount = Builders<BsonDocument>.Update.Set("Discount", ConvertDiscountToIDs());
                 DBUtil.getInstance().UpdatePolicy(this, update_discount);
                 return true;
             }
@@ -55,6 +55,15 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies
                 return Discount.AddDiscount(id, discount);
 
             return false;
+        }
+
+        public ConcurrentDictionary<String, String> ConvertDiscountToIDs()
+        {
+            ConcurrentDictionary<String, String> list = new ConcurrentDictionary<String, String>();    //<id , type>
+            string[] type = Discount.GetType().ToString().Split('.');
+            string discount_type = type[type.Length - 1];
+            list.TryAdd(Discount.Id, discount_type);
+            return list;
         }
 
         public override IDiscountPolicy RemoveDiscount(String id)

@@ -114,7 +114,7 @@ namespace eCommerce.src.DataAccessLayer
         public ConcurrentDictionary<String, OwnerRequest> OwnerRequests;
 
 
-        private DBUtil(String connection_url , String db_name)
+        private DBUtil(String connection_url, String db_name)
         {
             try
             {
@@ -195,7 +195,7 @@ namespace eCommerce.src.DataAccessLayer
                 Discount_DiscountAdditions = new ConcurrentDictionary<String, DiscountAddition>();
                 OwnerRequests = new ConcurrentDictionary<string, OwnerRequest>();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.GetInstance().LogError(ex.ToString());
                 Environment.Exit(1);
@@ -207,11 +207,11 @@ namespace eCommerce.src.DataAccessLayer
             return Instance;
         }
 
-        public static DBUtil getInstance(String connection_url , String db_name)
+        public static DBUtil getInstance(String connection_url, String db_name)
         {
             if (Instance == null)
             {
-                Instance = new DBUtil(connection_url , db_name);
+                Instance = new DBUtil(connection_url, db_name);
             }
             return Instance;
         }
@@ -795,7 +795,7 @@ namespace eCommerce.src.DataAccessLayer
             {
                 foreach (DTO_OwnerRequest offer in dto)
                 {
-                    Offers.Add(new OwnerRequest(offer.UserID, offer.StoreID,offer.AppointedBy, offer._id, offer.acceptedOwners));
+                    Offers.Add(new OwnerRequest(offer.UserID, offer.StoreID, offer.AppointedBy, offer._id, offer.acceptedOwners));
                 }
             }
             return Offers;
@@ -813,7 +813,7 @@ namespace eCommerce.src.DataAccessLayer
                     products.TryAdd(LoadProduct(filter), p.Value);
                 }
                 Store store = LoadStore(Builders<BsonDocument>.Filter.Eq("_id", bag.Value.StoreId));
-                sb.TryAdd(bag.Key, new ShoppingBag(bag.Key, user.Id , store , products, bag.Value.TotalBagPrice));
+                sb.TryAdd(bag.Key, new ShoppingBag(bag.Key, user.Id, store, products, bag.Value.TotalBagPrice));
             }
             ShoppingCart sc = new ShoppingCart(dto._id, sb, dto.TotalCartPrice);
             return sc;
@@ -915,7 +915,7 @@ namespace eCommerce.src.DataAccessLayer
             return stores;
         }
 
-        public ConcurrentDictionary<String,StoreOwner> loadAllStoreOwnerForStore(FilterDefinition<BsonDocument> storefilter)
+        public ConcurrentDictionary<String, StoreOwner> loadAllStoreOwnerForStore(FilterDefinition<BsonDocument> storefilter)
         {
             var filter = Builders<BsonDocument>.Filter.Empty;
             List<BsonDocument> docs = this.DAO_StoreOwner.collection.Find(filter).ToList();
@@ -927,7 +927,7 @@ namespace eCommerce.src.DataAccessLayer
                 DTO_StoreOwner dto = JsonConvert.DeserializeObject<DTO_StoreOwner>(json);
                 storesDTOs.Add(dto);
             }
-            ConcurrentDictionary<String,StoreOwner> owners = new ConcurrentDictionary<String, StoreOwner>();
+            ConcurrentDictionary<String, StoreOwner> owners = new ConcurrentDictionary<String, StoreOwner>();
             foreach (DTO_StoreOwner dto in storesDTOs)
             {
                 var f = Builders<BsonDocument>.Filter.Eq("UserId", dto.UserId);
@@ -986,7 +986,7 @@ namespace eCommerce.src.DataAccessLayer
 
         public void UpdateRegisteredUser(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update, Boolean upsert = false, MongoDB.Driver.IClientSessionHandle session = null)
         {
-            DAO_RegisteredUser.Update(filter, update, upsert , session);
+            DAO_RegisteredUser.Update(filter, update, upsert, session);
         }
 
         public void DeleteRegisteredUser(FilterDefinition<BsonDocument> filter)
@@ -1039,7 +1039,7 @@ namespace eCommerce.src.DataAccessLayer
         {
             StoreManager sm;
             LinkedList<StoreManager> list;
-            DTO_StoreManager dto = DAO_StoreManager.Load(filter);       
+            DTO_StoreManager dto = DAO_StoreManager.Load(filter);
 
             bool listExists = StoreManagers.TryGetValue(dto.UserId, out list);
             if (listExists)
@@ -1133,7 +1133,7 @@ namespace eCommerce.src.DataAccessLayer
         {
             StoreOwner so;
             LinkedList<StoreOwner> list;
-            DTO_StoreOwner dto = DAO_StoreOwner.Load(filter);       
+            DTO_StoreOwner dto = DAO_StoreOwner.Load(filter);
 
             bool listExists = StoreOwners.TryGetValue(dto.UserId, out list);
             if (listExists)
@@ -1186,7 +1186,7 @@ namespace eCommerce.src.DataAccessLayer
 
         public void DeleteStoreOwner(FilterDefinition<BsonDocument> filter)
         {
-            DTO_StoreOwner deletedStoreOwner = DAO_StoreOwner.Delete(filter); 
+            DTO_StoreOwner deletedStoreOwner = DAO_StoreOwner.Delete(filter);
             StoreOwner so = null;
             LinkedList<StoreOwner> list;
             if (!(deletedStoreOwner is null))
@@ -1251,9 +1251,9 @@ namespace eCommerce.src.DataAccessLayer
             return p;
         }
 
-        public void UpdateProduct(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update , MongoDB.Driver.IClientSessionHandle session = null)
+        public void UpdateProduct(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update, MongoDB.Driver.IClientSessionHandle session = null)
         {
-            DAO_Product.Update(filter, update,session:session);
+            DAO_Product.Update(filter, update, session: session);
         }
 
         public void DeleteProduct(FilterDefinition<BsonDocument> filter)
@@ -1277,7 +1277,7 @@ namespace eCommerce.src.DataAccessLayer
             foreach (var product in s.InventoryManager.Products) { inventory.AddLast(product.Key); }
 
             DAO_Store.Create(new DTO_Store(s.Id, s.Name, s.Founder.GetId(), owners, managers, inventory, Get_DTO_History(s.History),
-                                            s.Rate, s.NumberOfRates, s.Active, s.PolicyManager.MainDiscount.getDTO(), s.PolicyManager.MainPolicy.getDTO(), s.OfferManager.GetDTO() , s.RequestManager.GetDTO()));
+                                            s.Rate, s.NumberOfRates, s.Active, s.PolicyManager.MainDiscount.getDTO(), s.PolicyManager.MainPolicy.getDTO(), s.OfferManager.GetDTO(), s.RequestManager.GetDTO()));
             this.DAO_DiscountAddition.Create(s.PolicyManager.MainDiscount.getDTO());
             this.DAO_BuyNow.Create(s.PolicyManager.MainPolicy.getDTO());
             Stores.TryAdd(s.Id, s);
@@ -1325,9 +1325,9 @@ namespace eCommerce.src.DataAccessLayer
             return s;
         }
 
-        public void UpdateStore(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update , MongoDB.Driver.IClientSessionHandle session = null)
+        public void UpdateStore(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update, MongoDB.Driver.IClientSessionHandle session = null)
         {
-            DAO_Store.Update(filter, update,session:session);
+            DAO_Store.Update(filter, update, session: session);
         }
 
         public void DeleteStore(FilterDefinition<BsonDocument> filter)
@@ -1341,7 +1341,7 @@ namespace eCommerce.src.DataAccessLayer
                     var filter2 = Builders<BsonDocument>.Filter.Eq("UserId", ownerid);
                     this.DeleteStoreOwner(filter2);
                 }
-                foreach(string productid in deletedStore.InventoryManager)
+                foreach (string productid in deletedStore.InventoryManager)
                 {
                     var filter4 = Builders<BsonDocument>.Filter.Eq("_id", productid);
                     this.DeleteProduct(filter4);
@@ -1381,7 +1381,7 @@ namespace eCommerce.src.DataAccessLayer
             {
                 foreach (DTO_OwnerRequest offer in store.OwnerRequestManager)
                 {
-                    offers.Add(new OwnerRequest(offer.UserID, offer.StoreID,offer.AppointedBy, offer._id, offer.acceptedOwners));
+                    offers.Add(new OwnerRequest(offer.UserID, offer.StoreID, offer.AppointedBy, offer._id, offer.acceptedOwners));
                 }
             }
             return offers;
@@ -1590,11 +1590,6 @@ namespace eCommerce.src.DataAccessLayer
             DAO_Offer.Update(filter, update);
         }
 
-        public void UpdateOwnerRequestPolicy(FilterDefinition<BsonDocument> filter, UpdateDefinition<BsonDocument> update)
-        {
-            this.DAO_OwnerRequest.Update(filter, update);
-        }
-
         public void DeleteOfferPolicy(FilterDefinition<BsonDocument> filter)
         {
             DTO_Offer deletedOffer = DAO_Offer.Delete(filter);
@@ -1604,14 +1599,6 @@ namespace eCommerce.src.DataAccessLayer
             }
         }
 
-        public void DeleteOwnerRequestPolicy(FilterDefinition<BsonDocument> filter)
-        {
-            DTO_OwnerRequest deletedOffer = this.DAO_OwnerRequest.Delete(filter);
-            if (!(deletedOffer is null))
-            {
-                OwnerRequests.TryRemove(deletedOffer._id, out OwnerRequest o);
-            }
-        }
 
         public void Create(RestrictedHoursPolicy restrictedHoursPolicy)
         {
@@ -1858,9 +1845,8 @@ namespace eCommerce.src.DataAccessLayer
 
                 Policy_ConditionalPolicys.TryRemove(deletedConditionalPolicy._id, out ConditionalPolicy c);
             }
-        }
 
-        // discount policy
+        }
 
         public void Create(VisibleDiscount visibleDiscount)
         {
@@ -2050,7 +2036,6 @@ namespace eCommerce.src.DataAccessLayer
 
         public void DeleteConditionalDiscount(FilterDefinition<BsonDocument> filter)
         {
-
             DTO_ConditionalDiscount deletedConditionalDiscount = DAO_ConditionalDiscount.Delete(filter);
             foreach (var condition in deletedConditionalDiscount.Condition)
             {
@@ -2061,7 +2046,6 @@ namespace eCommerce.src.DataAccessLayer
                 DeleteIDiscountPolicy(discount.Value, discount.Key);
             }
             Discount_ConditionalDiscounts.TryRemove(deletedConditionalDiscount._id, out ConditionalDiscount c);
-
         }
 
 
@@ -2494,6 +2478,7 @@ namespace eCommerce.src.DataAccessLayer
             Discount_DiscountAdditions.TryRemove(deletedDiscountAddition._id, out DiscountAddition d);
         }
 
+
         public void Create(IPurchasePolicy purchasePolicy)
         {
             string[] type = purchasePolicy.GetType().ToString().Split('.');
@@ -2522,6 +2507,8 @@ namespace eCommerce.src.DataAccessLayer
 
             AddDiscountToDB(discount_type, discount);
         }
+
+
         public void UpdatePolicy(IPurchasePolicy purchasePolicy, UpdateDefinition<BsonDocument> update)
         {
             string[] type = purchasePolicy.GetType().ToString().Split('.');
@@ -2686,7 +2673,7 @@ namespace eCommerce.src.DataAccessLayer
             List<DTO_OwnerRequest> dto_offers = new List<DTO_OwnerRequest>();
             foreach (OwnerRequest offer in offers)
             {
-                dto_offers.Add(new DTO_OwnerRequest(offer.Id, offer.UserID, offer.StoreID,offer.AppointedBy, offer.acceptedOwners));
+                dto_offers.Add(new DTO_OwnerRequest(offer.Id, offer.UserID, offer.StoreID, offer.AppointedBy, offer.acceptedOwners));
             }
             return dto_offers;
         }
@@ -2717,9 +2704,9 @@ namespace eCommerce.src.DataAccessLayer
             ShoppingCart shoppingCart = user.ShoppingCart;
             foreach (var bag in shoppingCart.ShoppingBags)
             {
-                Load_StoreHistory(bag.Value.Store);      
+                Load_StoreHistory(bag.Value.Store);
 
-                foreach (var product in bag.Value.Products) 
+                foreach (var product in bag.Value.Products)
                 {
                     Product p = product.Key;
                     var filter = Builders<BsonDocument>.Filter.Eq("_id", p.Id);

@@ -59,14 +59,14 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountCom
                 if (Discount1 == null)
                 {
                     Discount1 = discount;
-                    var update_discount = Builders<BsonDocument>.Update.Set("Discount1", discount.Id);
+                    var update_discount = Builders<BsonDocument>.Update.Set("Discount1", ConvertDiscountToIDs1());
                     DBUtil.getInstance().UpdatePolicy(this, update_discount);
                 }
 
                 else if (Discount2 == null)
                 {
                     Discount2 = discount;
-                    var update_discount = Builders<BsonDocument>.Update.Set("Discount2", discount.Id);
+                    var update_discount = Builders<BsonDocument>.Update.Set("Discount2", ConvertDiscountToIDs2());
                     DBUtil.getInstance().UpdatePolicy(this, update_discount);
                 }
                 else
@@ -80,6 +80,23 @@ namespace eCommerce.src.DomainLayer.Stores.Policies.DiscountPolicies.DiscountCom
             if (result)
                 return result;
             return Discount2.AddDiscount(id, discount);
+        }
+        public ConcurrentDictionary<String, String> ConvertDiscountToIDs1()
+        {
+            ConcurrentDictionary<String, String> list = new ConcurrentDictionary<String, String>();    //<id , type>
+            string[] type = Discount1.GetType().ToString().Split('.');
+            string discount_type = type[type.Length - 1];
+            list.TryAdd(Discount1.Id, discount_type);
+            return list;
+        }
+
+        public ConcurrentDictionary<String, String> ConvertDiscountToIDs2()
+        {
+            ConcurrentDictionary<String, String> list = new ConcurrentDictionary<String, String>();    //<id , type>
+            string[] type = Discount2.GetType().ToString().Split('.');
+            string discount_type = type[type.Length - 1];
+            list.TryAdd(Discount2.Id, discount_type);
+            return list;
         }
 
         public override IDiscountPolicy RemoveDiscount(string id)
