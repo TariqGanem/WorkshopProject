@@ -794,7 +794,7 @@ namespace Client
             {
                 if (int.TryParse(s, out int num))
                 {
-                    if (!((num >= 0 && num <= 11) | num == 777))
+                    if (!((num >= 0 && num <= 12) | num == 777))
                     {
                         goodFormat = false;
                         break;

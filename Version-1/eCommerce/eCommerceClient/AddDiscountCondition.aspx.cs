@@ -181,7 +181,7 @@ namespace Client
                 MinBagPriceLabel.Text = "Min Price Field can't be empty";
                 return;
             }
-            if (!int.TryParse(MinPriceBox.Text, out _))
+            if (!int.TryParse(MinPriceBox.Text.Split('.').First(), out _))
             {
                 MinBagPriceLabel.Visible = true;
                 MinBagPriceLabel.Text = "Min Price must be a number";

@@ -326,7 +326,7 @@ namespace Client
                 VisibleLabel.Text = "Wrong Expiration Date Format [yyyy-mm-dd]";
                 return;
             }
-            if(!int.TryParse(PercentageBox.Text,out _))
+            if(!int.TryParse(PercentageBox.Text.Split('.').First(),out _))
             {
                 VisibleLabel.Visible = true;
                 VisibleLabel.Text = "Percentage field is not a number";
