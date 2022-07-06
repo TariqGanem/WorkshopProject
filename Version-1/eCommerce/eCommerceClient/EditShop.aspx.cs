@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -327,100 +328,126 @@ namespace Client
             }
             if (DropDownList1.SelectedItem.Text == "Store Offer Requests")
             {
-                table1.Visible = false;
-                table2.Visible = false;
-                table3.Visible = false;
-                table4.Visible = false;
-                table5.Visible = false;
-                table6.Visible = false;
-                table7.Visible = false;
-                DataListproducts.Visible = false;
-                StoreStaff.Visible = false;
-                DataListRemoveProduct.Visible = false;
-                DataListsShoppingHistory.Visible = false;
-                DataListOffers.Visible = true;
-                PurchasePolicies.Visible = false;
-                ButtonAddPurchasePolicyToMain.Visible = false;
-                MainDiscountBtn.Visible = false;
-                DataListDiscountPolicies.Visible = false;
-                OwnerRequests.Visible = false;
-
                 UserHandler a = new UserHandler();
-                DataListOffers.DataSource = a.getStoreOffers(Session["storeId"].ToString());
-                DataListOffers.DataBind();
+                if (a.isStoreOwner(Session["userId"].ToString(), Session["storeId"].ToString()))
+                {
+                    table1.Visible = false;
+                    table2.Visible = false;
+                    table3.Visible = false;
+                    table4.Visible = false;
+                    table5.Visible = false;
+                    table6.Visible = false;
+                    table7.Visible = false;
+                    DataListproducts.Visible = false;
+                    StoreStaff.Visible = false;
+                    DataListRemoveProduct.Visible = false;
+                    DataListsShoppingHistory.Visible = false;
+                    DataListOffers.Visible = true;
+                    PurchasePolicies.Visible = false;
+                    ButtonAddPurchasePolicyToMain.Visible = false;
+                    MainDiscountBtn.Visible = false;
+                    DataListDiscountPolicies.Visible = false;
+                    OwnerRequests.Visible = false;
+
+                    DataListOffers.DataSource = a.getStoreOffers(Session["storeId"].ToString());
+                    DataListOffers.DataBind();
+                }
+                else
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                       "alert('you don't have permission to view the store staff list')", true);
+
             }
 
             if (DropDownList1.SelectedItem.Text == "Pruchase Policies")
             {
-                table1.Visible = false;
-                table2.Visible = false;
-                table3.Visible = false;
-                table4.Visible = false;
-                table5.Visible = false;
-                table6.Visible = false;
-                table7.Visible = false;
-                DataListproducts.Visible = false;
-                StoreStaff.Visible = false;
-                DataListRemoveProduct.Visible = false;
-                DataListsShoppingHistory.Visible = false;
-                DataListOffers.Visible = false;
-                PurchasePolicies.Visible = true;
-                ButtonAddPurchasePolicyToMain.Visible = true;
-                MainDiscountBtn.Visible = false;
-                DataListDiscountPolicies.Visible = false;
-                OwnerRequests.Visible = false;
-
                 UserHandler a = new UserHandler();
-                PurchasePolicies.DataSource = a.getPruchasePolicies(Session["storeId"].ToString());
-                PurchasePolicies.DataBind();
+                if (a.isStoreOwner(Session["userId"].ToString(), Session["storeId"].ToString()))
+                {
+                    table1.Visible = false;
+                    table2.Visible = false;
+                    table3.Visible = false;
+                    table4.Visible = false;
+                    table5.Visible = false;
+                    table6.Visible = false;
+                    table7.Visible = false;
+                    DataListproducts.Visible = false;
+                    StoreStaff.Visible = false;
+                    DataListRemoveProduct.Visible = false;
+                    DataListsShoppingHistory.Visible = false;
+                    DataListOffers.Visible = false;
+                    PurchasePolicies.Visible = true;
+                    ButtonAddPurchasePolicyToMain.Visible = true;
+                    MainDiscountBtn.Visible = false;
+                    DataListDiscountPolicies.Visible = false;
+                    OwnerRequests.Visible = false;
+
+                    PurchasePolicies.DataSource = a.getPruchasePolicies(Session["storeId"].ToString());
+                    PurchasePolicies.DataBind();
+                }
+                else
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                       "alert('you don't have permission to view the store staff list')", true);
+
             }
             if (DropDownList1.SelectedItem.Text == "Discount Policies")
             {
-                table1.Visible = false;
-                table2.Visible = false;
-                table3.Visible = false;
-                table4.Visible = false;
-                table5.Visible = false;
-                table6.Visible = false;
-                table7.Visible = false;
-                DataListproducts.Visible = false;
-                StoreStaff.Visible = false;
-                DataListRemoveProduct.Visible = false;
-                DataListsShoppingHistory.Visible = false;
-                DataListOffers.Visible = false;
-                PurchasePolicies.Visible = false;
-                ButtonAddPurchasePolicyToMain.Visible = false;
-                MainDiscountBtn.Visible = true;
-                DataListDiscountPolicies.Visible = true;
-                OwnerRequests.Visible = false;
-
                 UserHandler a = new UserHandler();
-                DataListDiscountPolicies.DataSource = a.getDiscountPolicies(Session["storeId"].ToString());
-                DataListDiscountPolicies.DataBind();
+                if (a.isStoreOwner(Session["userId"].ToString(), Session["storeId"].ToString()))
+                {
+                    table1.Visible = false;
+                    table2.Visible = false;
+                    table3.Visible = false;
+                    table4.Visible = false;
+                    table5.Visible = false;
+                    table6.Visible = false;
+                    table7.Visible = false;
+                    DataListproducts.Visible = false;
+                    StoreStaff.Visible = false;
+                    DataListRemoveProduct.Visible = false;
+                    DataListsShoppingHistory.Visible = false;
+                    DataListOffers.Visible = false;
+                    PurchasePolicies.Visible = false;
+                    ButtonAddPurchasePolicyToMain.Visible = false;
+                    MainDiscountBtn.Visible = true;
+                    DataListDiscountPolicies.Visible = true;
+                    OwnerRequests.Visible = false;
+
+                    DataListDiscountPolicies.DataSource = a.getDiscountPolicies(Session["storeId"].ToString());
+                    DataListDiscountPolicies.DataBind();
+                }
+                else
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                       "alert('you don't have permission to view the store staff list')", true);
             }
             if (DropDownList1.SelectedItem.Text == "Owner Requests")
             {
-                table1.Visible = false;
-                table2.Visible = false;
-                table3.Visible = false;
-                table4.Visible = false;
-                table5.Visible = false;
-                table6.Visible = false;
-                table7.Visible = false;
-                DataListproducts.Visible = false;
-                StoreStaff.Visible = false;
-                DataListRemoveProduct.Visible = false;
-                DataListsShoppingHistory.Visible = false;
-                DataListOffers.Visible = false;
-                PurchasePolicies.Visible = false;
-                ButtonAddPurchasePolicyToMain.Visible = false;
-                MainDiscountBtn.Visible = false;
-                DataListDiscountPolicies.Visible = false;
-                OwnerRequests.Visible = true;
-
                 UserHandler a = new UserHandler();
-                OwnerRequests.DataSource = a.getOwnerRequests(Session["storeId"].ToString());
-                OwnerRequests.DataBind();
+                if (a.isStoreOwner(Session["userId"].ToString(), Session["storeId"].ToString()))
+                {
+                    table1.Visible = false;
+                    table2.Visible = false;
+                    table3.Visible = false;
+                    table4.Visible = false;
+                    table5.Visible = false;
+                    table6.Visible = false;
+                    table7.Visible = false;
+                    DataListproducts.Visible = false;
+                    StoreStaff.Visible = false;
+                    DataListRemoveProduct.Visible = false;
+                    DataListsShoppingHistory.Visible = false;
+                    DataListOffers.Visible = false;
+                    PurchasePolicies.Visible = false;
+                    ButtonAddPurchasePolicyToMain.Visible = false;
+                    MainDiscountBtn.Visible = false;
+                    DataListDiscountPolicies.Visible = false;
+                    OwnerRequests.Visible = true;
+
+                    OwnerRequests.DataSource = a.getOwnerRequests(Session["storeId"].ToString());
+                    OwnerRequests.DataBind();
+                }
+                else
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                       "alert('you don't have permission to view the store staff list')", true);
             }
 
         }
@@ -711,7 +738,7 @@ namespace Client
             {
                 if (int.TryParse(s, out int num))
                 {
-                    if(!((num >= 0 && num <= 11) | num == 777))
+                    if(!((num >= 0 && num <= 12) | num == 777))
                     {
                         goodFormat = false;
                         break;
@@ -889,6 +916,10 @@ namespace Client
 
         protected void DataListPurchasePolicies_ItemCommand1(object sender, DataListCommandEventArgs e)
         {
+            if (!(new UserHandler().isStoreOwner(Session["userId"].ToString(), Session["storeId"].ToString())))
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                    "alert('you don't have permission to view the store staff list')", true);
+
             if(e.CommandName.Equals("AddPolicy"))
             {
                 Session["PolicyId"] = e.CommandArgument.ToString();
@@ -915,11 +946,19 @@ namespace Client
 
         protected void ButtonAddPurchasePolicyToMain_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/AddPruchasePolicyMain.aspx");
+            if (new UserHandler().isStoreOwner(Session["userId"].ToString(), Session["storeId"].ToString()))
+                Response.Redirect("~/AddPruchasePolicyMain.aspx");
+            else
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                    "alert('you don't have permission to view the store staff list')", true);
         }
 
         protected void DataListDiscountPolicies_ItemCommand1(object sender, DataListCommandEventArgs e)
         {
+            if (!(new UserHandler().isStoreOwner(Session["userId"].ToString(), Session["storeId"].ToString())))
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                    "alert('you don't have permission to view the store staff list')", true);
+
             if (e.CommandName.Equals("AddDiscountPolicy"))
             {
                 Session["DisId"] = e.CommandArgument.ToString();
@@ -953,7 +992,12 @@ namespace Client
 
         protected void MainDiscountBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/AddDiscountPolicyToMain.aspx");
+            if (new UserHandler().isStoreOwner(Session["userId"].ToString(), Session["storeId"].ToString()))
+                Response.Redirect("~/AddDiscountPolicyToMain.aspx");
+            else
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                    "alert('you don't have permission to view the store staff list')", true);
+
         }
 
         protected void OwnerRequests_ItemCommand1(object sender, DataListCommandEventArgs e)

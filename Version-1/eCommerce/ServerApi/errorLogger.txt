@@ -644,3 +644,15 @@ Parameter name: UserId is null or empty!
 7/6/2022 1:59:51 AM: One or more errors occurred.  . 
 7/6/2022 3:10:03 AM: store 2022-07-06 does not exist in the system  . 
 7/6/2022 5:22:43 AM: Username doesn't exist!  . 
+7/6/2022 5:38:49 AM: Username doesn't exist!  . 
+7/6/2022 5:47:43 PM:  user: a1c55b09fa50449199be8d0e32fa39b9 product: bamba has not been added to the shop : 50718a185b5b43a5be8056b119ac01bb  . 
+7/6/2022 5:50:46 PM: user is not a store owner  . 
+7/6/2022 5:50:58 PM:  user: a1c55b09fa50449199be8d0e32fa39b9 product: bamba has not been added to the shop : 50718a185b5b43a5be8056b119ac01bb  . 
+7/6/2022 5:51:01 PM: user is not a store owner  . 
+7/6/2022 5:51:08 PM:  user: a1c55b09fa50449199be8d0e32fa39b9 product: 35a42c42eb5e4f109070be058853c250 has not been removed from the shop : 50718a185b5b43a5be8056b119ac01bb  . 
+7/6/2022 5:51:19 PM: user is not a store owner  . 
+7/6/2022 5:51:22 PM: No permission to see store purchase history  . 
+7/6/2022 6:11:41 PM: user is not a store owner  . 
+7/6/2022 6:11:44 PM: user is not a store owner  . 
+7/6/2022 6:11:46 PM: user is not a store owner  . 
+7/6/2022 6:11:47 PM: user is not a store owner  . 

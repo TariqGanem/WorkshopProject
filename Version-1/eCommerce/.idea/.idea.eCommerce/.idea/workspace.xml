@@ -13,7 +13,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce.sln" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.ServerApi">
+  <component name="RunManager" selected=".NET Project.ClientApi">
     <configuration name="ClientApi" type="DotNetProject" factoryName=".NET Project" singleton="false">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../../../../Program Files (x86)/IIS Express/iisexpress.exe" />
       <option name="PROGRAM_PARAMETERS" value="/config:$PROJECT_DIR$/.idea/config/applicationhost.config /site:eCommerceClient /apppool:Clr4IntegratedAppPool" />
@@ -172,6 +172,8 @@
       <workItem from="1656136540922" duration="1835000" />
       <workItem from="1657047334401" duration="12026000" />
       <workItem from="1657067423039" duration="461000" />
+      <workItem from="1657074845436" duration="328000" />
+      <workItem from="1657119924274" duration="837000" />
     </task>
     <servers />
   </component>
