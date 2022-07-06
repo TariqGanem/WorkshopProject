@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerApi", "ServerApi\Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerceClient", "eCommerceClient\eCommerceClient.csproj", "{7B03D630-1E49-4C04-92CF-918E69FAB918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerceAcceptenceTests", "eCommerceAcceptenceTests\eCommerceAcceptenceTests.csproj", "{8909C889-3673-4A66-BA7B-941E98987783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceAcceptenceTests", "eCommerceAcceptenceTests\eCommerceAcceptenceTests.csproj", "{8909C889-3673-4A66-BA7B-941E98987783}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerceIntegrationTests", "eCommerceIntegrationTests\eCommerceIntegrationTests.csproj", "{B3BEEF5B-BF17-4044-B089-B2D8C0D90C99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceIntegrationTests", "eCommerceIntegrationTests\eCommerceIntegrationTests.csproj", "{B3BEEF5B-BF17-4044-B089-B2D8C0D90C99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerceTests", "eCommerceTests\eCommerceTests.csproj", "{CCC23C8A-51DE-4609-B158-F9EEFCDBA04F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eCommerceTests", "eCommerceTests\eCommerceTests.csproj", "{CCC23C8A-51DE-4609-B158-F9EEFCDBA04F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcurrencyTests", "ConcurrencyTests\ConcurrencyTests.csproj", "{B4C0BBD7-A9F1-4768-A8E0-7716DBEBE11F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcurrencyTests", "ConcurrencyTests\ConcurrencyTests.csproj", "{B4C0BBD7-A9F1-4768-A8E0-7716DBEBE11F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

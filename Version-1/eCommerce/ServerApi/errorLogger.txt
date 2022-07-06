@@ -642,3 +642,4 @@ Parameter name: UserId is null or empty!
 7/6/2022 1:04:19 AM: One or more errors occurred.  . 
 7/6/2022 1:59:51 AM: One or more errors occurred.  . 
 7/6/2022 1:59:51 AM: One or more errors occurred.  . 
+7/6/2022 3:10:03 AM: store 2022-07-06 does not exist in the system  . 

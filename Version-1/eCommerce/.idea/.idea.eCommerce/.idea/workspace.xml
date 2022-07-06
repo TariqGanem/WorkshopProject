@@ -13,19 +13,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerApi/src/Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/src/Config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/InventoryManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/DomainLayer/Stores/StoreFacade.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/RegisteredUserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/RegisteredUserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/StoreStaffController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/SysInfoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce/src/ServiceLayer/Controllers/SysInfoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Cart.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Cart.aspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Cart.aspx.designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/MyShops.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Notifications.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Notifications.aspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Product.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Product.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/Register.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Register.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerce.sln" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerce.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +51,29 @@
   }
 }</component>
   <component name="RunManager" selected=".NET Project.ServerApi">
+    <configuration name="ClientApi" type="DotNetProject" factoryName=".NET Project" singleton="false">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../../../../Program Files (x86)/IIS Express/iisexpress.exe" />
+      <option name="PROGRAM_PARAMETERS" value="/config:$PROJECT_DIR$/.idea/config/applicationhost.config /site:eCommerceClient /apppool:Clr4IntegratedAppPool" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../../../Program Files (x86)/IIS Express" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/eCommerceClient/eCommerceClient.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Web" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.2" />
+      <browser url="http://localhost:44122/" start="true" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="ServerApi" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/ServerApi/bin/Debug/ServerApi.exe" />
+      <option name="PROGRAM_PARAMETERS" value="/config:$PROJECT_DIR$/.idea/config/applicationhost.config /site:eCommerceClient /apppool:Clr4IntegratedAppPool" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ServerApi/bin/Debug" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -76,15 +83,35 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="Console" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.2" />
+      <browser url="http://localhost:44122/" start="true" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project" singleton="false">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../../../../Program Files (x86)/IIS Express/iisexpress.exe" />
+      <option name="PROGRAM_PARAMETERS" value="/config:$PROJECT_DIR$/.idea/config/applicationhost.config /site:eCommerceClient /apppool:Clr4IntegratedAppPool" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../../../Program Files (x86)/IIS Express" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/eCommerceClient/eCommerceClient.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Web" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.2" />
+      <browser url="http://localhost:44122/" start="true" />
       <method v="2">
         <option name="Build" />
       </method>
     </configuration>
     <configuration name="eCommerce" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/eCommerce/bin/Debug/eCommerce.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/eCommerce/bin/Debug" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -94,7 +121,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="Console" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.2" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -121,6 +148,7 @@
     <list>
       <item itemvalue=".NET Project.eCommerce" />
       <item itemvalue=".NET Project.eCommerceClient" />
+      <item itemvalue=".NET Project.ClientApi" />
       <item itemvalue=".NET Project.ServerApi" />
     </list>
   </component>
@@ -142,7 +170,8 @@
       <workItem from="1655925957568" duration="6369000" />
       <workItem from="1655977900498" duration="3962000" />
       <workItem from="1656136540922" duration="1835000" />
-      <workItem from="1657047334401" duration="11485000" />
+      <workItem from="1657047334401" duration="12026000" />
+      <workItem from="1657067423039" duration="461000" />
     </task>
     <servers />
   </component>
