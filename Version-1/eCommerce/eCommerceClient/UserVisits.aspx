@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/m1.Master" AutoEventWireup="true" CodeBehind="UserVisits.aspx.cs" Inherits="Client.UserVisits" %>
+
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -36,4 +38,15 @@
                                                 </table>
                                             </ItemTemplate>
                                         </asp:DataList>
+    
+    <asp:Chart ID="Chart1" runat="server" BackColor="LightGray"  >
+         <ChartAreas>
+             <asp:ChartArea Name="ChartArea1" BackColor="Orange"  >
+             </asp:ChartArea>
+         </ChartAreas>
+         <Legends>
+             <asp:Legend BackColor="Gray" Name="Legend1" LegendStyle="Row" Alignment="Center" Docking="Bottom" >               
+             </asp:Legend>            
+        </Legends>
+     </asp:Chart>
 </asp:Content>

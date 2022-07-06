@@ -13,7 +13,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.eCommerce/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/errorLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/errorLogger.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ServerApi/eventLogger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServerApi/eventLogger.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/EditShop.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Code/UserHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/UserVisits.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/UserVisits.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/UserVisits.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/UserVisits.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/UserVisits.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/UserVisits.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/Web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eCommerceClient/eCommerceClient.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/eCommerceClient/eCommerceClient.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +55,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.ClientApi">
+  <component name="RunManager" selected=".NET Project.ServerApi">
     <configuration name="ClientApi" type="DotNetProject" factoryName=".NET Project" singleton="false">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../../../../Program Files (x86)/IIS Express/iisexpress.exe" />
       <option name="PROGRAM_PARAMETERS" value="/config:$PROJECT_DIR$/.idea/config/applicationhost.config /site:eCommerceClient /apppool:Clr4IntegratedAppPool" />
@@ -173,7 +178,8 @@
       <workItem from="1657047334401" duration="12026000" />
       <workItem from="1657067423039" duration="461000" />
       <workItem from="1657074845436" duration="328000" />
-      <workItem from="1657119924274" duration="837000" />
+      <workItem from="1657119924274" duration="1591000" />
+      <workItem from="1657140704208" duration="1403000" />
     </task>
     <servers />
   </component>

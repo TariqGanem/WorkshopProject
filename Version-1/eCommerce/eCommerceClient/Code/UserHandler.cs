@@ -1015,6 +1015,33 @@ namespace Client.Code
             return set;
         }
 
+        public DataSet getUsersVisitsInDateChart(string date)
+        {
+            string param = string.Format("date={0}", date);
+            string str = system.SendApi("getUsersVisitsInDate", param);
+            str = str.Remove(0, 1);
+            str = str.Remove(str.Length - 1, 1);
+            string[] notis = str.Split(',');
+            DataTable t1 = new DataTable("UserVisits");
+            t1.Columns.Add("Regs");
+            t1.Columns.Add("Guests");
+            t1.Columns.Add("Managers");
+            t1.Columns.Add("Owners");
+            t1.Columns.Add("Admins");
+            Console.Out.WriteLine(notis[0]);
+            if (notis[0].Substring(1, 6) == "Error:")
+            {
+                DataSet d2 = new DataSet("UserVisits");
+                d2.Tables.Add(t1);
+                return d2;
+            }
+
+            t1.Rows.Add(notis[1], notis[2], notis[3], notis[4], notis[5]);
+            DataSet set = new DataSet("UserVisits");
+            set.Tables.Add(t1);
+            return set;
+        }
+
 
 
 
