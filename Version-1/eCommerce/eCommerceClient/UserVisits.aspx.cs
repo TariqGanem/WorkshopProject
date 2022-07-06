@@ -59,6 +59,13 @@ namespace Client
                 Chart1.Height = 750;
                 Chart1.Series.Add("User Visits Classification");
                 Chart1.Series["User Visits Classification"].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
+                Chart1.Series["User Visits Classification"].MarkerStyle = System.Web.UI.DataVisualization.Charting.MarkerStyle.Square;
+                Chart1.Series["User Visits Classification"].MarkerColor = System.Drawing.Color.Blue;
+                Chart1.Series["User Visits Classification"].MarkerSize = 13;
+                Chart1.BackColor = System.Drawing.Color.White;
+                //Chart1.BorderSkin.PageColor = System.Drawing.Color.White;
+                Chart1.ChartAreas["ChartArea1"].BackColor = System.Drawing.Color.White;
+
                 Chart1.Series["User Visits Classification"].ChartArea = "ChartArea1";
                 Chart1.Series["User Visits Classification"].Legend = "Legend1";
                 Chart1.Series["User Visits Classification"].LegendText = "User Visits Classification";
