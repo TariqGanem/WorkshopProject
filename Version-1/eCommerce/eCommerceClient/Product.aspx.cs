@@ -71,7 +71,7 @@ namespace Client
             else
             {
                 LabelErrorRateProduct.Visible = true;
-                LabelErrorRateProduct.Text = "Something went wrong - check if rate is between 0-5";
+                LabelErrorRateProduct.Text = str;
                 return;
             }
         }

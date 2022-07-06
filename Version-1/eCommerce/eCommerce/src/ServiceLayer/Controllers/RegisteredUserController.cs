@@ -127,7 +127,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch(Exception e)
             {
                 Console.Out.WriteLine("RegUser ----->" + e.Message);
-                return new Result<StoreService>(e.ToString());
+                return new Result<StoreService>(e.Message);
             }
         }
 
@@ -140,7 +140,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception e)
             {
-                return new Result<bool>(e.ToString());
+                return new Result<bool>(e.Message);
             }
         }
 
@@ -153,7 +153,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception e)
             {
-                return new Result<bool>(e.ToString());
+                return new Result<bool>(e.Message);
             }
         }
 
@@ -166,7 +166,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception e)
             {
-                return new Result<LinkedList<Notification>>(e.ToString());
+                return new Result<LinkedList<Notification>>(e.Message);
             }
         }
 
@@ -189,7 +189,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             }
             catch (Exception e)
             {
-                return new Result<string>(e.ToString());
+                return new Result<string>(e.Message);
             }
         }
 

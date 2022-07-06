@@ -28,7 +28,8 @@ namespace Client
                     LabelUsername.Visible = true;
                 }else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                    "alert(" + msg + ")", true);
                 }
             }
             else

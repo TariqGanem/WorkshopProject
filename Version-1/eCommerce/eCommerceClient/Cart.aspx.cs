@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -10,8 +11,10 @@ namespace Client
 {
     public partial class Cart : System.Web.UI.Page
     {
+        private readonly object my_lock = new object();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Button3.Enabled = true;
             LabelError.Visible = false;
             if (!Page.IsPostBack)
             {
@@ -78,19 +81,28 @@ namespace Client
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+            if (LabelActualPrice.Text.Substring(1,1).Equals("0"))
+            {
+                LabelError.Visible = true;
+                LabelError.Text = "Can't buy an empty cart";
+                return;
+            }
             UserHandler s = new UserHandler();
             if (TextBoxCreditcard.Text.Length == 0 | TextBoxAdress.Text.Length == 0 | TextBoxCity.Text.Length == 0 | TextBoxCountry.Text.Length == 0 |
                 TextBoxCVV.Text.Length == 0 | TextBoxHolder.Text.Length == 0 | TextBoxId.Text.Length == 0 | TextBoxMonth.Text.Length == 0 | TextBoxName.Text.Length == 0 |
                 TextBoxYear.Text.Length == 0 | TextBoxZip.Text.Length == 0)
             {
                 LabelError.Visible = true;
+                LabelError.Text = "Problems with credentials";
             }
             else
             {
-                string buy = s.Purchase(Session["userId"].ToString(), TextBoxCreditcard.Text.ToString() , TextBoxMonth.Text.ToString(),TextBoxYear.Text.ToString(),TextBoxHolder.Text.ToString(),
-                    TextBoxCVV.Text.ToString() , TextBoxId.Text.ToString() , TextBoxName.Text.ToString(), TextBoxAdress.Text.ToString(), TextBoxCity.Text.ToString() , 
-                    TextBoxCountry.Text.ToString() , TextBoxZip.Text.ToString());
-                if (buy.Substring(1,6) != "Error:")
+                string buy = s.Purchase(Session["userId"].ToString(), TextBoxCreditcard.Text.ToString(),
+                    TextBoxMonth.Text.ToString(), TextBoxYear.Text.ToString(), TextBoxHolder.Text.ToString(),
+                    TextBoxCVV.Text.ToString(), TextBoxId.Text.ToString(), TextBoxName.Text.ToString(),
+                    TextBoxAdress.Text.ToString(), TextBoxCity.Text.ToString(),
+                    TextBoxCountry.Text.ToString(), TextBoxZip.Text.ToString());
+                if (buy.Substring(1, 6) != "Error:")
                 {
                     Response.Redirect("~/PurchaseDone.aspx");
                 }
@@ -100,7 +112,6 @@ namespace Client
                     LabelError.Visible = true;
                 }
             }
-
         }
 
         protected void Data_cart_SelectedIndexChanged1(object sender, EventArgs e)

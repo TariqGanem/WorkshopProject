@@ -36,22 +36,26 @@ namespace Client
                 Session["storeId"] = e.CommandArgument;
                 UserHandler sh = new UserHandler();
                 string res  = sh.CloseShop(Session["storeId"].ToString(), Session["userId"].ToString());
-                Response.Redirect("~/MyShops.aspx");
                 if(res.Substring(1,6) == "Error:")
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(" + res + ")", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                        "alert(" + res + ")", true);
+                    return;
                 }
+                Response.Redirect("~/MyShops.aspx");
             }
             if (e.CommandName == "reopen")
             {
                 Session["storeId"] = e.CommandArgument;
                 UserHandler sh = new UserHandler();
                 string res = sh.reOpenStore(Session["storeId"].ToString(), Session["userId"].ToString());
-                Response.Redirect("~/MyShops.aspx");
                 if (res.Substring(1,6) == "Error:")
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert(" + res + ")", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert",
+                "alert(" + res + ")", true);
+                    return;
                 }
+                Response.Redirect("~/MyShops.aspx");
             }
         }
 

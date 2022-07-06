@@ -73,14 +73,8 @@ namespace eCommerce.src.DomainLayer.Store
                     searchResults.Add(product);
                 }
             }
-            if (searchResults.Count > 0)
-            {
-                return searchResults;
-            }
-            else
-            {
-                throw new Exception($"No item has been found");
-            }
+            return searchResults;
+            
         }
 
         internal bool CheckProduct(Double storeRating, Product product, IDictionary<String, Object> searchAttributes)

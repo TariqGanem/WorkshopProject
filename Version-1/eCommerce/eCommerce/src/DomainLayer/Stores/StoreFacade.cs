@@ -452,7 +452,7 @@ namespace eCommerce.src.DomainLayer.Store
                 }
                 throw new Exception($"Registered user (Id:{owner.Id}) is not one of the store owners , therefore can not reopen the store\n");
             }
-            //else faild
+            //else failed
             throw new Exception("Store is not closed or does not exists, therefore can not reopen it\n");
         }
 

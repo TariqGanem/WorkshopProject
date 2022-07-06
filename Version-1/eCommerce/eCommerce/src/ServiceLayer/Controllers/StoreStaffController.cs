@@ -251,7 +251,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.Out.WriteLine(ex.Message);
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -264,7 +264,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<List<Dictionary<string, object>>>(ex.ToString());
+                return new Result<List<Dictionary<string, object>>>(ex.Message);
             }
         }
 
@@ -277,7 +277,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<List<Dictionary<string, object>>>(ex.ToString());
+                return new Result<List<Dictionary<string, object>>>(ex.Message);
             }
         }
 
@@ -291,7 +291,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.Out.WriteLine(ex.Message);
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -305,7 +305,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.Out.WriteLine(ex.Message);
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -319,7 +319,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.Out.WriteLine(ex.Message);
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -333,7 +333,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.Out.WriteLine(ex.ToString());
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -347,7 +347,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.Out.WriteLine(ex.ToString());
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -360,7 +360,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -373,7 +373,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -386,7 +386,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<IDictionary<string, object>>(ex.ToString());
+                return new Result<IDictionary<string, object>>(ex.Message);
             }
         }
 
@@ -399,7 +399,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<IDictionary<string, object>>(ex.ToString());
+                return new Result<IDictionary<string, object>>(ex.Message);
             }
         }
 
@@ -413,7 +413,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.WriteLine(ex.ToString());
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -427,7 +427,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.WriteLine(ex.ToString());
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -441,7 +441,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.WriteLine(ex.ToString());
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -454,7 +454,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -467,7 +467,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -480,7 +480,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<Dictionary<string, string>>(ex.ToString());
+                return new Result<Dictionary<string, string>>(ex.Message);
             }
         }
 
@@ -493,7 +493,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<Dictionary<string, string>>(ex.ToString());
+                return new Result<Dictionary<string, string>>(ex.Message);
             }
         }
 
@@ -507,7 +507,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             {
                 Console.Out.WriteLine(ex.ToString());
                 logger.LogError(ex.ToString());
-                return new Result<bool>(ex.ToString());
+                return new Result<bool>(ex.Message);
             }
         }
 
@@ -520,7 +520,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return new Result<List<Dictionary<string, string>>>(ex.ToString());
+                return new Result<List<Dictionary<string, string>>>(ex.Message);
             }
         }
 

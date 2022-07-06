@@ -48,6 +48,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             if (DateTime.Now.Date > today)
             {
+                today = DateTime.Now.Date;
                 GuestUsers = 0;
                 RegisteredUsers = 0;
                 ManagersNotOwners = 0;
@@ -78,6 +79,7 @@ namespace eCommerce.src.ServiceLayer.Controllers
         {
             if (DateTime.Now.Date > today)
             {
+                today = DateTime.Now.Date;
                 GuestUsers = 0;
                 RegisteredUsers = 0;
                 ManagersNotOwners = 0;

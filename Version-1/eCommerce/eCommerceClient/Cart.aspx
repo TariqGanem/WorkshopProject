@@ -215,9 +215,10 @@
                                             </td>
                                             <td class="auto-style26" >
 
-                                                <asp:Button ID="Button3" runat="server" Text="Buy Now" Width="79px" CssClass="auto-style24" OnClick="Button3_Click" />
+                                                <asp:Button ID="Button3" runat="server" Text="Buy Now" Width="79px" CssClass="auto-style24" OnClick="Button3_Click"  />
 
                                             </td>
                                         </tr>
                                     </table>
-    </asp:Content>
+</asp:Content>
+

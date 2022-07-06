@@ -614,3 +614,31 @@ Parameter name: UserId is null or empty!
   . 
 6/24/2022 11:51:05 PM: Wrong password!  . 
 7/5/2022 11:33:58 AM: Username Oraby doesn't exist!  . 
+7/5/2022 8:45:32 PM: Username doesn't exist!  . 
+7/5/2022 8:46:34 PM: 487e90fbeb0449ce96f2c22bb4236956 could not add product :06d591f33733488791a4f31036430df3form store: 633293f5d4c740eab34dd1d7e6e39e72 to his Cart  . 
+7/5/2022 9:34:26 PM: Store Name Already Exists In the system  . 
+7/5/2022 9:39:18 PM: Username doesn't exist!  . 
+7/5/2022 9:48:05 PM: Eran is aleady a user  . 
+7/5/2022 11:43:58 PM: username is not found in the system  . 
+7/5/2022 11:44:13 PM: Username doesn't exist!  . 
+7/5/2022 11:44:21 PM: Failed To Remove , the system needs at least one admin  . 
+7/5/2022 11:45:04 PM: Store Name Already Exists In the system  . 
+7/5/2022 11:45:45 PM: user is not a store owner  . 
+7/5/2022 11:47:30 PM: No permission to see store purchase history  . 
+7/5/2022 11:48:43 PM: store Eran does not exist in the system  . 
+7/5/2022 11:49:28 PM: -7777777777777777777777777777777 could not add product :06d591f33733488791a4f31036430df3form store: 633293f5d4c740eab34dd1d7e6e39e72 to his Cart  . 
+7/5/2022 11:49:38 PM:   . 
+7/5/2022 11:49:39 PM:   . 
+7/5/2022 11:59:36 PM:   . 
+7/5/2022 11:59:38 PM:   . 
+7/6/2022 12:02:32 AM:   . 
+7/6/2022 12:02:33 AM:   . 
+7/6/2022 12:02:44 AM: One or more errors occurred.  . 
+7/6/2022 12:07:21 AM: One or more errors occurred.  . 
+7/6/2022 12:10:14 AM:   . 
+7/6/2022 12:10:16 AM:   . 
+7/6/2022 12:10:17 AM:   . 
+7/6/2022 12:10:22 AM:   . 
+7/6/2022 1:04:19 AM: One or more errors occurred.  . 
+7/6/2022 1:59:51 AM: One or more errors occurred.  . 
+7/6/2022 1:59:51 AM: One or more errors occurred.  . 
