@@ -699,3 +699,30 @@ Parameter name: UserId is null or empty!
 7/7/2022 3:48:17 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
 7/7/2022 3:48:19 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
 7/7/2022 4:19:59 AM: 0733343a8c9746a5ac454480469bf278 could not removed manager for 489f4a4d8d7f4de2834b322eade674f5  . 
+7/7/2022 4:27:42 AM:   . 
+7/7/2022 4:27:43 AM:   . 
+7/7/2022 4:28:30 AM: user is not a store owner  . 
+7/7/2022 4:29:40 AM:   . 
+7/7/2022 4:32:38 AM: user is not a store owner  . 
+7/7/2022 4:36:27 AM:   . 
+7/7/2022 4:36:28 AM:   . 
+7/7/2022 4:36:30 AM:   . 
+7/7/2022 4:36:32 AM:   . 
+7/7/2022 4:39:04 AM:   . 
+7/7/2022 4:40:32 AM:   . 
+7/7/2022 4:40:33 AM:   . 
+7/7/2022 4:40:44 AM:   . 
+7/7/2022 4:40:48 AM:   . 
+7/7/2022 4:49:49 AM:   . 
+7/7/2022 4:49:52 AM:   . 
+7/7/2022 4:50:37 AM:   . 
+7/7/2022 4:54:37 AM:   . 
+7/7/2022 4:54:45 AM:   . 
+7/7/2022 4:56:39 AM:   . 
+7/7/2022 4:56:40 AM:   . 
+7/7/2022 4:59:03 AM:   . 
+7/7/2022 4:59:04 AM:   . 
+7/7/2022 5:04:30 AM:   . 
+7/7/2022 5:04:32 AM:   . 
+7/7/2022 5:06:36 AM: One or more errors occurred.  . 
+7/7/2022 5:06:41 AM:   . 

@@ -12210,3 +12210,969 @@
 7/7/2022 4:20:12 AM: Store staff fetched  .
 7/7/2022 4:20:12 AM: username fetched  .
 7/7/2022 4:20:12 AM: username fetched  .
+7/7/2022 4:21:13 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:21:13 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:21:19 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:21:19 AM: a464191917f54973b031b82af67336cfhas LoggedOut   .
+7/7/2022 4:21:19 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:21:26 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:21:26 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:21:27 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:21:27 AM: 0733343a8c9746a5ac454480469bf278has LoggedOut   .
+7/7/2022 4:21:27 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:23:31 AM: store fetched  .
+7/7/2022 4:23:45 AM: user answered counter offer  .
+7/7/2022 4:24:13 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:24:21 AM: Ramihas LoggedIn   .
+7/7/2022 4:24:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:24:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:24:56 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:25:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:25:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:25:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:25:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:25:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:25:09 AM: is the user store owner checked  .
+7/7/2022 4:25:09 AM: user answered counter offer  .
+7/7/2022 4:25:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:25:13 AM: is the user store owner checked  .
+7/7/2022 4:25:13 AM: Store staff fetched  .
+7/7/2022 4:25:13 AM: username fetched  .
+7/7/2022 4:25:13 AM: username fetched  .
+7/7/2022 4:25:13 AM: username fetched  .
+7/7/2022 4:25:29 AM: Tareqhas LoggedIn   .
+7/7/2022 4:25:29 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:25:30 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:25:30 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:25:32 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:25:32 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:25:35 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:25:35 AM: is the user store owner checked  .
+7/7/2022 4:25:35 AM: user answered counter offer  .
+7/7/2022 4:25:37 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:25:48 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:26:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:26:02 AM: is the user store owner checked  .
+7/7/2022 4:26:02 AM: user answered counter offer  .
+7/7/2022 4:26:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:26:07 AM: user answered counter offer  .
+7/7/2022 4:26:14 AM: store fetched  .
+7/7/2022 4:26:14 AM: e30369130d1747b281cd2541d46061ce has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:26:15 AM: Total shopping cart price fetched  .
+7/7/2022 4:27:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:27:09 AM: store fetched  .
+7/7/2022 4:27:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:27:19 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:27:22 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:27:22 AM: is the user store owner checked  .
+7/7/2022 4:27:22 AM: user answered counter offer  .
+7/7/2022 4:27:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:27:29 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:27:31 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:27:31 AM: is the user store owner checked  .
+7/7/2022 4:27:31 AM: user answered counter offer  .
+7/7/2022 4:27:31 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:27:38 AM: store fetched  .
+7/7/2022 4:27:38 AM: e30369130d1747b281cd2541d46061ce has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:27:39 AM: Total shopping cart price fetched  .
+7/7/2022 4:27:42 AM: store fetched  .
+7/7/2022 4:27:42 AM: Total shopping cart price fetched  .
+7/7/2022 4:27:42 AM: store fetched  .
+7/7/2022 4:27:43 AM: Total shopping cart price fetched  .
+7/7/2022 4:27:59 AM: store fetched  .
+7/7/2022 4:28:07 AM: store fetched  .
+7/7/2022 4:28:17 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:28:17 AM: 0733343a8c9746a5ac454480469bf278has LoggedOut   .
+7/7/2022 4:28:17 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:28:25 AM: Yazanhas LoggedIn   .
+7/7/2022 4:28:25 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:28:27 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:28:27 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:28:28 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:28:28 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:28:30 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:28:35 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:28:35 AM: 2965719942494a9c9d504ee7bcd0fafehas LoggedOut   .
+7/7/2022 4:28:35 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:28:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:28:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:28:39 AM: is the user store owner checked  .
+7/7/2022 4:28:39 AM: user answered counter offer  .
+7/7/2022 4:28:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:28:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:28:47 AM: 93e27ab0733d499dbb093f9686b9273fhas LoggedOut   .
+7/7/2022 4:28:47 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:29:03 AM: Eranhas LoggedIn   .
+7/7/2022 4:29:03 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:03 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:03 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:08 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:08 AM: store fetched  .
+7/7/2022 4:29:22 AM: Ramihas LoggedIn   .
+7/7/2022 4:29:22 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:29:23 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:29:23 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:29:23 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:29:23 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:29:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:29:26 AM: is the user store owner checked  .
+7/7/2022 4:29:26 AM: user answered counter offer  .
+7/7/2022 4:29:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:29:33 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:33 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:34 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:35 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:35 AM: store fetched  .
+7/7/2022 4:29:35 AM: a464191917f54973b031b82af67336cf has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:29:35 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:36 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:36 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:37 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:37 AM: Total shopping cart price fetched  .
+7/7/2022 4:29:37 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:40 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:40 AM: store fetched  .
+7/7/2022 4:29:40 AM: Total shopping cart price fetched  .
+7/7/2022 4:29:40 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:48 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:48 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:49 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:49 AM: user answered counter offer  .
+7/7/2022 4:29:49 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:51 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:29:57 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:02 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:02 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:04 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:04 AM: user answered counter offer  .
+7/7/2022 4:30:04 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:05 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:05 AM: Total shopping cart price fetched  .
+7/7/2022 4:30:05 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:08 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:08 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:16 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:16 AM: Total shopping cart price fetched  .
+7/7/2022 4:30:16 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:21 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:30:21 AM: a464191917f54973b031b82af67336cfhas LoggedOut   .
+7/7/2022 4:30:21 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:31:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:31:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:31:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:31:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:31:38 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:31:38 AM: is the user store owner checked  .
+7/7/2022 4:31:38 AM: Store staff fetched  .
+7/7/2022 4:31:38 AM: username fetched  .
+7/7/2022 4:31:38 AM: username fetched  .
+7/7/2022 4:31:38 AM: username fetched  .
+7/7/2022 4:31:41 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:31:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:31:45 AM: userid fetched  .
+7/7/2022 4:31:45 AM: 93e27ab0733d499dbb093f9686b9273f has has removed manager2965719942494a9c9d504ee7bcd0fafeform store: faba16beae2a4c00b757e5ee80cdc55c  .
+7/7/2022 4:31:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:31:47 AM: is the user store owner checked  .
+7/7/2022 4:31:47 AM: Store staff fetched  .
+7/7/2022 4:31:47 AM: username fetched  .
+7/7/2022 4:31:47 AM: username fetched  .
+7/7/2022 4:31:59 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:32:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:32:02 AM: userid fetched  .
+7/7/2022 4:32:03 AM: 93e27ab0733d499dbb093f9686b9273f has make new manager 2965719942494a9c9d504ee7bcd0fafe for faba16beae2a4c00b757e5ee80cdc55c  .
+7/7/2022 4:32:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:32:05 AM: is the user store owner checked  .
+7/7/2022 4:32:05 AM: Store staff fetched  .
+7/7/2022 4:32:05 AM: username fetched  .
+7/7/2022 4:32:05 AM: username fetched  .
+7/7/2022 4:32:05 AM: username fetched  .
+7/7/2022 4:32:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:32:24 AM: 93e27ab0733d499dbb093f9686b9273fhas LoggedOut   .
+7/7/2022 4:32:24 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:32:31 AM: Yazanhas LoggedIn   .
+7/7/2022 4:32:31 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:32 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:32 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:34 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:34 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:38 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:39 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:39 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:40 AM: 2965719942494a9c9d504ee7bcd0fafe is admin  .
+7/7/2022 4:32:41 AM: 2965719942494a9c9d504ee7bcd0fafehas LoggedOut   .
+7/7/2022 4:32:41 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:33:03 AM: Ramihas LoggedIn   .
+7/7/2022 4:33:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:11 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:33:18 AM: Eranhas LoggedIn   .
+7/7/2022 4:33:18 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:33:20 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:20 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:24 AM: is the user store owner checked  .
+7/7/2022 4:33:24 AM: purchase policies fetched  .
+7/7/2022 4:33:25 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:25 AM: is the user store owner checked  .
+7/7/2022 4:33:25 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:36 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:36 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:39 AM: is the user store owner checked  .
+7/7/2022 4:33:39 AM: purchase policies fetched  .
+7/7/2022 4:33:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:42 AM: is the user store owner checked  .
+7/7/2022 4:33:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:33:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:11 AM: is the user store owner checked  .
+7/7/2022 4:34:11 AM: purchase policies fetched  .
+7/7/2022 4:34:12 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:12 AM: is the user store owner checked  .
+7/7/2022 4:34:12 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:28 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:51 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:51 AM: is the user store owner checked  .
+7/7/2022 4:34:51 AM: discount policies fetched  .
+7/7/2022 4:34:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:52 AM: is the user store owner checked  .
+7/7/2022 4:34:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:57 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:57 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:34:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:01 AM: is the user store owner checked  .
+7/7/2022 4:35:01 AM: discount policies fetched  .
+7/7/2022 4:35:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:02 AM: is the user store owner checked  .
+7/7/2022 4:35:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:06 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:16 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:16 AM: is the user store owner checked  .
+7/7/2022 4:35:16 AM: discount policies fetched  .
+7/7/2022 4:35:18 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:18 AM: is the user store owner checked  .
+7/7/2022 4:35:19 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:20 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:20 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:29 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:29 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:34 AM: is the user store owner checked  .
+7/7/2022 4:35:34 AM: discount policies fetched  .
+7/7/2022 4:35:36 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:36 AM: is the user store owner checked  .
+7/7/2022 4:35:36 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:35:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:07 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:07 AM: is the user store owner checked  .
+7/7/2022 4:36:07 AM: discount policies fetched  .
+7/7/2022 4:36:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:08 AM: is the user store owner checked  .
+7/7/2022 4:36:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:16 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:16 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:17 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:17 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:18 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:19 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:21 AM: store fetched  .
+7/7/2022 4:36:21 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:36:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:22 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:22 AM: Total shopping cart price fetched  .
+7/7/2022 4:36:22 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:27 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:27 AM: store fetched  .
+7/7/2022 4:36:27 AM: Total shopping cart price fetched  .
+7/7/2022 4:36:27 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:27 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:27 AM: store fetched  .
+7/7/2022 4:36:28 AM: Total shopping cart price fetched  .
+7/7/2022 4:36:28 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:30 AM: store fetched  .
+7/7/2022 4:36:30 AM: Total shopping cart price fetched  .
+7/7/2022 4:36:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:32 AM: store fetched  .
+7/7/2022 4:36:32 AM: Total shopping cart price fetched  .
+7/7/2022 4:36:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:36:45 AM: is the user store owner checked  .
+7/7/2022 4:36:45 AM: discount policies fetched  .
+7/7/2022 4:37:28 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:28 AM: is the user store owner checked  .
+7/7/2022 4:37:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:37 AM: is the user store owner checked  .
+7/7/2022 4:37:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:45 AM: is the user store owner checked  .
+7/7/2022 4:37:45 AM: discount policies fetched  .
+7/7/2022 4:37:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:47 AM: is the user store owner checked  .
+7/7/2022 4:37:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:59 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:37:59 AM: is the user store owner checked  .
+7/7/2022 4:37:59 AM: discount policies fetched  .
+7/7/2022 4:38:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:00 AM: is the user store owner checked  .
+7/7/2022 4:38:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:12 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:18 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:18 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:19 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:23 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:23 AM: store fetched  .
+7/7/2022 4:38:23 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:38:23 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:24 AM: Total shopping cart price fetched  .
+7/7/2022 4:38:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:44 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:48 AM: store fetched  .
+7/7/2022 4:38:48 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :935dca2115a04df58290117767bc5041form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:38:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:49 AM: Total shopping cart price fetched  .
+7/7/2022 4:38:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:38:56 AM: store fetched  .
+7/7/2022 4:38:57 AM: 93e27ab0733d499dbb093f9686b9273f has removed product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c from his cart  .
+7/7/2022 4:38:57 AM: Total shopping cart price fetched  .
+7/7/2022 4:38:57 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:04 AM: store fetched  .
+7/7/2022 4:39:05 AM: Total shopping cart price fetched  .
+7/7/2022 4:39:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:06 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:06 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:07 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:08 AM: store fetched  .
+7/7/2022 4:39:08 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:39:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:09 AM: Total shopping cart price fetched  .
+7/7/2022 4:39:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:39:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:21 AM: Total shopping cart price fetched  .
+7/7/2022 4:40:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:32 AM: store fetched  .
+7/7/2022 4:40:32 AM: Total shopping cart price fetched  .
+7/7/2022 4:40:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:33 AM: store fetched  .
+7/7/2022 4:40:34 AM: Total shopping cart price fetched  .
+7/7/2022 4:40:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:38 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:39 AM: store fetched  .
+7/7/2022 4:40:39 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :935dca2115a04df58290117767bc5041form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:40:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:41 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:41 AM: Total shopping cart price fetched  .
+7/7/2022 4:40:41 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:44 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:44 AM: store fetched  .
+7/7/2022 4:40:44 AM: Total shopping cart price fetched  .
+7/7/2022 4:40:44 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:48 AM: store fetched  .
+7/7/2022 4:40:48 AM: Total shopping cart price fetched  .
+7/7/2022 4:40:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:50 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:51 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:51 AM: store fetched  .
+7/7/2022 4:40:51 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :935dca2115a04df58290117767bc5041form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:40:51 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:40:52 AM: Total shopping cart price fetched  .
+7/7/2022 4:40:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:47 AM: is the user store owner checked  .
+7/7/2022 4:41:47 AM: discount policies fetched  .
+7/7/2022 4:41:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:48 AM: is the user store owner checked  .
+7/7/2022 4:41:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:49 AM: is the user store owner checked  .
+7/7/2022 4:41:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:41:59 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:10 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:13 AM: is the user store owner checked  .
+7/7/2022 4:42:13 AM: discount policies fetched  .
+7/7/2022 4:42:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:14 AM: is the user store owner checked  .
+7/7/2022 4:42:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:15 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:31 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:43 AM: is the user store owner checked  .
+7/7/2022 4:42:43 AM: discount policies fetched  .
+7/7/2022 4:42:44 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:44 AM: is the user store owner checked  .
+7/7/2022 4:42:44 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:42:57 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:48:23 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:49:03 AM: Ramihas LoggedIn   .
+7/7/2022 4:49:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:06 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:06 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:09 AM: is the user store owner checked  .
+7/7/2022 4:49:09 AM: discount policies fetched  .
+7/7/2022 4:49:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:09 AM: is the user store owner checked  .
+7/7/2022 4:49:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:12 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:18 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:22 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:22 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:35 AM: store fetched  .
+7/7/2022 4:49:35 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:49:36 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:37 AM: Total shopping cart price fetched  .
+7/7/2022 4:49:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:49 AM: store fetched  .
+7/7/2022 4:49:49 AM: Total shopping cart price fetched  .
+7/7/2022 4:49:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:52 AM: store fetched  .
+7/7/2022 4:49:52 AM: Total shopping cart price fetched  .
+7/7/2022 4:49:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:49:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:04 AM: is the user store owner checked  .
+7/7/2022 4:50:04 AM: discount policies fetched  .
+7/7/2022 4:50:07 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:07 AM: is the user store owner checked  .
+7/7/2022 4:50:07 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:15 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:17 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:17 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:18 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:18 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:21 AM: is the user store owner checked  .
+7/7/2022 4:50:21 AM: discount policies fetched  .
+7/7/2022 4:50:31 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:31 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:34 AM: store fetched  .
+7/7/2022 4:50:34 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:50:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:35 AM: Total shopping cart price fetched  .
+7/7/2022 4:50:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:37 AM: store fetched  .
+7/7/2022 4:50:37 AM: Total shopping cart price fetched  .
+7/7/2022 4:50:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:38 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:38 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:45 AM: is the user store owner checked  .
+7/7/2022 4:50:45 AM: discount policies fetched  .
+7/7/2022 4:50:46 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:46 AM: is the user store owner checked  .
+7/7/2022 4:50:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:47 AM: is the user store owner checked  .
+7/7/2022 4:50:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:49 AM: is the user store owner checked  .
+7/7/2022 4:50:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:50:58 AM: is the user store owner checked  .
+7/7/2022 4:50:58 AM: discount policies fetched  .
+7/7/2022 4:51:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:00 AM: is the user store owner checked  .
+7/7/2022 4:51:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:13 AM: is the user store owner checked  .
+7/7/2022 4:51:13 AM: discount policies fetched  .
+7/7/2022 4:51:16 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:16 AM: is the user store owner checked  .
+7/7/2022 4:51:16 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:17 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:28 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:28 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:31 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:33 AM: store fetched  .
+7/7/2022 4:51:34 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:51:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:51:34 AM: Total shopping cart price fetched  .
+7/7/2022 4:51:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:53:47 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:53:57 AM: Ramihas LoggedIn   .
+7/7/2022 4:53:57 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:53:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:53:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:53:59 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:53:59 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:00 AM: is the user store owner checked  .
+7/7/2022 4:54:00 AM: discount policies fetched  .
+7/7/2022 4:54:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:01 AM: is the user store owner checked  .
+7/7/2022 4:54:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:11 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:12 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:12 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:13 AM: is the user store owner checked  .
+7/7/2022 4:54:13 AM: discount policies fetched  .
+7/7/2022 4:54:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:14 AM: is the user store owner checked  .
+7/7/2022 4:54:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:17 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:22 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:27 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:27 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:29 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:30 AM: store fetched  .
+7/7/2022 4:54:30 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :decea09fb7ad497598df8c1f9511bcd9form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:54:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:31 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:32 AM: store fetched  .
+7/7/2022 4:54:32 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :935dca2115a04df58290117767bc5041form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:54:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:33 AM: Total shopping cart price fetched  .
+7/7/2022 4:54:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:37 AM: store fetched  .
+7/7/2022 4:54:37 AM: Total shopping cart price fetched  .
+7/7/2022 4:54:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:45 AM: store fetched  .
+7/7/2022 4:54:46 AM: Total shopping cart price fetched  .
+7/7/2022 4:54:46 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:54:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:34 AM: store fetched  .
+7/7/2022 4:56:35 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :935dca2115a04df58290117767bc5041form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:56:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:36 AM: Total shopping cart price fetched  .
+7/7/2022 4:56:36 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:38 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:38 AM: store fetched  .
+7/7/2022 4:56:39 AM: Total shopping cart price fetched  .
+7/7/2022 4:56:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:39 AM: store fetched  .
+7/7/2022 4:56:40 AM: Total shopping cart price fetched  .
+7/7/2022 4:56:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:56:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:31 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:31 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:33 AM: is the user store owner checked  .
+7/7/2022 4:58:33 AM: discount policies fetched  .
+7/7/2022 4:58:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:34 AM: is the user store owner checked  .
+7/7/2022 4:58:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:40 AM: is the user store owner checked  .
+7/7/2022 4:58:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:42 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:50 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:50 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:51 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:51 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:53 AM: store fetched  .
+7/7/2022 4:58:53 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :935dca2115a04df58290117767bc5041form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:58:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:54 AM: Total shopping cart price fetched  .
+7/7/2022 4:58:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:57 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:57 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:57 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:58 AM: store fetched  .
+7/7/2022 4:58:58 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :d75cb9899ab2406e80ba922c146013f7form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 4:58:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:59 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:58:59 AM: Total shopping cart price fetched  .
+7/7/2022 4:58:59 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:03 AM: store fetched  .
+7/7/2022 4:59:03 AM: Total shopping cart price fetched  .
+7/7/2022 4:59:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:04 AM: store fetched  .
+7/7/2022 4:59:04 AM: Total shopping cart price fetched  .
+7/7/2022 4:59:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:12 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:12 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:46 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:46 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:46 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:49 AM: is the user store owner checked  .
+7/7/2022 4:59:49 AM: discount policies fetched  .
+7/7/2022 4:59:49 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 4:59:49 AM: is the user store owner checked  .
+7/7/2022 5:01:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:21 AM: is the user store owner checked  .
+7/7/2022 5:01:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:25 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:27 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:27 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:29 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:29 AM: is the user store owner checked  .
+7/7/2022 5:01:29 AM: discount policies fetched  .
+7/7/2022 5:01:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:30 AM: is the user store owner checked  .
+7/7/2022 5:01:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:38 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:01:55 AM: is the user store owner checked  .
+7/7/2022 5:01:55 AM: discount policies fetched  .
+7/7/2022 5:03:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:00 AM: is the user store owner checked  .
+7/7/2022 5:03:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:21 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:25 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:25 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:28 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:28 AM: is the user store owner checked  .
+7/7/2022 5:03:28 AM: discount policies fetched  .
+7/7/2022 5:03:29 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:29 AM: is the user store owner checked  .
+7/7/2022 5:03:29 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:31 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:44 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:45 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:50 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:50 AM: store fetched  .
+7/7/2022 5:03:50 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :d75cb9899ab2406e80ba922c146013f7form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 5:03:50 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:50 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:50 AM: Total shopping cart price fetched  .
+7/7/2022 5:03:50 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:54 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:55 AM: store fetched  .
+7/7/2022 5:03:55 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :935dca2115a04df58290117767bc5041form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 5:03:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:03:56 AM: Total shopping cart price fetched  .
+7/7/2022 5:03:56 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:30 AM: store fetched  .
+7/7/2022 5:04:30 AM: Total shopping cart price fetched  .
+7/7/2022 5:04:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:32 AM: store fetched  .
+7/7/2022 5:04:32 AM: Total shopping cart price fetched  .
+7/7/2022 5:04:32 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:34 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:39 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:39 AM: is the user store owner checked  .
+7/7/2022 5:04:39 AM: discount policies fetched  .
+7/7/2022 5:04:40 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:40 AM: is the user store owner checked  .
+7/7/2022 5:04:43 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:43 AM: is the user store owner checked  .
+7/7/2022 5:04:43 AM: purchase policies fetched  .
+7/7/2022 5:04:44 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:44 AM: is the user store owner checked  .
+7/7/2022 5:04:44 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:47 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:50 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:50 AM: is the user store owner checked  .
+7/7/2022 5:04:50 AM: discount policies fetched  .
+7/7/2022 5:04:52 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:52 AM: is the user store owner checked  .
+7/7/2022 5:04:52 AM: purchase policies fetched  .
+7/7/2022 5:04:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:53 AM: is the user store owner checked  .
+7/7/2022 5:04:53 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:04:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:03 AM: is the user store owner checked  .
+7/7/2022 5:05:03 AM: purchase policies fetched  .
+7/7/2022 5:05:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:04 AM: is the user store owner checked  .
+7/7/2022 5:05:06 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:06 AM: is the user store owner checked  .
+7/7/2022 5:05:07 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:08 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:09 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:10 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:10 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:10 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:10 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:13 AM: is the user store owner checked  .
+7/7/2022 5:05:13 AM: purchase policies fetched  .
+7/7/2022 5:05:13 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:13 AM: is the user store owner checked  .
+7/7/2022 5:05:14 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:19 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:30 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:33 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:36 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:36 AM: is the user store owner checked  .
+7/7/2022 5:05:36 AM: purchase policies fetched  .
+7/7/2022 5:05:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:37 AM: is the user store owner checked  .
+7/7/2022 5:05:37 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:51 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:55 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:05:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:02 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:04 AM: store fetched  .
+7/7/2022 5:06:05 AM: 93e27ab0733d499dbb093f9686b9273f has has added product :935dca2115a04df58290117767bc5041form store: faba16beae2a4c00b757e5ee80cdc55c to his Cart  .
+7/7/2022 5:06:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:26 AM: Total shopping cart price fetched  .
+7/7/2022 5:06:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:35 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:41 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:41 AM: store fetched  .
+7/7/2022 5:06:41 AM: Total shopping cart price fetched  .
+7/7/2022 5:06:41 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:48 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:06:58 AM: 93e27ab0733d499dbb093f9686b9273fhas purchased succesfully   .
+7/7/2022 5:06:58 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:00 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:01 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:03 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:03 AM: is the user store owner checked  .
+7/7/2022 5:07:03 AM: discount policies fetched  .
+7/7/2022 5:07:04 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:04 AM: is the user store owner checked  .
+7/7/2022 5:07:04 AM: purchase policies fetched  .
+7/7/2022 5:07:05 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:05 AM: is the user store owner checked  .
+7/7/2022 5:07:07 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:07 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:24 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:26 AM: 93e27ab0733d499dbb093f9686b9273f is admin  .
+7/7/2022 5:07:26 AM: 93e27ab0733d499dbb093f9686b9273fhas LoggedOut   .
+7/7/2022 5:07:26 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
