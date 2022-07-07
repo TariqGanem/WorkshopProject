@@ -11871,3 +11871,342 @@
 7/7/2022 12:34:41 AM: -7777777777777777777777777777777 is admin  .
 7/7/2022 12:34:46 AM: -7777777777777777777777777777777 is admin  .
 7/7/2022 12:34:46 AM: store fetched  .
+7/7/2022 1:00:47 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 2:53:24 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 2:53:42 AM: Total shopping cart price fetched  .
+7/7/2022 2:53:59 AM: Admin@Workshop.comhas LoggedIn   .
+7/7/2022 2:53:59 AM: -7777777777777777777777777777777 is admin  .
+7/7/2022 2:53:59 AM: -7777777777777777777777777777777 is admin  .
+7/7/2022 2:54:07 AM: system resetted  .
+7/7/2022 2:54:07 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 2:54:34 AM: store fetched  .
+7/7/2022 2:54:34 AM: 1d2c56f7d543436e8ed36ce7bb025741 has has added product :ccc55dbf87e9480ca1cadebd948b0079form store: 5295e4aa354f47fa9b4600cc159f00f0 to his Cart  .
+7/7/2022 2:54:36 AM: Total shopping cart price fetched  .
+7/7/2022 2:54:57 AM: Total shopping cart price fetched  .
+7/7/2022 2:54:59 AM: store fetched  .
+7/7/2022 2:54:59 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:00 AM: store fetched  .
+7/7/2022 2:55:01 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:01 AM: store fetched  .
+7/7/2022 2:55:02 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:02 AM: store fetched  .
+7/7/2022 2:55:02 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:03 AM: store fetched  .
+7/7/2022 2:55:03 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:04 AM: store fetched  .
+7/7/2022 2:55:04 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:04 AM: store fetched  .
+7/7/2022 2:55:05 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:05 AM: store fetched  .
+7/7/2022 2:55:05 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:06 AM: store fetched  .
+7/7/2022 2:55:06 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:11 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:12 AM: store fetched  .
+7/7/2022 2:55:12 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:12 AM: store fetched  .
+7/7/2022 2:55:13 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:13 AM: store fetched  .
+7/7/2022 2:55:13 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:13 AM: store fetched  .
+7/7/2022 2:55:13 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:13 AM: store fetched  .
+7/7/2022 2:55:14 AM: store fetched  .
+7/7/2022 2:55:14 AM: store fetched  .
+7/7/2022 2:55:14 AM: store fetched  .
+7/7/2022 2:55:14 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:15 AM: store fetched  .
+7/7/2022 2:55:15 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:15 AM: store fetched  .
+7/7/2022 2:55:15 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:16 AM: store fetched  .
+7/7/2022 2:55:16 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:16 AM: store fetched  .
+7/7/2022 2:55:16 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:16 AM: store fetched  .
+7/7/2022 2:55:17 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:17 AM: store fetched  .
+7/7/2022 2:55:17 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:17 AM: store fetched  .
+7/7/2022 2:55:18 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:18 AM: store fetched  .
+7/7/2022 2:55:18 AM: cart has updated succesfully   .
+7/7/2022 2:55:19 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:20 AM: store fetched  .
+7/7/2022 2:55:20 AM: cart has updated succesfully   .
+7/7/2022 2:55:20 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:23 AM: store fetched  .
+7/7/2022 2:55:23 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:25 AM: store fetched  .
+7/7/2022 2:55:25 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:28 AM: store fetched  .
+7/7/2022 2:55:28 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:36 AM: Total shopping cart price fetched  .
+7/7/2022 2:55:38 AM: store fetched  .
+7/7/2022 2:55:38 AM: 1d2c56f7d543436e8ed36ce7bb025741 has removed product :ccc55dbf87e9480ca1cadebd948b0079form store: 5295e4aa354f47fa9b4600cc159f00f0 from his cart  .
+7/7/2022 2:55:39 AM: Total shopping cart price fetched  .
+7/7/2022 2:56:26 AM: newuserhas Register succesfully   .
+7/7/2022 2:56:49 AM: newuserhas LoggedIn   .
+7/7/2022 2:56:49 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 2:56:53 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 2:56:53 AM: 938cd7d87c6740d4b90ca6e2459398a0has LoggedOut   .
+7/7/2022 2:56:53 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 2:58:14 AM: username fetched  .
+7/7/2022 2:58:14 AM: username fetched  .
+7/7/2022 3:00:22 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 3:00:28 AM: store fetched  .
+7/7/2022 3:00:28 AM: 786f52125824498b98c742a9dc522c65 has has added product :c4e0e02f87fb4157b7d04aaeeb5b4d99form store: 5295e4aa354f47fa9b4600cc159f00f0 to his Cart  .
+7/7/2022 3:00:33 AM: store fetched  .
+7/7/2022 3:00:33 AM: da34eb60209d4a16a70f31855be56677 has has added product :c4e0e02f87fb4157b7d04aaeeb5b4d99form store: 5295e4aa354f47fa9b4600cc159f00f0 to his Cart  .
+7/7/2022 3:00:36 AM: Total shopping cart price fetched  .
+7/7/2022 3:00:55 AM: 786f52125824498b98c742a9dc522c65has purchased succesfully   .
+7/7/2022 3:00:58 AM: Total shopping cart price fetched  .
+7/7/2022 3:01:43 AM: store fetched  .
+7/7/2022 3:01:43 AM: Total shopping cart price fetched  .
+7/7/2022 3:01:54 AM: da34eb60209d4a16a70f31855be56677has purchased succesfully   .
+7/7/2022 3:02:48 AM: newuserhas LoggedIn   .
+7/7/2022 3:02:48 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:02:52 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:02:52 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:02:55 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:02:55 AM: Store Opened  .
+7/7/2022 3:03:00 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:03 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:03 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:07 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:07 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:29 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:29 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:30 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:30 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:31 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:33 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:38 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:38 AM:  user: 938cd7d87c6740d4b90ca6e2459398a0 product: bamba has been added to the shop : 02a2780dfdec4bae8bf63c5735b2f94a  .
+7/7/2022 3:03:41 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:45 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:48 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:51 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:55 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:57 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:57 AM:  user: 938cd7d87c6740d4b90ca6e2459398a0 product: ea007f4924034bb093268b0a6791baf8 has been removed from the shop : 02a2780dfdec4bae8bf63c5735b2f94a  .
+7/7/2022 3:03:57 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:58 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:59 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:03:59 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:12:54 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 3:12:57 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:12:57 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:12:59 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:12:59 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:13:08 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:13:15 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:13:18 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:13:18 AM: userid fetched  .
+7/7/2022 3:13:22 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:13:22 AM: is the user store owner checked  .
+7/7/2022 3:13:22 AM: Owner Requests fetched  .
+7/7/2022 3:13:23 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:13:33 AM: Eranhas LoggedIn   .
+7/7/2022 3:13:33 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:34 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:13:37 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:37 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:40 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:40 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:44 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:44 AM: is the user store owner checked  .
+7/7/2022 3:13:44 AM: purchase policies fetched  .
+7/7/2022 3:13:46 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:46 AM: is the user store owner checked  .
+7/7/2022 3:13:46 AM: discount policies fetched  .
+7/7/2022 3:13:47 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:47 AM: is the user store owner checked  .
+7/7/2022 3:13:47 AM: user answered counter offer  .
+7/7/2022 3:13:50 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:13:50 AM: is the user store owner checked  .
+7/7/2022 3:13:50 AM: Owner Requests fetched  .
+7/7/2022 3:13:54 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:14:13 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:14:13 AM: userid fetched  .
+7/7/2022 3:14:17 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:14:17 AM: is the user store owner checked  .
+7/7/2022 3:14:17 AM: Owner Requests fetched  .
+7/7/2022 3:14:18 AM: e928411f3538488682f4883519931d16 is admin  .
+7/7/2022 3:14:23 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:14:24 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:14:24 AM: is the user store owner checked  .
+7/7/2022 3:14:24 AM: Owner Requests fetched  .
+7/7/2022 3:14:25 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:14:30 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:14:30 AM: is the user store owner checked  .
+7/7/2022 3:14:30 AM: Store staff fetched  .
+7/7/2022 3:14:30 AM: username fetched  .
+7/7/2022 3:14:30 AM: username fetched  .
+7/7/2022 3:14:30 AM: username fetched  .
+7/7/2022 3:14:35 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:14:42 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:14:42 AM: userid fetched  .
+7/7/2022 3:44:58 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 3:45:07 AM: newuserhas LoggedIn   .
+7/7/2022 3:45:07 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:45:10 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:45:10 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:45:11 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:45:12 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:45:16 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:45:16 AM: is the user store owner checked  .
+7/7/2022 3:45:17 AM: Store staff fetched  .
+7/7/2022 3:45:17 AM: username fetched  .
+7/7/2022 3:45:17 AM: username fetched  .
+7/7/2022 3:45:17 AM: username fetched  .
+7/7/2022 3:45:25 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:45:30 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:45:30 AM: userid fetched  .
+7/7/2022 3:46:16 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:46:16 AM: userid fetched  .
+7/7/2022 3:47:10 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:47:10 AM: userid fetched  .
+7/7/2022 3:47:47 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:47:49 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:47:49 AM: userid fetched  .
+7/7/2022 3:48:17 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:48:17 AM: userid fetched  .
+7/7/2022 3:48:18 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:48:19 AM: userid fetched  .
+7/7/2022 3:48:21 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 3:48:21 AM: 938cd7d87c6740d4b90ca6e2459398a0has LoggedOut   .
+7/7/2022 3:48:21 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:04:49 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:04:57 AM: newuserhas LoggedIn   .
+7/7/2022 4:04:57 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 4:05:02 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 4:05:02 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 4:05:03 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 4:05:03 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 4:05:05 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 4:05:10 AM: 938cd7d87c6740d4b90ca6e2459398a0 is admin  .
+7/7/2022 4:05:10 AM: userid fetched  .
+7/7/2022 4:05:15 AM: 938cd7d87c6740d4b90ca6e2459398a0 has has removed managere928411f3538488682f4883519931d16form store: 02a2780dfdec4bae8bf63c5735b2f94a  .
+7/7/2022 4:15:32 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:15:38 AM: Admin@Workshop.comhas LoggedIn   .
+7/7/2022 4:15:38 AM: -7777777777777777777777777777777 is admin  .
+7/7/2022 4:15:38 AM: -7777777777777777777777777777777 is admin  .
+7/7/2022 4:15:48 AM: system resetted  .
+7/7/2022 4:15:48 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:15:55 AM: Guest has connected with pid : eCommerce.src.ServiceLayer.ResultService.Result`1[eCommerce.src.ServiceLayer.Objects.GuestUserSO]  .
+7/7/2022 4:16:01 AM: Eranhas LoggedIn   .
+7/7/2022 4:16:01 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:02 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:02 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:03 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:03 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:07 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:11 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:11 AM: userid fetched  .
+7/7/2022 4:16:15 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:15 AM: is the user store owner checked  .
+7/7/2022 4:16:15 AM: Owner Requests fetched  .
+7/7/2022 4:16:16 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:25 AM: Tareqhas LoggedIn   .
+7/7/2022 4:16:25 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:26 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:26 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:29 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:29 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:34 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:40 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:40 AM: userid fetched  .
+7/7/2022 4:16:44 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:44 AM: is the user store owner checked  .
+7/7/2022 4:16:44 AM: Owner Requests fetched  .
+7/7/2022 4:16:44 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:16:47 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:47 AM: is the user store owner checked  .
+7/7/2022 4:16:47 AM: discount policies fetched  .
+7/7/2022 4:16:48 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:48 AM: is the user store owner checked  .
+7/7/2022 4:16:48 AM: Owner Requests fetched  .
+7/7/2022 4:16:49 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:53 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:16:53 AM: is the user store owner checked  .
+7/7/2022 4:16:53 AM: Store staff fetched  .
+7/7/2022 4:16:53 AM: username fetched  .
+7/7/2022 4:16:53 AM: username fetched  .
+7/7/2022 4:16:53 AM: username fetched  .
+7/7/2022 4:16:53 AM: username fetched  .
+7/7/2022 4:16:59 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:17:04 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:17:04 AM: userid fetched  .
+7/7/2022 4:17:06 AM: a464191917f54973b031b82af67336cf has has removed manager0733343a8c9746a5ac454480469bf278form store: 489f4a4d8d7f4de2834b322eade674f5  .
+7/7/2022 4:17:09 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:17:09 AM: is the user store owner checked  .
+7/7/2022 4:17:09 AM: Store staff fetched  .
+7/7/2022 4:17:09 AM: username fetched  .
+7/7/2022 4:17:09 AM: username fetched  .
+7/7/2022 4:17:54 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:17:55 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:17:57 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:17:57 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:17:58 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:17:58 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:17:58 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:17:58 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:00 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:00 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:02 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:02 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:03 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:03 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:04 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:04 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:08 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:33 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:33 AM: userid fetched  .
+7/7/2022 4:18:34 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:34 AM: is the user store owner checked  .
+7/7/2022 4:18:34 AM: discount policies fetched  .
+7/7/2022 4:18:36 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:36 AM: is the user store owner checked  .
+7/7/2022 4:18:36 AM: Owner Requests fetched  .
+7/7/2022 4:18:37 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:39 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:39 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:42 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:42 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:46 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:49 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:49 AM: userid fetched  .
+7/7/2022 4:18:51 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:51 AM: is the user store owner checked  .
+7/7/2022 4:18:51 AM: Owner Requests fetched  .
+7/7/2022 4:18:52 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:18:55 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:56 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:18:56 AM: is the user store owner checked  .
+7/7/2022 4:18:56 AM: Owner Requests fetched  .
+7/7/2022 4:18:57 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:19:02 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:19:08 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:19:08 AM: userid fetched  .
+7/7/2022 4:19:08 AM: 0733343a8c9746a5ac454480469bf278 has make new manager badcd7a6c3d34b20a819f9b2d9d392ec for 489f4a4d8d7f4de2834b322eade674f5  .
+7/7/2022 4:19:11 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:19:11 AM: is the user store owner checked  .
+7/7/2022 4:19:11 AM: Store staff fetched  .
+7/7/2022 4:19:11 AM: username fetched  .
+7/7/2022 4:19:11 AM: username fetched  .
+7/7/2022 4:19:11 AM: username fetched  .
+7/7/2022 4:19:11 AM: username fetched  .
+7/7/2022 4:19:11 AM: username fetched  .
+7/7/2022 4:19:46 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:19:56 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:19:59 AM: 0733343a8c9746a5ac454480469bf278 is admin  .
+7/7/2022 4:19:59 AM: userid fetched  .
+7/7/2022 4:20:08 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:20:08 AM: userid fetched  .
+7/7/2022 4:20:09 AM: a464191917f54973b031b82af67336cf has has removed manager0733343a8c9746a5ac454480469bf278form store: 489f4a4d8d7f4de2834b322eade674f5  .
+7/7/2022 4:20:12 AM: a464191917f54973b031b82af67336cf is admin  .
+7/7/2022 4:20:12 AM: is the user store owner checked  .
+7/7/2022 4:20:12 AM: Store staff fetched  .
+7/7/2022 4:20:12 AM: username fetched  .
+7/7/2022 4:20:12 AM: username fetched  .

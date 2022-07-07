@@ -449,7 +449,9 @@ namespace eCommerce.src.DomainLayer.Store
                 {
                     if (staff_owner.Value.AppointedBy != null && staff_owner.Value.AppointedBy.GetId() == owner.GetId())
                     {
-                        Owners.TryRemove(staff_owner.Value.AppointedBy.GetId(), out StoreOwner removedOwner);
+                        Owners.TryRemove(staff_owner.Value.GetId(), out StoreOwner removedOwner);
+                        var filterowner = Builders<BsonDocument>.Filter.Eq("UserId", removedOwner.GetId()) & Builders<BsonDocument>.Filter.Eq("StoreId", this.Id);
+                        DBUtil.getInstance().DeleteStoreOwner(filterowner);
                         RemoveAllStaffAppointedByOwner(removedOwner);
                     }
                 }
@@ -461,8 +463,8 @@ namespace eCommerce.src.DomainLayer.Store
                 {
                     if (staff_manager.Value.AppointedBy.GetId() == owner.GetId())
                     {
-                        Managers.TryRemove(staff_manager.Value.GetId(), out _);
-                        var filterowner = Builders<BsonDocument>.Filter.Eq("AppointedBy", owner.User.Id);
+                        Managers.TryRemove(staff_manager.Value.GetId(), out StoreManager torem);
+                        var filterowner = Builders<BsonDocument>.Filter.Eq("UserId", torem.GetId()) & Builders<BsonDocument>.Filter.Eq("StoreId", this.Id);
                         DBUtil.getInstance().DeleteStoreManager(filterowner);
                     }
                 }

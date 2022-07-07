@@ -657,3 +657,45 @@ Parameter name: UserId is null or empty!
 7/6/2022 6:11:46 PM: user is not a store owner  . 
 7/6/2022 6:11:47 PM: user is not a store owner  . 
 7/6/2022 11:57:56 PM: Wrong password!  . 
+7/7/2022 2:54:59 AM:   . 
+7/7/2022 2:55:00 AM:   . 
+7/7/2022 2:55:01 AM:   . 
+7/7/2022 2:55:02 AM:   . 
+7/7/2022 2:55:03 AM:   . 
+7/7/2022 2:55:04 AM:   . 
+7/7/2022 2:55:05 AM:   . 
+7/7/2022 2:55:05 AM:   . 
+7/7/2022 2:55:06 AM:   . 
+7/7/2022 2:55:12 AM:   . 
+7/7/2022 2:55:12 AM:   . 
+7/7/2022 2:55:13 AM:   . 
+7/7/2022 2:55:13 AM:   . 
+7/7/2022 2:55:13 AM:   . 
+7/7/2022 2:55:14 AM:   . 
+7/7/2022 2:55:14 AM:   . 
+7/7/2022 2:55:14 AM:   . 
+7/7/2022 2:55:15 AM:   . 
+7/7/2022 2:55:15 AM:   . 
+7/7/2022 2:55:16 AM:   . 
+7/7/2022 2:55:16 AM:   . 
+7/7/2022 2:55:17 AM:   . 
+7/7/2022 2:55:17 AM:   . 
+7/7/2022 2:55:17 AM:   . 
+7/7/2022 2:55:23 AM:   . 
+7/7/2022 2:55:25 AM:   . 
+7/7/2022 2:55:28 AM:   . 
+7/7/2022 2:56:18 AM: Eran is aleady a user  . 
+7/7/2022 2:56:37 AM: Wrong password!  . 
+7/7/2022 3:01:07 AM: One or more errors occurred.  . 
+7/7/2022 3:01:23 AM: One or more errors occurred.  . 
+7/7/2022 3:01:43 AM:   . 
+7/7/2022 3:03:00 AM: Store Name Already Exists In the system  . 
+7/7/2022 3:13:15 AM: username is not found in the system  . 
+7/7/2022 3:27:40 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
+7/7/2022 3:46:10 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
+7/7/2022 3:46:16 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
+7/7/2022 3:47:10 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
+7/7/2022 3:47:49 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
+7/7/2022 3:48:17 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
+7/7/2022 3:48:19 AM: 938cd7d87c6740d4b90ca6e2459398a0 could not removed manager for 02a2780dfdec4bae8bf63c5735b2f94a  . 
+7/7/2022 4:19:59 AM: 0733343a8c9746a5ac454480469bf278 could not removed manager for 489f4a4d8d7f4de2834b322eade674f5  . 
